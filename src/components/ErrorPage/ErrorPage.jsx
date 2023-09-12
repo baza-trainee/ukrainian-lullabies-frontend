@@ -1,3 +1,3 @@
 export const ErrorPage = () => {
-  return <p>404</p>;
+  return <p>404 Error</p>;
 };
