@@ -1,124 +1,134 @@
-$gray0: #fafafa;
-$white-0: #fff;
-$gray-black-950: #000;
-$gray-black-100: #e7e7e7;
-$gray-black-300: #b0b0b0;
-$second-text-color-white-player: #7b7b7b;
-$red-700: #c60f18;
-$red-500: #ff3a37;
-$red-900: #87151a;
-$primary-font: "Montserrat Alternates",
-  sans-serif;
-$second-font: "Unbounded",
-  sans-serif;
+/* Colors */
+:root {
+  --gray0: #fafafa;
+  --white-0: #fff;
+  --gray-black-950: #000;
+  --gray-black-100: #e7e7e7;
+  --gray-black-300: #b0b0b0;
+  --second-text-color-white-player: #7b7b7b;
+  --red-700: #c60f18;
+  --red-500: #ff3a37;
+  --red-900: #87151a;
+}
 
+/* Reset */
 *,
 *::before,
-::after {
+*::after {
   box-sizing: border-box;
   margin: 0;
 }
 
+/* Body Styles */
 body {
   margin: 0;
   padding: 0;
-  font-family: $primary-font;
-  color: #fff;
+  font-family: "Montserrat Alternates", sans-serif;
+  color: var(--white-0);
 }
 
+/* Image Styles */
 img {
   max-width: 100%;
   display: block;
 }
 
+/* Form Element Styles */
 input,
 button,
 select {
   font: inherit;
 }
 
+/* Button Styles */
 button {
   cursor: pointer;
 }
 
+/* Container Styles */
 .container {
   text-align: center;
   width: 1024px;
   grid-template-columns: 1;
   gap: 24px;
   margin: 0 140px;
+}
 
-  @media (min-wight: 1024px) {
+@media (min-width: 1024px) {
+  .container {
     grid-template-columns: repeat(12, 1fr);
   }
 }
 
+/* Background Dark Styles */
 .background-dark {
-  background: $gray-black-950;
+  background: var(--gray-black-950);
   min-height: 100vh;
-
-  &::after {
-    content: '';
-    background-image: url("src/assets/images/ornamentsDark.png");
-    background-repeat: no-repeat;
-    display: block;
-    z-index: 2;
-    position: absolute;
-    left: 0;
-    top: 0;
-    min-height: 100vh;
-    height: 100%;
-    width: 140px;
-  }
-
-  &::before {
-    content: '';
-    background-image: url("src/assets/images/ornamentsDark.png");
-    background-repeat: no-repeat;
-    display: block;
-    z-index: 2;
-    position: absolute;
-    right: 0;
-    top: 0;
-    min-height: 100vh;
-    width: 140px;
-    transform: scaleX(-1);
-  }
 }
 
+.background-dark::after {
+  content: '';
+  background-image: url("src/assets/images/ornamentsDark.png");
+  background-repeat: no-repeat;
+  display: block;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-height: 100vh;
+  height: 100%;
+  width: 140px;
+}
+
+.background-dark::before {
+  content: '';
+  background-image: url("src/assets/images/ornamentsDark.png");
+  background-repeat: no-repeat;
+  display: block;
+  z-index: 2;
+  position: absolute;
+  right: 0;
+  top: 0;
+  min-height: 100vh;
+  width: 140px;
+  transform: scaleX(-1);
+}
+
+/* Background Light Styles */
 .background-light {
-  background: $white-0;
+  background: var(--white-0);
   height: 100vh;
   min-height: 100vh;
-
-  &::after {
-    content: '';
-    background-image: url("src/assets/images/ornamentsLight.png");
-    display: block;
-    z-index: 2;
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 140px;
-  }
-
-  &::before {
-    content: '';
-    background-image: url("src/assets/images/ornamentsLight.png");
-    display: block;
-    z-index: 2;
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 140px;
-    transform: scaleX(-1);
-  }
 }
 
+.background-light::after {
+  content: '';
+  background-image: url("src/assets/images/ornamentsLight.png");
+  display: block;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 140px;
+}
+
+.background-light::before {
+  content: '';
+  background-image: url("src/assets/images/ornamentsLight.png");
+  display: block;
+  z-index: 2;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 140px;
+  transform: scaleX(-1);
+}
+
+/* H1 Styles */
 .h1 {
-  color: $red-500;
+  color: var(--red-500);
   font-size: 60px;
   text-align: center;
 }
