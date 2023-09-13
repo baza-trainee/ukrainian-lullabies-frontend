@@ -48,10 +48,8 @@ button {
 /* Container Styles */
 .container {
   text-align: center;
-  width: 1024px;
   grid-template-columns: 1;
   gap: 24px;
-  margin: 0 140px;
 }
 
 @media (min-width: 1024px) {
@@ -59,80 +57,3 @@ button {
     grid-template-columns: repeat(12, 1fr);
   }
 }
-
-/* Background Dark Styles */
-.background-dark {
-  background: var(--gray-black-950);
-  min-height: 100vh;
-}
-
-.background-dark::after {
-  content: '';
-  background-image: url("src/assets/images/ornamentsDark.png");
-  background-repeat: no-repeat;
-  display: block;
-  z-index: 2;
-  position: absolute;
-  left: 0;
-  top: 0;
-  min-height: 100vh;
-  height: 100%;
-  width: 140px;
-}
-
-.background-dark::before {
-  content: '';
-  background-image: url("src/assets/images/ornamentsDark.png");
-  background-repeat: no-repeat;
-  display: block;
-  z-index: 2;
-  position: absolute;
-  right: 0;
-  top: 0;
-  min-height: 100vh;
-  width: 140px;
-  transform: scaleX(-1);
-}
-
-/* Background Light Styles */
-.background-light {
-  background: var(--white-0);
-  height: 100vh;
-  min-height: 100vh;
-}
-
-.background-light::after {
-  content: '';
-  background-image: url("src/assets/images/ornamentsLight.png");
-  display: block;
-  z-index: 2;
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 140px;
-}
-
-.background-light::before {
-  content: '';
-  background-image: url("src/assets/images/ornamentsLight.png");
-  display: block;
-  z-index: 2;
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  width: 140px;
-  transform: scaleX(-1);
-}
-
-/* H1 Styles */
-.h1 {
-  color: var(--red-500);
-  font-size: 60px;
-  text-align: center;
-}
- h1{
-  color: red;
-  font-size: 100px;
- }
