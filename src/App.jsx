@@ -12,8 +12,6 @@ export const App = () => {
       <Hero/>
       <Outlet />
       </div>
-      
-      
     </section>
   );
 };
