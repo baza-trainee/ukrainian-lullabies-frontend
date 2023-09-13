@@ -1,3 +1,8 @@
+import React from "react";
+
+
 export const ErrorPage = () => {
-  return <p>404</p>;
+  return <section className="">
+
+  </section>;
 };
