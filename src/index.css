@@ -1,0 +1,59 @@
+/* Colors */
+:root {
+  --gray0: #fafafa;
+  --white-0: #fff;
+  --gray-black-950: #000;
+  --gray-black-100: #e7e7e7;
+  --gray-black-300: #b0b0b0;
+  --second-text-color-white-player: #7b7b7b;
+  --red-700: #c60f18;
+  --red-500: #ff3a37;
+  --red-900: #87151a;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Body Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat Alternates", sans-serif;
+  color: var(--white-0);
+}
+
+/* Image Styles */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Form Element Styles */
+input,
+button,
+select {
+  font: inherit;
+}
+
+/* Button Styles */
+button {
+  cursor: pointer;
+}
+
+/* Container Styles */
+.container {
+  text-align: center;
+  grid-template-columns: 1;
+  gap: 24px;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
