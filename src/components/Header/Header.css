@@ -1,3 +1,122 @@
-.header {
-  grid-column: 1 / 13;
+a {
+  text-decoration: none;
+  color: inherit;
 }
+
+.header {
+  margin-top: 26px;
+  grid-column: 1 / 13;
+  padding: 0 18px;
+  align-items: center;
+  border: 2px solid transparent;
+  border-image: linear-gradient(to bottom, #cf121b, #cf121b00);
+  border-image-slice: 1;
+  height: 87%;
+  width: 100%;
+}
+
+.header-logo {
+  justify-self: end;
+}
+
+/* about link */
+.header-about-link {
+  grid-column: 3 / 5;
+  position: relative;
+}
+
+/* dropdown menu */
+.header-dropdown-wrapper {
+  grid-column: 5 / 7;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+/* HEADER BUTTONS */
+
+.header-options-wrapper {
+  grid-column: 8 / 13;
+  display: grid;
+  grid-template: 1fr / 1fr auto auto 1fr;
+  align-items: center;
+  gap: 16px;
+}
+
+/* language menu */
+.header-languages-wrapper {
+  justify-self: end;
+  display: flex;
+  gap: 8px;
+  padding: 4px 8px;
+  position: relative;
+  cursor: pointer;
+}
+
+/* user icon */
+.header-user-icon {
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+
+.header-user-icon:hover {
+  border: 2px solid var(--gray0);
+  border-radius: 30px;
+}
+
+/* search */
+.header-search-icon {
+  /* grid-column: 10 / 11; */
+  padding: 8px 16px;
+  border-radius: 50px;
+  background-color: var(--gray-black-800);
+  justify-self: center;
+  cursor: pointer;
+}
+
+/* theme toggle */
+.header-theme-toggle {
+  justify-self: center;
+  display: flex;
+  gap: 33px;
+  align-items: center;
+  padding: 5px 5px 5px 8px;
+  border-radius: 200px;
+  background-color: var(--gray-black-800);
+}
+
+/* ---------------- */
+/* SPECIAL STYLES */
+.header-about-link:hover,
+.header-dropdown-wrapper:hover,
+.header-dropdown-wrapper:hover svg path,
+.header-languages-wrapper:hover,
+.header-languages-wrapper:hover svg path{
+  color: var(--red-700);
+  stroke: var(--red-700);
+}
+
+/* .header-about-link::after,
+.header-dropdown-wrapper::after,
+.header-languages-wrapper::after {
+  content: "";
+  height: 2px;
+  width: 0%;
+  background-color: var(--red-700);
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+}
+
+.header-about-link:hover::after,
+.header-dropdown-wrapper:hover::after,
+.header-languages-wrapper:hover::after {
+  width: 100%;
+} */
