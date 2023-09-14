@@ -1,6 +1,6 @@
 .heroWrapper {
   /* min-height: 100%; */
-  display: grid;
+  grid-column: 1/13;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
