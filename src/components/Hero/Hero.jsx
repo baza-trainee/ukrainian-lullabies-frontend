@@ -10,23 +10,23 @@ import Button from "../../shared/components/Button/Button";
 import Share from "../../icons/Share";
 import ShevronDown from "../../icons/ShevronDown";
 
-import styles from "./hero.module.scss";
+import css from "./hero.module.css";
 
 const Hero = () => {
   return (
     <>
-      <div className={styles.heroWrapper}>
-        <div className={styles.kolyskovaWrap}>
+      <div className={css.heroWrapper}>
+        <div className={css.kolyskovaWrap}>
           <KolyIcon />
-          <SIcon className={styles.letterS} />
+          <SIcon className={css.letterS} />
           <KovaIcon />
-          <div className={styles.oundIconWrap}>
+          <div className={css.oundIconWrap}>
             <OundIcon />
           </div>
         </div>
-        <div className={styles.ornamentWrap}>
+        <div className={css.ornamentWrap}>
           <OrnamentsLeftIcon />
-          <p className={styles.text}>
+          <p className={css.text}>
             Поринь у чарівний світ української колискової. Тут у <br />
             кожній ноті оживає душа народу, у кожному слові
             <br /> закарбовано генетичний зв’язок з родом. Відкрий для себе
@@ -38,13 +38,13 @@ const Hero = () => {
           </p>
           <OrnamentsRightIcon />
         </div>
-        <div className={styles.btn}>
+        <div className={css.btn}>
           <Button variant="listen">
-            Слухати <ShevronDown className={styles.shevronDownIcon} />
+            Слухати <ShevronDown className={css.shevronDownIcon} />
           </Button>
           <Button variant="share">
             Поділитися
-            <Share className={styles.shareIcon} />
+            <Share className={css.shareIcon} />
           </Button>
         </div>
       </div>
