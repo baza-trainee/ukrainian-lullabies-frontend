@@ -6,22 +6,23 @@
   margin-right: auto;
   text-align: center;
 
-  border: 2px solid transparent;
+  /* border: 2px solid transparent;
   border-image: linear-gradient(to bottom, #cf121b, #cf121b00);
   border-image-slice: 1;
   height: 87%;
-  width: 100%;
+  width: 100%; */
 
-  /* background-image: url("../../images/frame-hero-a.png");
+  background-image: url("../../images/frame-hero-a.png");
   background-repeat: no-repeat;
-  background-size: cover; */
+  background-position: center;
+  /* background-size: cover; */
 }
 /* .sectionMain {
-   background-image: url("../../images/lineDecorehero2x.png");
- }
- @media screen and (min-width: 1160px) {
-   .heroWrapper {
-      min-height: 100%;
+  background-image: url("../../images/lineDecorehero2x.png");
+}
+@media screen and (min-width: 1160px) {
+  .heroWrapper {
+    min-height: 100%;
     display: grid;
     justify-content: center;
     margin-left: auto;
@@ -31,20 +32,20 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
- @media (min-device-pixel-ratio: 2),
-     (min-resolution: 192dpi),
-     (min-resolution: 2dppx) {
-     .sectionMain {
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .sectionMain {
       background-image: url("../../images/lineDecorehero2x.png");
-     }
-   }
- } */
+    }
+  }
+} */
 
 .kolyskovaWrap {
   display: grid;
   grid-template-columns: repeat(3, 220px);
   justify-content: center;
-  padding-top: 119px;
+  padding-top: 127px;
 }
 .letterS {
   position: relative;
@@ -94,7 +95,15 @@ button:hover .shevronDownIcon path,
 button:focus .shevronDownIcon path {
   fill: var(--gray-black-950);
 }
+
+button:active .shevronDownIcon path {
+  fill: var(--white-0);
+}
+
 button:hover .shareIcon path,
 button:focus .shareIcon path {
   fill: var(--red-700);
+}
+button:active .shareIcon path {
+  fill: #171717;
 }

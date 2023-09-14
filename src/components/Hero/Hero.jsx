@@ -39,10 +39,10 @@ const Hero = () => {
           <OrnamentsRightIcon />
         </div>
         <div className={css.btn}>
-          <Button variant="listen">
+          <Button variant="listen" disabled>
             Слухати <ShevronDown className={css.shevronDownIcon} />
           </Button>
-          <Button variant="share">
+          <Button variant="share" disabled>
             Поділитися
             <Share className={css.shareIcon} />
           </Button>
