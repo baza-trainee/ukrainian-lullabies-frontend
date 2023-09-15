@@ -3,6 +3,7 @@
   --gray0: #fafafa;
   --white-0: #fff;
   --gray-black-950: #000;
+  --gray-black-800: #454545;
   --gray-black-100: #e7e7e7;
   --gray-black-300: #b0b0b0;
   --second-text-color-white-player: #7b7b7b;
@@ -45,6 +46,9 @@ button {
   cursor: pointer;
 }
 
+a {
+  text-decoration-line: none;
+}
 /* Container Styles */
 .container {
   display: grid;
@@ -58,4 +62,3 @@ button {
     grid-template-columns: repeat(12, 1fr);
   }
 }
-
