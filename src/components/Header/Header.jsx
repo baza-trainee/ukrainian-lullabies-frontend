@@ -1,7 +1,8 @@
-import React, { Children, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import classNames from "classnames";
 import "./Header.css";
 import { Link, NavLink } from "react-router-dom";
-import { Logo } from "../SVGComponents/Logo";
+import { LogoDark, LogoLight } from "../SVGComponents/Logo";
 
 export const Header = () => {
   const dropdownMenuRef = useRef();
@@ -89,18 +90,35 @@ export const Header = () => {
     searchBarRef.current.classList.add("hidden");
   };
 
+  // theme toggle
+  const themeToggleRef = useRef();
+  const [isLightTheme, setIsLightTheme] = useState(false);
+
+  const themeToggle = () => {
+    if (!isLightTheme) {
+      setIsLightTheme(true);
+      // themeToggleRef.current.style.backgroundColor = "var(--gray-black-100)";
+    } else {
+      setIsLightTheme(false);
+      // themeToggleRef.current.style.backgroundColor = "var(--gray-black-800)";
+    }
+  };
+
   return (
-    <div className="header container">
+    <div className={classNames("header", "container", { light: isLightTheme })}>
       <div className="header-logo">
         <Link to="/">
-          <Logo width="56" height="53" />
+          <LogoLight width="56" height="53" />
         </Link>
       </div>
       <NavLink to="/about" className="header-about-link">
         Про нас
       </NavLink>
       <div className="header-dropdown-wrapper" ref={dropdownWrapperRef}>
-        <div className="header-dropdown-button" onClick={dropdownMenuClick}>
+        <div
+          className={classNames("header-dropdown-button", { "header-dropdown-button-light": isLightTheme })}
+          onClick={dropdownMenuClick}
+        >
           <span>Музей колискової</span>
           <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -113,7 +131,14 @@ export const Header = () => {
             />
           </svg>
         </div>
-        <div className={isDropdownOpen ? "header-dropdown-menu" : "hidden"} ref={dropdownMenuRef}>
+        <div
+          className={classNames({
+            "header-dropdown-menu": isDropdownOpen,
+            hidden: !isDropdownOpen,
+            "header-dropdown-menu-light": isLightTheme,
+          })}
+          ref={dropdownMenuRef}
+        >
           <Link to="/">Традиційні колискові</Link>
           <Link to="/">Співаємо разом</Link>
           <Link to="/">Колискові в анімаціях</Link>
@@ -123,7 +148,7 @@ export const Header = () => {
       {/* HEADER OPTION BUTTONS */}
       <div className="header-options-wrapper" ref={headerOptionsWrapperRef}>
         <div className="header-languages-wrapper" onClick={languageMenuClick}>
-          <div className="header-languages-button">
+          <div className={classNames("header-languages-button", { "header-languages-button-light": isLightTheme })}>
             <span>{currentLanguage}</span>
             <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -136,12 +161,19 @@ export const Header = () => {
               />
             </svg>
           </div>
-          <div className={isLanguageMenuOpen ? "header-languages-menu" : "hidden"} ref={languageMenuRef}>
+          <div
+            className={classNames({
+              "header-languages-menu": isLanguageMenuOpen,
+              hidden: !isLanguageMenuOpen,
+              "header-language-menu-light": isLightTheme,
+            })}
+            ref={languageMenuRef}
+          >
             <button onClick={() => setCurrentLanguage("UA")}>UA</button>
             <button onClick={() => setCurrentLanguage("EN")}>EN</button>
           </div>
         </div>
-        <div className="header-user-icon">
+        <div className={classNames("header-user-icon", { "header-user-icon-light": isLightTheme })}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
@@ -153,7 +185,10 @@ export const Header = () => {
           </svg>
         </div>
         <div className="header-search-wrapper">
-          <div className="header-search-icon" onClick={searchIconClick}>
+          <div
+            className={classNames("header-search-icon", { "header-search-icon-light": isLightTheme })}
+            onClick={searchIconClick}
+          >
             <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M4 22L8.35 17.65M6 12C6 16.4183 9.58172 20 14 20C18.4183 20 22 16.4183 22 12C22 7.58172 18.4183 4 14 4C9.58172 4 6 7.58172 6 12Z"
@@ -166,8 +201,15 @@ export const Header = () => {
             </svg>
           </div>
         </div>
-        <div className="header-theme-toggle">
-          <div className="header-theme-toggle-moon-icon">
+        <div
+          className={classNames("header-theme-toggle", { "header-theme-toggle-light": isLightTheme })}
+          ref={themeToggleRef}
+          onClick={themeToggle}
+        >
+          <div
+            className="header-theme-toggle-moon-icon"
+            style={isLightTheme ? { visibility: "hidden" } : { visibility: "visible" }}
+          >
             <svg width="32" height="32" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M2.04207 17.6333C2.59964 25.3563 9.36799 31.6397 17.4683 31.9846C23.1835 32.2245 28.2946 29.6452 31.3613 25.5812C32.6313 23.9166 31.9498 22.8069 29.8279 23.1818C28.7902 23.3618 27.7215 23.4368 26.6064 23.3918C19.0326 23.0919 12.8374 16.9584 12.8064 9.71529C12.7909 7.76579 13.2091 5.92126 13.968 4.24169C14.8044 2.38217 13.7976 1.49739 11.8616 2.29219C5.72826 4.79655 1.53095 10.78 2.04207 17.6333Z"
@@ -178,7 +220,30 @@ export const Header = () => {
               />
             </svg>
           </div>
-          <div className="header-theme-toggle-sun-icon">
+          <div
+            className="header-theme-toggle-sun-icon"
+            style={!isLightTheme ? { visibility: "hidden" } : { visibility: "visible" }}
+          >
+            <svg width="32" height="32" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M17 26.75C22.3848 26.75 26.75 22.3848 26.75 17C26.75 11.6152 22.3848 7.25002 17 7.25002C11.6152 7.25002 7.25002 11.6152 7.25002 17C7.25002 22.3848 11.6152 26.75 17 26.75Z"
+                fill="black"
+              />
+              <path d="M27.71 27.71L27.515 27.515L27.71 27.71Z" fill="black" />
+              <path
+                d="M27.515 6.485L27.71 6.29M6.29 27.71L6.485 27.515M17 2.12V2M17 32V31.88M2.12 17H2M32 17H31.88M6.485 6.485L6.29 6.29M27.71 27.71L27.515 27.515M26.75 17C26.75 22.3848 22.3848 26.75 17 26.75C11.6152 26.75 7.25002 22.3848 7.25002 17C7.25002 11.6152 11.6152 7.25002 17 7.25002C22.3848 7.25002 26.75 11.6152 26.75 17Z"
+                stroke="black"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+          <div
+            className={classNames("header-theme-toggle-circle-icon", { "header-theme-toggle-circle-icon-light": isLightTheme })}
+            style={isLightTheme ? { left: "5px" } : { right: "5px" }}
+            id="themeToggleCirlce"
+          >
             <svg width="32" height="32" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 fillRule="evenodd"
@@ -190,8 +255,10 @@ export const Header = () => {
           </div>
         </div>
       </div>
-      <div className="header-search-bar hidden" ref={searchBarRef}>
-        <input type="text" onBlur={closeSearchBar} id="headerSearchInput" />
+
+      {/* opened search bar */}
+      <div className={classNames("header-search-bar", "hidden", { "header-search-bar-light": isLightTheme })} ref={searchBarRef}>
+        <input type="text" placeholder="Пошук" onBlur={closeSearchBar} id="headerSearchInput" />
         <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M4 22L8.35 17.65M6 12C6 16.4183 9.58172 20 14 20C18.4183 20 22 16.4183 22 12C22 7.58172 18.4183 4 14 4C9.58172 4 6 7.58172 6 12Z"

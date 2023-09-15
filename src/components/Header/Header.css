@@ -12,6 +12,11 @@ a {
   margin-bottom: -2px;
 }
 
+.light {
+  background: white;
+  color: black;
+}
+
 .header-with-search-bar-open {
   display: grid;
   grid-template: 1fr / 1fr 11fr;
@@ -78,6 +83,13 @@ a {
   margin-bottom: -2px;
 }
 
+.header-dropdown-menu-light {
+  background-color: var(--gray-black-100);
+}
+
+.header-dropdown-button-light svg path {
+  stroke: var(--gray-black-950);
+}
 /* HEADER BUTTONS */
 
 .header-options-wrapper {
@@ -123,6 +135,14 @@ a {
   margin-bottom: -2px;
 }
 
+.header-language-menu-light {
+  background-color: var(--gray-black-100);
+}
+
+.header-languages-button-light svg path {
+  stroke: var(--gray-black-950);
+}
+
 /* user icon */
 .header-user-icon {
   justify-self: center;
@@ -137,6 +157,14 @@ a {
 .header-user-icon:hover {
   border: 2px solid var(--gray0);
   border-radius: 30px;
+}
+
+.header-user-icon-light svg path {
+  stroke: var(--gray-black-950);
+}
+
+.header-user-icon-light:hover {
+  border-color: var(--gray-black-950);
 }
 
 /* search */
@@ -167,6 +195,22 @@ a {
   outline: none;
 }
 
+.header-search-icon-light {
+  background-color: var(--gray-black-100);
+}
+
+.header-search-icon-light svg path {
+  stroke: var(--gray-black-950);
+}
+
+.header-search-bar-light {
+  background-color: var(--gray-black-100);
+}
+
+.header-search-bar-light svg path {
+  stroke: var(--gray-black-950);
+}
+
 /* theme toggle */
 .header-theme-toggle {
   justify-self: center;
@@ -176,6 +220,20 @@ a {
   padding: 5px 5px 5px 8px;
   border-radius: 200px;
   background-color: var(--gray-black-800);
+  position: relative;
+  cursor: pointer;
+}
+
+#themeToggleCirlce {
+  position: absolute;
+}
+
+.header-theme-toggle-light {
+  background-color: var(--gray-black-100);
+}
+
+.header-theme-toggle-circle-icon-light svg path {
+  fill: var(--gray-black-950);
 }
 
 /* ---------------- */
