@@ -47,13 +47,14 @@ button {
 
 /* Container Styles */
 .container {
+  display: grid;
   text-align: center;
   grid-template-columns: 1;
   gap: 24px;
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   .container {
     grid-template-columns: repeat(12, 1fr);
   }
-}
+} */
