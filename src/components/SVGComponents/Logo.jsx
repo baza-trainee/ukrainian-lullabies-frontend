@@ -12,7 +12,7 @@ export const Logo = ({ width, height }) => {
         viewBox="0 0 56 54"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
       >
         <path
           d="M40.2 12.08H42.18C44.74 12.08 46.64 11.78 47.88 11.18C46.12 13.78 44.42 16.04 42.78 17.96H41.82C39.78 17.96 37.8 17.64 35.88 17C33.16 19.24 30.98 22.22 29.34 25.94C33.58 27.02 38.3 27.66 43.5 27.86C44.7 30.9 45.52 35.78 45.96 42.5H30.42C29.74 39.54 28.7 36.82 27.3 34.34C25.94 31.82 24.52 30.1 23.04 29.18C22.76 32.46 22.62 35.1 22.62 37.1C22.62 39.1 22.68 40.9 22.8 42.5H9.6C8.84 36.62 8.46 31.66 8.46 27.62C8.46 23.54 8.76 18.5 9.36 12.5H26.04C24.84 17.46 24.02 21.62 23.58 24.98C25.38 22.02 27.26 19.54 29.22 17.54C31.22 15.5 33.58 13.78 36.3 12.38C37.34 12.18 38.64 12.08 40.2 12.08Z"
@@ -26,8 +26,8 @@ export const Logo = ({ width, height }) => {
         <defs>
           <pattern id="pattern1" patternContentUnits="userSpaceOnUse" width="1" height="1">
             <linearGradient id="paint0_linear_32_2990" x1="28" y1="1.5" x2="54.3127" y2="8.89155" gradientUnits="userSpaceOnUse">
-              <stop stop-color="white" />
-              <stop offset="1" stop-color="white" stop-opacity="0" />
+              <stop stopColor="white" />
+              <stop offset="1" stopColor="white" stopOpacity="0" />
             </linearGradient>
             <image id="image1" width="100" height="100" x="0" y="-10" href={logoDark} />
           </pattern>

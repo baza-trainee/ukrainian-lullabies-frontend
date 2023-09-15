@@ -3,6 +3,15 @@ a {
   color: inherit;
 }
 
+.hidden {
+  display: none;
+}
+
+.active {
+  border-bottom: solid 2px var(--red-700);
+  margin-bottom: -2px;
+}
+
 .header {
   margin-top: 26px;
   grid-column: 1 / 13;
@@ -22,17 +31,45 @@ a {
 /* about link */
 .header-about-link {
   grid-column: 3 / 5;
-  position: relative;
+  padding: 22px 8px;
 }
 
 /* dropdown menu */
 .header-dropdown-wrapper {
-  grid-column: 5 / 7;
+  grid-column: 5 / 8;
+  padding: 22px 8px;
+  position: relative;
+  border-bottom: solid 2px transparent; /* changes on click */
+  margin-bottom: -2px;
+  cursor: pointer;
+}
+
+.header-dropdown-button {
   display: flex;
   gap: 10px;
   align-items: center;
-  position: relative;
-  cursor: pointer;
+}
+
+.header-dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  bottom: -136px;
+  background-color: var(--gray-black-800);
+  border-radius: 8px;
+}
+
+.header-dropdown-menu a {
+  width: 100%;
+  padding: 12px 8px;
+  text-align: left;
+}
+
+.header-dropdown-menu a:active {
+  border-bottom: 2px solid var(--red-700);
+  border-radius: 8px;
+  margin-bottom: -2px;
 }
 
 /* HEADER BUTTONS */
@@ -48,11 +85,36 @@ a {
 /* language menu */
 .header-languages-wrapper {
   justify-self: end;
-  display: flex;
-  gap: 8px;
   padding: 4px 8px;
   position: relative;
   cursor: pointer;
+}
+
+.header-languages-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-languages-menu {
+  position: absolute;
+  left: 0;
+  bottom: -80px;
+  background-color: var(--gray-black-800);
+}
+
+.header-languages-menu button {
+  display: block;
+  padding: 10px 25px;
+  font-family: inherit;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+}
+
+.header-languages-menu button:hover {
+  border-bottom: 2px solid var(--red-700);
+  margin-bottom: -2px;
 }
 
 /* user icon */
@@ -95,28 +157,11 @@ a {
 /* ---------------- */
 /* SPECIAL STYLES */
 .header-about-link:hover,
-.header-dropdown-wrapper:hover,
-.header-dropdown-wrapper:hover svg path,
-.header-languages-wrapper:hover,
-.header-languages-wrapper:hover svg path{
+.header-dropdown-button:hover,
+.header-dropdown-button:hover svg path,
+.header-dropdown-menu a:hover,
+.header-languages-button:hover,
+.header-languages-button:hover svg path {
   color: var(--red-700);
   stroke: var(--red-700);
 }
-
-/* .header-about-link::after,
-.header-dropdown-wrapper::after,
-.header-languages-wrapper::after {
-  content: "";
-  height: 2px;
-  width: 0%;
-  background-color: var(--red-700);
-  position: absolute;
-  bottom: -24px;
-  left: 0;
-}
-
-.header-about-link:hover::after,
-.header-dropdown-wrapper:hover::after,
-.header-languages-wrapper:hover::after {
-  width: 100%;
-} */
