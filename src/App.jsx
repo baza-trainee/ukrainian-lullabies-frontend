@@ -14,7 +14,7 @@ export const App = () => (
     <Routes>
       <Route path="/" element={<RootLayout />}>
         <Route path="/*" element={<MainPage />} >
-          <Route index element={<Navigate to="map" />} replace />
+          <Route index element={<Navigate to="map" replace />} />
           <Route path="map" element={<MapCatalogue />} />
           <Route path="anima" element={<LullabiesInAnimation />} />
           <Route path="songs" element={<SingTogether />} />
