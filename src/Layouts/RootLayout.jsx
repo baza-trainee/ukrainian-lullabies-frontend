@@ -6,14 +6,24 @@ import "./Layouts.css";
 
 export default function RootLayout() {
   return (
-    <div className="background-dark">
-      <div className="container content">
-        <Header />
-        <main>
-          <Outlet />
-        </main>
-        <Footer />
+    <>
+      <div className='bg-dark'>
+      <div className="bg-left">
+        <img src="/src/assets/images/ornamentsDark.png" alt="" />
+      </div>
+      <div>
+        <div className='content bg-dark'>
+          <Header />
+          <main className='container'>
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
+        <div className="bg-right">
+          <img src="/src/assets/images/ornamentsDark.png" alt="" />
+        </div>
       </div>
     </div>
+    </>
   );
 }

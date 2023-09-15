@@ -46,6 +46,9 @@ button {
   cursor: pointer;
 }
 
+a {
+  text-decoration-line: none;
+}
 /* Container Styles */
 .container {
   display: grid;
@@ -54,7 +57,7 @@ button {
   gap: 24px;
 }
 
-@media (min-width: 1024px) {
+ @media (min-width: 1024px) {
   .container {
     grid-template-columns: repeat(12, 1fr);
   }
