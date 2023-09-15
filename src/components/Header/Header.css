@@ -24,7 +24,6 @@ a {
 }
 
 .header {
-  margin-top: 26px;
   grid-column: 1 / 13;
   padding: 0 18px;
   align-items: center;
@@ -59,11 +58,13 @@ a {
   display: flex;
   gap: 10px;
   align-items: center;
+  justify-content: center;
 }
 
 .header-dropdown-menu {
   display: flex;
   flex-direction: column;
+  width: 100%;
   position: absolute;
   left: 0;
   bottom: -136px;
