@@ -1,0 +1,106 @@
+.chat_wrapper {
+    display: grid;
+    grid-column: 1/13;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.chat_info {
+    display: grid;
+    grid-column: 1/8;
+    /* border: solid 1px red; */
+    text-align: left;
+}
+
+.chat_title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--gray0);
+    line-height: 40px;
+    
+}
+
+.chat_rule_list {
+    padding: 38px 0px;
+    list-style-type: none;
+    color: var(--gray0);
+    list-style-position:inside;
+}
+
+.chat_text {
+  margin: 12px 0px;
+  display: block;
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: 400; 
+}
+
+.chat_picture {
+    /* border: solid 1px red; */
+    grid-column: 9/13;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 323px;
+    height: 300px;
+    margin: 42px 0px;
+}
+
+.chat_image {
+    cursor: pointer;
+    /* border: 1px solid blue; */
+    background: url("../../img/motanka/motanka-black.png");
+    width: inherit;
+    height: inherit;
+    object-fit: contain;
+    background-size: contain;
+    /* display: block; */
+}
+
+.chat_image:hover {
+    background: url("../../img/motanka/motanka-black-hover.png");
+    width: inherit;
+    height: inherit;
+    background-size: contain;
+    object-fit: contain;
+}
+
+.chat_image:active {
+    background: url("../../img/motanka/motanka-black-active.png");
+    width: inherit;
+    height: inherit;
+    background-size: contain;
+    object-fit: contain;
+}
+
+.chat_button {
+    cursor: pointer;
+    padding: 16px 95.5px;
+    border: 2px solid var(--red-700);
+    border-radius: 46px;
+    width: 250px;
+}
+
+.chat_button a {
+    color: var(--red-700);
+    text-decoration: none;
+    font-weight: 600; 
+    line-height: 24px;
+} 
+
+.chat_button:hover,  .chat_button:hover a {
+    background-color: var(--red-700);
+    color: var(--gray-black-950);
+}
+
+.chat_button:active, .chat_button:active a  {
+    background-color: var(--red-900);
+    border: 2px solid var(--red-900);    
+    color: var(--gray0);
+}
+
+
+
+
+
+

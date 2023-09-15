@@ -107,9 +107,7 @@ export const Header = () => {
   return (
     <div className={classNames("header", "container", { light: isLightTheme })}>
       <div className="header-logo">
-        <Link to="/">
-          <LogoLight width="56" height="53" />
-        </Link>
+        <Link to="/">{isLightTheme ? <LogoLight width="56" height="53" /> : <LogoDark width="56" height="53" />}</Link>
       </div>
       <NavLink to="/about" className="header-about-link">
         Про нас
