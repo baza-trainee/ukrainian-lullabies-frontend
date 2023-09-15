@@ -5,7 +5,7 @@ import "./map.css"
 
 export const MapTabs = () => {
 
-    return (<section >
+    return (<section className="tabs">
         <h2 className="map-tabs__text">Музей колискової</h2>
         <div className="map-tabs">
             <NavLink className="map-tabs__button tabs1" to={"/map"}>Традиційні колискові</NavLink>
