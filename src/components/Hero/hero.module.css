@@ -83,24 +83,6 @@
 .shareIcon {
   margin-left: 8px;
 }
-/* .shevronDownIcon {
-  fill: var(--red-700);
-  margin-left: 10px;
-} */
-/* для іконки shevron з react-icon */
-.shevronDownIcon {
-  margin-left: 10px;
-  font-size: 24px;
-}
-
-button:hover .shevronDownIcon path,
-button:focus .shevronDownIcon path {
-  fill: var(--gray-black-950);
-}
-
-button:active .shevronDownIcon path {
-  fill: var(--white-0);
-}
 
 button:hover .shareIcon path,
 button:focus .shareIcon path {

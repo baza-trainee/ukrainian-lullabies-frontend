@@ -9,7 +9,6 @@ import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
 import Button from "../../shared/components/Button/Button";
 import Share from "../../icons/Share";
 // import ShevronDown from "../../icons/ShevronDown";
-import { FiChevronDown } from "react-icons/fi";
 
 import css from "./hero.module.css";
 
@@ -42,7 +41,6 @@ const Hero = () => {
         <div className={css.btn}>
           <Button variant="listen" disabled>
             Слухати
-            <FiChevronDown className={css.shevronDownIcon} />
           </Button>
           <Button variant="share" disabled>
             Поділитися
