@@ -1,5 +1,4 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
 import { MapTabs } from "../components/MapTabs/MapTabs";
 
 
@@ -12,7 +11,6 @@ export const MainPage = () => {
       <p>Main Page</p>
       <Hero />
       <MapTabs />
-      <Outlet />
       <Chatbot />
     </>
   );

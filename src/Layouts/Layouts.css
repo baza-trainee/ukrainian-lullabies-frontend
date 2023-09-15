@@ -1,33 +1,30 @@
 /* Background Dark Styles */
-.background-dark {
-  background: var(--gray-black-950);
-  min-height: 100vh;
+
+.bg-dark {
+  background-color: var(--gray-black-950);
+  height: 100%;
 }
 
-.background-dark::after {
-  content: "";
-  background-image: url("src/assets/images/ornamentsDark.png");
-  background-repeat: no-repeat;
+.bg-left{
+  background-repeat: repeat-y;
   display: block;
-  z-index: 2;
+  z-index: 0;
   position: absolute;
   left: 0;
   top: 0;
-  min-height: 100vh;
-  width: 140px;
+  min-width: 140px;
+  width: 100%;
+  z-index: 1;
 }
 
-.background-dark::before {
-  content: "";
-  background-image: url("src/assets/images/ornamentsDark.png");
-  background-repeat: no-repeat;
+.bg-right {
   display: block;
-  z-index: 2;
   position: absolute;
   right: 0;
   top: 0;
-  min-height: 100vh;
-  width: 140px;
+   min-width: 140px;
+  width: 100%;
+  z-index: 1;
   transform: scaleX(-1);
 }
 
@@ -35,36 +32,15 @@
 .background-light {
   background: var(--white-0);
   height: 100vh;
-  min-height: 100vh;
-}
-
-.background-light::after {
-  content: "";
-  background-image: url("src/assets/images/ornamentsLight.png");
-  display: block;
-  z-index: 2;
-  position: absolute;
-  left: 0;
-  top: 0;
   height: 100%;
-  width: 140px;
-}
-
-.background-light::before {
-  content: "";
-  background-image: url("src/assets/images/ornamentsLight.png");
-  display: block;
-  z-index: 2;
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  width: 140px;
-  transform: scaleX(-1);
 }
 
 .content {
   width: 1160px;
   margin: 0 auto;
+  z-index: 12;
+  position: relative;
+ margin: 0 auto;
 }
+
 
