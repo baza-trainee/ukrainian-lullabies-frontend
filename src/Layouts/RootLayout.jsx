@@ -6,10 +6,10 @@ import "./Layouts.css";
 
 export default function RootLayout() {
   return (
-    <div className="background-dark">
-      <div className=" content">
+    <div className='background-dark'>
+      <div className='content'>
         <Header />
-        <main className="container">
+        <main className='container'> 
           <Outlet />
         </main>
         <Footer />
