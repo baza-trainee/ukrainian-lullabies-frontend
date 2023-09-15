@@ -8,7 +8,6 @@ import Chatbot from "../components/Chatbot/Chatbot";
 export const MainPage = () => {
   return (
     < >
-      <p>Main Page</p>
       <Hero />
       <MapTabs />
       <Chatbot />
