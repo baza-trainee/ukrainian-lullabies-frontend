@@ -19,7 +19,7 @@ export const App = () => (
             <Route path="songs" element={<SingTogether />} />
         </Route>
         <Route path="/about" element={<AboutUs />} />
-        <Route path="*" element={<ErrorPage />} />
+        <Route path="/error" element={<ErrorPage />} />
       </Route>
     </Routes>
   </Router>
