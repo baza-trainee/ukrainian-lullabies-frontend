@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { Children, useEffect, useRef, useState } from "react";
 import "./Header.css";
 import { Link, NavLink } from "react-router-dom";
 import { Logo } from "../SVGComponents/Logo";
@@ -55,6 +55,40 @@ export const Header = () => {
     return () => document.body.removeEventListener("click", closeLanguageMenu);
   }, []);
 
+  // search bar
+  const searchBarRef = useRef();
+  const headerOptionsWrapperRef = useRef();
+
+  const searchIconClick = () => {
+    const parent = headerOptionsWrapperRef.current.parentNode;
+    const input = document.getElementById("headerSearchInput");
+    parent.childNodes.forEach((el) => {
+      if (el.classList.contains("header-about-link") || el.classList.contains("header-dropdown-wrapper")) {
+        el.classList.add("hidden");
+      }
+    });
+    headerOptionsWrapperRef.current.style.display = "none";
+    parent.classList.remove("container");
+    parent.classList.add("header-with-search-bar-open");
+    searchBarRef.current.classList.remove("hidden");
+    searchBarRef.current.classList.add("header-search-bar-open");
+    input.focus();
+  };
+
+  const closeSearchBar = () => {
+    const parent = headerOptionsWrapperRef.current.parentNode;
+    parent.childNodes.forEach((el) => {
+      if (el.classList.contains("header-about-link") || el.classList.contains("header-dropdown-wrapper")) {
+        el.classList.remove("hidden");
+      }
+    });
+    headerOptionsWrapperRef.current.style.display = "grid";
+    parent.classList.remove("header-with-search-bar-open");
+    parent.classList.add("container");
+    searchBarRef.current.classList.remove("header-search-bar-open");
+    searchBarRef.current.classList.add("hidden");
+  };
+
   return (
     <div className="header container">
       <div className="header-logo">
@@ -87,7 +121,7 @@ export const Header = () => {
       </div>
 
       {/* HEADER OPTION BUTTONS */}
-      <div className="header-options-wrapper">
+      <div className="header-options-wrapper" ref={headerOptionsWrapperRef}>
         <div className="header-languages-wrapper" onClick={languageMenuClick}>
           <div className="header-languages-button">
             <span>{currentLanguage}</span>
@@ -118,16 +152,19 @@ export const Header = () => {
             />
           </svg>
         </div>
-        <div className="header-search-icon">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M4 22L8.35 17.65M6 12C6 16.4183 9.58172 20 14 20C18.4183 20 22 16.4183 22 12C22 7.58172 18.4183 4 14 4C9.58172 4 6 7.58172 6 12Z"
-              stroke="white"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+        <div className="header-search-wrapper">
+          <div className="header-search-icon" onClick={searchIconClick}>
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M4 22L8.35 17.65M6 12C6 16.4183 9.58172 20 14 20C18.4183 20 22 16.4183 22 12C22 7.58172 18.4183 4 14 4C9.58172 4 6 7.58172 6 12Z"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                pointerEvents="none"
+              />
+            </svg>
+          </div>
         </div>
         <div className="header-theme-toggle">
           <div className="header-theme-toggle-moon-icon">
@@ -152,6 +189,19 @@ export const Header = () => {
             </svg>
           </div>
         </div>
+      </div>
+      <div className="header-search-bar hidden" ref={searchBarRef}>
+        <input type="text" onBlur={closeSearchBar} id="headerSearchInput" />
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M4 22L8.35 17.65M6 12C6 16.4183 9.58172 20 14 20C18.4183 20 22 16.4183 22 12C22 7.58172 18.4183 4 14 4C9.58172 4 6 7.58172 6 12Z"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            pointerEvents="none"
+          />
+        </svg>
       </div>
     </div>
   );
