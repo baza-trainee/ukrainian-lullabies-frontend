@@ -7,6 +7,7 @@
 
 .bg-left{
   background-repeat: repeat-y;
+
   display: block;
   z-index: 0;
   position: absolute;
@@ -16,7 +17,9 @@
   width: 100%;
   z-index: 1;
 }
+
 .bg-right {
+
   display: block;
   position: absolute;
   right: 0;
@@ -37,8 +40,10 @@
 .content {
   width: 1160px;
   margin: 0 auto;
+
   z-index: 12;
   position: relative;
  margin: 0 auto;
 }
+
 
