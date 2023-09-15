@@ -7,11 +7,11 @@ import Hero from "../components/Hero/Hero";
 
 export const MainPage = () => {
   return (
-    <main>
+    < >
       <p>Main Page</p>
+      <Hero />
       <MapTabs />
       <Outlet />
-      <Hero />
-    </main>
+    </>
   );
 };
