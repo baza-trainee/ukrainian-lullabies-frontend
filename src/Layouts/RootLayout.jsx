@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Outlet } from "react-router-dom";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
@@ -9,7 +9,7 @@ export default function RootLayout() {
     <div className='background-dark'>
       <div className='content'>
         <Header />
-        <main className='container'>
+        <main className='container'> 
           <Outlet />
         </main>
         <Footer />

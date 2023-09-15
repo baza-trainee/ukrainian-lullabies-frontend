@@ -1,0 +1,58 @@
+.btn {
+  width: 250px;
+  height: 56px;
+  padding: 16px 0px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 46px;
+  background-color: var(--gray-black-950);
+  font-family: Montserrat Alternates;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  cursor: pointer;
+}
+.btnListen {
+  color: var(--red-700);
+  border: 2px solid var(--red-700);
+}
+.btnListen:hover,
+.btnListen:focus {
+  color: var(--gray-black-950);
+  background-color: var(--red-700);
+}
+.btnListen:active {
+  color: var(--white-0);
+  border: 2px solid var(--red-900);
+  background-color: var(--red-900);
+}
+.btnListen[disabled] {
+  border-color: #454545;
+  color: #454545;
+  background-color: transparent;
+}
+.btnListen[disabled]:hover {
+  border-color: #454545;
+  color: #454545;
+  background-color: transparent;
+}
+.btnShare {
+  color: var(--white-0);
+  border: 2px solid var(--white-0);
+}
+.btnShare:hover,
+.btnShare:focus {
+  color: var(--red-700);
+  background-color: var(--white-0);
+}
+.btnShare:active {
+  color: #171717;
+}
+.btnShare[disabled] {
+  border: 2px solid #454545;
+  color: #3d3d3d;
+}
