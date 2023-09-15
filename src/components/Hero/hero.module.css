@@ -1,0 +1,115 @@
+.heroWrapper {
+  /* min-height: 100%; */
+  grid-column: 1/13;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  /* border: 2px solid transparent;
+  border-image: linear-gradient(to bottom, #cf121b, #cf121b00);
+  border-image-slice: 1;
+  height: 87%;
+  width: 100%; */
+
+  background-image: url("../../images/frame-hero-a.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-size: cover; */
+}
+/* .sectionMain {
+  background-image: url("../../images/lineDecorehero2x.png");
+}
+@media screen and (min-width: 1160px) {
+  .heroWrapper {
+    min-height: 100%;
+    display: grid;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-image: url("../../images/frame-hero-a.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .sectionMain {
+      background-image: url("../../images/lineDecorehero2x.png");
+    }
+  }
+} */
+
+.kolyskovaWrap {
+  display: grid;
+  grid-template-columns: repeat(3, 220px);
+  justify-content: center;
+  padding-top: 127px;
+}
+.letterS {
+  position: relative;
+  top: -18px;
+  left: 4px;
+}
+.oundIconWrap {
+  grid-column: 3;
+  position: relative;
+  top: -106px;
+  left: 0px;
+}
+.ornamentWrap {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+.text {
+  color: var(--gray0);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.btn {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: center;
+  align-items: center;
+  gap: 75px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.shareIcon {
+  margin-left: 8px;
+}
+/* .shevronDownIcon {
+  fill: var(--red-700);
+  margin-left: 10px;
+} */
+/* для іконки shevron з react-icon */
+.shevronDownIcon {
+  margin-left: 10px;
+  font-size: 24px;
+}
+
+button:hover .shevronDownIcon path,
+button:focus .shevronDownIcon path {
+  fill: var(--gray-black-950);
+}
+
+button:active .shevronDownIcon path {
+  fill: var(--white-0);
+}
+
+button:hover .shareIcon path,
+button:focus .shareIcon path {
+  fill: var(--red-700);
+}
+button:active .shareIcon path {
+  fill: #171717;
+}

@@ -1,0 +1,39 @@
+.map-tabs {
+    display: grid;
+    grid-template-areas: "tabs1 tabs2 tabs3";
+    gap: 20px;
+    /* text-align: center; */
+}
+
+.tabs1 {
+    grid-area: tabs1;
+}
+
+.tabs2 {
+    grid-area: tabs2;
+}
+
+.tabs3 {
+    grid-area: tabs3;
+}
+
+.map-tabs__button {
+    padding: 20px 28px;
+    color: var(--gray-0, #FAFAFA);
+    text-decoration: none;
+
+    &.active {
+        padding: 20px 28px;
+        color: var(--gray-0, #FAFAFA);
+        border: none;
+        border-bottom: 2px solid var(--red-700, #C60F18);
+        background-color: transparent;
+    }
+}
+
+.map-tabs__text {
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: start;
+}
