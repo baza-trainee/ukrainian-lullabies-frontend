@@ -1,6 +1,8 @@
 import React from "react";
 import './ErrorPage.css';
 import { NavLink } from "react-router-dom";
+import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
+import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
 
 export const ErrorPage = () => {
   return (
@@ -66,62 +68,14 @@ export const ErrorPage = () => {
     </div>
     <div className="errorPage__block container">
       <div className="element-right">
-        <svg xmlns="http://www.w3.org/2000/svg" width="185" height="44" viewBox="0 0 185 44" fill="none">
-  <path d="M24.5 33.0003L20.5 28.0003L24.5 25.0003L33.5 34.0003L25.5 42.0003L1.5 19.0003" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M24.5 11.0003L20.5 16.0003L24.5 19.0003L33.5 10.0003L25.5 2.00032L1.5 25.0003" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M42.5 33.0003L46.5 28.0003L42.5 25.0003L33.5 34.0003L41.5 42.0003L65.5 19.0003" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M42.5 11.0003L46.5 16.0003L42.5 19.0003L33.5 10.0003L41.5 2.00032L65.5 25.0003" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M37.5 22.0003L33.5 18.0003L29.5 22.0003L33.5 26.0003L37.5 22.0003Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M61.5 39.0003L57.5 35.0003L53.5 39.0003L57.5 43.0003L61.5 39.0003Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M61.5 5.00032L57.5 1.00032L53.5 5.00032L57.5 9.00032L61.5 5.00032Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M110.5 39.0003L106.5 35.0003L102.5 39.0003L106.5 43.0003L110.5 39.0003Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M110.5 5.00032L106.5 1.00032L102.5 5.00032L106.5 9.00032L110.5 5.00032Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M158.5 39.0003L154.5 35.0003L150.5 39.0003L154.5 43.0003L158.5 39.0003Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M158.5 5.00032L154.5 1.00032L150.5 5.00032L154.5 9.00032L158.5 5.00032Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M72.5 33.0003L68.5 28.0003L72.5 25.0003L81.5 34.0003L73.5 42.0003L49.5 19.0003" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M72.5 11.0003L68.5 16.0003L72.5 19.0003L81.5 10.0003L73.5 2.00032L49.5 25.0003" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M91.5 33.0003L95.5 28.0003L91.5 25.0003L82.5 34.0003L90.5 42.0003L114.5 19.0003" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M91.5 11.0003L95.5 16.0003L91.5 19.0003L82.5 10.0003L90.5 2.00032L114.5 25.0003" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M86.5 22.0003L82.5 18.0003L78.5 22.0003L82.5 26.0003L86.5 22.0003Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M121.5 33.0003L117.5 28.0003L121.5 25.0003L130.5 34.0003L122.5 42.0003L98.5 19.0003" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M121.5 11.0003L117.5 16.0003L121.5 19.0003L130.5 10.0003L122.5 2.00032L98.5 25.0003" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M139.5 33.0003L143.5 28.0003L139.5 25.0003L130.5 34.0003L138.5 42.0003L162.5 19.0003" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M139.5 11.0003L143.5 16.0003L139.5 19.0003L130.5 10.0003L138.5 2.00032L162.5 25.0003" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M134.5 22.0003L130.5 18.0003L126.5 22.0003L130.5 26.0003L134.5 22.0003Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M169.5 33.0003L165.5 28.0003L169.5 25.0003L178.5 34.0003L170.5 42.0003L146.5 19.0003" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M169.5 11.0003L165.5 16.0003L169.5 19.0003L178.5 10.0003L170.5 2.00032L146.5 25.0003" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M183.5 22.0003L179.5 18.0003L175.5 22.0003L179.5 26.0003L183.5 22.0003Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-</svg>
+        <OrnamentsLeftIcon />
       </div>
       <p className="element-center">
           It may have been moved or deleted.
       </p>
-      <div className="element-left"><svg xmlns="http://www.w3.org/2000/svg" width="185" height="44" viewBox="0 0 185 44" fill="none">
-  <path d="M160.5 11.001L164.5 16.001L160.5 19.001L151.5 10.001L159.5 2.00095L183.5 25.001" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M160.5 33.001L164.5 28.001L160.5 25.001L151.5 34.001L159.5 42.001L183.5 19.001" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M142.5 11.001L138.5 16.001L142.5 19.001L151.5 10.001L143.5 2.00095L119.5 25.001" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M142.5 33.001L138.5 28.001L142.5 25.001L151.5 34.001L143.5 42.001L119.5 19.001" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M147.5 22.001L151.5 26.001L155.5 22.001L151.5 18.001L147.5 22.001Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M123.5 5.00064L127.5 9.00064L131.5 5.00064L127.5 1.00064L123.5 5.00064Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M123.5 39.0006L127.5 43.0006L131.5 39.0006L127.5 35.0006L123.5 39.0006Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M74.5 5.00032L78.5 9.00032L82.5 5.00032L78.5 1.00032L74.5 5.00032Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M74.5 39.0003L78.5 43.0003L82.5 39.0003L78.5 35.0003L74.5 39.0003Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M26.5 5L30.5 9L34.5 5L30.5 1L26.5 5Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M26.5 39L30.5 43L34.5 39L30.5 35L26.5 39Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M112.5 11L116.5 16L112.5 19L103.5 10L111.5 2L135.5 25" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M112.5 33L116.5 28L112.5 25L103.5 34L111.5 42L135.5 19" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M93.5 11L89.5 16L93.5 19L102.5 10L94.5 2L70.5 25" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M93.5 33L89.5 28L93.5 25L102.5 34L94.5 42L70.5 19" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M98.5 22L102.5 26L106.5 22L102.5 18L98.5 22Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M63.5 11L67.5 16L63.5 19L54.5 10L62.5 2L86.5 25" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M63.5 33L67.5 28L63.5 25L54.5 34L62.5 42L86.5 19" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M45.5 11L41.5 16L45.5 19L54.5 10L46.5 2L22.5 25" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M45.5 33L41.5 28L45.5 25L54.5 34L46.5 42L22.5 19" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M50.5 22L54.5 26L58.5 22L54.5 18L50.5 22Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M15.5 11L19.5 16L15.5 19L6.5 10L14.5 2L38.5 25" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M15.5 33L19.5 28L15.5 25L6.5 34L14.5 42L38.5 19" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M1.5 22L5.5 26L9.5 22L5.5 18L1.5 22Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-</svg></div>
+        <div className="element-left">
+          <OrnamentsRightIcon />
+        </div>
     </div>  
     <div className="container">
       <NavLink to="/" className="button"> На головну </NavLink>

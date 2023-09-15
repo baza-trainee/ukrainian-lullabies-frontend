@@ -45,6 +45,9 @@ button {
   cursor: pointer;
 }
 
+a {
+  text-decoration-line: none;
+}
 /* Container Styles */
 .container {
   display: grid;
@@ -58,4 +61,3 @@ button {
     grid-template-columns: repeat(12, 1fr);
   }
 }
-
