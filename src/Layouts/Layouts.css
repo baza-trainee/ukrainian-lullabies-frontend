@@ -5,28 +5,28 @@
 
 .bg-dark-img-left {
   content: '';
-  background-image: url("../../images/ornamentsDark.png");
+  background-image: url("../assets/images/ornamentsDark.png");
   background-repeat: repeat-y;
   display: block;
+  position: fixed;
   z-index: 2;
-  position: absolute;
   left: 0;
   top: 0;
-  height: 279vh;
+  height: 100%;
   width: 140px;
 }
 
 .bg-dark-img-right {
   content: '';
-  background-image: url("../../images/ornamentsDark.png");
+  background-image: url("../assets/images/ornamentsDark.png");
   background-repeat: repeat-y;
   display: block;
+   position: fixed;
+
   z-index: 2;
-  position: absolute;
   right: 0;
   top: 0;
-    height: 279vh;
-
+  height: 100%;
   width: 140px;
   transform: scaleX(-1);
 }
