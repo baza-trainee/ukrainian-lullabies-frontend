@@ -5,7 +5,7 @@
 
 .bg-dark-img-left {
   content: '';
-  background-image: url("src/assets/images/ornamentsDark.png");
+  background-image: url("../../images/ornamentsDark.png");
   background-repeat: repeat-y;
   display: block;
   z-index: 2;
@@ -18,7 +18,7 @@
 
 .bg-dark-img-right {
   content: '';
-  background-image: url("src/assets/images/ornamentsDark.png");
+  background-image: url("../../images/ornamentsDark.png");
   background-repeat: repeat-y;
   display: block;
   z-index: 2;
