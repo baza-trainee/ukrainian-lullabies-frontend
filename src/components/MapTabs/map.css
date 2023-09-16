@@ -37,14 +37,6 @@
     }
 }
 
-.map-tabs__dark {
-    color: var(--gray-0, #FAFAFA);
-}
-
-.map-tabs__light {
-    color: var(--gray-black-950, #000);
-}
-
 .map-tabs__text {
     font-family: Unbounded;
     margin-top: 20px;

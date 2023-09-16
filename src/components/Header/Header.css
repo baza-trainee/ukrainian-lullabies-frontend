@@ -13,8 +13,7 @@ a {
 }
 
 .light {
-  background: white;
-  color: black;
+  background: var(--white-0);
 }
 
 .header-with-search-bar-open {

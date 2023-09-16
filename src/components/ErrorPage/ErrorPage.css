@@ -2,7 +2,7 @@
   padding: 48px;
   grid-column: 1/13;
  
- background-image: url("../../images/frame-hero-a.png");
+  background-image: url("../../images/frame-hero-a.png");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -12,11 +12,11 @@
   font-size: 32px;
   font-style: normal;
   font-weight: 700;
-  line-height: 40px; 
 
-  grid-column: 5/9;
-  padding: 0 10px;
+  grid-column:5/10;
   margin-top: 88px;
+  width: 308px;
+  margin: 88px 10px 0;
 }
 
 .errorPage__svg404 {
@@ -54,28 +54,15 @@
   grid-column: 4/10;
 }
 
-.button {
+.errorPage-button {
   grid-column: 5/9;
-  border-radius: 46px;
-  border: 2px solid var(--red-700);
-  display: flex;
-  width: 250px;
-  height: 56px;
-  padding: 16px 0px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
   margin: 57px 47px 0;
-  color: var(--red-700);
 }
 
-.button:hover{
-  background: var(--red-700);
-  color: var(--grey-black-950);
+.fill-for-dark{
+  fill: var(--white-0);
 }
 
-.button:active{
-  border: 2px solid var(--red-900);
-  background: var(--red-900);
+.fill-for-light{
+  fill: var(--grey-black-950);
 }

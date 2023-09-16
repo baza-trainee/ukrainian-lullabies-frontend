@@ -1,8 +1,6 @@
 .chat_wrapper {
     display: grid;
     grid-column: 1/13;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .chat_info {
@@ -15,7 +13,6 @@
 .chat_title {
     font-size: 32px;
     font-weight: 700;
-    color: var(--gray0);
     line-height: 40px;
     
 }
@@ -23,7 +20,6 @@
 .chat_rule_list {
     padding: 38px 0px;
     list-style-type: none;
-    color: var(--gray0);
     list-style-position:inside;
 }
 
