@@ -6,7 +6,7 @@
 
 .bg-dark-img-left {
   content: '';
-  background-image: url("../../images/ornamentsDark.png");
+  background-image: url("../assets/images/ornamentsDark.png");
 
   background-repeat: repeat-y;
   display: block;
@@ -23,7 +23,7 @@
   background-image: url("../assets/images/ornamentsDark.png");
   background-repeat: repeat-y;
   display: block;
-   position: fixed;
+  position: fixed;
 
   z-index: 2;
   right: 0;
