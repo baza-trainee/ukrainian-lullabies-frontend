@@ -47,6 +47,7 @@ button {
 
 /* Container Styles */
 .container {
+  display: grid;
   text-align: center;
   grid-template-columns: 1;
   gap: 24px;
