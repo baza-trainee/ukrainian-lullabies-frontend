@@ -3,6 +3,7 @@
   --gray0: #fafafa;
   --white-0: #fff;
   --gray-black-950: #000;
+  --gray-black-800: #454545;
   --gray-black-100: #e7e7e7;
   --gray-black-300: #b0b0b0;
   --second-text-color-white-player: #7b7b7b;
@@ -17,6 +18,11 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
+  transition: 200ms;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* Body Styles */
@@ -24,7 +30,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Montserrat Alternates", sans-serif;
-  color: var(--white-0);
 }
 
 /* Image Styles */
@@ -45,6 +50,9 @@ button {
   cursor: pointer;
 }
 
+a {
+  text-decoration-line: none;
+}
 /* Container Styles */
 .container {
   display: grid;
@@ -53,7 +61,7 @@ button {
   gap: 24px;
 }
 
-@media (min-width: 1024px) {
+ @media (min-width: 1024px) {
   .container {
     grid-template-columns: repeat(12, 1fr);
   }

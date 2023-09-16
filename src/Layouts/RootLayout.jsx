@@ -1,19 +1,40 @@
 import React from 'react';
 import { Outlet } from "react-router-dom";
-import {Header} from "../components/Header/Header";
-import {Footer} from "../components/Footer/Footer";
+import { Header } from "../components/Header/Header";
+import { Footer } from "../components/Footer/Footer";
+import classNames from "classnames";
+import { useSelector } from "react-redux";
 import "./Layouts.css";
 
+
 export default function RootLayout() {
+  const isLightTheme = useSelector((state) => state.theme.isLightTheme);
+
   return (
-    <div className='background-dark'>
-      <div className='content'>
-         <Header />
-      <main className='container'>
-        <Outlet />
-      </main>
-      <Footer />
-      </div>
-    </div>
+    <>
+      <div className={ classNames('body', {
+        'bg-dark': !isLightTheme,
+        'bg-light': isLightTheme,
+      }) }>
+        <div className={ classNames('bg-img-left', {
+          'bg-image-dark': !isLightTheme,
+          'bg-image-light': isLightTheme,
+        }) }></div>
+        <div className={ classNames('content', {
+          'bg-dark': !isLightTheme,
+          'bg-light': isLightTheme,
+        }) }>
+          <Header />
+          <main className='container'>
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
+        <div className={ classNames('bg-img-right', {
+          'bg-image-dark': !isLightTheme,
+          'bg-image-light': isLightTheme,
+        }) }></div>
+      </div >
+    </>
   );
 }
