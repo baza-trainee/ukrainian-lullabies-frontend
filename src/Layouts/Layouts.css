@@ -3,9 +3,11 @@
   min-height: 100vh;
 }
 
+
 .bg-dark-img-left {
   content: '';
-  background-image: url("../assets/images/ornamentsDark.png");
+  background-image: url("../../images/ornamentsDark.png");
+
   background-repeat: repeat-y;
   display: block;
   position: fixed;
