@@ -1,0 +1,22 @@
+.SupportTheProject {
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.support__text {
+  color: var(--gray-0, #fafafa);
+  font-feature-settings:
+    "clig" off,
+    "liga" off;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.donats {
+    display: flex;
+    gap: 24px;
+}
