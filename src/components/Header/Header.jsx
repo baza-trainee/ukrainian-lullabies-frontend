@@ -1,15 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
-import classNames from "classnames";
-import "./Header.css";
 import { Link, NavLink } from "react-router-dom";
+import classNames from "classnames";
+import { useSelector, useDispatch } from "react-redux";
+import { changedToLight, changedToDark } from "../../redux/theme/themeSlice";
+import "./Header.css";
 import { LogoDark, LogoLight } from "../SVGComponents/Logo";
 
 export const Header = () => {
+  const dispatch = useDispatch();
+
+  // dropdown menu
   const dropdownMenuRef = useRef();
   const dropdownWrapperRef = useRef();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  // dropdown menu
   const dropdownMenuClick = (e) => {
     if (isDropdownOpen) {
       setIsDropdownOpen(false);
@@ -91,16 +95,14 @@ export const Header = () => {
   };
 
   // theme toggle
+  const isLightTheme = useSelector((state) => state.theme.isLightTheme);
   const themeToggleRef = useRef();
-  const [isLightTheme, setIsLightTheme] = useState(false);
 
   const themeToggle = () => {
     if (!isLightTheme) {
-      setIsLightTheme(true);
-      // themeToggleRef.current.style.backgroundColor = "var(--gray-black-100)";
+      dispatch(changedToLight());
     } else {
-      setIsLightTheme(false);
-      // themeToggleRef.current.style.backgroundColor = "var(--gray-black-800)";
+      dispatch(changedToDark());
     }
   };
 
@@ -167,8 +169,8 @@ export const Header = () => {
             })}
             ref={languageMenuRef}
           >
-            <button onClick={() => setCurrentLanguage("UA")}>UA</button>
-            <button onClick={() => setCurrentLanguage("EN")}>EN</button>
+            <button onClick={() => chooseLanguage("UA")}>UA</button>
+            <button onClick={() => chooseLanguage("EN")}>EN</button>
           </div>
         </div>
         <div className={classNames("header-user-icon", { "header-user-icon-light": isLightTheme })}>
