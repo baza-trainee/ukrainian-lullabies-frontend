@@ -1,14 +1,14 @@
 .bg-dark {
   background: var(--gray-black-950);
-  
+  color: var(--gray0);
 }
+
 .body{
   position: relative;
+  transition: 300ms;
 }
 
-
-.bg-dark-img-left, .bg-dark-img-right {
-  background-image: url("../images/ornamentsDark.png");
+.bg-img-left, .bg-img-right {
   background-repeat: repeat-y;
 
   min-width: 140px;
@@ -21,21 +21,28 @@
   content: "";
 }
 
-.bg-dark-img-left {
+.bg-image-dark{
+  background-image: url("../images/ornamentsDark.png");
+}
+
+.bg-image-light{
+  background-image: url("../images/ornamentsLight.png");
+}
+
+.bg-img-left {
   left: 0;
   transform: scaleX(1);
 }
-.bg-dark-img-right {
+.bg-img-right {
   right: 0;
   transform: scaleX(-1);
 }
 
  
 /* Background Light Styles */
-.background-light {
+.bg-light {
   background: var(--white-0);
-  height: 100vh;
-  min-height: 100vh;
+  color: var(--gray-black-950);
 }
 
 .background-light::after {
@@ -66,9 +73,54 @@
 .content {
   width: 1160px;
   margin: 0 auto;
+  padding: 0 48px;
   z-index: 12;
   position: relative;
- margin: 0 auto;
+  margin: 0 auto;
 }
 
+.button {
+  border-radius: 46px;
+  border: 2px solid var(--red-700);
+  display: flex;
+  width: 250px;
+  height: 56px;
+  padding: 16px 0px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
 
+.button-dark:hover{
+  background: var(--red-700);
+  color: var(--grey-black-950);
+}
+
+.button-dark:active{
+  border: 2px solid var(--red-900);
+  background: var(--red-900);
+}
+
+.button-light {
+  border-radius: 46px;
+  border: 2px solid var(--red-700);
+  display: flex;
+  width: 250px;
+  height: 56px;
+  padding: 16px 0px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.button:hover{
+  background: var(--red-700);
+  color: var(--grey-black-950);
+}
+
+.button:active{
+  border: 2px solid var(--red-900);
+  background: var(--red-900);
+}
