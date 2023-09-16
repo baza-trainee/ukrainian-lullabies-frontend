@@ -7,8 +7,10 @@ import "./Layouts.css";
 export default function RootLayout() {
   return (
     <>
+
       <div className='bg-dark'>
         <div className="bg-dark-img-left"></div>  
+
         <div className='content bg-dark'>
           <Header />
           <main className='container'>
