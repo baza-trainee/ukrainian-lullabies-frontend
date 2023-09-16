@@ -1,38 +1,34 @@
 .bg-dark {
   background: var(--gray-black-950);
-  min-height: 100vh;
+  
+}
+.body{
+  position: relative;
 }
 
+.bg-dark-img-left, .bg-dark-img-right {
+  background-image: url("../assets/images/ornamentsDark.png");
+  background-repeat: repeat-y;
+  min-width: 140px;
+  width: 100%;
+  max-width: 320px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  content: "";
+}
 
 .bg-dark-img-left {
-  content: '';
-  background-image: url("../assets/images/ornamentsDark.png");
-
-  background-repeat: repeat-y;
-  display: block;
-  position: fixed;
-  z-index: 2;
   left: 0;
-  top: 0;
-  height: 100%;
-  width: 140px;
+  transform: scaleX(1);
 }
 
 .bg-dark-img-right {
-  content: '';
-  background-image: url("../assets/images/ornamentsDark.png");
-  background-repeat: repeat-y;
-  display: block;
-  position: fixed;
-
-  z-index: 2;
   right: 0;
-  top: 0;
-  height: 100%;
-  width: 140px;
   transform: scaleX(-1);
 }
 
+ 
 /* Background Light Styles */
 .background-light {
   background: var(--white-0);
