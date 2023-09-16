@@ -9,12 +9,13 @@
 
 .bg-dark-img-left, .bg-dark-img-right {
   background-image: url("../images/ornamentsDark.png");
-
   background-repeat: repeat-y;
+
   min-width: 140px;
   width: 100%;
   max-width: 320px;
   height: 100%;
+  
   position: absolute;
   top: 0;
   content: "";
