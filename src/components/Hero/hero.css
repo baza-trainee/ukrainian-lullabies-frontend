@@ -86,8 +86,8 @@
 
 button:hover .shareIcon path,
 button:focus .shareIcon path {
-  fill: var(--red-700);
+  stroke: var(--red-700);
 }
 button:active .shareIcon path {
-  fill: #171717;
+  stroke: #171717;
 }
