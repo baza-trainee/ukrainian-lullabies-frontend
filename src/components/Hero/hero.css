@@ -92,6 +92,9 @@
   border: 2px solid var(--red-700);
   color: var(--red-700);
 }
+.shareIcon {
+  margin-left: 8px;
+}
 
 .listen-button:hover,
 .listen-button:focus {

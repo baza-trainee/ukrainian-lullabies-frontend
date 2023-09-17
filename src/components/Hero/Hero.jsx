@@ -19,6 +19,7 @@ import "./hero.css";
 
 const Hero = () => {
   // theme toggle
+
   const isLightTheme = useSelector(getLightTheme);
 
   const animationElement = {
