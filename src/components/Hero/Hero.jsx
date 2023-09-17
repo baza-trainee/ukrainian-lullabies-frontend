@@ -21,6 +21,7 @@ import "./hero.css";
 
 const Hero = () => {
   // theme toggle
+
   const isLightTheme = useSelector(getLightTheme);
   // notofication
   const [isNotification, setIsNotification] = useState(false);
