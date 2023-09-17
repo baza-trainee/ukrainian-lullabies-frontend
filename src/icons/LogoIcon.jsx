@@ -43,8 +43,8 @@ function LogoIcon(props) {
           y2="8.89155"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <image id="image0_1712_1228" width="2156" height="935" />
       </defs>
