@@ -12,10 +12,6 @@ a {
   margin-bottom: -2px;
 }
 
-.light {
-  background: var(--white-0);
-}
-
 .header-with-search-bar-open {
   display: grid;
   grid-template: 1fr / 1fr 11fr;
@@ -55,7 +51,6 @@ a {
 
 .header-dropdown-button {
   display: flex;
-  gap: 10px;
   align-items: center;
   justify-content: center;
 }
@@ -66,18 +61,21 @@ a {
   width: 100%;
   position: absolute;
   left: 0;
-  bottom: -136px;
+  top: 110%;
   background-color: var(--gray-black-800);
   border-radius: 8px;
+  z-index: 3;
+  animation: growDown 300ms ease-in-out forwards;
+  transform-origin: top center;
 }
 
 .header-dropdown-menu a {
-  width: 100%;
   padding: 12px 8px;
   text-align: left;
+  transition: none;
 }
 
-.header-dropdown-menu a:active {
+.header-dropdown-menu a:hover {
   border-bottom: 2px solid var(--red-700);
   border-radius: 8px;
   margin-bottom: -2px;
@@ -111,7 +109,6 @@ a {
 .header-languages-button {
   display: flex;
   align-items: center;
-  gap: 8px;
 }
 
 .header-languages-menu {
@@ -119,6 +116,9 @@ a {
   left: 0;
   bottom: -80px;
   background-color: var(--gray-black-800);
+  z-index: 3;
+  animation: growDown 300ms ease-in-out forwards;
+  transform-origin: top center;
 }
 
 .header-languages-menu button {
@@ -128,6 +128,7 @@ a {
   color: inherit;
   background-color: transparent;
   border: none;
+  transition: none;
 }
 
 .header-languages-menu button:hover {
@@ -157,6 +158,7 @@ a {
 .header-user-icon:hover {
   border: 2px solid var(--gray0);
   border-radius: 30px;
+  transition: none;
 }
 
 .header-user-icon-light svg path {
@@ -182,6 +184,8 @@ a {
   padding: 8px 16px;
   border-radius: 50px;
   background-color: var(--gray-black-800);
+  animation: growToLeft 400ms ease-in-out forwards;
+  transform-origin: right;
 }
 
 .header-search-bar input {
@@ -217,7 +221,7 @@ a {
   display: flex;
   gap: 33px;
   align-items: center;
-  padding: 5px 5px 5px 8px;
+  padding: 7px 5px 7px 8px;
   border-radius: 200px;
   background-color: var(--gray-black-800);
   position: relative;
@@ -241,7 +245,6 @@ a {
 .header-about-link:hover,
 .header-dropdown-button:hover,
 .header-dropdown-button:hover svg path,
-.header-dropdown-menu a:hover,
 .header-languages-button:hover,
 .header-languages-button:hover svg path {
   color: var(--red-700);
@@ -251,4 +254,28 @@ a {
 .header-search-bar-open {
   display: flex;
   grid-column: 2 / 3;
+}
+
+@keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes growToLeft {
+  0% {
+    transform: scaleX(0);
+  }
+  80% {
+    transform: scaleX(1.1);
+  }
+  100% {
+    transform: scaleX(1);
+  }
 }
