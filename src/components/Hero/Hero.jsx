@@ -1,4 +1,5 @@
 import React from "react";
+
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
@@ -31,65 +32,68 @@ const Hero = () => {
       transition: { ease: "easeOut", duration: 2, delay: custom * 0.3 },
     }),
   };
+
   return (
     <motion.div
       initial="hidden"
       whileInView="visible"
-      className=" container heroWrapper margin-bottom"
+      className="container heroWrapper margin-bottom"
     >
-      <motion.div
-        custom={1}
-        variants={animationElement}
-        className="kolyskovaWrap"
-      >
-        <div className="kolyIcon">
-          <KolyIcon />
-        </div>
-        <div className="letterS">
-          <SIcon />
-        </div>
-        <div className="kovaIcon">
-          <KovaIcon />
-        </div>
-        <div className="oundIconWrap">
-          <OundIcon />
-        </div>
-      </motion.div>
-      <motion.div
-        custom={2}
-        variants={animationElement}
-        className="ornamentWrap"
-      >
-        <OrnamentsLeftIcon />
-        <p className="ornamentWrap__text">
-          Поринь у чарівний світ української колискової. Тут у <br />
-          кожній ноті оживає душа народу, у кожному слові
-          <br /> закарбовано генетичний зв’язок з родом. Відкрий для себе
-          <br />
-          неповторний колисковий світ, де від покоління до
-          <br /> покоління линуть мелодійні слова любові та ніжності,
-          <br />
-          закодовані на щасливу долю дитини.
-        </p>
-        <OrnamentsRightIcon />
-      </motion.div>
-      <motion.div
-        custom={3}
-        variants={animationElement}
-        className="hero-btn animation"
-      >
-        <div className="hero-btn">
-          <NavLink
-            to=""
-            className={classNames("button", "listen-button", {
-              "button-dark": !isLightTheme,
-            })}
-          >
-            Слухати
-          </NavLink>
-          <ButtonShare text="Поділитися" isLightTheme={isLightTheme} />
-        </div>
-      </motion.div>
+      <div className="kolyskovaWrap">
+        <motion.div
+          custom={1}
+          variants={animationElement}
+          className="kolyskovaWrap"
+        >
+          <div className="kolyIcon">
+            <KolyIcon />
+          </div>
+          <div className="letterS">
+            <SIcon />
+          </div>
+          <div className="kovaIcon">
+            <KovaIcon />
+          </div>
+          <div className="oundIconWrap">
+            <OundIcon />
+          </div>
+        </motion.div>
+        <motion.div
+          custom={2}
+          variants={animationElement}
+          className="ornamentWrap"
+        >
+          <OrnamentsLeftIcon />
+          <p className="ornamentWrap__text">
+            Поринь у чарівний світ української колискової. Тут у <br />
+            кожній ноті оживає душа народу, у кожному слові
+            <br /> закарбовано генетичний зв’язок з родом. Відкрий для себе
+            <br />
+            неповторний колисковий світ, де від покоління до
+            <br /> покоління линуть мелодійні слова любові та ніжності,
+            <br />
+            закодовані на щасливу долю дитини.
+          </p>
+          <OrnamentsRightIcon />
+        </motion.div>
+        <motion.div
+          custom={3}
+          variants={animationElement}
+          className="hero-btn animation"
+        >
+          <div className="hero-btn">
+            <NavLink
+              to=""
+              className={classNames("button", "listen-button", {
+                "button-dark": !isLightTheme,
+              })}
+            >
+              Слухати
+            </NavLink>
+            <ButtonShare text="Поділитися" isLightTheme={isLightTheme} />
+          </div>
+        </motion.div>
+      </div>
     </motion.div>
   );
 };
