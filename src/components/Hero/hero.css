@@ -94,6 +94,15 @@
   border: 2px solid var(--red-700);
   color: var(--red-700);
 }
+
 .shareIcon {
   margin-left: 8px;
+}
+
+button:hover .shareIcon path,
+button:focus .shareIcon path {
+  stroke: var(--red-700);
+}
+button:active .shareIcon path {
+  stroke: #171717;
 }
