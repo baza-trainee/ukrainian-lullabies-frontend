@@ -12,14 +12,12 @@ import KovaIcon from "../../icons/KovaIcon";
 import OundIcon from "../../icons/OundIcon";
 import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
-
 import ButtonShare from "./Button/ButtonShare";
 
 import "./hero.css";
 
 const Hero = () => {
   // theme toggle
-
   const isLightTheme = useSelector(getLightTheme);
 
   const animationElement = {
