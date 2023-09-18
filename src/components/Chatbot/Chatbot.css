@@ -50,7 +50,6 @@
     height: inherit;
     object-fit: contain;
     background-size: contain;
-    /* display: block; */
 }
 
 .chat_image:hover {
@@ -70,6 +69,23 @@
 }
 
 .chat_button {
+    color: var(--red-700);
+    font-weight: 600; 
+    line-height: 24px;
+}
+
+.chat_button:hover{
+    background: var(--red-700);
+    color: var(--gray-black-950);
+}
+
+.chat_button:active{
+    border: 2px solid var(--red-900);
+    background: var(--red-900);
+    color: var(--gray0);
+}
+
+/* .chat_button {
     cursor: pointer;
     padding: 16px 95.5px;
     border: 2px solid var(--red-700);
@@ -93,7 +109,7 @@
     background-color: var(--red-900);
     border: 2px solid var(--red-900);    
     color: var(--gray0);
-}
+} */
 
 
 
