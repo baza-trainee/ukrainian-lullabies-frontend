@@ -1,18 +1,33 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import { motion } from 'framer-motion';
+
 import tabsSvg from "../../assets/images/ornamentsMapTabsSection.svg"
 import "./map.css"
 
 export const MapTabs = () => {
-
-    return (<section className="tabs margin-bottom">
-        <h2 className="map-tabs__text">Музей колискової</h2>
-        <div className="map-tabs">
-            <NavLink className="map-tabs__button tabs1" to={"/map"}>Традиційні колискові</NavLink>
-            <NavLink className="map-tabs__button tabs2" to={"/songs"}>Співаємо разом</NavLink>
-            <NavLink className="map-tabs__button tabs3" to={"/anima"}>Колискові в анімаціях</NavLink>
-        </div>
-        <Outlet />
-        <img src={tabsSvg} alt="tabsSvg" />
-    </section>)
+  const animationElement = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: custom => ({
+      opacity: 1,
+      transition: { delay: custom * 0.4 },
+    }),
+  }
+  return (<motion.section
+    initial="hidden"
+    whileInView="visible"
+    className="tabs margin-bottom">
+    <motion.h2 custom={ 1 } variants={ animationElement } className="map-tabs__text">Музей колискової</motion.h2>
+    <motion.div custom={ 3 } variants={ animationElement } className="map-tabs">
+      <NavLink className="map-tabs__button tabs1" to={ "/map" }>Традиційні колискові</NavLink>
+      <NavLink className="map-tabs__button tabs2" to={ "/songs" }>Співаємо разом</NavLink>
+      <NavLink className="map-tabs__button tabs3" to={ "/anima" }>Колискові в анімаціях</NavLink>
+    </motion.div>
+    <motion.div custom={ 4 } variants={ animationElement } >
+      <Outlet />
+    </motion.div>
+    <motion.img custom={ 4 } variants={ animationElement } src={ tabsSvg } alt="tabsSvg" />
+  </motion.section>)
 };
