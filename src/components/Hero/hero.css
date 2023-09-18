@@ -88,15 +88,12 @@
   line-height: 24px;
 }
 
-
-.shareIcon {
-  margin-left: 8px;
+.listen-button {
+  border: 2px solid var(--red-700);
+  color: var(--red-700);
 }
 
-button:hover .shareIcon path,
-button:focus .shareIcon path {
-  stroke: var(--red-700);
-}
-button:active .shareIcon path {
-  stroke: #171717;
+.listen-button:hover,
+.listen-button:focus {
+  color: var(--gray-black-950);
 }

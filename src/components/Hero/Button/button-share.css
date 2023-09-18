@@ -1,0 +1,62 @@
+.shared-button {
+  background-color: var(--gray-black-950);
+  border-radius: 46px;
+  color: var(--white-0);
+  display: flex;
+  width: 250px;
+  height: 56px;
+  padding: 16px 0px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.shared-button:hover,
+.shared-button:focus {
+  background-color: var(--white-0);
+  color: var(--red-700);
+}
+
+.shared-button:hover .share-icon path,
+.shared-button:focus .share-icon path {
+  stroke: var(--red-700);
+}
+.shared-button:active {
+  color: #171717;
+}
+
+.shared-button:active .share-icon path {
+  stroke: #171717;
+}
+
+.shared-button-light {
+  background-color: var(--white-0);
+  border-radius: 46px;
+  border: 2px solid var(--gray-black-950);
+  color: var(--gray-black-950);
+  display: flex;
+  width: 250px;
+  height: 56px;
+  padding: 16px 0px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.shared-button-light:hover,
+.shared-button-light:focus {
+  background-color: var(--gray-black-950);
+  color: var(--red-700);
+}
+
+.shared-button-light:hover .share-icon path,
+.shared-button-light:focus .share-icon path {
+  stroke: var(--red-700);
+}
+.shared-button-light:active {
+  color: var(--white-0);
+}
+.shared-button-light .share-icon path {
+  stroke: #171717;
+}
+.shared-button-light:active .share-icon path {
+  stroke: var(--white-0);
+}
