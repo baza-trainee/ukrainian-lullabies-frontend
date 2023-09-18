@@ -6,9 +6,4 @@ export default defineConfig({
   plugins: [
     react(),
   ],
-  resolve: {
-    alias: {
-      'framer-motion': 'framer-motion/dist/framer-motion.dev.js',
-    },
-  }
 })
