@@ -22,11 +22,11 @@ const Chatbot = () => {
           { chatRules }
         </ul>
         <div>
-          <NavLink to="#" className={ classNames('button', 'chat_button') }> Грати </NavLink>  
+          <NavLink to="#" className='button'> Грати </NavLink>  
         </div>
       </div>
       <div className='chat_picture'>
-        <a href='#' className={!isLightTheme ? "chat_image_dark" : "chat_image_white"}></a>
+        <a href='#' className={ classNames("chat_image_dark", {"chat_image_white":isLightTheme}) }></a>
       </div>
     </section>
   )
