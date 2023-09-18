@@ -1,14 +1,11 @@
 import React from "react";
-// import { useSelector } from "react-redux";
 import { NavLink, Outlet } from "react-router-dom";
-// import classNames from "classnames";
 import tabsSvg from "../../assets/images/ornamentsMapTabsSection.svg"
 import "./map.css"
 
 export const MapTabs = () => {
-    // const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
-    return (<section className="tabs">
+    return (<section className="tabs margin-bottom">
         <h2 className="map-tabs__text">Музей колискової</h2>
         <div className="map-tabs">
             <NavLink className="map-tabs__button tabs1" to={"/map"}>Традиційні колискові</NavLink>
