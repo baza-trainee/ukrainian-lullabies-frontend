@@ -1,5 +1,5 @@
 import React from "react";
 
 export const Selections = () => {
-  return <section className=" margin-bottom">Selections</p>;
+  return <section className=" margin-bottom">Selections</section>;
 };
