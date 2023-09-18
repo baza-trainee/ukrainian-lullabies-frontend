@@ -7,7 +7,6 @@ import { PopularSongs } from "../components/PopularSongs/PopularSongs";
 import { useDispatch } from "react-redux";
 import { getPopularSongs } from "../redux/PopularSongs/PopularSongsSlice";
 
-import AnimatedElement from "../components/Animation/animation";
 export const MainPage = () => {
   const dispatch = useDispatch();
 
