@@ -5,7 +5,7 @@
 
 .body{
   position: relative;
-  transition: 300ms;
+  transition: 200ms ease;
 }
 
 .bg-img-left, .bg-img-right {
@@ -73,7 +73,7 @@
 .content {
   width: 1160px;
   margin: 0 auto;
-  padding: 0 48px;
+  padding: 26px 48px;
   z-index: 12;
   position: relative;
   margin: 0 auto;

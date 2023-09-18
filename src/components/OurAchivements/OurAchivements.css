@@ -1,0 +1,47 @@
+.ourAchivements {
+  grid-column: 1/13;
+  text-align: start;
+}
+
+.ourAchivementsTitle {
+  grid-column: 1/5;
+  color: var(--gray-0, #fafafa);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.achivements {
+  display: flex;
+  padding: 48px;
+  justify-content: space-between;
+  margin-top: 58px;
+  grid-column: 1/13;
+  border: 2px solid var(--red-700, #c60f18);
+  border-radius: 56px;
+}
+
+.achivement {
+  grid-column: 2/3;
+}
+.achivement:nth-child(2) {
+  grid-column: 6/7;
+}
+
+.data {
+  color: var(--gray-0, #fafafa);
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.dataName {
+  color: var(--gray-0, #fafafa);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
+}
