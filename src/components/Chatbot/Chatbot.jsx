@@ -10,7 +10,7 @@ const Chatbot = () => {
   ));
 
   return (
-    <div className="chat_wrapper container">
+    <div className="chat_wrapper container margin-bottom">
       <div className='chat_info'>
         <p className="chat_title">Чат-бот</p>
         <ul className='chat_rule_list'>

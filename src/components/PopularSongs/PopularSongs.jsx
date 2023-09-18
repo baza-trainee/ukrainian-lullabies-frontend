@@ -9,18 +9,18 @@ export function PopularSongs() {
   const [isPlayingList, setIsPlayingList] = useState([true, true, true]);
 
   const handleSongClick = (index) => {
-    const updatedPlayingList = Array(3).fill(true); 
+    const updatedPlayingList = Array(3).fill(true);
     updatedPlayingList[index] = !isPlayingList[index];
     setIsPlayingList(updatedPlayingList);
   };
 
   return (
-    <section className="PopularSongs">
+    <section className="PopularSongs margin-bottom">
       <h2 className="PopularSongsTitle">Популярні колискові</h2>
       <div className="PopularSongsList">
-        <Song isPlaying={isPlayingList[0]} onClick={() => handleSongClick(0)} backgroundUrl={favoriteSongFirst} songName={"“Сонце сідає”"} />
-        <Song isPlaying={isPlayingList[1]} onClick={() => handleSongClick(1)} height={"304px"} backgroundUrl={favoriteSongSecond} width={"264px"} songName={"“Ой, ходить сон коло вікон”"} />
-        <Song isPlaying={isPlayingList[2]} onClick={() => handleSongClick(2)} backgroundUrl={favoriteSongThird} songName={"“Повішу я колисочку”"} />
+        <Song isPlaying={ isPlayingList[0] } onClick={ () => handleSongClick(0) } backgroundUrl={ favoriteSongFirst } songName={ "“Сонце сідає”" } />
+        <Song isPlaying={ isPlayingList[1] } onClick={ () => handleSongClick(1) } height={ "304px" } backgroundUrl={ favoriteSongSecond } width={ "264px" } songName={ "“Ой, ходить сон коло вікон”" } />
+        <Song isPlaying={ isPlayingList[2] } onClick={ () => handleSongClick(2) } backgroundUrl={ favoriteSongThird } songName={ "“Повішу я колисочку”" } />
       </div>
       <div className="currentSong"></div>
     </section>

@@ -6,17 +6,12 @@ import { NavLink } from "react-router-dom";
 import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
 import { NumberFour, NumberNull } from '../../icons/Numbers';
-import { useSpring, animated } from 'react-spring';
 
 export const ErrorPage = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
-  const animationProps = useSpring({
-    opacity: 1,
-    from: { opacity: 0 },
-    config: { duration: 2000 },
-  });
+
   return (
-    <animated.div style={ animationProps } className={ classNames('errorPage', {
+    <div className={ classNames('errorPage', {
       'bg-dark': !isLightTheme,
       'bg-light': isLightTheme,
     }) }>
@@ -46,5 +41,5 @@ export const ErrorPage = () => {
       <div className="container">
         <NavLink to="/" className={ classNames('button', 'errorPage-button', { 'button-dark': !isLightTheme, }) }> На головну </NavLink>
       </div>
-    </animated.div>)
+    </div>)
 };
