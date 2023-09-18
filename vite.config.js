@@ -8,7 +8,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      'framer-motion': 'framer-motion/dist/framer-motion.cjs.js',
+      'framer-motion': 'framer-motion/dist/framer-motion.dev.js',
     },
   }
 })
