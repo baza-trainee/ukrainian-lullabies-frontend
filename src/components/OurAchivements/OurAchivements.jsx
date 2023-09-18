@@ -3,7 +3,7 @@ import { SupportTheProject } from "./SupportTheProject/SupportTheProject";
 import './OurAchivements.css'
 
 export const OurAchivements = () => {
-  return <section className="ourAchivements">
+  return <section className="ourAchivements margin-bottom">
     <h2 className="ourAchivementsTitle">Наші напрацювання</h2>
     <div className="achivements">
       <div className="achivement">
@@ -20,6 +20,6 @@ export const OurAchivements = () => {
       </div>
     </div>
     <SupportTheProject />
-    </section>;
+  </section>;
 };
 

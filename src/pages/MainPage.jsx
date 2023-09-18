@@ -17,11 +17,7 @@ export const MainPage = () => {
       <Hero />
       <PopularSongs />
       <MapTabs />
-      <Chatbot />
       <OurAchivements />
-      <AnimatedElement>
-        <MapTabs />
-      </AnimatedElement>
       <Chatbot />
     </>
   );

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSpring, animated } from 'react-spring';
 import KolyIcon from '../../icons/KolyIcon';
 import SIcon from '../../icons/SIcon';
 import KovaIcon from '../../icons/KovaIcon';
@@ -11,15 +10,10 @@ import Share from '../../icons/Share';
 import './hero.css';
 
 const Hero = () => {
-  const animationProps = useSpring({
-    opacity: 1,
-    from: { opacity: 0 },
-    config: { duration: 2000 },
-  });
+
 
   return (
-
-    <animated.div style={ animationProps } className=" container heroWrapper">
+    <div className=" container heroWrapper margin-bottom">
       <div className="kolyskovaWrap">
         <div className="kolyIcon">
           <KolyIcon />
@@ -57,7 +51,7 @@ const Hero = () => {
           <Share className="shareIcon" />
         </Button>
       </div>
-    </animated.div>
+    </div>
   );
 };
 

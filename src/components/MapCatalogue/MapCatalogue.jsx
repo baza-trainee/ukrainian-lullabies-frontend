@@ -156,9 +156,11 @@ export const MapCatalogue = () => {
 
   const handleRegionHover = (photo, pattern) => {
     const hoverPattern = document.getElementById(pattern);
-    if (hoverPattern) {
+    if (hoverPattern)
+    {
       const imageElement = hoverPattern.querySelector("image");
-      if (imageElement) {
+      if (imageElement)
+      {
         imageElement.setAttribute("href", photo);
       }
     }
@@ -168,11 +170,11 @@ export const MapCatalogue = () => {
     handleRegionHover("", pattern);
   };
 
-  return <div className="map-catalogue">
-    {" "}
+  return <div className="map-catalogue" >
+    { " " }
     <div className="map">
       <svg className="svg-map" viewBox="0 0 990 655">
-        {/* Карпати */}
+        {/* Карпати */ }
         <defs>
           <pattern
             id="hoverPattern1"
@@ -185,16 +187,16 @@ export const MapCatalogue = () => {
             <image id="image1" />
           </pattern>
         </defs>
-        <NavLink onClick={() => { handleRegionHover(photo1, "hoverPattern1"); setOnButtonClick(true) }} className="nav" to="/music">
+        <NavLink onClick={ () => { handleRegionHover(photo1, "hoverPattern1"); setOnButtonClick(true) } } className="nav" to="/music">
           <path className="path-map"
             id="region1"
-            onMouseOver={() => handleRegionHover(photo1, "hoverPattern1")}
-            onMouseOut={() => onButtonClick ? null : handleRegionOut("hoverPattern1")}
-            d={regions.region1}
-            style={{ fill: "url(#hoverPattern1)", objectFit: "cover" }}
+            onMouseOver={ () => handleRegionHover(photo1, "hoverPattern1") }
+            onMouseOut={ () => onButtonClick ? null : handleRegionOut("hoverPattern1") }
+            d={ regions.region1 }
+            style={ { fill: "url(#hoverPattern1)", objectFit: "cover" } }
           />
         </NavLink>
-        {/* Західне Поділля */}
+        {/* Західне Поділля */ }
         <defs>
           <pattern id="hoverPattern2" x="0" y="0" width="100%" height="100%">
             <image id="image2" />
@@ -202,12 +204,12 @@ export const MapCatalogue = () => {
         </defs>
         <path className="path-map"
           id="region2"
-          onMouseOver={() => handleRegionHover(photo2, "hoverPattern2")}
-          onMouseOut={() => handleRegionOut("hoverPattern2")}
-          d={regions.region2}
-          style={{ fill: "url(#hoverPattern2)", objectFit: "cover" }}
+          onMouseOver={ () => handleRegionHover(photo2, "hoverPattern2") }
+          onMouseOut={ () => handleRegionOut("hoverPattern2") }
+          d={ regions.region2 }
+          style={ { fill: "url(#hoverPattern2)", objectFit: "cover" } }
         />
-        {/* Волинь */}
+        {/* Волинь */ }
         <defs>
           <pattern id="hoverPattern3" x="0" y="0" width="100%" height="100%">
             <image id="image3" />
@@ -215,12 +217,12 @@ export const MapCatalogue = () => {
         </defs>
         <path className="path-map"
           id="region3"
-          onMouseOver={() => handleRegionHover(photo3, "hoverPattern3")}
-          onMouseOut={() => handleRegionOut("hoverPattern3")}
-          d={regions.region3}
-          style={{ fill: "url(#hoverPattern3)", objectFit: "cover" }}
+          onMouseOver={ () => handleRegionHover(photo3, "hoverPattern3") }
+          onMouseOut={ () => handleRegionOut("hoverPattern3") }
+          d={ regions.region3 }
+          style={ { fill: "url(#hoverPattern3)", objectFit: "cover" } }
         />
-        {/* Західне Полісся */}
+        {/* Західне Полісся */ }
         <defs>
           <pattern id="hoverPattern4" x="0" y="0" width="100%" height="100%">
             <image id="image4" />
@@ -228,12 +230,12 @@ export const MapCatalogue = () => {
         </defs>
         <path className="path-map"
           id="region4"
-          onMouseOver={() => handleRegionHover(photo4, "hoverPattern4")}
-          onMouseOut={() => handleRegionOut("hoverPattern4")}
-          d={regions.region4}
-          style={{ fill: "url(#hoverPattern4)", objectFit: "cover" }}
+          onMouseOver={ () => handleRegionHover(photo4, "hoverPattern4") }
+          onMouseOut={ () => handleRegionOut("hoverPattern4") }
+          d={ regions.region4 }
+          style={ { fill: "url(#hoverPattern4)", objectFit: "cover" } }
         />
-        {/* Східне Полісся */}
+        {/* Східне Полісся */ }
         <defs>
           <pattern id="hoverPattern5" x="0" y="0" width="100%" height="100%">
             <image id="image5" />
@@ -241,12 +243,12 @@ export const MapCatalogue = () => {
         </defs>
         <path className="path-map"
           id="region5"
-          onMouseOver={() => handleRegionHover(photo5, "hoverPattern5")}
-          onMouseOut={() => handleRegionOut("hoverPattern5")}
-          d={regions.region5}
-          style={{ fill: "url(#hoverPattern5)", objectFit: "cover" }}
+          onMouseOver={ () => handleRegionHover(photo5, "hoverPattern5") }
+          onMouseOut={ () => handleRegionOut("hoverPattern5") }
+          d={ regions.region5 }
+          style={ { fill: "url(#hoverPattern5)", objectFit: "cover" } }
         />
-        {/* Середнє Полісся */}
+        {/* Середнє Полісся */ }
         <defs>
           <pattern id="hoverPattern6" x="0" y="0" width="100%" height="100%">
             <image id="image6" />
@@ -254,12 +256,12 @@ export const MapCatalogue = () => {
         </defs>
         <path className="path-map"
           id="region6"
-          onMouseOver={() => handleRegionHover(photo6, "hoverPattern6")}
-          onMouseOut={() => handleRegionOut("hoverPattern6")}
-          d={regions.region6}
-          style={{ fill: "url(#hoverPattern6)", objectFit: "cover" }}
+          onMouseOver={ () => handleRegionHover(photo6, "hoverPattern6") }
+          onMouseOut={ () => handleRegionOut("hoverPattern6") }
+          d={ regions.region6 }
+          style={ { fill: "url(#hoverPattern6)", objectFit: "cover" } }
         />
-        {/* Східне Поділля */}
+        {/* Східне Поділля */ }
         <defs>
           <pattern id="hoverPattern7" x="0" y="0" width="100%" height="100%">
             <image id="image7" />
@@ -267,12 +269,12 @@ export const MapCatalogue = () => {
         </defs>
         <path className="path-map"
           id="region7"
-          onMouseOver={() => handleRegionHover(photo7, "hoverPattern7")}
-          onMouseOut={() => handleRegionOut("hoverPattern7")}
-          d={regions.region7}
-          style={{ fill: "url(#hoverPattern7)", objectFit: "cover" }}
+          onMouseOver={ () => handleRegionHover(photo7, "hoverPattern7") }
+          onMouseOut={ () => handleRegionOut("hoverPattern7") }
+          d={ regions.region7 }
+          style={ { fill: "url(#hoverPattern7)", objectFit: "cover" } }
         />
-        {/* Середня Наддніпрянщина */}
+        {/* Середня Наддніпрянщина */ }
         <defs>
           <pattern id="hoverPattern8" x="0" y="0" width="100%" height="100%">
             <image id="image8" />
@@ -280,12 +282,12 @@ export const MapCatalogue = () => {
         </defs>
         <path className="path-map"
           id="region8"
-          onMouseOver={() => handleRegionHover(photo8, "hoverPattern8")}
-          onMouseOut={() => handleRegionOut("hoverPattern8")}
-          d={regions.region8}
-          style={{ fill: "url(#hoverPattern8)", objectFit: "cover" }}
+          onMouseOver={ () => handleRegionHover(photo8, "hoverPattern8") }
+          onMouseOut={ () => handleRegionOut("hoverPattern8") }
+          d={ regions.region8 }
+          style={ { fill: "url(#hoverPattern8)", objectFit: "cover" } }
         />
-        {/* Слобідщина */}
+        {/* Слобідщина */ }
         <defs>
           <pattern id="hoverPattern9" x="0" y="0" width="100%" height="100%">
             <image id="image9" />
@@ -293,12 +295,12 @@ export const MapCatalogue = () => {
         </defs>
         <path
           id="region9"
-          onMouseOver={() => handleRegionHover(photo9, "hoverPattern9")}
-          onMouseOut={() => handleRegionOut("hoverPattern9")}
-          d={regions.region9}
-          style={{ fill: "url(#hoverPattern9)", objectFit: "cover" }}
+          onMouseOver={ () => handleRegionHover(photo9, "hoverPattern9") }
+          onMouseOut={ () => handleRegionOut("hoverPattern9") }
+          d={ regions.region9 }
+          style={ { fill: "url(#hoverPattern9)", objectFit: "cover" } }
         />
-        {/* Донщина */}
+        {/* Донщина */ }
         <defs>
           <pattern id="hoverPattern10" x="0" y="0" width="100%" height="100%">
             <image id="image10" />
@@ -306,12 +308,12 @@ export const MapCatalogue = () => {
         </defs>
         <path
           id="region10"
-          onMouseOver={() => handleRegionHover(photo10, "hoverPattern10")}
-          onMouseOut={() => handleRegionOut("hoverPattern10")}
-          d={regions.region10}
-          style={{ fill: "url(#hoverPattern10)", objectFit: "cover" }}
+          onMouseOver={ () => handleRegionHover(photo10, "hoverPattern10") }
+          onMouseOut={ () => handleRegionOut("hoverPattern10") }
+          d={ regions.region10 }
+          style={ { fill: "url(#hoverPattern10)", objectFit: "cover" } }
         />
-        {/* Таврія */}
+        {/* Таврія */ }
         <defs>
           <pattern id="hoverPattern11" x="0" y="0" width="100%" height="100%">
             <image id="image11" />
@@ -319,12 +321,12 @@ export const MapCatalogue = () => {
         </defs>
         <path
           id="region11"
-          onMouseOver={() => handleRegionHover(photo11, "hoverPattern11")}
-          onMouseOut={() => handleRegionOut("hoverPattern11")}
-          d={regions.region11}
-          style={{ fill: "url(#hoverPattern11)", objectFit: "cover" }}
+          onMouseOver={ () => handleRegionHover(photo11, "hoverPattern11") }
+          onMouseOut={ () => handleRegionOut("hoverPattern11") }
+          d={ regions.region11 }
+          style={ { fill: "url(#hoverPattern11)", objectFit: "cover" } }
         />
-        {/* Нижнє Подніпров'я */}
+        {/* Нижнє Подніпров'я */ }
         <defs>
           <pattern id="hoverPattern12" x="0" y="0" width="100%" height="100%">
             <image id="image12" />
@@ -332,12 +334,12 @@ export const MapCatalogue = () => {
         </defs>
         <path
           id="region12"
-          onMouseOver={() => handleRegionHover(photo12, "hoverPattern12")}
-          onMouseOut={() => handleRegionOut("hoverPattern12")}
-          d={regions.region12}
-          style={{ fill: "url(#hoverPattern12)", objectFit: "cover" }}
+          onMouseOver={ () => handleRegionHover(photo12, "hoverPattern12") }
+          onMouseOut={ () => handleRegionOut("hoverPattern12") }
+          d={ regions.region12 }
+          style={ { fill: "url(#hoverPattern12)", objectFit: "cover" } }
         />
-        {/* Нижнє Побужжя */}
+        {/* Нижнє Побужжя */ }
         <defs>
           <pattern id="hoverPattern13" x="0" y="0" width="100%" height="100%">
             <image id="image13" />
@@ -345,12 +347,12 @@ export const MapCatalogue = () => {
         </defs>
         <path className="path-map"
           id="region13"
-          onMouseOver={() => handleRegionHover(photo13, "hoverPattern13")}
-          onMouseOut={() => handleRegionOut("hoverPattern13")}
-          d={regions.region13}
-          style={{ fill: "url(#hoverPattern13)", objectFit: "cover" }}
+          onMouseOver={ () => handleRegionHover(photo13, "hoverPattern13") }
+          onMouseOut={ () => handleRegionOut("hoverPattern13") }
+          d={ regions.region13 }
+          style={ { fill: "url(#hoverPattern13)", objectFit: "cover" } }
         />
-        {/* Крим */}
+        {/* Крим */ }
         <defs>
           <pattern id="hoverPattern14" x="0" y="0" width="100%" height="100%">
             <image id="image14" />
@@ -358,13 +360,13 @@ export const MapCatalogue = () => {
         </defs>
         <path className="path-map"
           id="region14"
-          onMouseOver={() => handleRegionHover(photo14, "hoverPattern14")}
-          onMouseOut={() => handleRegionOut("hoverPattern14")}
-          d={regions.region14}
-          style={{ fill: "url(#hoverPattern14)", objectFit: "cover" }}
+          onMouseOver={ () => handleRegionHover(photo14, "hoverPattern14") }
+          onMouseOut={ () => handleRegionOut("hoverPattern14") }
+          d={ regions.region14 }
+          style={ { fill: "url(#hoverPattern14)", objectFit: "cover" } }
         />
       </svg>
-      <img className="img-map" src={map} alt="Map" />
+      <img className="img-map" src={ map } alt="Map" />
     </div>
     <Outlet />
   </div>
