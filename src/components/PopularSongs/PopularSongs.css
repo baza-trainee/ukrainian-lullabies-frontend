@@ -1,0 +1,25 @@
+.PopularSongs {
+  grid-column: 1/13;
+  text-align: start;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 32px;
+}
+
+.PopularSongsTitle {
+  grid-column: 1/13;
+  color: var(--gray-0, #fafafa);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.PopularSongsList {
+    grid-column: 3/12;
+    width: 800px;
+    margin-top: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
