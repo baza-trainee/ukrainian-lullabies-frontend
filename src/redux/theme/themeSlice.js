@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const isPreferredLight = localStorage.getItem("isPreferredLight");
+
 const initialState = {
-  isLightTheme: false,
+  isLightTheme: isPreferredLight ? true : false,
 };
 
 const themeSlice = createSlice({
@@ -10,9 +12,11 @@ const themeSlice = createSlice({
   reducers: {
     changedToLight: (state) => {
       state.isLightTheme = true;
+      localStorage.setItem("isPreferredLight", true);
     },
     changedToDark: (state) => {
       state.isLightTheme = false;
+      localStorage.removeItem("isPreferredLight");
     },
   },
 });
