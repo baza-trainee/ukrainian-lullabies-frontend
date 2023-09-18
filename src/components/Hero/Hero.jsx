@@ -1,25 +1,39 @@
 import React from "react";
+// import { useSelector } from "react-redux";
+// import classNames from "classnames";
+
+// import { getLightTheme } from "../../redux/theme/themeSelectors";
 
 import KolyIcon from "../../icons/KolyIcon";
+// import { KolyIconWord } from "../../icons/KolyIcon";
 import SIcon from "../../icons/SIcon";
 import KovaIcon from "../../icons/KovaIcon";
 import OundIcon from "../../icons/OundIcon";
+
 import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
 import Button from "../../shared/components/Button/Button";
 import Share from "../../icons/Share";
-// import ShevronDown from "../../icons/ShevronDown";
 
 import "./hero.css";
 
 const Hero = () => {
+  // theme toggle
+  // const isLightTheme = useSelector(getLightTheme);
+
   return (
     <>
-      <div className="heroWrapper">
+      <div className="heroWrapper container ">
         <div className="kolyskovaWrap">
-          <KolyIcon />
-          <SIcon className="letterS" />
-          <KovaIcon />
+          <div className="kolyIcon">
+            <KolyIcon />
+          </div>
+          <div className="letterS">
+            <SIcon />
+          </div>
+          <div className="kovaIcon">
+            <KovaIcon />
+          </div>
           <div className="oundIconWrap">
             <OundIcon />
           </div>
