@@ -5,7 +5,7 @@
 
 .body{
   position: relative;
-  transition: 300ms;
+  transition: 200ms ease;
 }
 
 .bg-img-left, .bg-img-right {
