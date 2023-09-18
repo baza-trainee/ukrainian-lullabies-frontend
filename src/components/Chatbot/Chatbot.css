@@ -42,7 +42,7 @@
     margin: 42px 0px;
 }
 
-.chat_image {
+.chat_image_dark {
     cursor: pointer;
     /* border: 1px solid blue; */
     background: url("../../img/motanka/motanka-black.png");
@@ -52,26 +52,40 @@
     background-size: contain;
 }
 
-.chat_image:hover {
+.chat_image_dark:hover {
     background: url("../../img/motanka/motanka-black-hover.png");
-    width: inherit;
-    height: inherit;
     background-size: contain;
-    object-fit: contain;
 }
 
-.chat_image:active {
+.chat_image_dark:active {
     background: url("../../img/motanka/motanka-black-active.png");
+    background-size: contain;
+}
+
+.chat_image_white {
+    cursor: pointer;
+    background: url("../../img/motanka/motanka-white.png");
     width: inherit;
     height: inherit;
-    background-size: contain;
     object-fit: contain;
+    background-size: contain;
+}
+
+.chat_image_white:hover {
+    background: url("../../img/motanka/motanka-white-hover.png");
+    background-size: contain;
+}
+
+.chat_image_white:active {
+    background: url("../../img/motanka/motanka-white-active.png");
+    background-size: contain;
 }
 
 .chat_button {
     color: var(--red-700);
     font-weight: 600; 
     line-height: 24px;
+    font-size: 16px;
 }
 
 .chat_button:hover{
