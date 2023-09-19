@@ -1,6 +1,7 @@
 import React from "react";
 import "./lullabies-animation.css";
+import { ErrorPage } from "../ErrorPage/ErrorPage";
 
 export const LullabiesInAnimation = () => {
-  return <div className="lullabies-animation margin-bottom container">< h2 > LullabiesInAnimation</ h2></div>;
+  return <div><ErrorPage /></div>;
 };
