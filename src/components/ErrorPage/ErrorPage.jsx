@@ -11,7 +11,7 @@ export const ErrorPage = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
   return (
-    <section className={ classNames('errorPage', {
+    <div className={ classNames('errorPage', {
       'bg-dark': !isLightTheme,
       'bg-light': isLightTheme,
     }) }>
@@ -41,5 +41,5 @@ export const ErrorPage = () => {
       <div className="container">
         <NavLink to="/" className={ classNames('button', 'errorPage-button', { 'button-dark': !isLightTheme, }) }> На головну </NavLink>
       </div>
-    </section>)
+    </div>)
 };

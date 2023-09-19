@@ -1,7 +1,4 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
-import classNames from "classnames";
 import rules from "./text";
 import "./Chatbot.css";
 
@@ -14,21 +11,41 @@ const Chatbot = () => {
     </li>
   ));
 
+  const animationElement = {
+    hidden: {
+      y: -50,
+      opacity: 0,
+    },
+    visible: custom => ({
+      y: 0,
+      opacity: 1,
+      transition: { ease: "easeOut", duration: 2, delay: custom * 0.3 },
+    }),
+  }
+
   return (
-    <section className="chat_wrapper container">
+    <div className="chat_wrapper container">
       <div className='chat_info'>
-        <p className="chat_title">Чат-бот</p>
-        <ul className='chat_rule_list'>
+        <motion.p
+          custom={ 1 }
+          variants={ animationElement }
+          className="chat_title">
+          Чат-бот
+        </motion.p>
+        <motion.ul
+          custom={ 2 }
+          variants={ animationElement }
+          className='chat_rule_list'>
           { chatRules }
         </ul>
-        <div>
-          <NavLink to="#" className='button'> Грати </NavLink>  
+        <div className='chat_button'>
+          <a href='#'>Грати</a>
         </div>
       </div>
       <div className='chat_picture'>
-        <a href='#' className={ classNames("chat_image_dark", {"chat_image_white":isLightTheme}) }></a>
+        <a href='#' className='chat_image'></a>
       </div>
-    </section>
+    </div>
   )
 };
 

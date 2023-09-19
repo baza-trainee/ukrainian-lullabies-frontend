@@ -6,7 +6,6 @@ import { changedToLight, changedToDark } from "../../redux/theme/themeSlice";
 import "./Header.css";
 import { LogoDark, LogoLight } from "../SVGComponents/Logo";
 import { IoIosArrowDown } from "react-icons/io";
-import ShevronDown from "../../icons/ShevronDown";
 
 export const Header = () => {
   const dispatch = useDispatch();

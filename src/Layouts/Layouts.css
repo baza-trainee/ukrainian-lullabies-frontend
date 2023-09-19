@@ -3,29 +3,30 @@
   color: var(--gray0);
 }
 
-.body{
+.body {
   position: relative;
-  transition: 300ms;
+  transition: 200ms ease;
 }
 
-.bg-img-left, .bg-img-right {
+.bg-img-left,
+.bg-img-right {
   background-repeat: repeat-y;
 
   min-width: 140px;
   width: 100%;
   max-width: 320px;
   height: 100%;
-  
+
   position: absolute;
   top: 0;
   content: "";
 }
 
-.bg-image-dark{
+.bg-image-dark {
   background-image: url("../images/ornamentsDark.png");
 }
 
-.bg-image-light{
+.bg-image-light {
   background-image: url("../images/ornamentsLight.png");
 }
 
@@ -33,12 +34,13 @@
   left: 0;
   transform: scaleX(1);
 }
+
 .bg-img-right {
   right: 0;
   transform: scaleX(-1);
 }
 
- 
+
 /* Background Light Styles */
 .bg-light {
   background: var(--white-0);
@@ -92,12 +94,12 @@
   flex-shrink: 0;
 }
 
-.button-dark:hover{
+.button-dark:hover {
   background: var(--red-700);
   color: var(--grey-black-950);
 }
 
-.button-dark:active{
+.button-dark:active {
   border: 2px solid var(--red-900);
   background: var(--red-900);
 }
@@ -115,12 +117,16 @@
   flex-shrink: 0;
 }
 
-.button:hover{
+.button:hover {
   background: var(--red-700);
   color: var(--grey-black-950);
 }
 
-.button:active{
+.button:active {
   border: 2px solid var(--red-900);
   background: var(--red-900);
+}
+
+.margin-bottom {
+  margin-bottom: 80px;
 }
