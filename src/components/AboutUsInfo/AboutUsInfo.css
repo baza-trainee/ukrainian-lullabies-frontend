@@ -1,0 +1,35 @@
+.about-as-info_wrapper {
+    border: 1px solid red;
+    display: grid;
+    grid-column: 1/13;
+    color: var(--gray0);
+}
+
+.about-as-info_title {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 700;
+    display: grid;
+    grid-column: 1/5;
+    justify-content: start;
+    margin-bottom: 48px;
+}
+
+.about-as-info_title-small {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+    padding-bottom: 16px;
+}
+
+.about-as-info_text {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.about-as-info_target {
+    display: grid;
+    grid-column: 1/13;
+
+}
