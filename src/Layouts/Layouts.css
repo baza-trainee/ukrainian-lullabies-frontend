@@ -82,7 +82,7 @@
 
 .button {
   border-radius: 46px;
-  /* border: 2px solid var(--red-700); */
+  border: 2px solid var(--red-700);
   display: flex;
   width: 250px;
   height: 56px;
