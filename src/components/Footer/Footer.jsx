@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Footer.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import classNames from "classnames";
 import { LogoDark, LogoLight } from "../SVGComponents/Logo";
 import { BsFacebook, BsArrowUpShort } from "react-icons/bs";
 import { FaTiktok, FaInstagram, FaYoutube } from "react-icons/fa";
@@ -11,7 +12,6 @@ import logoPartnerRed from "../../assets/icons/logo_partner_red.svg";
 import logoBazaTraineeWhite from "../../assets/icons/logo_baza_trainee_white.png";
 import logoBazaTraineeBlack from "../../assets/icons/logo_baza_trainee_black.png";
 import logoEtnoPhotosWhite from "../../assets/icons/logo_etno_photos_white.png";
-import classNames from "classnames";
 // import logoEtnoPhotosBlack from "../../assets/icons/logo_etno_photos_black.png";
 
 const partners = [
@@ -40,14 +40,31 @@ const partners = [
 
 export const Footer = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
+  const [isScrollUpButtonVisible, setIsScrollUpButtonVisible] = useState(false);
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
+
+  useEffect(() => {
+    const checkVisibility = () => {
+      setIsScrollUpButtonVisible(window.scrollY > 1400);
+    };
+
+    window.addEventListener("scroll", checkVisibility);
+
+    return () => {
+      window.removeEventListener("scroll", checkVisibility);
+    };
+  }, []);
+
   return (
     <div className="footer">
       <button
-        className={classNames("footer-scroll-up-button", { "footer-scroll-up-button-light": isLightTheme })}
+        className={classNames("footer-scroll-up-button", {
+          "footer-scroll-up-button-invisible": !isScrollUpButtonVisible,
+          "footer-scroll-up-button-light": isLightTheme,
+        })}
         onClick={scrollToTop}
       >
         <BsArrowUpShort style={{ width: "32px", height: "32px" }} />
@@ -55,7 +72,7 @@ export const Footer = () => {
       <div className="footer-wrapper container">
         <div className="separation-line"></div>
         <div className="footer-logo">
-          <Link to="/">{isLightTheme ? <LogoLight width="92" height="88" /> : <LogoDark width="92" height="88" />}</Link>
+          {isLightTheme ? <LogoLight width="92" height="88" /> : <LogoDark width="92" height="88" />}
         </div>
         <ul className="footer-docs-wrapper">
           <li>

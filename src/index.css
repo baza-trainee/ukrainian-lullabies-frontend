@@ -1,3 +1,17 @@
+/* Lutsk-sity font import */
+@font-face {
+  font-family: "Lutsk-sity";
+  src: url("Lutsk-sity.eot");
+  src:
+    local("Lutsk-sity"),
+    url("./fonts/Lutsk/Lutsk-sity.eot") format("embedded-opentype"),
+    url("./fonts/Lutsk/Lutsk-sity.woff2") format("woff2"),
+    url("./fonts/Lutsk/Lutsk-sity.woff") format("woff"),
+    url("./fonts/Lutsk/Lutsk-sity.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Colors */
 :root {
   --gray0: #fafafa;
@@ -60,12 +74,13 @@ a {
   gap: 24px;
 }
 
- @media (min-width: 1024px) {
+@media (min-width: 1024px) {
   .container {
     grid-template-columns: repeat(12, 1fr);
   }
 }
 
+/* Font Styles */
 /* Paragraph */
 .text-xs {
   font-size: 10px;
