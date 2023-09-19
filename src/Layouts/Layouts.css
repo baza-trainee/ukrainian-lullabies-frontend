@@ -82,7 +82,9 @@
 
 .button {
   border-radius: 46px;
-  /* border: 2px solid var(--red-700); */
+
+  border: 2px solid var(--red-700);
+
   display: flex;
   width: 250px;
   height: 56px;
@@ -92,7 +94,6 @@
   gap: 10px;
   flex-shrink: 0;
 }
-
 
 .button:hover {
   background: var(--red-700);
