@@ -96,7 +96,7 @@
 
 .button-dark:hover {
   background: var(--red-700);
-  color: var(--grey-black-950);
+  color: var(--gray-black-950);
 }
 
 .button-dark:active {

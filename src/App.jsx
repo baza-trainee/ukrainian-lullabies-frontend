@@ -12,15 +12,15 @@ import RootLayout from "./Layouts/RootLayout";
 export const App = () => (
   <Router>
     <Routes>
-      <Route path="/" element={<RootLayout />}>
-        <Route path="/*" element={<MainPage />} >
-          <Route index element={<Navigate to="map" replace />} />
-          <Route path="map" element={<MapCatalogue />} />
-          <Route path="anima" element={<LullabiesInAnimation />} />
-          <Route path="songs" element={<SingTogether />} />
+      <Route path="/" element={ <RootLayout /> }>
+        <Route path="/" element={ <MainPage /> } >
+          <Route index element={ <Navigate to="map" replace /> } />
+          <Route path="map" element={ <MapCatalogue /> } />
+          <Route path="anima" element={ <LullabiesInAnimation /> } />
+          <Route path="songs" element={ <SingTogether /> } />
         </Route>
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/error" element={<ErrorPage />} />
+        <Route path="/about" element={ <AboutUs /> } />
+        <Route path="*" element={ <ErrorPage /> } />
       </Route>
     </Routes>
   </Router>
