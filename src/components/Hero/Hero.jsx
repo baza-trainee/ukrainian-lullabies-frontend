@@ -81,7 +81,11 @@ const Hero = () => {
           variants={animationElement}
           className="hero-btn animation"
         >
-          <div className="hero-btn">
+          <div
+            className={classNames("hero-btn", {
+              "bg-dark": !isLightTheme,
+            })}
+          >
             <NavLink
               to=""
               className={classNames("button", "listen-button", {
@@ -90,7 +94,13 @@ const Hero = () => {
             >
               Слухати
             </NavLink>
-            <ButtonShare text="Поділитися" isLightTheme={isLightTheme} />
+            <ButtonShare
+              text="Поділитися"
+              isLightTheme={isLightTheme}
+              className={classNames("shared-button", {
+                "button-dark": !isLightTheme,
+              })}
+            />
           </div>
         </motion.div>
       </div>
