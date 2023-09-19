@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Lutsk-sity';
+    src: url('Lutsk-sity.eot');
+    src: local('Lutsk-sity'),
+        url('Lutsk-sity.eot?#iefix') format('embedded-opentype'),
+        url('Lutsk-sity.woff2') format('woff2'),
+        url('Lutsk-sity.woff') format('woff'),
+        url('Lutsk-sity.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
