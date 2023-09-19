@@ -1,4 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { useSelector } from "react-redux";
+import classNames from "classnames";
 import rules from "./text";
 import "./Chatbot.css";
 
@@ -24,7 +28,10 @@ const Chatbot = () => {
   }
 
   return (
-    <div className="chat_wrapper container">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      className="chat_wrapper container margin-bottom">
       <div className='chat_info'>
         <motion.p
           custom={ 1 }
@@ -37,15 +44,21 @@ const Chatbot = () => {
           variants={ animationElement }
           className='chat_rule_list'>
           { chatRules }
-        </ul>
-        <div className='chat_button'>
-          <a href='#'>Грати</a>
-        </div>
+        </motion.ul>
+        <motion.div
+          custom={ 3 }
+          variants={ animationElement }
+          className='button'>
+          <Link href='#'>Грати</Link>
+        </motion.div>
       </div>
-      <div className='chat_picture'>
-        <a href='#' className='chat_image'></a>
-      </div>
-    </div>
+      <motion.div
+        custom={ 3 }
+        variants={ animationElement }
+        className='chat_picture'>
+        <Link href='#' className={ classNames("chat_image_dark", {"chat_image_white":isLightTheme}) }></Link>
+      </motion.div>
+    </motion.div>
   )
 };
 
