@@ -96,8 +96,3 @@
 .shareIcon {
   margin-left: 8px;
 }
-
-.listen-button:hover,
-.listen-button:focus {
-  color: var(--gray-black-950);
-}
