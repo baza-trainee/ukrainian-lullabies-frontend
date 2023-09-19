@@ -24,6 +24,10 @@ ul {
   background: transparent;
 }
 
+.footer-scroll-up-button-invisible {
+  display: none;
+}
+
 .footer-scroll-up-button-light {
   color: var(--gray-black-950);
   border-color: var(--gray-black-950);
