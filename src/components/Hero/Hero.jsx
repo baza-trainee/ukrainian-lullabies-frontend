@@ -26,22 +26,20 @@ const Hero = () => {
   const [isNotification, setIsNotification] = useState(false);
 
   const notification = () => {
-    console.log("Notification clicked");
     setIsNotification(true);
     setTimeout(() => setIsNotification(false), 2000);
   };
 
-  const copyLinkToClipboard = () => {
-    const urlToCopy =
-      "https://ukrainian-lullabies-frontend-git-dev-baza-trainee.vercel.app/#/map";
-    navigator.clipboard
-      .writeText(urlToCopy)
-      .then(() => {
-        notification(); // Відобразити повідомлення після копіювання
-      })
-      .catch((error) => {
-        console.error("Не вдалося скопіювати посилання: ", error);
-      });
+  const copyLinkToClipboard = async () => {
+    try {
+      // Визначаємо URL-адресу, яку ми хочемо скопіювати
+      const urlToCopy =
+        "https://ukrainian-lullabies-frontend-git-dev-baza-trainee.vercel.app/#/map";
+      await navigator.clipboard.writeText(urlToCopy);
+      notification();
+    } catch (error) {
+      console.error("Не вдалося скопіювати посилання: ", error);
+    }
   };
 
   const animationElement = {

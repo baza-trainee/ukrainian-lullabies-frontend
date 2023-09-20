@@ -5,6 +5,13 @@
   transform: translateX(107%);
   padding: 4px 8px;
   border-radius: 10px;
-  background-color: var(--gray-black-800);
   animation: slide-top 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.notification-dark {
+  background-color: var(--gray-black-800);
+}
+
+.notification-white {
+  color: var(--red-700);
+  background-color: var(--gray-black-100);
 }
