@@ -3,5 +3,5 @@ import "./lullabies-animation.css";
 import { ErrorPage } from "../ErrorPage/ErrorPage";
 
 export const LullabiesInAnimation = () => {
-  return <div><ErrorPage /></div>;
+  return <section id="anima"><ErrorPage /></section>;
 };
