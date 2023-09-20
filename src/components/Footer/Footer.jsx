@@ -12,7 +12,7 @@ import logoPartnerRed from "../../assets/icons/logo_partner_red.svg";
 import logoBazaTraineeWhite from "../../assets/icons/logo_baza_trainee_white.png";
 import logoBazaTraineeBlack from "../../assets/icons/logo_baza_trainee_black.png";
 import logoEtnoPhotosWhite from "../../assets/icons/logo_etno_photos_white.png";
-// import logoEtnoPhotosBlack from "../../assets/icons/logo_etno_photos_black.png";
+import logoEtnoPhotosBlack from "../../assets/icons/logo_etno_photos_black.png";
 
 const partners = [
   {
@@ -32,7 +32,7 @@ const partners = [
   {
     name: "Etno Photos",
     logoDarkTheme: logoEtnoPhotosWhite,
-    logoLightTheme: logoEtnoPhotosWhite,
+    logoLightTheme: logoEtnoPhotosBlack,
     alt: "Ento Photos logo",
     url: "https://www.facebook.com/etnofotka/photos/",
   },
@@ -69,39 +69,39 @@ export const Footer = () => {
       >
         <BsArrowUpShort style={{ width: "32px", height: "32px" }} />
       </button>
-      <div className="footer-wrapper container">
+      <div className="footer-wrapper container text-sm">
         <div className="separation-line"></div>
         <div className="footer-logo">
           {isLightTheme ? <LogoLight width="92" height="88" /> : <LogoDark width="92" height="88" />}
         </div>
         <ul className="footer-docs-wrapper">
           <li>
-            <Link to="/">Правила та умови</Link>
+            <Link to="/" className="text-sm-semibold">Правила та умови</Link>
           </li>
           <li>
-            <Link to="/">Конфіденційність</Link>
+            <Link to="/" className="text-sm-semibold">Конфіденційність</Link>
           </li>
           <li>
-            <Link to="/">Статут ГО</Link>
+            <Link to="/" className="text-sm-semibold">Статут ГО</Link>
           </li>
         </ul>
         <ul className="footer-contacts-wrapper">
           <li>
-            <p>Адреса:</p>
+            <p className="text-sm-semibold">Адреса:</p>
             <p>Україна, Київ</p>
           </li>
           <li>
-            <p>Телефон:</p>
+            <p className="text-sm-semibold">Телефон:</p>
             <a href="tel:+380979373496">+ 380 979373496</a>
           </li>
           <li>
-            <p>E-mail:</p>
+            <p className="text-sm-semibold">E-mail:</p>
             <a href="mailto:museum.kolyskova@gmail.com">museum.kolyskova@gmail.com</a>
           </li>
         </ul>
         <div className="footer-socials-wrapper">
           <div className="footer-socials-socials">
-            <p>Слідкуй за нами тут:</p>
+            <p className="text-sm-semibold">Слідкуй за нами тут:</p>
             <div className="footer-socials-icons">
               <a href="https://www.youtube.com/@Kolyskovamuseum" target="_blank" rel="noopener nofollow noreferrer">
                 <FaYoutube />
@@ -118,18 +118,18 @@ export const Footer = () => {
             </div>
           </div>
           <div className="footer-socials-partners">
-            <p>Наші партнери:</p>
+            <p className="text-sm-semibold">Наші партнери:</p>
             <div className="footer-partners-icons">
               {partners.map((partner, index) => (
                 <a href={partner.url} target="_blank" rel="noopener nofollow noreferrer" key={index}>
-                  <img src={isLightTheme ? partner.logoLightTheme : partner.logoDarkTheme} alt={partner.alt} />
+                  <img src={isLightTheme ? partner.logoLightTheme : partner.logoDarkTheme} alt={partner.alt} height="40"/>
                 </a>
               ))}
             </div>
           </div>
         </div>
       </div>
-      <p className="footer-author-rights">Розробка Baza Trainee Ukraine 2023 © Всі права захищені </p>
+      <p className="footer-author-rights text-xs-bold">Розробка Baza Trainee Ukraine 2023 © Всі права захищені </p>
     </div>
   );
 };

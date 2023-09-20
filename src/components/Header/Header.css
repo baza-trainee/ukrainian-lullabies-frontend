@@ -31,13 +31,8 @@ a {
   border: 2px solid transparent;
   border-image: linear-gradient(to bottom, #cf121b, #cf121b00);
   border-image-slice: 1;
-  width: 100%; /* 1064px */
-  height: 70px;
-  /*optional*/
-  /* position: fixed;
-  z-index: 10;
-  top: 0;
-  background-color: inherit; */
+  width: 100%;
+  height: 80px;
 }
 
 .header-logo {
@@ -46,13 +41,13 @@ a {
 
 /* about link */
 .header-about-link {
-  grid-column: 3 / 5;
+  grid-column: 2 / 4;
   padding: 22px 8px;
 }
 
 /* dropdown menu */
 .header-dropdown-wrapper {
-  grid-column: 5 / 8;
+  grid-column: 4 / 8;
   padding: 22px 8px;
   position: relative;
   border-bottom: solid 2px transparent; /* changes on click */
@@ -125,7 +120,7 @@ a {
 .header-languages-menu {
   position: absolute;
   left: 0;
-  bottom: -80px;
+  top: 100%;
   border-radius: 8px;
   background-color: var(--gray-black-800);
   z-index: 3;
