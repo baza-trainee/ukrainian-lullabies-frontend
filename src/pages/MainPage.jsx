@@ -6,6 +6,7 @@ import Chatbot from "../components/Chatbot/Chatbot";
 import { PopularSongs } from "../components/PopularSongs/PopularSongs";
 import { useDispatch } from "react-redux";
 import { getPopularSongs } from "../redux/PopularSongs/PopularSongsSlice";
+import { Selections } from "../components/Selections/Selections";
 
 export const MainPage = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ export const MainPage = () => {
     <>
       <Hero />
       <PopularSongs />
+      <Selections />
       <MapTabs />
       <OurAchivements />
       <Chatbot />
