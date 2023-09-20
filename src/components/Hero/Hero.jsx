@@ -115,7 +115,6 @@ const Hero = () => {
               })}
               spy={true}
               smooth={true}
-              offset={-70} // Регулюйте значення згідно з вашим дизайном
               duration={500}
             >
               Слухати
