@@ -1,7 +1,6 @@
 .shared-button {
   background-color: inherit;
   border: 2px solid var(--white-0);
-  /* background-color: var(--gray-black-950); */
   border-radius: 46px;
   color: var(--white-0);
   display: flex;
@@ -35,7 +34,6 @@
 
 .shared-button-light {
   background-color: inherit;
-  /* background-color: var(--white-0); */
   border-radius: 46px;
   border: 2px solid var(--gray-black-950);
   color: var(--gray-black-950);

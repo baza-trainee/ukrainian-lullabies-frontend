@@ -64,7 +64,7 @@ const Hero = () => {
           className="ornamentWrap"
         >
           <OrnamentsLeftIcon />
-          <p className="ornamentWrap__text">
+          <p className="text-base">
             Поринь у чарівний світ української колискової. Тут у <br />
             кожній ноті оживає душа народу, у кожному слові
             <br /> закарбовано генетичний зв’язок з родом. Відкрий для себе
