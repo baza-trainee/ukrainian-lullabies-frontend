@@ -8,10 +8,10 @@ import Share from "../../../icons/Share";
 
 import "./button-share.css";
 
-const ButtonShare = ({ text /*isLightTheme*/ }) => {
+const ButtonShare = ({ text }) => {
   // theme toggle
   const isLightTheme = useSelector(getLightTheme);
-  // const buttonClass = isLightTheme ? "shared-button-light" : "shared-button";
+
   return (
     <button
       className={classNames("", {
