@@ -11,7 +11,6 @@ import "./button-share.css";
 const ButtonShare = ({ text, onClick }) => {
   // theme toggle
   const isLightTheme = useSelector(getLightTheme);
-
   return (
     <button
       className={classNames("", {
