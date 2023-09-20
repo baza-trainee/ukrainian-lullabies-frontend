@@ -94,13 +94,7 @@ const Hero = () => {
             >
               Слухати
             </NavLink>
-            <ButtonShare
-              text="Поділитися"
-              isLightTheme={isLightTheme}
-              className={classNames("shared-button", {
-                "button-dark": !isLightTheme,
-              })}
-            />
+            <ButtonShare text="Поділитися" />
           </div>
         </motion.div>
       </div>
