@@ -2,10 +2,12 @@ import React from "react";
 
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import classNames from "classnames";
 
 import { getLightTheme } from "../../redux/theme/themeSelectors";
+import Notification from "./Notification/Notification";
 
 import KolyIcon from "../../icons/KolyIcon";
 import SIcon from "../../icons/SIcon";
@@ -20,6 +22,27 @@ import "./hero.css";
 const Hero = () => {
   // theme toggle
   const isLightTheme = useSelector(getLightTheme);
+  // notofication
+  const [isNotification, setIsNotification] = useState(false);
+
+  const notification = () => {
+    console.log("Notification clicked");
+    setIsNotification(true);
+    setTimeout(() => setIsNotification(false), 2000);
+  };
+
+  const copyLinkToClipboard = () => {
+    const urlToCopy =
+      "https://ukrainian-lullabies-frontend-git-dev-baza-trainee.vercel.app/#/map";
+    navigator.clipboard
+      .writeText(urlToCopy)
+      .then(() => {
+        notification(); // Відобразити повідомлення після копіювання
+      })
+      .catch((error) => {
+        console.error("Не вдалося скопіювати посилання: ", error);
+      });
+  };
 
   const animationElement = {
     hidden: {
@@ -87,16 +110,20 @@ const Hero = () => {
             })}
           >
             <NavLink
-              to=""
+              to={"/player"}
+              id="player"
               className={classNames("button", "listen-button", {
                 "button-dark": !isLightTheme,
               })}
             >
               Слухати
             </NavLink>
-            <ButtonShare text="Поділитися" />
+            <ButtonShare text="Поділитися" onClick={copyLinkToClipboard} />
           </div>
         </motion.div>
+        {isNotification && (
+          <Notification textNotification="Поділитися посиланням на сайт" />
+        )}
       </div>
     </motion.div>
   );

@@ -8,7 +8,7 @@ import Share from "../../../icons/Share";
 
 import "./button-share.css";
 
-const ButtonShare = ({ text }) => {
+const ButtonShare = ({ text, onClick }) => {
   // theme toggle
   const isLightTheme = useSelector(getLightTheme);
 
@@ -18,6 +18,7 @@ const ButtonShare = ({ text }) => {
         "shared-button-light": isLightTheme,
         "shared-button": !isLightTheme,
       })}
+      onClick={onClick}
     >
       {text} <Share className="share-icon" />
     </button>
@@ -27,5 +28,5 @@ export default ButtonShare;
 
 ButtonShare.propTypes = {
   text: PropTypes.string.isRequired,
-  isLightTheme: PropTypes.bool.isRequired,
+  onClick: PropTypes.func,
 };
