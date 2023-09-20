@@ -3,8 +3,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import classNames from "classnames";
+import { Link } from "react-scroll";
 
 import { getLightTheme } from "../../redux/theme/themeSelectors";
 import Notification from "./Notification/Notification";
@@ -103,19 +103,23 @@ const Hero = () => {
           className="hero-btn animation"
         >
           <div
-            className={classNames("hero-btn", "scrollable-navlink", {
+            className={classNames("hero-btn", {
               "bg-dark": !isLightTheme,
             })}
           >
-            <NavLink
-              to={"/player"}
+            <Link
+              to="player"
               id="player"
               className={classNames("button", "listen-button", {
                 "button-dark": !isLightTheme,
               })}
+              spy={true}
+              smooth={true}
+              offset={-70} // Регулюйте значення згідно з вашим дизайном
+              duration={500}
             >
               Слухати
-            </NavLink>
+            </Link>
             <ButtonShare text="Поділитися" onClick={copyLinkToClipboard} />
           </div>
         </motion.div>
