@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { getLightTheme } from "../../redux/theme/themeSelectors";
 import { NavLink, Outlet } from "react-router-dom";
@@ -22,7 +22,6 @@ import photo12 from "../../assets/images/NyjPod.svg";
 import photo13 from "../../assets/images/NyjPob.svg";
 import photo14 from "../../assets/images/Krym.svg";
 
-import { useEffect } from "react";
 
 const regions = {
   region1: `m 0,313.64528 0.27085084,-30.877 6.22956936,-3.52106 5.4170168,-4.87532 3.791912,-5.14616 1.625105,-3.79191 -0.541702,-1.62511 -1.354254,-2.43766 9.47978,-11.64658 15.438498,-0.27085
@@ -122,6 +121,7 @@ export const MapCatalogue = () => {
   const isLightTheme = useSelector(getLightTheme);
   const map = isLightTheme ? mapLight : mapDark;
   const [onButtonClick, setOnButtonClick] = useState(false);
+
   const calcRegion = (region, pattern) => {
     const regionPath = document.getElementById(region);
     const regionWidth = regionPath?.getBBox().width;
@@ -164,7 +164,76 @@ export const MapCatalogue = () => {
     handleRegionHover("", pattern);
   };
 
-  return <div className="map-catalogue" >
+  function onRouteChange() {
+    executeFunctionsSequentially(functionParams, 1000);
+  }
+
+
+  // useEffect(() => {
+  //   onRouteChange();
+  // });
+
+  const functionParams = [
+    { photo: photo9, pattern: "hoverPattern9" },
+    { pattern: "hoverPattern9" },
+    { photo: photo13, pattern: "hoverPattern13" },
+    { pattern: "hoverPattern13" },
+    { photo: photo3, pattern: "hoverPattern3" },
+    { pattern: "hoverPattern3" },
+    { photo: photo14, pattern: "hoverPattern14" },
+    { pattern: "hoverPattern14" },
+    { photo: photo7, pattern: "hoverPattern7" },
+    { pattern: "hoverPattern7" },
+    { photo: photo2, pattern: "hoverPattern2" },
+    { pattern: "hoverPattern2" },
+    { photo: photo10, pattern: "hoverPattern10" },
+    { pattern: "hoverPattern10" },
+    { photo: photo4, pattern: "hoverPattern4" },
+    { pattern: "hoverPattern4" },
+    { photo: photo6, pattern: "hoverPattern6" },
+    { pattern: "hoverPattern6" },
+    { photo: photo5, pattern: "hoverPattern5" },
+    { pattern: "hoverPattern5" },
+    { photo: photo12, pattern: "hoverPattern12" },
+    { pattern: "hoverPattern12" },
+    { photo: photo11, pattern: "hoverPattern11" },
+    { pattern: "hoverPattern11" },
+    { photo: photo8, pattern: "hoverPattern8" },
+    { pattern: "hoverPattern8" },
+    { photo: photo1, pattern: "hoverPattern1" },
+    { pattern: "hoverPattern1" }
+  ];
+
+  function executeFunctionsSequentially(paramsArray, interval) {
+    let currentIndex = 0;
+
+    function runNextFunction() {
+      if (currentIndex < paramsArray.length) {
+        const params = paramsArray[currentIndex];
+
+        if (params.photo) {
+          handleRegionHover(params.photo, params.pattern);
+        } else {
+          handleRegionOut(params.pattern);
+        }
+
+        currentIndex++;
+
+        setTimeout(() => {
+          runNextFunction();
+        }, interval);
+      }
+    }
+
+    runNextFunction();
+  }
+
+  if (window.matchMedia("(max-width: 768px)").matches) {
+    onRouteChange();
+  }
+
+
+  return <section id="map" className="map-catalogue" >
     {" "}
     <div className="map">
       <svg className="svg-map" viewBox="0 0 990 655">
@@ -389,5 +458,5 @@ export const MapCatalogue = () => {
       <img className="img-map" src={map} alt="Map" />
     </div>
     <Outlet />
-  </div>
+  </section>
 };
