@@ -1,6 +1,7 @@
 import React from "react";
 import "./sing-together.css"
+import { ErrorPage } from "../ErrorPage/ErrorPage";
 
 export const SingTogether = () => {
-    return <div className="sing-together"><h2>SingTogether</h2></div>;
+    return <section id="songs"><ErrorPage /></section>;
 };

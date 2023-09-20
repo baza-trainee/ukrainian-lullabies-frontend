@@ -40,7 +40,6 @@
   transform: scaleX(-1);
 }
 
-
 /* Background Light Styles */
 .bg-light {
   background: var(--white-0);
@@ -48,7 +47,7 @@
 }
 
 .background-light::after {
-  content: '';
+  content: "";
   background-image: url("src/assets/images/ornamentsLight.png");
   display: block;
   z-index: 2;
@@ -60,7 +59,7 @@
 }
 
 .background-light::before {
-  content: '';
+  content: "";
   background-image: url("src/assets/images/ornamentsLight.png");
   display: block;
   z-index: 2;
@@ -83,30 +82,9 @@
 
 .button {
   border-radius: 46px;
+
   border: 2px solid var(--red-700);
-  display: flex;
-  width: 250px;
-  height: 56px;
-  padding: 16px 0px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-}
 
-.button-dark:hover {
-  background: var(--red-700);
-  color: var(--grey-black-950);
-}
-
-.button-dark:active {
-  border: 2px solid var(--red-900);
-  background: var(--red-900);
-}
-
-.button-light {
-  border-radius: 46px;
-  border: 2px solid var(--red-700);
   display: flex;
   width: 250px;
   height: 56px;
@@ -119,7 +97,7 @@
 
 .button:hover {
   background: var(--red-700);
-  color: var(--grey-black-950);
+  color: var(--gray-black-950);
 }
 
 .button:active {

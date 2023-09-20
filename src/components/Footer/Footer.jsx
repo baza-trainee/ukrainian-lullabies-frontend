@@ -14,6 +14,7 @@ import logoBazaTraineeBlack from "../../assets/icons/logo_baza_trainee_black.png
 import logoEtnoPhotosWhite from "../../assets/icons/logo_etno_photos_white.png";
 import logoEtnoPhotosBlack from "../../assets/icons/logo_etno_photos_black.png";
 
+
 const partners = [
   {
     name: "Partner Red",
