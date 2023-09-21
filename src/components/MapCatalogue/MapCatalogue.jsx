@@ -21,6 +21,7 @@ import photo11 from "../../assets/images/Tavria.svg";
 import photo12 from "../../assets/images/NyjPod.svg";
 import photo13 from "../../assets/images/NyjPob.svg";
 import photo14 from "../../assets/images/Krym.svg";
+import { delay } from "framer-motion";
 
 
 const regions = {
@@ -164,22 +165,23 @@ export const MapCatalogue = () => {
     handleRegionHover("", pattern);
   };
 
-  function onRouteChange() {
+  async function onRouteChange() {
+    await delay(2000);
     executeFunctionsSequentially(functionParams, 1000);
   }
 
 
-  // useEffect(() => {
-  //   onRouteChange();
-  // });
+  useEffect(() => {
+    if (window.matchMedia("(min-width: 320px)").matches) {
+      onRouteChange();
+    }
+  }, []);
 
   const functionParams = [
     { photo: photo9, pattern: "hoverPattern9" },
     { pattern: "hoverPattern9" },
     { photo: photo13, pattern: "hoverPattern13" },
     { pattern: "hoverPattern13" },
-    { photo: photo3, pattern: "hoverPattern3" },
-    { pattern: "hoverPattern3" },
     { photo: photo14, pattern: "hoverPattern14" },
     { pattern: "hoverPattern14" },
     { photo: photo7, pattern: "hoverPattern7" },
@@ -196,6 +198,10 @@ export const MapCatalogue = () => {
     { pattern: "hoverPattern5" },
     { photo: photo12, pattern: "hoverPattern12" },
     { pattern: "hoverPattern12" },
+    { photo: photo9, pattern: "hoverPattern9" },
+    { pattern: "hoverPattern9" },
+    { photo: photo3, pattern: "hoverPattern3" },
+    { pattern: "hoverPattern3" },
     { photo: photo11, pattern: "hoverPattern11" },
     { pattern: "hoverPattern11" },
     { photo: photo8, pattern: "hoverPattern8" },
@@ -227,10 +233,7 @@ export const MapCatalogue = () => {
 
     runNextFunction();
   }
-
-  if (window.matchMedia("(max-width: 768px)").matches) {
-    onRouteChange();
-  }
+  // onRouteChange();
 
 
   return <section id="map" className="map-catalogue" >
