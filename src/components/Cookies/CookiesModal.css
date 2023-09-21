@@ -1,0 +1,43 @@
+.cookies-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 25px;
+  height: 400px;
+  /* padding: 30px 100px; */
+  background: var(--white-0);
+  color: var(--gray-black-950);
+}
+
+.cookies-modal-close-button {
+  color: inherit;
+  font-size: 30px;
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.cookies-modal-actions {
+  display: flex;
+  gap: 30px;
+}
+
+.cookies-modal-button {
+  color: inherit;
+  border: 2px solid var(--gray-black-950);
+  border-radius: 36px;
+  padding: 16px 47px;
+  background: transparent;
+}
+
+.cookies-modal-light {
+  background: var(--gray-black-950);
+  color: var(--white-0);
+}
+
+.cookies-modal-button-light {
+  border-color: var(--white-0);
+}
