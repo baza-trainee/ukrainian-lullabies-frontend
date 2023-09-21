@@ -5,10 +5,6 @@
 
 .ourAchivementsTitle {
   grid-column: 1/5;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 40px;
 }
 
 .achivements {
@@ -34,11 +30,4 @@
   font-weight: 400;
   line-height: normal;
   text-transform: uppercase;
-}
-
-.dataName {
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 28px;
 }

@@ -19,15 +19,15 @@ export const MapTabs = () => {
     initial="hidden"
     whileInView="visible"
     className="tabs margin-bottom">
-    <motion.h2 custom={ 1 } variants={ animationElement } className="map-tabs__text">Музей колискової</motion.h2>
-    <motion.div custom={ 3 } variants={ animationElement } className="map-tabs">
-      <NavLink className="map-tabs__button tabs1" to={ "/map" }>Традиційні колискові</NavLink>
-      <NavLink className="map-tabs__button tabs2" to={ "/songs" }>Співаємо разом</NavLink>
-      <NavLink className="map-tabs__button tabs3" to={ "/anima" }>Колискові в анімаціях</NavLink>
+    <motion.h2 custom={1} variants={animationElement} className="map-tabs__text text-4xl">Музей колискової</motion.h2>
+    <motion.div custom={3} variants={animationElement} className="map-tabs">
+      <NavLink className="map-tabs__button text-2xl tabs1" to={"/map"}>Традиційні колискові</NavLink>
+      <NavLink className="map-tabs__button text-2xl tabs2" to={"/songs"}>Співаємо разом</NavLink>
+      <NavLink className="map-tabs__button text-2xl tabs3" to={"/anima"}>Колискові в анімаціях</NavLink>
     </motion.div>
-    <motion.div custom={ 4 } variants={ animationElement } >
+    <motion.div custom={4} variants={animationElement} >
       <Outlet />
     </motion.div>
-    <motion.img custom={ 4 } variants={ animationElement } src={ tabsSvg } alt="tabsSvg" />
+    <motion.img custom={4} variants={animationElement} src={tabsSvg} alt="tabsSvg" />
   </motion.section>)
 };

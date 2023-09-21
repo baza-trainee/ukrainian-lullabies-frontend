@@ -2,5 +2,5 @@ import React from "react";
 import "./sing-together.css"
 
 export const SingTogether = () => {
-    return <div className="sing-together"><h2>SingTogether</h2></div>;
+    return <section id="songs" className="sing-together" ><h2>Sing together</h2></section>;
 };
