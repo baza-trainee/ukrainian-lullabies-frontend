@@ -136,13 +136,13 @@ export const Header = () => {
             "header-dropdown-menu-light": isLightTheme,
           })}
         >
-          <Link to="/map" className="text-2xl" onClick={() => scrollToTarget("#mapTabsId")}>
+          <Link to="/map" className="text-base" onClick={() => scrollToTarget("#mapTabsId")}>
             Традиційні колискові
           </Link>
-          <Link to="/songs" className="text-2xl" onClick={() => scrollToTarget("#mapTabsId")}>
+          <Link to="/songs" className="text-base" onClick={() => scrollToTarget("#mapTabsId")}>
             Співаємо разом
           </Link>
-          <Link to="/anima" className="text-2xl" onClick={() => scrollToTarget("#mapTabsId")}>
+          <Link to="/anima" className="text-base" onClick={() => scrollToTarget("#mapTabsId")}>
             Колискові в анімаціях
           </Link>
         </div>
