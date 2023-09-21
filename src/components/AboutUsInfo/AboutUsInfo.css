@@ -1,18 +1,12 @@
-.container {
-    gap: 0px;
-}
 .about-as-info_wrapper {
     border: 1px solid red;
     display: grid;
     grid-column: 1/13;
-
     color: var(--gray0);
+    gap: 0px;
 }
 
 .about-as-info_title {
-    font-size: 32px;
-    line-height: 40px;
-    font-weight: 700;
     display: grid;
     grid-column: 1/5;
     justify-content: start;
@@ -20,29 +14,39 @@
 }
 
 .about-as-info_title-small {
-    font-size: 18px;
-    line-height: 28px;
-    font-weight: 400;
     padding-bottom: 16px;
 }
 
-.about-as-info_text {
+/* .about-as-info_text {
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
-}
+} */
 
-.about-as-info_target {
+.about-as-info_target,
+.about-as-info_support {
     display: grid;
     grid-column: 1/13;
-    grid-template-columns: 1fr 1fr;
     justify-content: space-between;
 }
 
-.about-as-info_target-img {
+.about-as-info_target {
+    grid-template-columns: 429px 520px;
+}
+
+.about-as-info_support {
+    grid-template-columns: 520px 429px;
+}
+
+.about-as-info_img-container {
     width: 429px;
     height: 420px;
     border-radius: 10px;
+    border: 1px solid blue; 
+}
+
+.another-hight {
+    height: 476px;
 }
 
 .about-as-info_target img,
@@ -52,13 +56,19 @@
     object-fit: cover;
 }
 
-.about-as-info_target-info {
+.about-as-info_target-info,
+.about-as-info_support-info {
     text-align: start;
     border: 2px solid red;
 }
 
 .about-as-info_target-info p:nth-child(2) {
     margin-bottom: 16px;
+}
+
+.about-as-info_support-info p:nth-child(3),
+.about-as-info_support-info p:nth-child(5) {
+    margin: 16px 0px;
 }
 
 .about-as-info_ornament {
@@ -68,7 +78,31 @@
     margin: 80px 0px;
 }
 
-.about-as-info_support {
-    display: grid;
-    grid-column: 1/13;
+.about-as-info_donat-imgs {
+    display: flex;
+    justify-content: start;
+}
+
+.about-as-info_bmc {
+    width: 174px;
+    height: 56px;
+    border: 1px solid green;
+}
+
+.buy-me-a-caffee_dark {
+    background: url("../../img/aboutUs/bmc-white-black.png");
+    width: inherit;
+    height: inherit;
+    
+    /* display: flex;
+    justify-content: center;
+    align-content: center; */
+    /* object-fit: cover; */
+    overflow: hidden;
+    background-repeat: no-repeat;
+    /* background-size: contain; */
+}
+
+.buy-me-a-caffee_dark:hover {
+    background: url("../../img/aboutUs/bmc-hover-white-black.png");
 }
