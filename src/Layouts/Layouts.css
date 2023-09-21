@@ -81,8 +81,9 @@
 }
 
 .button {
+  cursor: pointer;
+  color: var(--red-700);
   border-radius: 46px;
-
   border: 2px solid var(--red-700);
 
   display: flex;

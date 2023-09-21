@@ -1,46 +1,62 @@
-import React, { useEffect } from 'react';
-import { Link } from "react-router-dom";
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import './OurPartners.css';
 
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
+const OurPartners = () => {
+  const sliderSettings = {
+    dots: false,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    speed: 2000,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    infinite: true,
+    draggable: true,
 
-export const OurPartners = () => {
-  useEffect(() => {
-    const mySwiper = new Swiper('.swiper-container', {
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
+    responsive: [
+      {
+        breakpoint: 1300,
+        settings: {
+          slidesToShow: 4,
+        },
       },
-      loop: true,
-    });
-
-    return () => {
-      mySwiper.destroy();
-    };
-  }, []);
+      {
+        breakpoint: 950,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 750,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 485,
+        settings: {
+          slidesToShow: 1,
+          //        rows: 2,
+        },
+      },
+    ],
+  };
 
   return (
-    <div className="swiper-container">
-      <Swiper
-        className="mySwiper"
-      >
-        <SwiperSlide>
-          <Link to="https://baza-trainee.tech" target="_blank" >
-            <img src="" alt="Baza Trainee logo" />
-          </Link>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Link target="_blank" to="https://www.facebook.com/etnofotka/photos/">
-            <img src="" alt="Ento Photos logo" />
-          </Link>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Link to="#" target="_blank">
-            <img src="" alt="Partner Red logo" />
-          </Link>
-        </SwiperSlide>
-      </Swiper>
-    </div >
+    <Slider { ...sliderSettings } className='ourPartners'>
+
+      <Link className='ourPartners-link baza-dark' to="#"> 1</Link>
+
+      <Link className='ourPartners-link etno-dark' to="#"> 2</Link>
+
+      <Link className='ourPartners-link red-dark' to="#">   3</Link>
+
+    </Slider>
   );
 };
+
+export default OurPartners;
