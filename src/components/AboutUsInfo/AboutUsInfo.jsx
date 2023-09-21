@@ -26,11 +26,8 @@ const AboutUsInfo = () => {
                 </div>
             </div>
             <div className='about-as-info_ornament'>
-                <img src="/img/aboutUs/Ornaments.svg" alt="" />
-               {/*  <img src="/img/aboutUs/Ornaments-left.svg" alt="" />
-                <img src="/img/aboutUs/Ornaments-right.svg" alt="ornament" /> */}
+                <img src="/img/aboutUs/Ornaments.svg" alt="ornament" />
             </div>
-
             <div className='about-as-info_support'>
                 <div className='about-as-info_support__text'>
                     <p className='about-as-info_title-small'>
