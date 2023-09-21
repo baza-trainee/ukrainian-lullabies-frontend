@@ -103,7 +103,7 @@ const Hero = () => {
           className="hero-btn animation"
         >
           <div
-            className={classNames("hero-btn", "scrollable-navlink", {
+            className={classNames("hero-btn", {
               "bg-dark": !isLightTheme,
             })}
           >
