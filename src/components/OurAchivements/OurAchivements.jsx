@@ -20,19 +20,19 @@ export const OurAchivements = () => {
     initial="hidden"
     whileInView="visible"
     className="ourAchivements margin-bottom">
-    <motion.h2 custom={ 1 } variants={ animationElement } className="ourAchivementsTitle">Наші напрацювання</motion.h2>
-    <motion.div custom={ 2 } variants={ animationElement } className="achivements">
+    <motion.h2 custom={ 1 } variants={ animationElement } className="ourAchivementsTitle text-4xl">Наші напрацювання</motion.h2>
+    <motion.div custom={ 2 } variants={ animationElement } className="achivements text-5xl">
       <motion.div custom={ 3 } variants={ animationElement } className="achivement">
         <div className="data">123</div>
-        <div className="dataName">Колискових</div>
+        <div className="text-3xl">Колискових</div>
       </motion.div>
-      <motion.div custom={ 4 } variants={ animationElement } className="achivement">
+      <motion.div custom={ 4 } variants={ animationElement } className="achivement text-5xl">
         <div className="data">21</div>
-        <div className="dataName">Локацій</div>
+        <div className="text-3xl">Локацій</div>
       </motion.div>
-      <motion.div custom={ 5 } variants={ animationElement } className="achivement">
+      <motion.div custom={ 5 } variants={ animationElement } className="achivement text-5xl">
         <div className="data">48</div>
-        <div className="dataName">Виконавців</div>
+        <div className="text-3xl">Виконавців</div>
       </motion.div>
     </motion.div>
     <SupportTheProject />

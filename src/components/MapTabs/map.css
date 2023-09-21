@@ -1,6 +1,5 @@
 .tabs {
   grid-column: 1/13;
-  padding: 0 48px;
 }
 
 .map-tabs {
@@ -21,29 +20,21 @@
 }
 
 .map-tabs__button {
-    padding: 20px 28px;
-    text-decoration: none;
-    font-family: Unbounded;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 28px;
+  padding: 24px 8px;
+  text-decoration: none;
+  gap: 10;
 
-    &.active {
-        padding: 20px 28px;
-        border: none;
-        border-bottom: 2px solid var(--red-700, #C60F18);
-        background-color: transparent;
-    }
+  &.active {
+    gap: 10;
+    padding: 24px 8px;
+    border: none;
+    border-bottom: 2px solid var(--red-700, #C60F18);
+    background-color: transparent;
+  }
 }
 
 .map-tabs__text {
-    font-family: Unbounded;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    text-align: start;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: start;
 }

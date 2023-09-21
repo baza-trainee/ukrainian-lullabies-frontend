@@ -2,5 +2,5 @@ import React from "react";
 import "./lullabies-animation.css";
 
 export const LullabiesInAnimation = () => {
-  return <div className="lullabies-animation margin-bottom container">< h2 > LullabiesInAnimation</ h2></div>;
+  return <section id="anima" className="lullabies-animation" ><h2>Lullabies in animation</h2></section>;
 };

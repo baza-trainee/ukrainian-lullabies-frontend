@@ -11,13 +11,10 @@ export const ErrorPage = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
   return (
-    <div className={ classNames('errorPage', {
-      'bg-dark': !isLightTheme,
-      'bg-light': isLightTheme,
-    }) }>
+    <div className='errorPage'>
       <div className="errorPage__border">
         <div className="errorPage__element container">
-          <h2 className="errorPage__title">
+          <h2 className="errorPage__title text-4xl">
             Page not found
           </h2>
           <div className="errorPage__svg404">
@@ -31,7 +28,7 @@ export const ErrorPage = () => {
         <div className="element-right">
           <OrnamentsLeftIcon />
         </div>
-        <p className="element-center">
+        <p className="element-center text-base">
           It may have been moved or deleted.
         </p>
         <div className="element-left">
@@ -41,5 +38,5 @@ export const ErrorPage = () => {
       <div className="container">
         <NavLink to="/" className={ classNames('button', 'errorPage-button', { 'button-dark': !isLightTheme, }) }> На головну </NavLink>
       </div>
-    </div>)
+    </div >)
 };
