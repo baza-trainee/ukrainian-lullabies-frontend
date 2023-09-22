@@ -9,11 +9,10 @@ import { FaTiktok, FaInstagram, FaYoutube } from "react-icons/fa";
 
 // partners logo
 import logoPartnerRed from "../../assets/icons/logo_partner_red.svg";
-import logoBazaTraineeWhite from "../../assets/icons/logo_baza_trainee_white.png";
-import logoBazaTraineeBlack from "../../assets/icons/logo_baza_trainee_black.png";
-import logoEtnoPhotosWhite from "../../assets/icons/logo_etno_photos_white.png";
-import logoEtnoPhotosBlack from "../../assets/icons/logo_etno_photos_black.png";
-
+import logoBazaTraineeWhite from "../../assets/icons/logo_baza_trainee_white.svg";
+import logoBazaTraineeBlack from "../../assets/icons/logo_baza_trainee_black.svg";
+import logoEtnoPhotosWhite from "../../assets/icons/logo_etno_photos_white.svg";
+import logoEtnoPhotosBlack from "../../assets/icons/logo_etno_photos_black.svg";
 
 const partners = [
   {
@@ -43,6 +42,7 @@ export const Footer = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
   const [isScrollUpButtonVisible, setIsScrollUpButtonVisible] = useState(false);
 
+  // establish scrollToTop
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
@@ -73,17 +73,25 @@ export const Footer = () => {
       <div className="footer-wrapper container text-sm">
         <div className="separation-line"></div>
         <div className="footer-logo">
-          {isLightTheme ? <LogoLight width="92" height="88" /> : <LogoDark width="92" height="88" />}
+          <Link to="/" onClick={scrollToTop}>
+            {isLightTheme ? <LogoLight width="92" height="88" /> : <LogoDark width="92" height="88" />}
+          </Link>
         </div>
         <ul className="footer-docs-wrapper">
           <li>
-            <Link to="/" className="text-sm-semibold">Правила та умови</Link>
+            <Link to="/" className="text-sm-semibold">
+              Правила та умови
+            </Link>
           </li>
           <li>
-            <Link to="/" className="text-sm-semibold">Конфіденційність</Link>
+            <Link to="/" className="text-sm-semibold">
+              Конфіденційність
+            </Link>
           </li>
           <li>
-            <Link to="/" className="text-sm-semibold">Статут ГО</Link>
+            <Link to="/" className="text-sm-semibold">
+              Статут ГО
+            </Link>
           </li>
         </ul>
         <ul className="footer-contacts-wrapper">
@@ -123,7 +131,7 @@ export const Footer = () => {
             <div className="footer-partners-icons">
               {partners.map((partner, index) => (
                 <a href={partner.url} target="_blank" rel="noopener nofollow noreferrer" key={index}>
-                  <img src={isLightTheme ? partner.logoLightTheme : partner.logoDarkTheme} alt={partner.alt} height="40"/>
+                  <img src={isLightTheme ? partner.logoLightTheme : partner.logoDarkTheme} alt={partner.alt} height="40" />
                 </a>
               ))}
             </div>
