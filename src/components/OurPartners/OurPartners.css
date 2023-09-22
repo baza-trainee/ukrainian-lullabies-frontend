@@ -11,11 +11,16 @@
  .swiper-slide{
   cursor: pointer;
   display: block;
-  width: 226px;
-  height: 119px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+    max-width: 140px;
+  height: 109px;
+
+  {@media (min-width: 1440px) {
+    max-width: 140px;
+    height: 119px;
+  }}
  }
 
  .slider{
@@ -41,4 +46,15 @@ grid-column: 1/13;
 
 .etno-light {
   background-image: url("../../images/Card_partners_white-etno.png");
+}
+
+.ornament-triple{
+  display: block;
+  width: 28px;
+  height: 120px;
+  background-image: url('../../images/OrnamentsDouble.svg');
+
+  @media (min-width: 1440px) {
+    background-image: url("../../assets/images/ornamentsMapTabsSection.svg");
+  }
 }

@@ -12,6 +12,17 @@ import ornamentTriple from '../../images/ornamentTriple.svg';
 export const OurPartners = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
+  const breakpoints = {
+    320: {
+      slidesPerView: 2,
+      spaceBetween: 16
+    },
+    1024: {
+      slidesPerView: 4,
+      spaceBetween: 24
+    },
+  };
+
   return (
     <>
       <h2 className='text-4xl ourPartners'>Наші партнери</h2>
@@ -30,6 +41,7 @@ export const OurPartners = () => {
         allowSlideNext={ true }
         allowTouchMove={ false }
         className="swiper-container"
+        breakpoints={ breakpoints } // Встановлення breakpoints
       >
         <SwiperSlide
           className={ classNames('margin-bottom', {
@@ -91,7 +103,8 @@ export const OurPartners = () => {
           <Link to="#"></Link>
         </SwiperSlide>
       </Swiper>
-      <img src={ ornamentTriple } alt="ornamentTriple" className='margin-bottom' />
+      <div className='ornament-triple margin-bottom'>
+      </div>
     </>
   );
 };
