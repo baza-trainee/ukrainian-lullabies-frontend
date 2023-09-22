@@ -8,6 +8,7 @@ import { SingTogether } from "./components/SingTogether/SingTogether";
 import { AboutUs } from "./pages/AboutUsPage";
 import { ErrorPage } from "./components/ErrorPage/ErrorPage";
 import RootLayout from "./Layouts/RootLayout";
+import '../node_modules/swiper/swiper-bundle.min.js';
 
 
 export const App = () => (
