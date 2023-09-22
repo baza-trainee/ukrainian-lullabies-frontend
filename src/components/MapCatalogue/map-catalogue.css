@@ -42,3 +42,11 @@
         height: 100%;
     }
 }
+
+.map-opacity_hide {
+    opacity: 0;
+}
+
+.map-opacity_visible {
+    opacity: 1;
+}
