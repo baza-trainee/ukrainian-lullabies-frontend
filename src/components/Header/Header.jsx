@@ -36,6 +36,12 @@ export const Header = () => {
     return () => document.body.removeEventListener("click", closeDropdown);
   }, []);
 
+  // scroll to target
+  const scrollToTarget = (target) => {
+    const scrollTo = document.querySelector(target);
+    scrollTo.scrollIntoView();
+  };
+
   // language menu
   const languageMenuRef = useRef();
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
@@ -107,11 +113,12 @@ export const Header = () => {
   };
 
   return (
-    <div className="header container">
+    // <div className="header-wrapper">
+    <div className="header container" id="header">
       <div className="header-logo">
         <Link to="/">{isLightTheme ? <LogoLight width="56" height="53" /> : <LogoDark width="56" height="53" />}</Link>
       </div>
-      <NavLink to="/about" className="header-about-link">
+      <NavLink to="/about" className="header-about-link text-2xl">
         Про нас
       </NavLink>
       <div className="header-dropdown-wrapper" ref={dropdownWrapperRef}>
@@ -119,7 +126,7 @@ export const Header = () => {
           className={classNames("header-dropdown-button", { "header-dropdown-button-light": isLightTheme })}
           onClick={dropdownMenuClick}
         >
-          <span>Музей колискової</span>
+          <span className="text-2xl">Музей колискової</span>
           <IoIosArrowDown style={{ width: "31px", height: "21px" }} />
         </div>
         <div
@@ -129,9 +136,15 @@ export const Header = () => {
             "header-dropdown-menu-light": isLightTheme,
           })}
         >
-          <Link to="/">Традиційні колискові</Link>
-          <Link to="/">Співаємо разом</Link>
-          <Link to="/">Колискові в анімаціях</Link>
+          <Link to="/map" className="text-base" onClick={() => scrollToTarget("#mapTabsId")}>
+            Традиційні колискові
+          </Link>
+          <Link to="/songs" className="text-base" onClick={() => scrollToTarget("#mapTabsId")}>
+            Співаємо разом
+          </Link>
+          <Link to="/anima" className="text-base" onClick={() => scrollToTarget("#mapTabsId")}>
+            Колискові в анімаціях
+          </Link>
         </div>
       </div>
 
@@ -139,7 +152,7 @@ export const Header = () => {
       <div className="header-options-wrapper" ref={headerOptionsWrapperRef}>
         <div className="header-languages-wrapper" onClick={languageMenuClick}>
           <div className={classNames("header-languages-button", { "header-languages-button-light": isLightTheme })}>
-            <span>{currentLanguage}</span>
+            <span className="text-2xl">{currentLanguage}</span>
             <IoIosArrowDown style={{ width: "31px", height: "21px" }} />
           </div>
           <div
@@ -150,8 +163,12 @@ export const Header = () => {
             })}
             ref={languageMenuRef}
           >
-            <button onClick={() => chooseLanguage("UA")}>UA</button>
-            <button onClick={() => chooseLanguage("EN")}>EN</button>
+            <button className="text-2xl" onClick={() => chooseLanguage("UA")}>
+              UA
+            </button>
+            <button className="text-2xl" onClick={() => chooseLanguage("EN")}>
+              EN
+            </button>
           </div>
         </div>
         <div className={classNames("header-user-icon", { "header-user-icon-light": isLightTheme })}>
@@ -239,7 +256,13 @@ export const Header = () => {
 
       {/* opened search bar */}
       <div className={classNames("header-search-bar", "hidden", { "header-search-bar-light": isLightTheme })} ref={searchBarRef}>
-        <input type="text" placeholder="Пошук" onBlur={closeSearchBar} id="headerSearchInput" />
+        <input
+          type="text"
+          placeholder="Пошук тимчасово недоступний"
+          className="text-xl"
+          onBlur={closeSearchBar}
+          id="headerSearchInput"
+        />
         <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M4 22L8.35 17.65M6 12C6 16.4183 9.58172 20 14 20C18.4183 20 22 16.4183 22 12C22 7.58172 18.4183 4 14 4C9.58172 4 6 7.58172 6 12Z"
@@ -252,5 +275,6 @@ export const Header = () => {
         </svg>
       </div>
     </div>
+    // </div>
   );
 };

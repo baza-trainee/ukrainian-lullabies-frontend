@@ -84,7 +84,7 @@
   border-radius: 46px;
 
   border: 2px solid var(--red-700);
-
+  
   display: flex;
   width: 250px;
   height: 56px;
@@ -92,12 +92,14 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
   flex-shrink: 0;
 }
 
 .button:hover {
   background: var(--red-700);
   color: var(--gray-black-950);
+  
 }
 
 .button:active {

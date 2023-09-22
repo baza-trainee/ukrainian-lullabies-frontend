@@ -2,10 +2,12 @@ import React from "react";
 
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { useState } from "react";
 import classNames from "classnames";
+import { Link } from "react-scroll";
 
 import { getLightTheme } from "../../redux/theme/themeSelectors";
+import Notification from "./Notification/Notification";
 
 import KolyIcon from "../../icons/KolyIcon";
 import SIcon from "../../icons/SIcon";
@@ -20,6 +22,25 @@ import "./hero.css";
 const Hero = () => {
   // theme toggle
   const isLightTheme = useSelector(getLightTheme);
+  // notofication
+  const [isNotification, setIsNotification] = useState(false);
+
+  const notification = () => {
+    setIsNotification(true);
+    setTimeout(() => setIsNotification(false), 2000);
+  };
+
+  const copyLinkToClipboard = async () => {
+    try {
+      // Визначаємо URL-адресу, яку ми хочемо скопіювати
+      const urlToCopy =
+        "https://ukrainian-lullabies-frontend-git-dev-baza-trainee.vercel.app/#/map";
+      await navigator.clipboard.writeText(urlToCopy);
+      notification();
+    } catch (error) {
+      console.error("Не вдалося скопіювати посилання: ", error);
+    }
+  };
 
   const animationElement = {
     hidden: {
@@ -64,7 +85,7 @@ const Hero = () => {
           className="ornamentWrap"
         >
           <OrnamentsLeftIcon />
-          <p className="ornamentWrap__text">
+          <p className="text-base">
             Поринь у чарівний світ української колискової. Тут у <br />
             кожній ноті оживає душа народу, у кожному слові
             <br /> закарбовано генетичний зв’язок з родом. Відкрий для себе
@@ -86,23 +107,24 @@ const Hero = () => {
               "bg-dark": !isLightTheme,
             })}
           >
-            <NavLink
-              to=""
+            <Link
+              to="player"
+              id="player"
               className={classNames("button", "listen-button", {
                 "button-dark": !isLightTheme,
               })}
+              spy={true}
+              smooth={true}
+              duration={500}
             >
               Слухати
-            </NavLink>
-            <ButtonShare
-              text="Поділитися"
-              isLightTheme={isLightTheme}
-              className={classNames("shared-button", {
-                "button-dark": !isLightTheme,
-              })}
-            />
+            </Link>
+            <ButtonShare text="Поділитися" onClick={copyLinkToClipboard} />
           </div>
         </motion.div>
+        {isNotification && (
+          <Notification textNotification="Поділитися посиланням на сайт" />
+        )}
       </div>
     </motion.div>
   );
