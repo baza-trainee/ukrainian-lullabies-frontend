@@ -72,10 +72,8 @@ export const Footer = () => {
       </button>
       <div className="footer-wrapper container text-sm">
         <div className="separation-line"></div>
-        <div className="footer-logo">
-          <Link to="/" onClick={scrollToTop}>
-            {isLightTheme ? <LogoLight width="92" height="88" /> : <LogoDark width="92" height="88" />}
-          </Link>
+        <div className="footer-logo" onClick={scrollToTop}>
+          <Link to="/">{isLightTheme ? <LogoLight width="92" height="88" /> : <LogoDark width="92" height="88" />}</Link>
         </div>
         <ul className="footer-docs-wrapper">
           <li>
