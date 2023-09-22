@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import classNames from "classnames";
 import "./Selections.css";
+import { SelectionsPlayer } from "./SelectionsPlayer";
 import favoriteSongFirst from "../../assets/images/favorite-song-1.png";
 import favoriteSongSecond from "../../assets/images/favorite-song-2.png";
 import favoriteSongThird from "../../assets/images/favorite-song-3.png";
+
+import endSectionOrnament from "../../assets/images/ornamentsMapTabsSection.svg";
 
 // icons import
 import { BsRepeat, BsHeart } from "react-icons/bs";
@@ -10,10 +15,6 @@ import { AiOutlineLike } from "react-icons/ai";
 import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
 import { PauseCircleIconDark } from "../../icons/SelectionsIcons/PauseCircleIcon";
 import { SoundWaveIcon } from "../../icons/SelectionsIcons/SoundWaveIcon";
-import { SelectionsPlayer } from "./SelectionsPlayer";
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import classNames from "classnames";
 
 const playlist = [
   {
@@ -77,9 +78,9 @@ export const Selections = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <div className="selections">
+    <div className="selections margin-bottom">
       <h2 className="selections-title text-4xl">Підбірка колискових</h2>
-      <div className="selections-wrapper container">
+      <div className="selections-wrapper container margin-bottom">
         <div className="selections-image">
           <img src={favoriteSongFirst} alt="song covering" />
         </div>
@@ -126,6 +127,7 @@ export const Selections = () => {
           <SelectionsPlayer isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
         </div>
       </div>
+      <img src={endSectionOrnament} alt="ornament" />
     </div>
   );
 };

@@ -18,7 +18,7 @@ export const MapTabs = () => {
   return (<motion.section
     initial="hidden"
     whileInView="visible"
-    className="tabs margin-bottom">
+    className="tabs margin-bottom" id="mapTabsId">
     <motion.h2 custom={1} variants={animationElement} className="map-tabs__text text-4xl">Музей колискової</motion.h2>
     <motion.div custom={3} variants={animationElement} className="map-tabs">
       <NavLink className="map-tabs__button text-2xl tabs1" to={"/map"}>Традиційні колискові</NavLink>
