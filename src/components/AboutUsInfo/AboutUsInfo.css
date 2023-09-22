@@ -123,7 +123,7 @@
 }
 
 .patreon_dark:active  rect {
-    fill: var(--white-0);
+    fill: #141518;
     stroke-width: 0px;
 }
 
