@@ -5,6 +5,9 @@ import { OurPartners } from "../components/OurPartners/OurPartners";
 export const AboutUs = () => {
   return <>
     <OurAchivements />
-    <OurPartners />
+    <div className="slider">
+      <OurPartners />
+    </div>
+
   </>
 };

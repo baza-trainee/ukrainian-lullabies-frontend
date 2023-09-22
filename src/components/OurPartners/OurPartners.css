@@ -1,0 +1,43 @@
+.ourPartners{
+  grid-column: 1/13;
+}
+ .swiper-wrapper{
+  max-width: 970px;
+  display: flex;
+   -webkit-transition-timing-function: linear !important;
+          transition-timing-function: linear !important;
+}
+ .swiper-slide{
+  cursor: pointer;
+  display: block;
+  width: 226px;
+  height: 119px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+ }
+
+ .slider{
+grid-column: 1/13;
+ }
+
+.baza-dark {
+  background-image: url("../../images/Card_partners_black_baza.png");
+}
+
+.etno-dark {
+  background-image: url("../../images/Card_partners_black_etno.png");
+}
+
+.red-dark {
+  background-image: url("../../images/Card_partners_red.png");
+}
+
+
+.baza-light {
+  background-image: url("../../images/Card_partners_white_baza.png");
+}
+
+.etno-light {
+  background-image: url("../../images/Card_partners_white-etno.png");
+}

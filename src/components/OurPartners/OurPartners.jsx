@@ -1,46 +1,92 @@
-import React, { useEffect } from 'react';
-import { Link } from "react-router-dom";
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import React from 'react';
+import classNames from 'classnames';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
 
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
+import 'swiper/css';
+import './OurPartners.css';
 
 export const OurPartners = () => {
-  useEffect(() => {
-    const mySwiper = new Swiper('.swiper-container', {
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      loop: true,
-    });
-
-    return () => {
-      mySwiper.destroy();
-    };
-  }, []);
+  const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
   return (
-    <div className="swiper-container">
-      <Swiper
-        className="mySwiper"
+    <Swiper
+      spaceBetween={ 24 }
+      slidesPerView={ 4 }
+      modules={ [Autoplay] }
+      loop={ true }
+      autoplay={ { delay: 0, disableOnInteraction: false } }
+      onSlideChange={ () => { } }
+      noSwiping={ true }
+      speed={ 2000 }
+      effect="slide"
+      freeMode={ true }
+      allowSlidePrev={ true }
+      allowSlideNext={ true }
+      allowTouchMove={ false }
+      className="swiper-container"
+    >
+      <SwiperSlide
+        className={ classNames({
+          'baza-dark': !isLightTheme,
+          'baza-light': isLightTheme,
+        }) }
       >
-        <SwiperSlide>
-          <Link to="https://baza-trainee.tech" target="_blank" >
-            <img src="" alt="Baza Trainee logo" />
-          </Link>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Link target="_blank" to="https://www.facebook.com/etnofotka/photos/">
-            <img src="" alt="Ento Photos logo" />
-          </Link>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Link to="#" target="_blank">
-            <img src="" alt="Partner Red logo" />
-          </Link>
-        </SwiperSlide>
-      </Swiper>
-    </div >
+        <Link to="https://baza-trainee.tech"></Link>
+      </SwiperSlide>
+      <SwiperSlide
+        className={ classNames({
+          'etno-dark': !isLightTheme,
+          'etno-light': isLightTheme,
+        }) }
+      >
+        <Link to="https://www.facebook.com/etnofotka/photos/"></Link>
+      </SwiperSlide>
+      <SwiperSlide className="red-dark">
+        <Link to="#"></Link>
+      </SwiperSlide>
+
+      <SwiperSlide
+        className={ classNames({
+          'baza-dark': !isLightTheme,
+          'baza-light': isLightTheme,
+        }) }
+      >
+        <Link to="https://baza-trainee.tech"></Link>
+      </SwiperSlide>
+      <SwiperSlide
+        className={ classNames({
+          'etno-dark': !isLightTheme,
+          'etno-light': isLightTheme,
+        }) }
+      >
+        <Link to="https://www.facebook.com/etnofotka/photos/"></Link>
+      </SwiperSlide>
+      <SwiperSlide className="red-dark">
+        <Link to="#"></Link>
+      </SwiperSlide>
+
+      <SwiperSlide
+        className={ classNames({
+          'baza-dark': !isLightTheme,
+          'baza-light': isLightTheme,
+        }) }
+      >
+        <Link to="https://baza-trainee.tech"></Link>
+      </SwiperSlide>
+      <SwiperSlide
+        className={ classNames({
+          'etno-dark': !isLightTheme,
+          'etno-light': isLightTheme,
+        }) }
+      >
+        <Link to="https://www.facebook.com/etnofotka/photos/"></Link>
+      </SwiperSlide>
+      <SwiperSlide className="red-dark">
+        <Link to="#"></Link>
+      </SwiperSlide>
+    </Swiper>
   );
 };
