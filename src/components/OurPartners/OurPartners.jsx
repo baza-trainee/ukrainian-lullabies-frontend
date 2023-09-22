@@ -7,86 +7,91 @@ import { Autoplay } from 'swiper/modules';
 
 import 'swiper/css';
 import './OurPartners.css';
+import ornamentTriple from '../../images/ornamentTriple.svg';
 
 export const OurPartners = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
   return (
-    <Swiper
-      spaceBetween={ 24 }
-      slidesPerView={ 4 }
-      modules={ [Autoplay] }
-      loop={ true }
-      autoplay={ { delay: 0, disableOnInteraction: false } }
-      onSlideChange={ () => { } }
-      noSwiping={ true }
-      speed={ 2000 }
-      effect="slide"
-      freeMode={ true }
-      allowSlidePrev={ true }
-      allowSlideNext={ true }
-      allowTouchMove={ false }
-      className="swiper-container"
-    >
-      <SwiperSlide
-        className={ classNames({
-          'baza-dark': !isLightTheme,
-          'baza-light': isLightTheme,
-        }) }
+    <>
+      <h2 className='text-4xl ourPartners'>Наші партнери</h2>
+      <Swiper
+        spaceBetween={ 24 }
+        slidesPerView={ 4 }
+        modules={ [Autoplay] }
+        loop={ true }
+        autoplay={ { delay: 0, disableOnInteraction: false } }
+        onSlideChange={ () => { } }
+        noSwiping={ true }
+        speed={ 2000 }
+        effect="slide"
+        freeMode={ true }
+        allowSlidePrev={ true }
+        allowSlideNext={ true }
+        allowTouchMove={ false }
+        className="swiper-container"
       >
-        <Link to="https://baza-trainee.tech"></Link>
-      </SwiperSlide>
-      <SwiperSlide
-        className={ classNames({
-          'etno-dark': !isLightTheme,
-          'etno-light': isLightTheme,
-        }) }
-      >
-        <Link to="https://www.facebook.com/etnofotka/photos/"></Link>
-      </SwiperSlide>
-      <SwiperSlide className="red-dark">
-        <Link to="#"></Link>
-      </SwiperSlide>
+        <SwiperSlide
+          className={ classNames('margin-bottom', {
+            'baza-dark': !isLightTheme,
+            'baza-light': isLightTheme,
+          }) }
+        >
+          <Link to="https://baza-trainee.tech"></Link>
+        </SwiperSlide>
+        <SwiperSlide
+          className={ classNames({
+            'etno-dark': !isLightTheme,
+            'etno-light': isLightTheme,
+          }) }
+        >
+          <Link to="https://www.facebook.com/etnofotka/photos/"></Link>
+        </SwiperSlide>
+        <SwiperSlide className="red-dark">
+          <Link to="#"></Link>
+        </SwiperSlide>
 
-      <SwiperSlide
-        className={ classNames({
-          'baza-dark': !isLightTheme,
-          'baza-light': isLightTheme,
-        }) }
-      >
-        <Link to="https://baza-trainee.tech"></Link>
-      </SwiperSlide>
-      <SwiperSlide
-        className={ classNames({
-          'etno-dark': !isLightTheme,
-          'etno-light': isLightTheme,
-        }) }
-      >
-        <Link to="https://www.facebook.com/etnofotka/photos/"></Link>
-      </SwiperSlide>
-      <SwiperSlide className="red-dark">
-        <Link to="#"></Link>
-      </SwiperSlide>
+        <SwiperSlide
+          className={ classNames({
+            'baza-dark': !isLightTheme,
+            'baza-light': isLightTheme,
+          }) }
+        >
+          <Link to="https://baza-trainee.tech"></Link>
+        </SwiperSlide>
+        <SwiperSlide
+          className={ classNames({
+            'etno-dark': !isLightTheme,
+            'etno-light': isLightTheme,
+          }) }
+        >
+          <Link to="https://www.facebook.com/etnofotka/photos/"></Link>
+        </SwiperSlide>
+        <SwiperSlide className="red-dark">
+          <Link to="#"></Link>
+        </SwiperSlide>
 
-      <SwiperSlide
-        className={ classNames({
-          'baza-dark': !isLightTheme,
-          'baza-light': isLightTheme,
-        }) }
-      >
-        <Link to="https://baza-trainee.tech"></Link>
-      </SwiperSlide>
-      <SwiperSlide
-        className={ classNames({
-          'etno-dark': !isLightTheme,
-          'etno-light': isLightTheme,
-        }) }
-      >
-        <Link to="https://www.facebook.com/etnofotka/photos/"></Link>
-      </SwiperSlide>
-      <SwiperSlide className="red-dark">
-        <Link to="#"></Link>
-      </SwiperSlide>
-    </Swiper>
+        <SwiperSlide
+          className={ classNames({
+            'baza-dark': !isLightTheme,
+            'baza-light': isLightTheme,
+          }) }
+        >
+          <Link to="https://baza-trainee.tech"></Link>
+        </SwiperSlide>
+        <SwiperSlide
+          className={ classNames({
+            'etno-dark': !isLightTheme,
+            'etno-light': isLightTheme,
+          }) }
+        >
+          <Link to="https://www.facebook.com/etnofotka/photos/"></Link>
+        </SwiperSlide>
+        <SwiperSlide className="red-dark">
+          <Link to="#"></Link>
+        </SwiperSlide>
+      </Swiper>
+      <img src={ ornamentTriple } alt="ornamentTriple" className='margin-bottom' />
+    </>
   );
 };

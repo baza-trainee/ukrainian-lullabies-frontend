@@ -1,5 +1,6 @@
 .ourPartners{
-  grid-column: 1/13;
+  text-align: left;
+  margin-bottom: 48px;
 }
  .swiper-wrapper{
   max-width: 970px;
