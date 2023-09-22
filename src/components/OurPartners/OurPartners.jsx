@@ -16,6 +16,7 @@ export const OurPartners = () => {
       slidesPerView: 2,
       spaceBetween: 16
     },
+
     1024: {
       slidesPerView: 4,
       spaceBetween: 24
