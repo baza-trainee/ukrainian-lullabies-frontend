@@ -7,7 +7,6 @@ import { Autoplay } from 'swiper/modules';
 
 import 'swiper/css';
 import './OurPartners.css';
-import ornamentTriple from '../../images/ornamentTriple.svg';
 
 export const OurPartners = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
