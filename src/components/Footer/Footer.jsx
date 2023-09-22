@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Footer.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
 import { LogoDark, LogoLight } from "../SVGComponents/Logo";
@@ -41,10 +41,17 @@ const partners = [
 export const Footer = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
   const [isScrollUpButtonVisible, setIsScrollUpButtonVisible] = useState(false);
+  const navigate = useNavigate();
 
   // establish scrollToTop
   const scrollToTop = () => {
     window.scrollTo(0, 0);
+  };
+
+  // handle logo behaviour
+  const handleLogoClick = () => {
+    scrollToTop();
+    navigate.push("/");
   };
 
   useEffect(() => {
@@ -72,8 +79,10 @@ export const Footer = () => {
       </button>
       <div className="footer-wrapper container text-sm">
         <div className="separation-line"></div>
-        <div className="footer-logo" onClick={scrollToTop}>
-          <Link to="/">{isLightTheme ? <LogoLight width="92" height="88" /> : <LogoDark width="92" height="88" />}</Link>
+        <div className="footer-logo">
+          <Link to="/" onClick={handleLogoClick}>
+            {isLightTheme ? <LogoLight width="92" height="88" /> : <LogoDark width="92" height="88" />}
+          </Link>
         </div>
         <ul className="footer-docs-wrapper">
           <li>
