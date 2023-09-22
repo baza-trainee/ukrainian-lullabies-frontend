@@ -186,6 +186,23 @@ z`,
   },
 ];
 
+const pattern = [
+  "hoverPattern5",
+  "hoverPattern1",
+  "hoverPattern7",
+  "hoverPattern11",
+  "hoverPattern3",
+  "hoverPattern12",
+  "hoverPattern6",
+  "hoverPattern14",
+  "hoverPattern8",
+  "hoverPattern2",
+  "hoverPattern10",
+  "hoverPattern4",
+  "hoverPattern13",
+  "hoverPattern9",
+]
+
 export const MapCatalogue = () => {
   const isLightTheme = useSelector(getLightTheme);
   const map = isLightTheme ? mapLight : mapDark;
@@ -208,6 +225,31 @@ export const MapCatalogue = () => {
     })
   }, []);
 
+
+  useEffect(() => {
+    const delay = 500;
+
+    const runPattern = async () => {
+      for (const item of pattern) {
+        await new Promise((resolve) => {
+          setTimeout(() => {
+            handleRegionHover(item);
+            resolve();
+          }, delay);
+        });
+
+        await new Promise((resolve) => {
+          setTimeout(() => {
+            handleRegionOut(item);
+            resolve();
+          }, delay);
+        });
+      }
+    };
+
+    runPattern();
+  }, [isLightTheme]);
+
   const handleRegionHover = (pattern) => {
     const hoverPattern = document.getElementById(pattern);
     if (hoverPattern) {
@@ -229,8 +271,8 @@ export const MapCatalogue = () => {
   };
 
   const mapRegion = catalogue.map((item) => (
-    <>
-      <defs>
+    <React.Fragment key={item.id}>
+      <defs >
         <pattern id={item.pattern} x="0" y="0" width="100%" height="100%">
           <image href={item.photo} className="map-opacity_hide" />
         </pattern>
@@ -245,7 +287,7 @@ export const MapCatalogue = () => {
           style={{ fill: `url(#${item.pattern})`, objectFit: "cover" }}
         />
       </NavLink>
-    </>))
+    </React.Fragment>))
 
   return <section id="map" className="map-catalogue" >
     {" "}
