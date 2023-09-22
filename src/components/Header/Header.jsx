@@ -114,7 +114,7 @@ export const Header = () => {
 
   return (
     // <div className="header-wrapper">
-    <div className="header container">
+    <div className="header container" id="header">
       <div className="header-logo">
         <Link to="/">{isLightTheme ? <LogoLight width="56" height="53" /> : <LogoDark width="56" height="53" />}</Link>
       </div>
