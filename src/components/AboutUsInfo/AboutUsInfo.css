@@ -1,9 +1,8 @@
 .about-as-info_wrapper {
-    border: 1px solid red;
     display: grid;
     grid-column: 1/13;
-    color: var(--gray0);
     gap: 0px;
+    margin-bottom: 80px;
 }
 
 .about-as-info_title {
@@ -41,8 +40,6 @@
 .about-as-info_img-container {
     width: 429px;
     height: 420px;
-    border-radius: 10px;
-    border: 1px solid blue; 
 }
 
 .another-hight {
@@ -54,12 +51,13 @@
     width: inherit;
     height: inherit;
     object-fit: cover;
+    overflow: hidden;
+    border-radius: 10px;
 }
 
 .about-as-info_target-info,
 .about-as-info_support-info {
     text-align: start;
-    border: 2px solid red;
 }
 
 .about-as-info_target-info p:nth-child(2) {
@@ -83,26 +81,68 @@
     justify-content: start;
 }
 
-.about-as-info_bmc {
+.about-as-info_donat-bmc {
     width: 174px;
     height: 56px;
-    border: 1px solid green;
+    margin-right: 24px;
 }
 
-.buy-me-a-caffee_dark {
-    background: url("../../img/aboutUs/bmc-white-black.png");
+.buy-me-a-caffee {
+    background: url("../../img/aboutUs/bmc.svg");
     width: inherit;
     height: inherit;
-    
-    /* display: flex;
-    justify-content: center;
-    align-content: center; */
-    /* object-fit: cover; */
+    display: block;
     overflow: hidden;
     background-repeat: no-repeat;
-    /* background-size: contain; */
 }
 
-.buy-me-a-caffee_dark:hover {
-    background: url("../../img/aboutUs/bmc-hover-white-black.png");
+.buy-me-a-caffee:hover {
+    background: url("../../img/aboutUs/bmc-hover.svg");
+}
+
+.buy-me-a-caffee:active {
+    background: url("../../img/aboutUs/bmc-active.svg");
+}
+
+.about-as-info_donat-patreon {
+    width: 100px;
+    height: 56px;
+    cursor: pointer;
+}
+
+.patreon_dark:hover  rect,
+.patreon_light:hover rect {
+    fill: #FF424E;
+    stroke: #FF424E;
+    stroke-width: 6px;
+}
+
+.patreon_dark:hover  path,
+.patreon_light:hover path {
+    fill: var(--white-0);
+}
+
+.patreon_dark:active  rect {
+    fill: var(--white-0);
+    stroke-width: 0px;
+}
+
+.patreon_dark:active  path {
+    fill: var(--white-0);
+}
+
+.patreon_light rect{
+    fill: #141518;
+}
+
+.patreon_light path{
+    fill: var(--white-0);
+}
+
+.patreon_light:active rect{
+    fill: var(--white-0);
+}
+
+.patreon_light:active path{
+    fill: #141518;
 }

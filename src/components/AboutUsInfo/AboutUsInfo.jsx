@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 import classNames from "classnames";
 import "./AboutUsInfo.css";
+import Patreon from "./patreon";
 
 const AboutUsInfo = () => {
     const isLightTheme = useSelector((state) => state.theme.isLightTheme);
@@ -47,11 +48,11 @@ const AboutUsInfo = () => {
                         Задонатити можна тут:
                     </p>
                     <div className='about-as-info_donat-imgs'>
-                        <div className='about-as-info_bmc'>
-                            <Link href='#' className={ classNames("buy-me-a-caffee_dark", {"buy-me-a-caffee_white":isLightTheme}) }></Link>
+                        <div className='about-as-info_donat-bmc'>
+                            <Link href='#' className="buy-me-a-caffee"></Link>
                         </div>
-                        <div className='about-as-info_donat-img'>
-                            <Link href='#' className={ classNames("patreon_dark", {"patreon_white":isLightTheme}) }></Link>
+                        <div className='about-as-info_donat-patreon'>
+                            <Link href='#' className={ classNames("patreon_dark", {"patreon_white":isLightTheme}) }><Patreon /></Link>
                         </div>
                     </div>
                 </div>
