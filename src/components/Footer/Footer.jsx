@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Footer.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
 import { LogoDark, LogoLight } from "../SVGComponents/Logo";
@@ -41,7 +41,7 @@ const partners = [
 export const Footer = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
   const [isScrollUpButtonVisible, setIsScrollUpButtonVisible] = useState(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // establish scrollToTop
   const scrollToTop = () => {
@@ -49,9 +49,14 @@ export const Footer = () => {
   };
 
   // handle logo behaviour
-  const handleLogoClick = () => {
-    scrollToTop();
-    navigate.push("/");
+  // const handleLogoClick = () => {
+  //   scrollToTop();
+  //   navigate.push("/");
+  // };
+
+  const scrollToTarget = (target) => {
+    const scrollTo = document.querySelector(target);
+    scrollTo.scrollIntoView({ block: "end" });
   };
 
   useEffect(() => {
@@ -81,7 +86,12 @@ export const Footer = () => {
         <div className="separation-line"></div>
 
         <div className="footer-logo">
-          <Link to="/" onClick={handleLogoClick}>
+          <Link
+            to="/"
+            onClick={() => {
+              scrollToTarget("#header");
+            }}
+          >
             {isLightTheme ? <LogoLight width="92" height="88" /> : <LogoDark width="92" height="88" />}
           </Link>
         </div>
