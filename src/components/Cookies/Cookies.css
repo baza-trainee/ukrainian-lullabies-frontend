@@ -1,0 +1,61 @@
+.cookies {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 41px 120px;
+  width: 100%;
+  height: 130px;
+  background: var(--white-0);
+  position: fixed;
+  top: 83vh;
+  z-index: 20;
+  color: var(--gray-black-950);
+}
+
+.cookies-close-button {
+  color: inherit;
+  font-size: 40px;
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.cookies-text {
+  margin-right: 32px;
+  width: 55%;
+}
+
+.cookies-settings-button {
+  color: var(--red-700);
+  margin-right: 24px;
+  border: none;
+  background: transparent;
+  /* text-decoration: underline;   */
+}
+
+.cookies-settings-button span {
+  border-bottom: 1px solid var(--red-700);
+  padding: 4px 0;
+}
+
+.cookies-accept-button {
+  color: var(--red-700);
+  padding: 16px 47px;
+  border: 2px solid var(--red-700);
+  border-radius: 36px;
+  background: transparent;
+}
+
+.cookies-light {
+  background: var(--gray-black-950);
+  color: var(--white-0);
+}
+
+.cookies-settings-button-light,
+.cookies-settings-button-light span,
+.cookies-accept-button-light {
+  color: var(--white-0);
+  border-color: var(--white-0);
+}

@@ -1,18 +1,24 @@
 import * as React from "react";
+import { useSelector } from "react-redux";
+
+import { getLightTheme } from "../redux/theme/themeSelectors";
 
 function Share(props) {
+  const isLightTheme = useSelector(getLightTheme);
   return (
     <svg
       width="25"
       height="24"
       viewBox="0 0 25 24"
       fill="none"
+      stroke={isLightTheme ? "black" : "white"}
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
+        // stroke={isLightTheme ? "black" : "white"}
         d="M18.5 8C20.1569 8 21.5 6.65685 21.5 5C21.5 3.34315 20.1569 2 18.5 2C16.8431 2 15.5 3.34315 15.5 5C15.5 6.65685 16.8431 8 18.5 8Z"
-        stroke="white"
+        // stroke="white"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -32,14 +38,14 @@ function Share(props) {
         strokeLinejoin="round"
       />
       <path
-        d="M9.08984 13.51L15.9198 17.49"
+        d="M9.09003 13.5098L15.92 17.4898"
         stroke="white"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M15.9098 6.50999L9.08984 10.49"
+        d="M15.91 6.50977L9.09003 10.4898"
         stroke="white"
         strokeWidth="1.5"
         strokeLinecap="round"
