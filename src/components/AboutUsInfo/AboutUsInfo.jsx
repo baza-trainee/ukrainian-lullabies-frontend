@@ -52,7 +52,7 @@ const AboutUsInfo = () => {
                             <Link href='#' className="buy-me-a-caffee"></Link>
                         </div>
                         <div className='about-as-info_donat-patreon'>
-                            <Link href='#' className={ classNames("patreon_dark", {"patreon_white":isLightTheme}) }><Patreon /></Link>
+                            <Link href='#'><Patreon /></Link>
                         </div>
                     </div>
                 </div>

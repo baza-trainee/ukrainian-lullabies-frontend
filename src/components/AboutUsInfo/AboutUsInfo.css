@@ -128,7 +128,7 @@
 }
 
 .patreon_dark:active  path {
-    fill: var(--white-0);
+    fill: #141518;
 }
 
 .patreon_light rect{

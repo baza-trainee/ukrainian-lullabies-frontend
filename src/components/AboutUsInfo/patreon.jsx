@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useSelector } from "react-redux";
-// import { getLightTheme } from "../redux/theme/themeSelectors";
 import classNames from "classnames";
 import "./AboutUsInfo.css";
 
