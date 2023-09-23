@@ -27,6 +27,8 @@
 
 .selections-image {
   width: 100%;
+  max-width: 400px;
+  align-self: center;
   @media screen and (min-width: 1160px) {
     grid-column: 1 / 6;
     position: relative;
@@ -138,7 +140,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   width: 100px;
-  @media screen and (min-width: 1160px) {
+  @media screen and (min-width: 500px) {
     font-size: 12px;
     font-style: normal;
     font-weight: 600;
