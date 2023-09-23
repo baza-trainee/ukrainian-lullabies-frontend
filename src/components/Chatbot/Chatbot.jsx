@@ -49,7 +49,7 @@ const Chatbot = () => {
           custom={ 3 }
           variants={ animationElement }
           className='button'>
-          <Link href='#' className='text-base'>Грати</Link>
+          <Link href='#' className='text-base-semibold'>Грати</Link>
         </motion.div>
       </div>
       <motion.div
