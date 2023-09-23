@@ -1,8 +1,8 @@
 .about-as-info_wrapper {
-    display: grid;
     grid-column: 1/13;
-    gap: 0px;
-    margin-bottom: 80px;
+      background-image: url("../../images/frame-about.png");
+      background-repeat: no-repeat;
+      background-position: 0 44px;
 }
 
 .about-as-info_title {
@@ -145,4 +145,12 @@
 
 .patreon_light:active path{
     fill: #141518;
+}
+
+.about-us{
+  grid-column: 1/13;
+
+  background-image: url("../../images/frame-hero-a.png");
+  background-repeat: no-repeat;
+  background-position: center;
 }
