@@ -13,6 +13,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.5.0",
     "classnames": "^2.3.2",
+    "formik": "^2.4.5",
     "framer-motion": "^10.16.4",
     "i18next": "^23.5.1",
     "i18next-browser-languagedetector": "^7.1.0",
@@ -27,7 +28,8 @@
     "react-script": "^2.0.5",
     "react-scroll": "^1.8.9",
     "reactjs-popup": "^2.0.6",
-    "swiper": "^10.3.0"
+    "swiper": "^10.3.0",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
