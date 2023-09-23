@@ -70,6 +70,7 @@ button {
 a {
   text-decoration-line: none;
 }
+
 /* Container Styles */
 .container {
   display: grid;
@@ -80,7 +81,7 @@ a {
 
 @media (min-width: 1024px) {
   .container {
-    grid-template-columns: repeat(12, 1fr); 
+    grid-template-columns: repeat(12, 1fr);
     gap: 24px;
   }
 }
@@ -91,40 +92,45 @@ a {
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
-  line-height: 14px; /* 140% */
+  line-height: 14px;
+  /* 140% */
 }
 
 .text-xs-bold {
   font-size: 10px;
   font-style: normal;
   font-weight: 700;
-  line-height: 14px; /* 140% */
+  line-height: 14px;
+  /* 140% */
 }
 
 .text-sm {
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
-  line-height: 16px; /* 133.333% */
+  line-height: 16px;
+  /* 133.333% */
 }
 
 .text-sm-semibold {
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
-  line-height: 16px; /* 133.333% */
+  line-height: 16px;
+  /* 133.333% */
 }
 
 .text-base {
   font-size: 12px;
-font-style: normal;
-font-weight: 400;
-line-height: 16px;
-  @media screen and (min-width: 1440px){
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+
+  @media screen and (min-width: 1440px) {
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px; 
+    line-height: 24px;
   }
 }
 
@@ -132,7 +138,8 @@ line-height: 16px;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
+  /* 150% */
 }
 
 .text-base-bold {
@@ -140,14 +147,16 @@ line-height: 16px;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
+  /* 150% */
 }
 
 .text-lg {
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
-  line-height: 28px; /* 140% */
+  line-height: 28px;
+  /* 140% */
   letter-spacing: 0.8px;
 }
 
@@ -156,14 +165,16 @@ line-height: 16px;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
-  line-height: 28px; /* 140% */
+  line-height: 28px;
+  /* 140% */
 }
 
 .text-xl-semibold {
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
-  line-height: 28px; /* 140% */
+  line-height: 28px;
+  /* 140% */
   letter-spacing: 0.8px;
 }
 
@@ -174,44 +185,47 @@ font-style: normal;
 font-weight: 400;
 line-height: 16px;
 
+
   @media screen and (min-width: 1440px) {
     font-family: "Unbounded";
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: 28px; /* 155.556% */
+    line-height: 28px;
+    /* 155.556% */
   }
 }
 
 .text-3xl {
   font-family: "Unbounded";
   font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 16px;
-  
-
- @media screen and (min-width: 1440px) {
-    font-size: 20px;
   font-style: normal;
   font-weight: 600;
-  line-height: 28px; /* 140% */
+  line-height: 16px;
+
+
+  @media screen and (min-width: 1440px) {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+    /* 140% */
   }
 }
 
 .text-4xl {
-font-family: Unbounded;
-font-size: 20px;
-font-style: normal;
-font-weight: 600;
-line-height: 28px;
+  font-family: Unbounded;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
 
   @media screen and (min-width: 1440px) {
     font-family: "Unbounded";
     font-size: 32px;
     font-style: normal;
     font-weight: 700;
-    line-height: 40px;  
+    line-height: 40px;
   }
 }
 
@@ -220,6 +234,7 @@ line-height: 28px;
   font-size: 64px;
   font-style: normal;
   font-weight: 400;
-  line-height: 80px; /* 125% */
+  line-height: 80px;
+  /* 125% */
   text-transform: uppercase;
 }
