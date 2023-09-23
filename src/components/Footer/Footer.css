@@ -12,6 +12,7 @@ ul {
   position: relative;
 }
 
+/* scroll up button */
 .footer-scroll-up-button {
   display: flex;
   position: absolute;
@@ -28,15 +29,34 @@ ul {
   display: none;
 }
 
+.footer-scroll-up-button:hover {
+  background: var(--white-0);
+  color: var(--red-700);
+}
+
+.footer-scroll-up-button:active {
+  color: var(--gray-black-950);
+}
+
+
 .footer-scroll-up-button-light {
   color: var(--gray-black-950);
   border-color: var(--gray-black-950);
 }
 
+.footer-scroll-up-button-light:hover {
+  background: var(--gray-black-950);
+  color: var(--red-700);
+}
+
+.footer-scroll-up-button-light:active {
+  color: var(--white-0);
+}
+
+/* footer styles */
 .footer-wrapper {
   text-align: left;
   align-items: center;
-  font-size: 12px; /* remove later!!!! */
   padding: 50px 0 50px 0;
 }
 
