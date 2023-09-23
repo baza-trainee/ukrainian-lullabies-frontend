@@ -55,7 +55,7 @@
   position: relative;
   margin: 0 auto;
 
-  @media screen and (min-width: 1160px) {
+  @media screen and (min-width: 1440px) {
     padding: 26px 48px;
   }
 
@@ -82,7 +82,6 @@
   @media screen and (min-width: 1440px) {
     width: 250px;
     height: 56px;
-    padding: 16px 0px;
   }
 }
 
