@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useState } from "react";
 import classNames from "classnames";
 import { Formik, Form, Field } from "formik";
 import { object, string } from "yup";
@@ -8,7 +9,7 @@ import { getLightTheme } from "../../redux/theme/themeSelectors";
 
 import ButtonForm from "./ButtonForm/ButtonForm";
 import FormError from "./FormError/FormError";
-
+import PopUpFeedBack from "./PopUpFeedBack/PopUpFeedBack";
 import "./form-feedback.css";
 
 const schema = object({
@@ -58,18 +59,39 @@ const initialValues = {
 
 const FormFeedBack = () => {
   const isLightTheme = useSelector(getLightTheme);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-  // const handleSubmit = (values, { resetForm }) => {
-  //   console.log(values);
-  //   resetForm();
-  // };
+  const handleFormSubmit = (values, { resetForm, isValid }) => {
+    if (isValid) {
+      const { name, email, theme, message } = values;
+      console.log(values);
+
+      // Відправляємо дані на пошту
+      const mailtoLink = `mailto:newsroommy@gmail.com?subject=${encodeURIComponent(
+        theme
+      )}&body=${encodeURIComponent(
+        `Ім'я: ${name}%0AEmail: ${email}%0AПовідомлення: ${message}`
+      )}`;
+      window.location.href = mailtoLink;
+
+      // Показуємо pop-up повідомлення
+      setShowSuccessMessage(true);
+
+      resetForm();
+    }
+  };
+  // Обробник onClick для показу pop-up повідомлення
+  const handleShowPopUp = () => {
+    setShowSuccessMessage(true);
+  };
+
   return (
     <div className="container section-form-wrap margin-bottom">
       <div className="form-wrap">
         <Formik
           initialValues={initialValues}
           validationSchema={schema}
-          /*onSubmit={handleSubmit}*/
+          onSubmit={handleFormSubmit}
         >
           {({ errors, touched }) => (
             <Form autoComplete="off">
@@ -212,7 +234,9 @@ const FormFeedBack = () => {
                       "button-dark": !isLightTheme,
                     })}
                     type="submit"
+                    onClick={handleShowPopUp}
                   />
+                  {showSuccessMessage && <PopUpFeedBack />}
                 </div>
               </div>
             </Form>
