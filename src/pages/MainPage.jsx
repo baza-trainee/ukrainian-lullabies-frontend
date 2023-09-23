@@ -7,6 +7,7 @@ import { PopularSongs } from "../components/PopularSongs/PopularSongs";
 import { useDispatch } from "react-redux";
 import { getPopularSongs } from "../redux/PopularSongs/PopularSongsSlice";
 import { Selections } from "../components/Selections/Selections";
+import { SupportTheProject } from "../components/OurAchivements/SupportTheProject/SupportTheProject";
 
 export const MainPage = () => {
   const dispatch = useDispatch();
@@ -17,8 +18,9 @@ export const MainPage = () => {
       <Hero />
       <PopularSongs />
       <Selections />
-      <MapTabs />
       <OurAchivements />
+      <SupportTheProject />
+      <MapTabs />
       <Chatbot />
     </>
   );

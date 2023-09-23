@@ -12,7 +12,7 @@
 .bg-img-right {
   background-repeat: repeat-y;
 
-  min-width: 140px;
+  min-width: 20px;
   width: 100%;
   max-width: 320px;
   height: 100%;
@@ -46,60 +46,51 @@
   color: var(--gray-black-950);
 }
 
-.background-light::after {
-  content: "";
-  background-image: url("src/assets/images/ornamentsLight.png");
-  display: block;
-  z-index: 2;
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 140px;
-}
-
-.background-light::before {
-  content: "";
-  background-image: url("src/assets/images/ornamentsLight.png");
-  display: block;
-  z-index: 2;
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  width: 140px;
-  transform: scaleX(-1);
-}
-
 .content {
-  width: 1160px;
-  margin: 0 auto;
-  padding: 26px 48px;
+  max-width: 1160px;
+  min-width: 328px;
+  width: 100%;
+  padding: 0 16px;
   z-index: 12;
   position: relative;
   margin: 0 auto;
+
+  @media screen and(min-width: 1440px) {
+    padding: 26px 48px;
+  }
+
 }
 
 .button {
-  border-radius: 46px;
-
-  border: 2px solid var(--red-700);
-  
   display: flex;
-  width: 250px;
-  height: 56px;
+  width: 192px;
+  height: 44px;
   padding: 16px 0px;
   justify-content: center;
   align-items: center;
   gap: 10px;
   cursor: pointer;
   flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: 46px;
+
+  border: 2px solid var(--red-700);
+  color: var(--red-700);
+  font-family: "Montserrat Alternates", sans-serif;
+  display: flex;
+
+  @media screen and (min-width: 1440px) {
+    width: 250px;
+    height: 56px;
+    padding: 16px 0px;
+  }
 }
 
 .button:hover {
   background: var(--red-700);
   color: var(--gray-black-950);
-  
+
 }
 
 .button:active {
@@ -108,5 +99,9 @@
 }
 
 .margin-bottom {
-  margin-bottom: 80px;
+  margin-bottom: 32px;
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 80px;
+  }
 }
