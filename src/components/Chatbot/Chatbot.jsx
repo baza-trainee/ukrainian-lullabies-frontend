@@ -10,7 +10,7 @@ const Chatbot = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
   const chatRules = rules.map((rule, index) => (
-    <li key={ index + 1 } className='chat_text'>
+    <li key={ index + 1 } className='text-base chat_text'>
       { rule }
     </li>
   ));
@@ -36,7 +36,7 @@ const Chatbot = () => {
         <motion.p
           custom={ 1 }
           variants={ animationElement }
-          className="chat_title">
+          className="text-4xl">
           Чат-бот
         </motion.p>
         <motion.ul
