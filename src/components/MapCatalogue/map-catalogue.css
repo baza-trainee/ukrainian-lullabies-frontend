@@ -1,8 +1,13 @@
 .map-catalogue {
     display: grid;
     text-align: center;
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+
+    @media screen and (min-width: 1440px) {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
 }
 
 .map {
