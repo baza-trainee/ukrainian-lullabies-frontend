@@ -3,28 +3,55 @@ import './ErrorPage.css';
 import classNames from "classnames";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
+
 import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
 import { NumberFour, NumberNull } from '../../icons/Numbers';
 
 export const ErrorPage = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
+  const scrollToTarget = (target) => {
+    const scrollTo = document.querySelector(target);
+    scrollTo.scrollIntoView({ block: "end" });
+  };
+
+  const animationElement = {
+    hidden: {
+      y: -50,
+      opacity: 0,
+    },
+    visible: (custom) => ({
+      y: 0,
+      opacity: 1,
+      transition: { ease: "easeOut", duration: 2, delay: custom * 0.3 },
+    }),
+  };
 
   return (
-    <div className='errorPage'>
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      className='errorPage'
+    >
       <div className="errorPage__border">
         <div className="errorPage__element container">
-          <h2 className="errorPage__title text-4xl">
+          <motion.h2 custom={ 1 }
+            variants={ animationElement } className="errorPage__title text-4xl">
             Page not found
-          </h2>
-          <div className="errorPage__svg404">
+          </motion.h2>
+          <motion.div
+            custom={ 2 }
+            variants={ animationElement } className="errorPage__svg404">
             <NumberFour />
             <NumberNull />
             <NumberFour />
-          </div>
+          </motion.div>
         </div>
       </div>
-      <div className="errorPage__block container">
+      <motion.div custom={ 3 }
+        variants={ animationElement }
+        className="errorPage__block container">
         <div className="element-right">
           <OrnamentsLeftIcon />
         </div>
@@ -34,9 +61,15 @@ export const ErrorPage = () => {
         <div className="element-left">
           <OrnamentsRightIcon />
         </div>
-      </div>
-      <div className="container">
-        <NavLink to="/" className={ classNames('button', 'errorPage-button', { 'button-dark': !isLightTheme, }) }> На головну </NavLink>
-      </div>
-    </div >)
+      </motion.div>
+      <motion.div custom={ 4 }
+        variants={ animationElement } className="container">
+        <NavLink
+          to="/"
+          className={ classNames('button', 'errorPage-button', { 'button-dark': !isLightTheme, }) }
+          onClick={ () => {
+            scrollToTarget("#header");
+          } }> На головну </NavLink>
+      </motion.div>
+    </motion.div >)
 };

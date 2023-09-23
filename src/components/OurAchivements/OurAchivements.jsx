@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from 'framer-motion';
 
-import { SupportTheProject } from "./SupportTheProject/SupportTheProject";
 import './OurAchivements.css'
 
 export const OurAchivements = () => {
@@ -19,7 +18,7 @@ export const OurAchivements = () => {
   return <motion.section
     initial="hidden"
     whileInView="visible"
-    className="ourAchivements margin-bottom">
+    className="ourAchivements">
     <motion.h2 custom={ 1 } variants={ animationElement } className="ourAchivementsTitle text-4xl">Наші напрацювання</motion.h2>
     <motion.div custom={ 2 } variants={ animationElement } className="achivements text-5xl">
       <motion.div custom={ 3 } variants={ animationElement } className="achivement">
@@ -35,7 +34,6 @@ export const OurAchivements = () => {
         <div className="text-3xl">Виконавців</div>
       </motion.div>
     </motion.div>
-    <SupportTheProject />
   </motion.section>;
 };
 

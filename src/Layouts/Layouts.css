@@ -84,7 +84,8 @@
   border-radius: 46px;
 
   border: 2px solid var(--red-700);
-  
+  color: var(--red-700);
+  font-family: "Montserrat Alternates", sans-serif;
   display: flex;
   width: 250px;
   height: 56px;
@@ -110,3 +111,4 @@
 .margin-bottom {
   margin-bottom: 80px;
 }
+
