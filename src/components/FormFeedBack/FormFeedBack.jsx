@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -14,6 +15,7 @@ import { getLightTheme } from "../../redux/theme/themeSelectors";
 import ButtonForm from "./ButtonForm/ButtonForm";
 import FormError from "./FormError/FormError";
 import PopUpFeedBack from "./PopUpFeedBack/PopUpFeedBack";
+
 import "./form-feedback.css";
 
 const schema = object({
