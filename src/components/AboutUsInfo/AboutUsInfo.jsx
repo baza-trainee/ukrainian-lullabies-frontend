@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import "./AboutUsInfo.css";
 import Patreon from "./patreon";
 import { motion } from "framer-motion";
+import { useInView } from 'react-intersection-observer';
 import { GeneralTitle } from '../GeneralTitle/GeneralTitle';
 
 const AboutUsInfo = () => {
@@ -17,15 +18,36 @@ const AboutUsInfo = () => {
       transition: { ease: "easeOut", duration: 2, delay: custom * 0.3 },
     }),
   };
-  return (
-    <section
 
-      className='container about-as-info_wrapper   margin-bottom'>
-      <GeneralTitle />
-      <p className='text-4xl about-as-info_title'>Про нас</p>
-      <motion.div initial="hidden"
-        whileInView="visible" custom={ 1 }
-        variants={ animationElement } className='about-as-info_target'>
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+  });
+
+  return (
+    <motion.section
+      initial="hidden"
+      animate={ inView ? "visible" : "hidden" }
+      variants={ animationElement }
+      ref={ ref }
+      className='container about-as-info_wrapper margin-bottom'
+    >
+      <motion.div custom={ 1 } variants={ animationElement } className='kolyskovaWrap'>
+        <GeneralTitle />
+      </motion.div>
+
+      <motion.p
+        custom={ 1 }
+        variants={ animationElement }
+        className='text-4xl about-as-info_title'
+      >
+        Про нас
+      </motion.p>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        custom={ 1 }
+        variants={ animationElement }
+        className='about-as-info_target'>
         <div className='about-as-info_img-container'>
           <img src='/img/aboutUs/aboutUs-target.png' alt='mother with baby' />
         </div>
@@ -79,7 +101,7 @@ const AboutUsInfo = () => {
           <img src='/img/aboutUs/aboutUs-support.png' alt='mother with baby' />
         </div>
       </motion.div>
-    </section>
+    </motion.section>
   )
 }
 

@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import classNames from "classnames";
 import { Link } from "react-scroll";
+import { useInView } from 'react-intersection-observer';
 
 import { getLightTheme } from "../../redux/theme/themeSelectors";
 import Notification from "./Notification/Notification";
@@ -52,11 +53,17 @@ const Hero = () => {
       transition: { ease: "easeOut", duration: 2, delay: custom * 0.3 },
     }),
   };
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+  });
 
   return (
-    <motion.div
+    <motion.section
       initial="hidden"
-      whileInView="visible"
+      animate={ inView ? "visible" : "hidden" }
+      variants={ animationElement }
+      custom={ 1 }
+      ref={ ref }
       className="container heroWrapper margin-bottom"
     >
       <div className="kolyskovaWrap">
@@ -125,7 +132,7 @@ const Hero = () => {
           <Notification textNotification="Поділитися посиланням на сайт" />
         ) }
       </div>
-    </motion.div>
+    </motion.section>
   );
 };
 

@@ -74,13 +74,14 @@ a {
 .container {
   display: grid;
   text-align: center;
-  grid-template-columns: 1;
-  gap: 24px;
+  grid-template-columns: 1fr;
+
 }
 
 @media (min-width: 1024px) {
   .container {
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(12, 1fr); 
+    gap: 24px;
   }
 }
 
@@ -115,10 +116,17 @@ a {
 }
 
 .text-base {
-  font-size: 16px;
+  font-size: 12px;
+
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 16px;
+  @media (min-width: 1440px) {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; 
+  }
 }
 
 .text-base-semibold {
@@ -161,27 +169,51 @@ a {
 }
 
 .text-2xl {
-  font-family: "Unbounded";
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 28px; /* 155.556% */
+font-family: Unbounded;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 16px;
+
+  @media screen and (min-width: 1440px) {
+    font-family: "Unbounded";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 155.556% */
+  }
 }
 
 .text-3xl {
   font-family: "Unbounded";
-  font-size: 20px;
+  font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px;
+  
+
+ @media screen and (min-width: 1440px) {
+    font-size: 20px;
   font-style: normal;
   font-weight: 600;
   line-height: 28px; /* 140% */
+  }
 }
 
 .text-4xl {
-  font-family: "Unbounded";
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 40px; /* 125% */
+font-family: Unbounded;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: 28px;
+
+  @media screen and (min-width: 1440px) {
+    font-family: "Unbounded";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;  
+  }
 }
 
 .text-5xl {
