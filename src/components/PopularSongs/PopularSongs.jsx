@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import { Song } from './Song/Song';
 import favoriteSongFirst from '../../assets/images/favorite-song-1.png';
@@ -28,10 +29,17 @@ export function PopularSongs() {
     }),
   }
 
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+  });
+
   return (
     <motion.section
       initial="hidden"
-      whileInView="visible"
+      animate={ inView ? "visible" : "hidden" }
+      variants={ animationElement }
+      custom={ 1 }
+      ref={ ref }
       className="PopularSongs margin-bottom">
       <motion.h2
         custom={ 1 }
