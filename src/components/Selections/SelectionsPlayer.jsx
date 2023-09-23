@@ -1,10 +1,6 @@
 import "./SelectionsPlayer.css";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
-import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
-import { PauseCircleIconDark } from "../../icons/SelectionsIcons/PauseCircleIcon";
-import { SelectionPrevIconDark } from "../../icons/SelectionsIcons/SelectionPrevIcon";
-import { SelectionNextIconDark } from "../../icons/SelectionsIcons/SelectionNextIcon";
 import { FiShare2, FiShuffle, FiRefreshCw } from "react-icons/fi";
 import { BsFillSkipEndFill, BsFillSkipStartFill, BsPlayFill, BsPauseFill } from "react-icons/bs";
 import { HiVolumeUp } from "react-icons/hi";
@@ -21,9 +17,11 @@ export const SelectionsPlayer = ({ isPlaying, setIsPlaying }) => {
           "selections-player-navigation-wrapper-light": isLightTheme,
         })}
       >
-        <FiShare2 className="selections-player-share-button" />
-        <div className="selections-player-primary-buttons-group">
+        <div className="selections-player-secondary-buttons-left">
+          <FiShare2 className="selections-player-share-button" />
           <FiShuffle className="selections-player-shuffle-button" />
+        </div>
+        <div className="selections-player-primary-buttons-group">
           <button
             className={classNames("selections-player-previous-button", {
               "selections-player-previous-button-light": isLightTheme,
@@ -46,11 +44,13 @@ export const SelectionsPlayer = ({ isPlaying, setIsPlaying }) => {
           >
             <BsFillSkipEndFill />
           </button>
-          <FiRefreshCw className="selections-player-refresh-button" />
         </div>
-        <div className="selections-player-volume-wrapper">
-          <HiVolumeUp className="selections-player-volume-button" />
-          <input type="range" id="selectionsVolumeInputId" />
+        <div className="selections-player-secondary-buttons-right">
+          <FiRefreshCw className="selections-player-refresh-button" />
+          <div className="selections-player-volume-wrapper">
+            <HiVolumeUp className="selections-player-volume-button" />
+            <input type="range" id="selectionsVolumeInputId" />
+          </div>
         </div>
       </div>
     </div>

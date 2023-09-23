@@ -50,16 +50,15 @@
   max-width: 1160px;
   min-width: 328px;
   width: 100%;
-  padding: 0 16px;
+  padding: 8px 16px;
   z-index: 12;
   position: relative;
   margin: 0 auto;
 
-  @media screen and(min-width: 1440px) {
+  @media screen and (min-width: 1160px) {
     padding: 26px 48px;
   }
 
-}
 
 .button {
   display: flex;
@@ -105,3 +104,4 @@
     margin-bottom: 80px;
   }
 }
+
