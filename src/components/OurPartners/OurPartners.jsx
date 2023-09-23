@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
-
+import { OrnamentDouble, OrnamentTriple } from '../../icons/OrnamentTripple';
 import 'swiper/css';
 import './OurPartners.css';
 
@@ -104,6 +104,10 @@ export const OurPartners = () => {
         </SwiperSlide>
       </Swiper>
       <div className='ornament-triple margin-bottom'>
+        <OrnamentTriple />
+      </div>
+      <div className='ornament-double margin-bottom'>
+        <OrnamentDouble />
       </div>
     </>
   );
