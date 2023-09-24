@@ -50,12 +50,17 @@
   max-width: 1160px;
   min-width: 328px;
   width: 100%;
-  margin: 0 auto;
-  padding: 26px 48px;
+  padding: 8px 16px;
   z-index: 12;
   position: relative;
   margin: 0 auto;
+
+ 
+  @media screen and (min-width: 1440px) {
+    padding: 26px 48px;
+  }
 }
+ 
 
 .button {
   display: flex;
@@ -74,19 +79,20 @@
   border: 2px solid var(--red-700);
   color: var(--red-700);
   font-family: "Montserrat Alternates", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
   display: flex;
-  
+
   @media screen and (min-width: 1440px) {
     width: 250px;
     height: 56px;
-    padding: 16px 0px;
   }
 }
 
 .button:hover {
   background: var(--red-700);
   color: var(--gray-black-950);
-  
 }
 
 .button:active {
@@ -95,6 +101,9 @@
 }
 
 .margin-bottom {
-  margin-bottom: 80px;
-}
+  margin-bottom: 32px;
 
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 80px;
+  }
+}
