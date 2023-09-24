@@ -10,7 +10,6 @@ import { ErrorPage } from "./components/ErrorPage/ErrorPage";
 import RootLayout from "./Layouts/RootLayout";
 import '../node_modules/swiper/swiper-bundle.min.mjs';
 
-
 export const App = () => (
   <Router>
     <Routes>

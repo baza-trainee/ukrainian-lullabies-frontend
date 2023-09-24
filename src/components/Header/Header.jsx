@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import classNames from "classnames";
+
+import { useTranslation } from 'react-i18next';
+
 import { useSelector, useDispatch } from "react-redux";
 import { changedToLight, changedToDark } from "../../redux/theme/themeSlice";
 import "./Header.css";
@@ -9,16 +12,19 @@ import { IoIosArrowDown } from "react-icons/io";
 
 export const Header = () => {
   const dispatch = useDispatch();
+  const { t, i18n } = useTranslation();
 
   // dropdown menu
   const dropdownWrapperRef = useRef();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const dropdownMenuClick = (e) => {
-    if (isDropdownOpen) {
+  const dropdownMenuClick = () => {
+    if (isDropdownOpen)
+    {
       setIsDropdownOpen(false);
       dropdownWrapperRef.current.style.borderColor = "transparent";
-    } else {
+    } else
+    {
       setIsDropdownOpen(true);
       dropdownWrapperRef.current.style.borderColor = "var(--red-700)";
     }
@@ -26,7 +32,8 @@ export const Header = () => {
 
   useEffect(() => {
     const closeDropdown = (e) => {
-      if (!e.target.parentElement.classList.contains("header-dropdown-button")) {
+      if (!e.target.parentElement.classList.contains("header-dropdown-button"))
+      {
         setIsDropdownOpen(false);
         dropdownWrapperRef.current.style.borderColor = "transparent";
       }
@@ -45,19 +52,21 @@ export const Header = () => {
   // language menu
   const languageMenuRef = useRef();
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState("UA");
-
-  const chooseLanguage = (language) => {
-    setCurrentLanguage(language);
-  };
 
   const languageMenuClick = () => {
     setIsLanguageMenuOpen(!isLanguageMenuOpen);
   };
 
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
+  const currentLanguage = i18n.language;
+
   useEffect(() => {
     const closeLanguageMenu = (e) => {
-      if (!e.target.parentElement.classList.contains("header-languages-button")) {
+      if (!e.target.parentElement.classList.contains("header-languages-button"))
+      {
         setIsLanguageMenuOpen(false);
       }
     };
@@ -74,7 +83,8 @@ export const Header = () => {
     const parent = headerOptionsWrapperRef.current.parentNode;
     const input = document.getElementById("headerSearchInput");
     parent.childNodes.forEach((el) => {
-      if (el.classList.contains("header-about-link") || el.classList.contains("header-dropdown-wrapper")) {
+      if (el.classList.contains("header-about-link") || el.classList.contains("header-dropdown-wrapper"))
+      {
         el.classList.add("hidden");
       }
     });
@@ -89,7 +99,8 @@ export const Header = () => {
   const closeSearchBar = () => {
     const parent = headerOptionsWrapperRef.current.parentNode;
     parent.childNodes.forEach((el) => {
-      if (el.classList.contains("header-about-link") || el.classList.contains("header-dropdown-wrapper")) {
+      if (el.classList.contains("header-about-link") || el.classList.contains("header-dropdown-wrapper"))
+      {
         el.classList.remove("hidden");
       }
     });
@@ -105,73 +116,76 @@ export const Header = () => {
   const themeToggleRef = useRef();
 
   const themeToggle = () => {
-    if (!isLightTheme) {
+    if (!isLightTheme)
+    {
       dispatch(changedToLight());
-    } else {
+    } else
+    {
       dispatch(changedToDark());
     }
   };
 
+
+
   return (
-    // <div className="header-wrapper">
     <div className="header container" id="header">
       <div className="header-logo">
-        <Link to="/">{isLightTheme ? <LogoLight width="56" height="53" /> : <LogoDark width="56" height="53" />}</Link>
+        <Link to="/">{ isLightTheme ? <LogoLight width="56" height="53" /> : <LogoDark width="56" height="53" /> }</Link>
       </div>
       <NavLink to="/about" className="header-about-link text-2xl">
-        Про нас
+        { t('aboutUs') }
       </NavLink>
-      <div className="header-dropdown-wrapper" ref={dropdownWrapperRef}>
+      <div className="header-dropdown-wrapper" ref={ dropdownWrapperRef }>
         <div
-          className={classNames("header-dropdown-button", { "header-dropdown-button-light": isLightTheme })}
-          onClick={dropdownMenuClick}
+          className={ classNames("header-dropdown-button", { "header-dropdown-button-light": isLightTheme }) }
+          onClick={ dropdownMenuClick }
         >
-          <span className="text-2xl">Музей колискової</span>
-          <IoIosArrowDown style={{ width: "31px", height: "21px" }} />
+          <span className="text-2xl">{ t('lullabiesMuseum') }</span>
+          <IoIosArrowDown style={ { width: "31px", height: "21px" } } />
         </div>
         <div
-          className={classNames({
+          className={ classNames({
             "header-dropdown-menu": isDropdownOpen,
             hidden: !isDropdownOpen,
             "header-dropdown-menu-light": isLightTheme,
-          })}
+          }) }
         >
-          <Link to="/map" className="text-base" onClick={() => scrollToTarget("#mapTabsId")}>
-            Традиційні колискові
+          <Link to="/map" className="text-base" onClick={ () => scrollToTarget("#mapTabsId") }>
+            { t('traditionalLullabies') }
           </Link>
-          <Link to="/songs" className="text-base" onClick={() => scrollToTarget("#mapTabsId")}>
-            Співаємо разом
+          <Link to="/songs" className="text-base" onClick={ () => scrollToTarget("#mapTabsId") }>
+            { t('singingTogether') }
           </Link>
-          <Link to="/anima" className="text-base" onClick={() => scrollToTarget("#mapTabsId")}>
-            Колискові в анімаціях
+          <Link to="/anima" className="text-base" onClick={ () => scrollToTarget("#mapTabsId") }>
+            { t('animatedLullabies') }
           </Link>
         </div>
       </div>
 
-      {/* HEADER OPTION BUTTONS */}
-      <div className="header-options-wrapper" ref={headerOptionsWrapperRef}>
-        <div className="header-languages-wrapper" onClick={languageMenuClick}>
-          <div className={classNames("header-languages-button", { "header-languages-button-light": isLightTheme })}>
-            <span className="text-2xl">{currentLanguage}</span>
-            <IoIosArrowDown style={{ width: "31px", height: "21px" }} />
+      {/* HEADER OPTION BUTTONS */ }
+      <div className="header-options-wrapper" ref={ headerOptionsWrapperRef }>
+        <div className="header-languages-wrapper" onClick={ languageMenuClick }>
+          <div className={ classNames("header-languages-button", { "header-languages-button-light": isLightTheme }) }>
+            <span className="text-2xl">{ currentLanguage }</span>
+            <IoIosArrowDown style={ { width: "31px", height: "21px" } } />
           </div>
           <div
-            className={classNames({
+            className={ classNames({
               "header-languages-menu": isLanguageMenuOpen,
               hidden: !isLanguageMenuOpen,
               "header-language-menu-light": isLightTheme,
-            })}
-            ref={languageMenuRef}
+            }) }
+            ref={ languageMenuRef }
           >
-            <button className="text-2xl" onClick={() => chooseLanguage("UA")}>
+            <button className="text-2xl" onClick={ () => changeLanguage('ua') }>
               UA
             </button>
-            <button className="text-2xl" onClick={() => chooseLanguage("EN")}>
+            <button className="text-2xl" onClick={ () => changeLanguage('en') }>
               EN
             </button>
           </div>
         </div>
-        <div className={classNames("header-user-icon", { "header-user-icon-light": isLightTheme })}>
+        <div className={ classNames("header-user-icon", { "header-user-icon-light": isLightTheme }) }>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
@@ -184,8 +198,8 @@ export const Header = () => {
         </div>
         <div className="header-search-wrapper">
           <div
-            className={classNames("header-search-icon", { "header-search-icon-light": isLightTheme })}
-            onClick={searchIconClick}
+            className={ classNames("header-search-icon", { "header-search-icon-light": isLightTheme }) }
+            onClick={ searchIconClick }
           >
             <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -200,13 +214,13 @@ export const Header = () => {
           </div>
         </div>
         <div
-          className={classNames("header-theme-toggle", { "header-theme-toggle-light": isLightTheme })}
-          ref={themeToggleRef}
-          onClick={themeToggle}
+          className={ classNames("header-theme-toggle", { "header-theme-toggle-light": isLightTheme }) }
+          ref={ themeToggleRef }
+          onClick={ themeToggle }
         >
           <div
             className="header-theme-toggle-moon-icon"
-            style={isLightTheme ? { visibility: "hidden" } : { visibility: "visible" }}
+            style={ isLightTheme ? { visibility: "hidden" } : { visibility: "visible" } }
           >
             <svg width="28" height="28" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -220,7 +234,7 @@ export const Header = () => {
           </div>
           <div
             className="header-theme-toggle-sun-icon"
-            style={!isLightTheme ? { visibility: "hidden" } : { visibility: "visible" }}
+            style={ !isLightTheme ? { visibility: "hidden" } : { visibility: "visible" } }
           >
             <svg width="28" height="28" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -238,8 +252,8 @@ export const Header = () => {
             </svg>
           </div>
           <div
-            className={classNames("header-theme-toggle-circle-icon", { "header-theme-toggle-circle-icon-light": isLightTheme })}
-            style={isLightTheme ? { left: "5px" } : { right: "5px" }}
+            className={ classNames("header-theme-toggle-circle-icon", { "header-theme-toggle-circle-icon-light": isLightTheme }) }
+            style={ isLightTheme ? { left: "5px" } : { right: "5px" } }
             id="themeToggleCirlce"
           >
             <svg width="32" height="32" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -254,14 +268,15 @@ export const Header = () => {
         </div>
       </div>
 
-      {/* opened search bar */}
-      <div className={classNames("header-search-bar", "hidden", { "header-search-bar-light": isLightTheme })} ref={searchBarRef}>
+      {/* opened search bar */ }
+      <div className={ classNames("header-search-bar", "hidden", { "header-search-bar-light": isLightTheme }) } ref={ searchBarRef }>
         <input
           type="text"
-          placeholder="Пошук тимчасово недоступний"
+          placeholder={ t('searchUnavailable') }
           className="text-xl"
-          onBlur={closeSearchBar}
+          onBlur={ closeSearchBar }
           id="headerSearchInput"
+
         />
         <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -275,6 +290,5 @@ export const Header = () => {
         </svg>
       </div>
     </div>
-    // </div>
   );
 };
