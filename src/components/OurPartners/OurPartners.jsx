@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
+import { useTranslation } from 'react-i18next';
+
 import { OrnamentDouble, OrnamentTriple } from '../../icons/OrnamentTripple';
 import 'swiper/css';
 import './OurPartners.css';
@@ -22,10 +24,10 @@ export const OurPartners = () => {
       spaceBetween: 24
     },
   };
-
+  const { t } = useTranslation();
   return (
     <>
-      <h2 className='text-4xl ourPartners'>Наші партнери</h2>
+      <h2 className='text-4xl ourPartners'>{ t('aboutUs') }</h2>
       <Swiper
         spaceBetween={ 24 }
         slidesPerView={ 4 }

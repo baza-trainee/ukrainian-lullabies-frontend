@@ -1,10 +1,13 @@
 import React from "react";
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useTranslation } from 'react-i18next';
 
 import './OurAchivements.css'
 
 export const OurAchivements = () => {
+  const { t } = useTranslation();
+
   const animationElement = {
     hidden: {
       y: -50,
@@ -28,19 +31,21 @@ export const OurAchivements = () => {
       variants={ animationElement }
       ref={ ref }
       className="ourAchivements">
-      <motion.h2 custom={ 1 } variants={ animationElement } className="ourAchivementsTitle text-4xl">Наші напрацювання</motion.h2>
+      <motion.h2 custom={ 1 } variants={ animationElement } className="ourAchivementsTitle text-4xl">
+        { t('achievements') }
+      </motion.h2>
       <motion.div custom={ 2 } variants={ animationElement } className="achivements text-5xl">
         <motion.div custom={ 3 } variants={ animationElement } className="achivement">
           <div className="data">123</div>
-          <div className="text-3xl">Колискових</div>
+          <div className="text-3xl">{ t('lullabies') }</div>
         </motion.div>
         <motion.div custom={ 4 } variants={ animationElement } className="achivement text-5xl">
           <div className="data">21</div>
-          <div className="text-3xl">Локацій</div>
+          <div className="text-3xl">{ t('locations') }</div>
         </motion.div>
         <motion.div custom={ 5 } variants={ animationElement } className="achivement text-5xl">
           <div className="data">48</div>
-          <div className="text-3xl">Виконавців</div>
+          <div className="text-3xl">{ t('performers') }</div>
         </motion.div>
       </motion.div>
     </motion.section>

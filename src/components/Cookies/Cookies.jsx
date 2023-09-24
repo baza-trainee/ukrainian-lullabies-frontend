@@ -1,6 +1,9 @@
+import React from "react";
 import "./Cookies.css";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
+import { useTranslation } from 'react-i18next';
+
 import { CookiesModal } from "./CookiesModal";
 
 export const Cookies = () => {
@@ -15,21 +18,21 @@ export const Cookies = () => {
     const cookies = document.getElementById("cookies");
     cookies.style.display = "none";
   };
+  const { t } = useTranslation();
   return (
-    <div className={classNames("cookies", { "cookies-light": isLightTheme })} id="cookies">
-      <button className="cookies-close-button" onClick={closeCookiesBar}>
+    <div className={ classNames("cookies", { "cookies-light": isLightTheme }) } id="cookies">
+      <button className="cookies-close-button" onClick={ closeCookiesBar }>
         &times;
       </button>
       <p className="cookies-text text-base-regular">
-        Натискаючи «Прийняти всі файли cookie», ви погоджуєтеся на збереження файлів cookie на вашому пристрої для покращення
-        навігації сайтом, аналізу використання сайту та допомоги в наших маркетингових зусиллях.
+        { t('cookies') }
       </p>
-      <CookiesModal isLightTheme={isLightTheme} closeCookiesBar={closeCookiesBar} />
+      <CookiesModal isLightTheme={ isLightTheme } closeCookiesBar={ closeCookiesBar } />
       <button
-        className={classNames("cookies-accept-button", "text-base-semibold", { "cookies-accept-button-light": isLightTheme })}
-        onClick={acceptAllClick}
+        className={ classNames("cookies-accept-button", "text-base-semibold", { "cookies-accept-button-light": isLightTheme }) }
+        onClick={ acceptAllClick }
       >
-        Прийняти всі cookies
+        { t('acceptAllCookies') }
       </button>
     </div>
   );
