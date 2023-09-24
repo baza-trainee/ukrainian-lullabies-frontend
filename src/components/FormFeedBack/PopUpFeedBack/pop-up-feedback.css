@@ -1,22 +1,25 @@
 .popup-message {
+  display: flex;
+  gap: 32px;
+  background-color: inherit;
   position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 90%;
+  left: 51%;
   transform: translate(-50%, -50%);
-  background-color: white;
-  border: 1px solid #ccc;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 36px;
+
+  width: 849px;
+  height: 268px;
+  padding: 106px 0px;
   z-index: 999;
+
   text-align: center;
 }
 
-.popup-message p {
-  font-size: 18px;
-  margin: 0;
+.pop-up-text-form {
+  width: 375px;
 }
 
-/* Додайте анімацію для появи/зникнення pop-up повідомлення, якщо потрібно */
 .popup-message-entering,
 .popup-message-exiting,
 .popup-message-exited {
