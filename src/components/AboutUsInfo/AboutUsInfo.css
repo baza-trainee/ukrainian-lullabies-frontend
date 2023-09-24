@@ -1,4 +1,5 @@
 .about-as-info_wrapper {
+  display: grid;
   grid-column: 1/13;
   background-image: url("../../images/frame-about.png");
   background-repeat: no-repeat;
@@ -6,6 +7,7 @@
 }
 
 .about-as-info_title {
+  display: grid;
   grid-column: 1/5;
   justify-content: start;
   margin-bottom: 48px; 
