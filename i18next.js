@@ -64,11 +64,20 @@ i18n
           shareLink: "Share a link to the site",
           searchUnavailable: "Search is temporarily unavailable",
           chatBot: "Chat-bot",
+
+          cookies: "By clicking 'Accept All Cookies,' you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts.",
+          acceptAllCookies: "Accept all cookies",
+          cookieSettings: "Cookie settings",
+
         }
       },
       ua: {
         translations: {
           chatBot: "Чат-бот",
+
+          cookieSettings: "Налаштування cookie",
+          acceptAllCookies: " Прийняти всі cookies",
+          cookies: "Натискаючи «Прийняти всі файли cookie», ви погоджуєтеся на збереження файлів cookie на вашому пристрої для покращення навігації сайтом, аналізу використання сайту та допомоги в наших маркетингових зусиллях.",
           shareLink: "Поділитися посиланням на сайт",
           searchUnavailable: "Пошук тимчасово недоступний",
           share: "Поділитися",
@@ -126,7 +135,8 @@ i18n
         }
       }
     },
-    lng: 'en',
+  
+    lng: 'ua',
     fallbackLng: "en",
     debug: true,
     
