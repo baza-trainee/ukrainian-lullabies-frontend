@@ -1,19 +1,24 @@
 .popup-message {
   display: flex;
   gap: 32px;
-  background-color: inherit;
-  position: fixed;
-  top: 90%;
-  left: 51%;
+
+  position: absolute;
+  top: 88%;
+  left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 36px;
 
-  width: 849px;
-  height: 268px;
-  padding: 106px 0px;
+  padding: 106px 21px;
   z-index: 999;
 
   text-align: center;
+  align-items: flex-end;
+}
+.popup-message-dark {
+  background-color: var(--gray-black-950);
+}
+.popup-message-white {
+  background-color: var(--white-0);
 }
 
 .pop-up-text-form {

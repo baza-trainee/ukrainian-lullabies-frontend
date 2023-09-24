@@ -66,6 +66,7 @@
 }
 .text-area {
   height: 200px;
+  resize: none;
 }
 .text-area::placeholder {
   font-family: Montserrat Alternates;
