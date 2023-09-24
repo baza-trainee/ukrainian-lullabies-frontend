@@ -15,7 +15,7 @@ import { FiX } from "react-icons/fi";
 import { HeaderThemeToggle } from "./HeaderThemeToggle";
 import { HeaderSearch } from "./HeaderSearch";
 import patreonLogoWhite from "../../assets/icons/patreon_logo_white.svg";
-import patreonLogoBlack from "../../assets/icons/patreon_logo_Black.svg";
+import patreonLogoBlack from "../../assets/icons/patreon_logo_black.svg";
 import bmcLogo from "../../assets/icons/BMC_logo.svg";
 
 export const Header = () => {
