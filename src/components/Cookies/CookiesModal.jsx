@@ -2,26 +2,28 @@ import React from "react";
 import "./CookiesModal.css";
 import Popup from "reactjs-popup";
 import classNames from "classnames";
+import { useTranslation } from 'react-i18next';
 
 export const CookiesModal = ({ isLightTheme, closeCookiesBar }) => {
+  const { t } = useTranslation();
   return (
     <Popup
       trigger={
         <button
-          className={classNames("cookies-settings-button", "text-base-semibold", {
+          className={ classNames("cookies-settings-button", "text-base-semibold", {
             "cookies-settings-button-light": isLightTheme,
-          })}
+          }) }
         >
-          <span>Налаштування cookie</span>
+          <span>{ t('cookieSettings') }</span>
         </button>
       }
       modal
       nested
-      closeOnDocumentClick={false}
+      closeOnDocumentClick={ false }
     >
-      {(close) => (
-        <div className={classNames("cookies-modal", "content", { "cookies-modal-light": isLightTheme })}>
-          <button className="cookies-modal-close-button" onClick={close}>
+      { (close) => (
+        <div className={ classNames("cookies-modal", "content", { "cookies-modal-light": isLightTheme }) }>
+          <button className="cookies-modal-close-button" onClick={ close }>
             &times;
           </button>
           <div className="cookies-modal-header text-xl-semibold"> Наша політика cookies 🍪🍪🍪 </div>
@@ -34,26 +36,26 @@ export const CookiesModal = ({ isLightTheme, closeCookiesBar }) => {
           </div>
           <div className="cookies-modal-actions">
             <button
-              className={classNames("cookies-modal-button", "text-base-semibold", { "cookies-modal-button-light": isLightTheme })}
-              onClick={() => {
+              className={ classNames("cookies-modal-button", "text-base-semibold", { "cookies-modal-button-light": isLightTheme }) }
+              onClick={ () => {
                 close();
                 closeCookiesBar();
-              }}
+              } }
             >
               Заперечити всі
             </button>
             <button
-              className={classNames("cookies-modal-button", "text-base-semibold", { "cookies-modal-button-light": isLightTheme })}
-              onClick={() => {
+              className={ classNames("cookies-modal-button", "text-base-semibold", { "cookies-modal-button-light": isLightTheme }) }
+              onClick={ () => {
                 close();
                 closeCookiesBar();
-              }}
+              } }
             >
               Прийняти всі
             </button>
           </div>
         </div>
-      )}
+      ) }
     </Popup>
   );
 };
