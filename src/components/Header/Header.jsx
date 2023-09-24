@@ -6,8 +6,14 @@ import "./Header.css";
 import { LogoDark, LogoLight } from "../SVGComponents/Logo";
 import SIconSidebar from "../../icons/SIconSidebar";
 import { IoIosArrowDown } from "react-icons/io";
+import { BsFacebook } from "react-icons/bs";
+import { FaTiktok, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FiX } from "react-icons/fi";
 import { HeaderThemeToggle } from "./HeaderThemeToggle";
+import { HeaderSearch } from "./HeaderSearch";
+import patreonLogoWhite from "../../assets/icons/patreon_logo_white.svg";
+import patreonLogoBlack from "../../assets/icons/patreon_logo_Black.svg";
+import bmcLogo from "../../assets/icons/BMC_logo.svg";
 
 export const Header = () => {
   // dropdown menu
@@ -70,24 +76,6 @@ export const Header = () => {
   const searchBarRef = useRef();
   const headerOptionsWrapperRef = useRef();
 
-  const searchIconClick = () => {
-    const parent = headerOptionsWrapperRef.current.parentNode;
-    const input = document.getElementById("headerSearchInput");
-    const headerAboutLink = document.querySelector(".header-about-link");
-    const headerDropdownWrapper = document.querySelector(".header-dropdown-wrapper");
-
-    headerAboutLink.style.display = "none";
-    headerDropdownWrapper.style.display = "none";
-
-    headerOptionsWrapperRef.current.style.display = "none";
-    parent.classList.remove("container");
-    parent.classList.add("header-with-search-bar-open");
-    searchBarRef.current.classList.remove("hidden");
-    searchBarRef.current.classList.add("header-search-bar-open");
-    input.focus();
-    console.log(parent);
-  };
-
   const closeSearchBar = () => {
     const parent = headerOptionsWrapperRef.current.parentNode;
 
@@ -107,14 +95,43 @@ export const Header = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
   // responsive menu
-  const [isSideMenuOpen, setIsSideMenuOpen] = useState(true);
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const handleBurgerClick = () => {
     if (!isSideMenuOpen) {
       setIsSideMenuOpen(true);
     } else {
       setIsSideMenuOpen(false);
+      setIsResponsiveDropdownMenuOpen(false);
+      setIsResponsiveLanguageMenuOpen(false);
     }
   };
+
+  // responsive dropdown links menu
+  const [isResponsiveDropdownMenuOpen, setIsResponsiveDropdownMenuOpen] = useState(false);
+
+  const responsiveDropdownMenuClick = () => {
+    if (!isResponsiveDropdownMenuOpen) {
+      setIsResponsiveDropdownMenuOpen(true);
+      setIsResponsiveLanguageMenuOpen(false);
+    } else {
+      setIsResponsiveDropdownMenuOpen(false);
+    }
+  };
+
+  // responsive language menu
+  const [isResponsiveLanguageMenuOpen, setIsResponsiveLanguageMenuOpen] = useState(false);
+
+  const responsiveLanguageMenuClick = () => {
+    if (!isResponsiveLanguageMenuOpen) {
+      setIsResponsiveLanguageMenuOpen(true);
+      setIsResponsiveDropdownMenuOpen(false);
+    } else {
+      setIsResponsiveLanguageMenuOpen(false);
+    }
+  };
+
+  // responsive search bar
+  const responsiveSearchBarRef = useRef();
 
   return (
     <div className="header container" id="header">
@@ -186,21 +203,11 @@ export const Header = () => {
           </svg>
         </div>
         <div className="header-search-wrapper">
-          <div
-            className={classNames("header-search-icon", { "header-search-icon-light": isLightTheme })}
-            onClick={searchIconClick}
-          >
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M4 22L8.35 17.65M6 12C6 16.4183 9.58172 20 14 20C18.4183 20 22 16.4183 22 12C22 7.58172 18.4183 4 14 4C9.58172 4 6 7.58172 6 12Z"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                pointerEvents="none"
-              />
-            </svg>
-          </div>
+          <HeaderSearch
+            isLightTheme={isLightTheme}
+            searchBarRef={searchBarRef}
+            headerOptionsWrapperRef={headerOptionsWrapperRef}
+          />
         </div>
         <HeaderThemeToggle isLightTheme={isLightTheme} />
       </div>
@@ -229,46 +236,136 @@ export const Header = () => {
       {/* responsive menu */}
       <button className="header-burgerIcon" onClick={handleBurgerClick}>
         <svg width="30" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M21 10H3" stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1px" />
-          <path d="M21 6H3" stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1px" />
-          <path d="M21 14H3" stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1px" />
-          <path d="M21 18H3" stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1px" />
+          <path
+            d="M21 10H3"
+            stroke={!isLightTheme ? "#FFFFFF" : "#000000"}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1px"
+          />
+          <path
+            d="M21 6H3"
+            stroke={!isLightTheme ? "#FFFFFF" : "#000000"}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1px"
+          />
+          <path
+            d="M21 14H3"
+            stroke={!isLightTheme ? "#FFFFFF" : "#000000"}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1px"
+          />
+          <path
+            d="M21 18H3"
+            stroke={!isLightTheme ? "#FFFFFF" : "#000000"}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1px"
+          />
         </svg>
       </button>
-      <div className={isSideMenuOpen ? "responsive-covering" : "hidden"} onClick={handleBurgerClick}></div>
+      {/* <div className={isSideMenuOpen ? "responsive-covering" : "hidden"} onClick={handleBurgerClick}></div> */}
       <div
         className={classNames({
+          "responsive-covering": isSideMenuOpen,
+          hidden: !isSideMenuOpen,
+          "responsive-covering-light": isLightTheme,
+        })}
+        onClick={handleBurgerClick}
+      ></div>
+      <div
+        className={classNames("text-2xl-mobile", {
           "header-responsive-menu": isSideMenuOpen,
           hidden: !isSideMenuOpen,
+          "header-responsive-menu-light": isLightTheme,
         })}
       >
         <div className="header-responsive-theme-and-close">
           <HeaderThemeToggle isLightTheme={isLightTheme} />
           <FiX style={{ width: "24px", height: "24px", cursor: "pointer" }} onClick={handleBurgerClick} />
         </div>
-        <div className="header-responsive-logo text-5xl">
-          <span>Koly</span>
-          <SIconSidebar style={{ alignSelf: "center" }} />
-          <span>
-            Kova <br />
-            Sound
-          </span>
-        </div>
+        <Link to="/" onClick={handleBurgerClick}>
+          <div className="header-responsive-logo text-5xl">
+            <span>Koly</span>
+            <SIconSidebar style={{ alignSelf: "center" }} />
+            <span>
+              Kova <br />
+              Sound
+            </span>
+          </div>
+        </Link>
         <ul className="header-responsive-options">
-          <li>Про нас</li>
           <li>
-            <div className="header-responsive-dropdown-icon">
+            <Link to="/about" onClick={handleBurgerClick} className="header-responsive-about">
+              Про нас
+            </Link>
+          </li>
+          <li>
+            <div
+              className={classNames("header-responsive-dropdown-icon", {
+                "header-responsive-dropdown-icon-menuOpened": isResponsiveDropdownMenuOpen,
+              })}
+              onClick={responsiveDropdownMenuClick}
+            >
               <span>Музей колискової</span>
               <IoIosArrowDown style={{ width: "24px", height: "24px" }} />
             </div>
-            <div className="header-responsive-dropdown-menu">Links</div>
+            <div
+              className={classNames({
+                "header-responsive-dropdown-menu": isResponsiveDropdownMenuOpen,
+                hidden: !isResponsiveDropdownMenuOpen,
+              })}
+            >
+              <Link
+                to="/map"
+                onClick={() => {
+                  scrollToTarget("#mapTabsId");
+                  handleBurgerClick();
+                }}
+              >
+                Традиційні колискові
+              </Link>
+              <Link
+                to="/songs"
+                onClick={() => {
+                  scrollToTarget("#mapTabsId");
+                  handleBurgerClick();
+                }}
+              >
+                Співаємо разом
+              </Link>
+              <Link
+                to="/anima"
+                onClick={() => {
+                  scrollToTarget("#mapTabsId");
+                  handleBurgerClick();
+                }}
+              >
+                Колискові в анімаціях
+              </Link>
+            </div>
           </li>
           <li>
-            <div className="header-responsive-language-icon">
+            <div
+              className={classNames("header-responsive-language-icon", {
+                "header-responsive-language-icon-menuOpened": isResponsiveLanguageMenuOpen,
+              })}
+              onClick={responsiveLanguageMenuClick}
+            >
               <span>UA</span>
               <IoIosArrowDown style={{ width: "24px", height: "24px" }} />
             </div>
-            <div className="header-responsive-language-menu">Links</div>
+            <div
+              className={classNames({
+                "header-responsive-language-menu": isResponsiveLanguageMenuOpen,
+                hidden: !isResponsiveLanguageMenuOpen,
+              })}
+            >
+              <button>UA</button>
+              <button>EN</button>
+            </div>
           </li>
           <li>
             <div className="header-responsive-user-link">
@@ -286,8 +383,56 @@ export const Header = () => {
               </div>
             </div>
           </li>
-          <li></li>
+          <li>
+            {/* responsive search bar */}
+            <div
+              className={classNames("header-responsive-search-bar", { "header-responsive-search-bar-light": isLightTheme })}
+              ref={responsiveSearchBarRef}
+            >
+              <input
+                type="text"
+                placeholder="Пошук тимчасово недоступний"
+                className="text-2xl-mobile"
+                onBlur={closeSearchBar}
+                id="headerSearchInput"
+              />
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4 22L8.35 17.65M6 12C6 16.4183 9.58172 20 14 20C18.4183 20 22 16.4183 22 12C22 7.58172 18.4183 4 14 4C9.58172 4 6 7.58172 6 12Z"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  pointerEvents="none"
+                />
+              </svg>
+            </div>
+          </li>
         </ul>
+        <div className="header-responsive-support">
+          <span>Допомогти розвитку проєкту:</span>
+          <div className="header-responsive-support-icons">
+            <img src={patreonLogoWhite} alt="patreon" />
+            <img src={bmcLogo} alt="buy me a coffee" />
+          </div>
+        </div>
+        <div className="header-responsive-follow">
+          <p>Слідкуй за нами тут:</p>
+          <div className="header-responsive-follow-icons">
+            <a href="https://www.youtube.com/@Kolyskovamuseum" target="_blank" rel="noopener nofollow noreferrer">
+              <FaYoutube style={{ width: "34px", height: "24px" }} />
+            </a>
+            <a href="https://www.instagram.com/kolyskova.museum/" target="_blank" rel="noopener nofollow noreferrer">
+              <FaInstagram style={{ width: "24px", height: "24px" }} />
+            </a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener nofollow noreferrer">
+              <BsFacebook style={{ width: "24px", height: "24px" }} />
+            </a>
+            <a href="https://www.tiktok.com/@kolyskovamuseum" target="_blank" rel="noopener nofollow noreferrer">
+              <FaTiktok style={{ width: "24px", height: "24px" }} />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
