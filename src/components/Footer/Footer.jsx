@@ -41,10 +41,22 @@ const partners = [
 export const Footer = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
   const [isScrollUpButtonVisible, setIsScrollUpButtonVisible] = useState(false);
+  // const navigate = useNavigate();
 
   // establish scrollToTop
   const scrollToTop = () => {
     window.scrollTo(0, 0);
+  };
+
+  // handle logo behaviour
+  // const handleLogoClick = () => {
+  //   scrollToTop();
+  //   navigate.push("/");
+  // };
+
+  const scrollToTarget = (target) => {
+    const scrollTo = document.querySelector(target);
+    scrollTo.scrollIntoView({ block: "end" });
   };
 
   useEffect(() => {
@@ -72,8 +84,14 @@ export const Footer = () => {
       </button>
       <div className="footer-wrapper container text-sm">
         <div className="separation-line"></div>
+
         <div className="footer-logo">
-          <Link to="/" onClick={scrollToTop}>
+          <Link
+            to="/"
+            onClick={() => {
+              scrollToTarget("#header");
+            }}
+          >
             {isLightTheme ? <LogoLight width="92" height="88" /> : <LogoDark width="92" height="88" />}
           </Link>
         </div>

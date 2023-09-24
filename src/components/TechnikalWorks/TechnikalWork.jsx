@@ -8,7 +8,7 @@ import { useInView } from 'react-intersection-observer';
 
 import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
-import { NumberFour, NumberNull } from '../../icons/Numbers';
+import { GeneralTitle } from '../GeneralTitle/GeneralTitle';
 
 export const ErrorPage = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
@@ -43,17 +43,7 @@ export const ErrorPage = () => {
     >
       <div className="errorPage__border">
         <div className="errorPage__element container">
-          <motion.h2 custom={ 1 }
-            variants={ animationElement } className="errorPage__title text-4xl">
-            Page not found
-          </motion.h2>
-          <motion.div
-            custom={ 2 }
-            variants={ animationElement } className="errorPage__svg404">
-            <NumberFour />
-            <NumberNull />
-            <NumberFour />
-          </motion.div>
+          <GeneralTitle />
         </div>
       </div>
       <motion.div custom={ 3 }
@@ -63,7 +53,7 @@ export const ErrorPage = () => {
           <OrnamentsLeftIcon />
         </div>
         <p className="element-center text-base">
-          It may have been moved or deleted.
+          Наразі ми працюємо над поліпшенням функціоналу сайту. Просимо вибачення за тимчасові незручності.
         </p>
         <div className="element-left">
           <OrnamentsRightIcon />
@@ -78,6 +68,5 @@ export const ErrorPage = () => {
             scrollToTarget("#header");
           } }> На головну </NavLink>
       </motion.div>
-    </motion.section >
-  )
+    </motion.div >)
 };

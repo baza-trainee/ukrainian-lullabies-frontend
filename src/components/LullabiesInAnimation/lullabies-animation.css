@@ -1,6 +1,14 @@
 .lullabies-animation {
-    height: 600px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 32px;
+    padding-bottom: 32px;
+
+    @media screen and (min-width: 1440px) {
+        padding-top: 48px;
+        padding-bottom: 48px;
+        height: 600px;
+    }
 }

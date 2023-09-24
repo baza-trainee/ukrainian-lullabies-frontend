@@ -5,14 +5,12 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import classNames from "classnames";
 import { Link } from "react-scroll";
+import { useInView } from 'react-intersection-observer';
 
 import { getLightTheme } from "../../redux/theme/themeSelectors";
 import Notification from "./Notification/Notification";
 
-import KolyIcon from "../../icons/KolyIcon";
 import SIcon from "../../icons/SIcon";
-import KovaIcon from "../../icons/KovaIcon";
-import OundIcon from "../../icons/OundIcon";
 import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
 import ButtonShare from "./Button/ButtonShare";
@@ -31,13 +29,15 @@ const Hero = () => {
   };
 
   const copyLinkToClipboard = async () => {
-    try {
+    try
+    {
       // Визначаємо URL-адресу, яку ми хочемо скопіювати
       const urlToCopy =
         "https://ukrainian-lullabies-frontend-git-dev-baza-trainee.vercel.app/#/map";
       await navigator.clipboard.writeText(urlToCopy);
       notification();
-    } catch (error) {
+    } catch (error)
+    {
       console.error("Не вдалося скопіювати посилання: ", error);
     }
   };
@@ -53,35 +53,41 @@ const Hero = () => {
       transition: { ease: "easeOut", duration: 2, delay: custom * 0.3 },
     }),
   };
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+  });
 
   return (
-    <motion.div
+    <motion.section
       initial="hidden"
-      whileInView="visible"
+      animate={ inView ? "visible" : "hidden" }
+      variants={ animationElement }
+      custom={ 1 }
+      ref={ ref }
       className="container heroWrapper margin-bottom"
     >
       <div className="kolyskovaWrap">
         <motion.div
-          custom={1}
-          variants={animationElement}
+          custom={ 1 }
+          variants={ animationElement }
           className="kolyskovaWrap"
         >
-          <div className="kolyIcon">
-            <KolyIcon />
+          <div className="kolyIcon text-5xl">
+            Koly
           </div>
           <div className="letterS">
             <SIcon />
           </div>
-          <div className="kovaIcon">
-            <KovaIcon />
+          <div className="kovaIcon text-5xl">
+            Kova
           </div>
-          <div className="oundIconWrap">
-            <OundIcon />
+          <div className="oundIconWrap text-5xl">
+            ound
           </div>
         </motion.div>
         <motion.div
-          custom={2}
-          variants={animationElement}
+          custom={ 2 }
+          variants={ animationElement }
           className="ornamentWrap"
         >
           <OrnamentsLeftIcon />
@@ -98,35 +104,35 @@ const Hero = () => {
           <OrnamentsRightIcon />
         </motion.div>
         <motion.div
-          custom={3}
-          variants={animationElement}
+          custom={ 3 }
+          variants={ animationElement }
           className="hero-btn animation"
         >
           <div
-            className={classNames("hero-btn", {
+            className={ classNames("hero-btn", {
               "bg-dark": !isLightTheme,
-            })}
+            }) }
           >
             <Link
               to="player"
               id="player"
-              className={classNames("button", "listen-button", {
+              className={ classNames("button", "listen-button", {
                 "button-dark": !isLightTheme,
-              })}
-              spy={true}
-              smooth={true}
-              duration={500}
+              }) }
+              spy={ true }
+              smooth={ true }
+              duration={ 500 }
             >
               Слухати
             </Link>
-            <ButtonShare text="Поділитися" onClick={copyLinkToClipboard} />
+            <ButtonShare text="Поділитися" onClick={ copyLinkToClipboard } />
           </div>
         </motion.div>
-        {isNotification && (
+        { isNotification && (
           <Notification textNotification="Поділитися посиланням на сайт" />
-        )}
+        ) }
       </div>
-    </motion.div>
+    </motion.section>
   );
 };
 
