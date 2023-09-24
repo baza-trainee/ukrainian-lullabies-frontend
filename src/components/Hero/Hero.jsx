@@ -6,6 +6,7 @@ import { useState } from "react";
 import classNames from "classnames";
 import { Link } from "react-scroll";
 import { useInView } from 'react-intersection-observer';
+import { useTranslation } from 'react-i18next';
 
 import { getLightTheme } from "../../redux/theme/themeSelectors";
 import Notification from "./Notification/Notification";
@@ -18,7 +19,7 @@ import ButtonShare from "./Button/ButtonShare";
 import "./hero.css";
 
 const Hero = () => {
-  // theme toggle
+  const { t } = useTranslation();
   const isLightTheme = useSelector(getLightTheme);
   // notofication
   const [isNotification, setIsNotification] = useState(false);
@@ -90,18 +91,17 @@ const Hero = () => {
           variants={ animationElement }
           className="ornamentWrap"
         >
-          <OrnamentsLeftIcon />
-          <p className="text-base">
-            Поринь у чарівний світ української колискової. Тут у <br />
-            кожній ноті оживає душа народу, у кожному слові
-            <br /> закарбовано генетичний зв’язок з родом. Відкрий для себе
-            <br />
-            неповторний колисковий світ, де від покоління до
-            <br /> покоління линуть мелодійні слова любові та ніжності,
-            <br />
-            закодовані на щасливу долю дитини.
+          <div className="element-left">
+            <OrnamentsLeftIcon />
+          </div>
+
+          <p className="text-base center">
+            { t('heroText') }
           </p>
-          <OrnamentsRightIcon />
+          <div className="element-right">
+            <OrnamentsRightIcon />
+          </div>
+
         </motion.div>
         <motion.div
           custom={ 3 }
@@ -123,13 +123,13 @@ const Hero = () => {
               smooth={ true }
               duration={ 500 }
             >
-              Слухати
+              { t('listen') }
             </Link>
-            <ButtonShare text="Поділитися" onClick={ copyLinkToClipboard } />
+            <ButtonShare text={ t('share') } onClick={ copyLinkToClipboard } />
           </div>
         </motion.div>
         { isNotification && (
-          <Notification textNotification="Поділитися посиланням на сайт" />
+          <Notification textNotification={ t('shareLink') } />
         ) }
       </div>
     </motion.section>

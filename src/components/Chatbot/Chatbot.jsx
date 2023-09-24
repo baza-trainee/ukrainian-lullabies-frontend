@@ -1,13 +1,16 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useSelector } from "react-redux";
 import classNames from "classnames";
-import rules from "./text";
 import "./Chatbot.css";
 
 const Chatbot = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
+  const { t } = useTranslation();
+
+  const rules = [t('playEducationalGameWithChatbot'), t('youCanGuessWhichRegion'), t('youCanLearnAboutThePlots'), t('letsPlay')];
 
   const chatRules = rules.map((rule, index) => (
     <li key={ index + 1 } className='chat_text'>
@@ -31,13 +34,13 @@ const Chatbot = () => {
     <motion.div
       initial="hidden"
       whileInView="visible"
-      className="chat_wrapper container margin-bottom">
+      className="chat_wrapper container">
       <div className='chat_info'>
         <motion.p
           custom={ 1 }
           variants={ animationElement }
           className="chat_title">
-          Чат-бот
+          { t('chatBot') }
         </motion.p>
         <motion.ul
           custom={ 2 }
@@ -49,14 +52,14 @@ const Chatbot = () => {
           custom={ 3 }
           variants={ animationElement }
           className='button'>
-          <Link href='#'>Грати</Link>
+          <Link href='#'>{ t('play') }</Link>
         </motion.div>
       </div>
       <motion.div
         custom={ 3 }
         variants={ animationElement }
         className='chat_picture'>
-        <Link href='#' className={ classNames("chat_image_dark", {"chat_image_white":isLightTheme}) }></Link>
+        <Link href='#' className={ classNames("chat_image_dark", { "chat_image_white": isLightTheme }) }></Link>
       </motion.div>
     </motion.div>
   )
