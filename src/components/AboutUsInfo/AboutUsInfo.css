@@ -3,6 +3,7 @@
   grid-column: 1/13;
   background-image: url("../../images/frame-about.png");
   background-repeat: no-repeat;
+  background-size: contain;
   background-position: 0 44px;
 }
 

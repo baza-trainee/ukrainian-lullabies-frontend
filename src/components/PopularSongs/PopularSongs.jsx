@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useTranslation } from 'react-i18next';
 
 import { Song } from './Song/Song';
 import favoriteSongFirst from '../../assets/images/favorite-song-1.png';
@@ -9,6 +10,8 @@ import favoriteSongThird from '../../assets/images/favorite-song-3.png';
 import './PopularSongs.css';
 
 export function PopularSongs() {
+  const { t } = useTranslation();
+
   const [isPlayingList, setIsPlayingList] = useState([true, true, true]);
 
   const handleSongClick = (index) => {
@@ -45,7 +48,7 @@ export function PopularSongs() {
         custom={ 1 }
         variants={ animationElement }
         className="PopularSongsTitle">
-        Популярні колискові
+        { t('popularLullabies') }
       </motion.h2>
       <motion.div
         custom={ 2 }
