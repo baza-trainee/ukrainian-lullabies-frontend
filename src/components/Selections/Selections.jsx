@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 import "./Selections.css";
 import { SelectionsPlayer } from "./SelectionsPlayer";
@@ -85,8 +85,9 @@ export const Selections = () => {
 
   // dropdown menu item group for mobile
   const [isItemGroupOpen, setIsItemGroupOpen] = useState([]);
+  const [activeButtonMoreIndex, setActiveButtonMoreIndex] = useState(null); // for buttom more to change colour
 
-  const itemGroupMenuClick = (index) => {
+  const itemGroupMenuClick = (index, e) => {
     setIsItemGroupOpen(new Array(playlist.length).fill(false));
 
     setIsItemGroupOpen((prev) => {
@@ -94,6 +95,8 @@ export const Selections = () => {
       updatedState[index] = !updatedState[index];
       return updatedState;
     });
+
+    setActiveButtonMoreIndex(isItemGroupOpen[index] ? null : index);
   };
 
   const menuRefs = playlist.map(() => useRef(null)); // Create an array of refs
@@ -102,6 +105,7 @@ export const Selections = () => {
     const closeMenusOnBodyClick = (e) => {
       if (!menuRefs.some((ref) => ref.current && ref.current.contains(e.target))) {
         setIsItemGroupOpen(new Array(playlist.length).fill(false));
+        setActiveButtonMoreIndex(null);
       }
     };
 
@@ -125,50 +129,41 @@ export const Selections = () => {
 
   return (
     <div className="selections margin-bottom">
-      <h2 className="selections-title text-4xl">
-        { t('selection') }
-      </h2>
+      <h2 className="selections-title text-4xl">{t("selection")}</h2>
       <div className="selections-wrapper container margin-bottom">
         <div className="selections-image">
-          <img src={ favoriteSongFirst } alt="song covering" />
+          <img src={favoriteSongFirst} alt="song covering" />
         </div>
         <div className="selections-info">
           <div className="selections-info-about">
-            <h4 className="selections-info-title text-2xl">
-              { t('ukrainianLullabies') }
-            </h4>
-            <p className="selections-info-text text-base">
-              { t('lullabySong') }
-            </p>
+            <h4 className="selections-info-title text-2xl">{t("ukrainianLullabies")}</h4>
+            <p className="selections-info-text text-base">{t("lullabySong")}</p>
           </div>
           <ul className="selections-playlist-list">
-            { playlist.map((item, index) => (
+            {playlist.map((item, index) => (
               <li
-                className={ classNames("selections-playlist-list-item", { "selections-playlist-list-item-light": isLightTheme }) }
-                key={ index }
+                className={classNames("selections-playlist-list-item", { "selections-playlist-list-item-light": isLightTheme })}
+                key={index}
               >
-                <span className="selections-playlist-item-number">{ index + 1 }</span>
+                <span className="selections-playlist-item-number">{index + 1}</span>
                 <div className="selection-playlist-playBtn-name-group">
                   <button
-                    className={ classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
+                    className={classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
                       "selections-playlist-item-play-pause-button-light": isLightTheme,
-                    }) }
+                    })}
                   >
                     <PlayCircleIconDark />
                   </button>
 
                   <span className="selections-playlist-item-name">{item.name.toUpperCase().slice(0, 25)}</span>
                   <span className="selections-playlist-item-duration text-xs-bold">{item.duration}</span>
-
                 </div>
                 {/* selections with dropdown for mobile */}
                 <div className="selections-playlist-item-group">
-
                   <button
                     className="selections-playlist-item-repeat-button selection-playlist-button"
                     onClick={() => handleRepeatClick(item.id)}
                   >
-
                     <BsRepeat />
                   </button>
                   <button
@@ -185,9 +180,11 @@ export const Selections = () => {
                   </button>
                 </div>
                 <button
-                  className="selections-playlist-item-group-menuIcon-mobile"
-                  onClick={() => {
-                    itemGroupMenuClick(index);
+                  className={classNames("selections-playlist-item-group-menuIcon-mobile", {
+                    "selections-playlist-item-group-menuIcon-mobile-active": activeButtonMoreIndex === index,
+                  })}
+                  onClick={(e) => {
+                    itemGroupMenuClick(index, e);
                   }}
                   ref={menuRefs[index]}
                 >
@@ -197,6 +194,7 @@ export const Selections = () => {
                   className={classNames("text-sm", {
                     "selections-playlist-item-group-mobile": isItemGroupOpen[index],
                     hidden: !isItemGroupOpen[index],
+                    "selections-playlist-item-group-mobile-light": isLightTheme,
                   })}
                 >
                   <button
@@ -219,12 +217,12 @@ export const Selections = () => {
                   </button>
                 </div>
               </li>
-            )) }
+            ))}
           </ul>
-          <SelectionsPlayer isPlaying={ isPlaying } setIsPlaying={ setIsPlaying } />
+          <SelectionsPlayer isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
         </div>
       </div>
-      <img src={ endSectionOrnament } alt="ornament" />
+      <img src={endSectionOrnament} alt="ornament" />
     </div>
   );
 };
