@@ -6,6 +6,7 @@ import { changedToLight, changedToDark } from "../../redux/theme/themeSlice";
 import "./Header.css";
 import { LogoDark, LogoLight } from "../SVGComponents/Logo";
 import { IoIosArrowDown } from "react-icons/io";
+import { FiAlignJustify } from "react-icons/fi";
 
 export const Header = () => {
   const dispatch = useDispatch();
@@ -112,8 +113,13 @@ export const Header = () => {
     }
   };
 
+  // responsive menu
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+  const handleBurgerClick = () => {
+    setIsSideMenuOpen(!isSideMenuOpen);
+  };
+
   return (
-    // <div className="header-wrapper">
     <div className="header container" id="header">
       <div className="header-logo">
         <Link to="/">{isLightTheme ? <LogoLight width="56" height="53" /> : <LogoDark width="56" height="53" />}</Link>
@@ -274,7 +280,17 @@ export const Header = () => {
           />
         </svg>
       </div>
+
+      {/* responsive menu */}
+      <button className="header-burgerIcon" onClick={handleBurgerClick}>
+        <svg width="30" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 10H3" stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1px" />
+          <path d="M21 6H3" stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1px" />
+          <path d="M21 14H3" stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1px" />
+          <path d="M21 18H3" stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1px" />
+        </svg>
+      </button>
+      <div className={classNames("header-responsive-menu")}></div>
     </div>
-    // </div>
   );
 };

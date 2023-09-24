@@ -12,12 +12,6 @@ a {
   margin-bottom: -2px;
 }
 
-/* .header-wrapper {
-  width: 100%;
-  height: 100px;
-  background-color: black;
-} */
-
 .header-with-search-bar-open {
   display: grid;
   grid-template: 1fr / 56px 11fr;
@@ -25,14 +19,21 @@ a {
 }
 
 .header {
-  grid-column: 1 / 13;
-  padding: 0 18px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding: 7px 16px 7px 4px;
   border: 2px solid transparent;
   border-image: linear-gradient(to bottom, #cf121b, #cf121b00);
   border-image-slice: 1;
   width: 100%;
   height: 80px;
+
+  @media screen and (min-width: 1160px) {
+    display: grid;
+    grid-column: 1 / 13;
+    padding: 0 18px;
+  }
 }
 
 .header-logo {
@@ -41,18 +42,28 @@ a {
 
 /* about link */
 .header-about-link {
-  grid-column: 2 / 4;
-  padding: 22px 8px;
+  display: none;
+
+  @media screen and (min-width: 1160px) {
+    display: grid;
+    grid-column: 2 / 4;
+    padding: 22px 8px;
+  }
 }
 
 /* dropdown menu */
 .header-dropdown-wrapper {
-  grid-column: 4 / 8;
-  padding: 22px 8px;
-  position: relative;
-  border-bottom: solid 2px transparent; /* changes on click */
-  margin-bottom: -2px;
-  cursor: pointer;
+  display: none;
+
+  @media screen and (min-width: 1160px) {
+    display: grid;
+    grid-column: 4 / 8;
+    padding: 22px 8px;
+    position: relative;
+    border-bottom: solid 2px transparent; /* changes on click */
+    margin-bottom: -2px;
+    cursor: pointer;
+  }
 }
 
 .header-dropdown-button {
@@ -94,14 +105,19 @@ a {
 .header-dropdown-button-light svg path {
   stroke: var(--gray-black-950);
 }
+
 /* HEADER BUTTONS */
 
 .header-options-wrapper {
+  display: none;
   grid-column: 8 / 13;
-  display: grid;
   grid-template: 1fr / 1fr auto auto 1fr;
   align-items: center;
   gap: 16px;
+
+  @media screen and (min-width: 1160px) {
+    display: grid;
+  }
 }
 
 /* language menu */
@@ -247,6 +263,28 @@ a {
 .header-theme-toggle-circle-icon-light svg path {
   fill: var(--gray-black-950);
 }
+
+/* RESPONSIVE HEADER */
+.header-burgerIcon {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+
+  @media screen and (min-width: 1160px) {
+    display: none;
+  }
+}
+
+.header-responsive-menu {
+  width: 80%;
+  height: 200vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: green;
+}
+
 
 /* ---------------- */
 /* SPECIAL STYLES */
