@@ -7,6 +7,10 @@ a {
   display: none;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 .active {
   border-bottom: solid 2px var(--red-700);
   margin-bottom: -2px;
@@ -459,6 +463,10 @@ a {
 .header-responsive-support-icons {
   display: flex;
   gap: 4px;
+}
+
+.header-responsive-support-icons a {
+  width: 30px;
 }
 
 /* responsive follow us */
