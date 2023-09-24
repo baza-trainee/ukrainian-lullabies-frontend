@@ -1,6 +1,7 @@
 .chat_wrapper {
     display: grid;
     grid-column: 1/13;
+    justify-content: space-between;
 }
 
 .chat_info {
