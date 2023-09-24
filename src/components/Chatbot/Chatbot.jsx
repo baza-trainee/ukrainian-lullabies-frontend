@@ -34,7 +34,8 @@ const Chatbot = () => {
     <motion.div
       initial="hidden"
       whileInView="visible"
-      className="chat_wrapper container">
+      className="container chat_wrapper">
+
       <div className='chat_info'>
         <motion.p
           custom={ 1 }
