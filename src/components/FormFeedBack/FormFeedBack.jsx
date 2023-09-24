@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import classNames from "classnames";
 import { Formik, Form, Field } from "formik";
 import { object, string } from "yup";
@@ -15,7 +15,7 @@ import "./form-feedback.css";
 const schema = object({
   name: string()
     .matches(
-      /^[A-Za-zʼ-]+$/,
+      /^[A-Za-zʼ-\u04FF\u0400-\u04FF\s-]+$/,
       "Поле має містити тільки букви, символи 'ʼ' і '-'"
     )
     .notOneOf(
@@ -34,17 +34,17 @@ const schema = object({
     .max(320, "Кількість символів має бути не більше 320")
     .required("Це поле обов'язкове для заповнення"),
   theme: string()
-    .min(6, "Кількість символів має бути не менше 6")
-    .max(320, "Кількість символів має бути не більше 320")
     .matches(
-      /^[a-zA-Z0-9\s]+$/,
+      /^[A-Za-zʼ-\u04FF\u0400-\u04FF\s-]+$/,
       "Поле може містити лише букви, цифри та пробіли"
     )
+    .min(6, "Кількість символів має бути не менше 6")
+    .max(320, "Кількість символів має бути не більше 320")
     .required("Це поле обов'язкове для заповнення"),
   message: string()
     .max(600, "Кількість символів має бути не більше 600")
     .matches(
-      /^[a-zA-Z0-9\s]+$/,
+      /^[A-Za-zʼ-\u04FF\u0400-\u04FF\s-]+$/,
       "Поле може містити лише букви, цифри та пробіли"
     )
     .required("Це поле обов'язкове для заповнення"),
@@ -60,29 +60,21 @@ const initialValues = {
 const FormFeedBack = () => {
   const isLightTheme = useSelector(getLightTheme);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const formikRef = useRef();
 
-  const handleFormSubmit = (values, { resetForm, isValid }) => {
-    if (isValid) {
-      const { name, email, theme, message } = values;
-      console.log(values);
-
-      // Відправляємо дані на пошту
-      const mailtoLink = `mailto:newsroommy@gmail.com?subject=${encodeURIComponent(
-        theme
-      )}&body=${encodeURIComponent(
-        `Ім'я: ${name}%0AEmail: ${email}%0AПовідомлення: ${message}`
-      )}`;
-      window.location.href = mailtoLink;
-
-      // Показуємо pop-up повідомлення
-      setShowSuccessMessage(true);
-
-      resetForm();
-    }
-  };
-  // Обробник onClick для показу pop-up повідомлення
-  const handleShowPopUp = () => {
+  const handleFormSubmit = (values, { resetForm }) => {
+    console.log(values);
     setShowSuccessMessage(true);
+    resetForm();
+  };
+
+  const handleShowPopUp = () => {
+    if (formikRef.current.isValid && formikRef.current.dirty) {
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        setShowSuccessMessage(false);
+      }, 3000);
+    }
   };
 
   return (
@@ -92,6 +84,7 @@ const FormFeedBack = () => {
           initialValues={initialValues}
           validationSchema={schema}
           onSubmit={handleFormSubmit}
+          innerRef={formikRef}
         >
           {({ errors, touched }) => (
             <Form autoComplete="off">
