@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
+import { useTranslation } from 'react-i18next';
 
 import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
@@ -31,6 +32,7 @@ export const ErrorPage = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
   });
+  const { t } = useTranslation();
 
   return (
     <motion.section
@@ -76,7 +78,7 @@ export const ErrorPage = () => {
           className={ classNames('button', 'errorPage-button', { 'button-dark': !isLightTheme, }) }
           onClick={ () => {
             scrollToTarget("#header");
-          } }> На головну </NavLink>
+          } }> { t('toTheMain') }</NavLink>
       </motion.div>
     </motion.section >
   )

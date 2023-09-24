@@ -1,0 +1,61 @@
+.technikal{
+  padding: 48px ;
+  grid-column: 1/13;
+  background-image: url("../../images/frame-hero-a.png");
+
+  background-repeat: no-repeat;
+  justify-content: center;
+  text-align: center;
+  background-position: 0 26px;
+}
+.technical__border{
+margin-top: 60px;
+}
+.technikal__element {
+  grid-column: 1/13;
+  justify-content: center;
+}
+
+.loader {
+  grid-column: 6/9;
+  padding: 48px 59px;
+  width: 216px;
+  height: 100px;
+  background-image: url("../../images/loader-dark.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.technikal__block{
+  grid-column: 1/13;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 60px;
+}
+
+.right{
+  grid-column: 1/4;
+}
+
+.left{
+  grid-column: 10/13;
+}
+
+.center{
+  grid-column: 4/10;
+  width: 574px;
+  padding-left: 58px;
+}
+
+.technikal-button {
+  grid-column: 5/9;
+  margin: 57px 47px 0;
+}
+
+.fill-for-dark{
+  fill: var(--white-0);
+}
+
+.fill-for-light{
+  fill: var(--grey-black-950);
+}
