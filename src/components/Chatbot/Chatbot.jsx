@@ -13,7 +13,7 @@ const Chatbot = () => {
   const rules = [t('playEducationalGameWithChatbot'), t('youCanGuessWhichRegion'), t('youCanLearnAboutThePlots'), t('letsPlay')];
 
   const chatRules = rules.map((rule, index) => (
-    <li key={ index + 1 } className='chat_text'>
+    <li key={ index + 1 } className='text-base chat_text'>
       { rule }
     </li>
   ));
@@ -41,6 +41,7 @@ const Chatbot = () => {
           variants={ animationElement }
           className="chat_title">
           { t('chatBot') }
+
         </motion.p>
         <motion.ul
           custom={ 2 }
@@ -52,7 +53,8 @@ const Chatbot = () => {
           custom={ 3 }
           variants={ animationElement }
           className='button'>
-          <Link href='#'>{ t('play') }</Link>
+          <Link href='#' className='text-base-semibold'>{ t('play') }</Link>
+
         </motion.div>
       </div>
       <motion.div
