@@ -233,10 +233,15 @@ a {
 
 .text-5xl {
   font-family: "Lutsk-sity";
-  font-size: 64px;
+  font-size: 28px;
   font-style: normal;
   font-weight: 400;
   line-height: 80px;
   /* 125% */
   text-transform: uppercase;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 64px;
+  }
 }
+

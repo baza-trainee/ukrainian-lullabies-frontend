@@ -1,14 +1,14 @@
 import * as React from "react";
 import { useSelector } from "react-redux";
 import { getLightTheme } from "../redux/theme/themeSelectors";
+import '../components/GeneralTitle/general-title.css'
 // import classNames from "classnames";
 
 function SIcon(props) {
   const isLightTheme = useSelector(getLightTheme);
   return (
     <svg
-      width="198"
-      height="252"
+      className="icon-s"
       viewBox="0 0 157 184"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

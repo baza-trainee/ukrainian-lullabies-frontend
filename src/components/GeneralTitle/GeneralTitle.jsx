@@ -1,5 +1,6 @@
 import React from "react";
 import SIcon from "../../icons/SIcon";
+import "../../components/GeneralTitle/general-title.css";
 
 export const GeneralTitle = () => {
 
@@ -7,7 +8,7 @@ export const GeneralTitle = () => {
   return (
 
     <div
-      className="kolyskovaWrap"
+      className="kolyskova-container"
     >
       <div className="kolyIcon text-5xl">
         Koly
