@@ -193,6 +193,10 @@
   }
 }
 
+.selections-playlist-item-group-menuIcon-mobile-active {
+  color: var(--red-700);
+}
+
 .selections-playlist-item-group-mobile {
   width: 210px;
   background: var(--gray-black-800);
@@ -214,6 +218,10 @@
   @media screen and (min-width: 1160px) {
     display: none;
   }
+}
+
+.selections-playlist-item-group-mobile-light {
+  background: var(--gray-black-100);
 }
 
 .selections-playlist-item-duration {
