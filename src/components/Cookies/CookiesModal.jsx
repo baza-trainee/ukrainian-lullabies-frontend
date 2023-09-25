@@ -10,7 +10,8 @@ export const CookiesModal = ({ isLightTheme, closeCookiesBar }) => {
     <Popup
       trigger={
         <button
-          className={ classNames("cookies-settings-button", "text-base-semibold", {
+          // className={ classNames("cookies-settings-button", "text-base-semibold", {
+          className={ classNames("cookies-settings-button", "text-sm-semibold", {
             "cookies-settings-button-light": isLightTheme,
           }) }
         >
