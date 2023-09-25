@@ -45,11 +45,11 @@
 
 .fieldWrap__input {
   background-color: inherit;
-  color: var(--gray-black-800);
+  color: inherit;
   padding: 18px 0px 18px 16px;
   align-items: center;
   border-radius: 36px;
-  border: 1px solid var(--gray-black-300);
+  border: 1px solid var(--gray-black-800);
 }
 
 .fieldWrap__input:not(:last-child) {

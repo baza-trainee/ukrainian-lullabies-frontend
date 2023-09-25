@@ -16,7 +16,7 @@ const schema = object({
   name: string()
     .matches(
       /^[A-Za-zʼ-\u04FF\u0400-\u04FF\s-]+$/,
-      "Поле має містити тільки букви, символи 'ʼ' і '-'"
+      "Поле має містити тільки букви"
     )
     .notOneOf(
       ["%", "^", "*", "|", "~", "{", "}", ";", "<", ">", ".", ","],
@@ -28,25 +28,25 @@ const schema = object({
   email: string()
     .matches(
       /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-      "Некоректний формат Email"
+      "Поле має містити тільки букви, цифри, спецсимволи"
     )
     .min(6, "Кількість символів має бути не менше 6")
     .max(320, "Кількість символів має бути не більше 320")
     .required("Це поле обов'язкове для заповнення"),
   theme: string()
-    .matches(
-      /^[A-Za-zʼ-\u04FF\u0400-\u04FF\s-]+$/,
-      "Поле може містити лише букви, цифри та пробіли"
-    )
+    // .matches(
+    //   /^[A-Za-zʼ-\u04FF\u0400-\u04FF\s-]+$/,
+    //   "Поле має містити тільки букви, цифри, спецсимволи"
+    // )
     .min(6, "Кількість символів має бути не менше 6")
     .max(320, "Кількість символів має бути не більше 320")
     .required("Це поле обов'язкове для заповнення"),
   message: string()
     .max(600, "Кількість символів має бути не більше 600")
-    .matches(
-      /^[A-Za-zʼ-\u04FF\u0400-\u04FF\s-]+$/,
-      "Поле може містити лише букви, цифри та пробіли"
-    )
+    // .matches(
+    //   /^[A-Za-zʼ-\u04FF\u0400-\u04FF\s-]+$/,
+    //   "Поле має містити тільки букви, цифри, спецсимволи"
+    // )
     .required("Це поле обов'язкове для заповнення"),
 });
 
@@ -85,6 +85,7 @@ const FormFeedBack = () => {
           validationSchema={schema}
           onSubmit={handleFormSubmit}
           innerRef={formikRef}
+          noValidate
         >
           {({ errors, touched }) => (
             <Form autoComplete="off">
@@ -141,6 +142,8 @@ const FormFeedBack = () => {
                     "text-base fieldWrap__input input-background-black",
                     {
                       "field-input-error": errors.email && touched.email,
+                      "custom-class-light": isLightTheme,
+                      "custom-class-dark": !isLightTheme,
                     }
                   )}
                   type="text"
@@ -169,6 +172,8 @@ const FormFeedBack = () => {
                     "text-base fieldWrap__input input-background-black",
                     {
                       "field-input-error": errors.theme && touched.theme,
+                      "custom-class-light": isLightTheme,
+                      "custom-class-dark": !isLightTheme,
                     }
                   )}
                   type="text"
@@ -198,6 +203,8 @@ const FormFeedBack = () => {
                       "text-base fieldWrap__input text-area input-background-black",
                       {
                         "field-input-error": errors.message && touched.message,
+                        "custom-class-light": isLightTheme,
+                        "custom-class-dark": !isLightTheme,
                       }
                     )}
                     type="text"
