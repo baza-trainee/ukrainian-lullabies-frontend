@@ -76,9 +76,9 @@ const FormFeedBack = () => {
   const handleShowPopUp = () => {
     if (formikRef.current.isValid && formikRef.current.dirty) {
       setShowSuccessMessage(true);
-      // setTimeout(() => {
-      //   setShowSuccessMessage(false);
-      // }, 3000);
+      setTimeout(() => {
+        setShowSuccessMessage(false);
+      }, 3000);
     }
   };
 
@@ -117,7 +117,7 @@ const FormFeedBack = () => {
                   )}
                   type="text"
                   name="name"
-                  placeholder="Тарас"
+                  placeholder={t("taras")}
                 />
                 <FormError
                   name="name"
@@ -177,7 +177,7 @@ const FormFeedBack = () => {
                   )}
                   type="text"
                   name="theme"
-                  placeholder="Введіть тему повідомлення"
+                  placeholder={t("enterSubject")}
                 />
                 <FormError
                   name="theme"
@@ -209,7 +209,7 @@ const FormFeedBack = () => {
                     type="text"
                     name="message"
                     as="textarea"
-                    placeholder="Введіть текст повідомлення"
+                    placeholder={t("enterTextMessage")}
                     rows="4"
                   />
                   <FormError
@@ -235,7 +235,10 @@ const FormFeedBack = () => {
                     onClick={handleShowPopUp}
                   />
                   {showSuccessMessage && (
-                    <PopUpFeedBack popupText={t("popUpFormText")} />
+                    <PopUpFeedBack
+                      popUpThank={t("popUpThank")}
+                      popupText={t("popupText")}
+                    />
                   )}
                 </div>
               </div>

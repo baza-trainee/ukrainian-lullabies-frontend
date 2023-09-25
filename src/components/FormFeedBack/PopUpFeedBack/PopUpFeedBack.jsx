@@ -10,7 +10,7 @@ import OrnamentsRightIcon from "../../../icons/OrnamentsRightIcon";
 
 import "./pop-up-feedback.css";
 
-const PopUpFeedBack = ({ popupText }) => {
+const PopUpFeedBack = ({ popUpThank, popupText }) => {
   // theme toggle
   const isLightTheme = useSelector(getLightTheme);
 
@@ -22,7 +22,10 @@ const PopUpFeedBack = ({ popupText }) => {
       })}
     >
       <OrnamentsLeftIcon />
-      <p className="text-2xl pop-up-text-form">{popupText}</p>
+      <div className="text-2xl pop-up-text-form">
+        <p>{popUpThank}</p>
+        <p>{popupText}</p>
+      </div>
       <OrnamentsRightIcon />
     </div>
   );
@@ -30,5 +33,6 @@ const PopUpFeedBack = ({ popupText }) => {
 export default PopUpFeedBack;
 
 PopUpFeedBack.propTypes = {
+  popUpThank: PropTypes.string.isRequired,
   popupText: PropTypes.string.isRequired,
 };

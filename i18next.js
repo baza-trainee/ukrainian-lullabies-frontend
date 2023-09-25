@@ -67,10 +67,14 @@ i18n
           contactUs:
             "If you have any questions/suggestions/wishes - we look forward to hearing from you.",
           name: "Name",
+          taras: "Taras",
           messageSubject: "Message subject",
+          enterSubject: "Enter the subject of the message",
           messageText: "Message text",
+          enterTextMessage: "Enter the text of the message",
           sendMessage: "Send a message",
-          popUpFormText: "Thank you, your message has been sent!",
+          popUpThank: "Thank you,",
+          popupText: "Your message has been sent!",
           underTextArea:
             "The field can contain letters, numbers and special characters. The maximum number of characters is 600.",
           share: "To share",
@@ -160,10 +164,14 @@ i18n
           contactUs:
             "Якщо у Вас є питання/пропозиції/побажання - чекаємо Ваших контактів!",
           name: "Імʼя",
+          taras: "Tарас",
           messageSubject: "Тема повідомлення",
+          enterSubject: "Введіть тему повідомлення",
           messageText: "Текст повідомлення",
+          enterTextMessage: "Введіть текст повідомлення",
           sendMessage: "Надіслати повідомлення",
-          popUpFormText: "Дякуємо, Ваше повідомлення відправлене!",
+          popUpThank: "Дякуємо,",
+          popupText: "Ваше повідомлення відправлене!",
           underTextArea:
             "Поле може містити букви, цифри та спецсимволи. Максимальна кількість символів 600.",
         },
