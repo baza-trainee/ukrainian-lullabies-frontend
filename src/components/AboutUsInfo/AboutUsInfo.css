@@ -73,9 +73,11 @@
 
 .about-as-info_title {
   display: grid;
+
   grid-column: 1/1;
   justify-content: start;
   margin-bottom: 32px;
+
 }
 
 .about-as-info_target,
@@ -88,6 +90,7 @@
   align-items: center;
   padding: 0 16px;
 }
+
 
 .about-as-info_img-container {
   width: 296px;
