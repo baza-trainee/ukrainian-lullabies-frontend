@@ -4,10 +4,15 @@
   align-items: center;
   justify-content: space-around;
   gap: 25px;
-  height: 400px;
-  /* padding: 30px 100px; */
   background: var(--white-0);
   color: var(--gray-black-950);
+  position: fixed;
+  bottom: 50px;
+
+  @media screen and (min-width: 1160px) {
+    height: 400px;
+    position: static;
+  }
 }
 
 .cookies-modal-close-button {
@@ -29,8 +34,12 @@
   color: inherit;
   border: 2px solid var(--gray-black-950);
   border-radius: 36px;
-  padding: 16px 47px;
   background: transparent;
+  padding: 8px 16px;
+
+  @media screen and (min-width: 1160px) {
+    padding: 16px 47px;
+  }
 }
 
 .cookies-modal-light {
