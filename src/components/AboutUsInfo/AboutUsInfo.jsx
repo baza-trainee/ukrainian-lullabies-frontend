@@ -39,7 +39,7 @@ const AboutUsInfo = () => {
       <motion.p
         custom={ 1 }
         variants={ animationElement }
-        className='text-4xl about-as-info_title'
+        className='text-4xl about-as-info_title title_margin-bottom'
       >
         { t('aboutUs') }
       </motion.p>
