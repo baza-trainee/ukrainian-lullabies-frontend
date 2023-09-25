@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useState, useRef } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { useTranslation } from "react-i18next";
 
 import classNames from "classnames";
@@ -82,109 +84,44 @@ const FormFeedBack = () => {
     }
   };
 
+  const animationElement = {
+    hidden: {
+      y: -50,
+      opacity: 0,
+    },
+    visible: (custom) => ({
+      y: 0,
+      opacity: 1,
+      transition: { ease: "easeOut", duration: 2, delay: custom * 0.3 },
+    }),
+  };
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+  });
+
   return (
-    <div className="container section-form-wrap margin-bottom">
-      <div className="form-wrap">
-        <Formik
-          initialValues={initialValues}
-          validationSchema={schema}
-          onSubmit={handleFormSubmit}
-          innerRef={formikRef}
-        >
-          {({ errors, touched }) => (
-            <Form autoComplete="off">
-              <h2 className="text-4xl text-title-form">{t("feedbackForm")}</h2>
-              <p className="text-base text-title-form">{t("contactUs")}</p>
-              <div className="fieldWrap">
-                <div className="label-feedback-container">
-                  <label
-                    className={
-                      isLightTheme
-                        ? "lable-backgroud-white"
-                        : "lable-backgroud-black"
-                    }
-                    htmlFor="name"
-                  >
-                    {t("name")}
-                  </label>
-                </div>
-                <Field
-                  className={classNames(
-                    "text-base fieldWrap__input input-background-black",
-                    {
-                      "field-input-error": errors.name && touched.name,
-                    }
-                  )}
-                  type="text"
-                  name="name"
-                  placeholder={t("taras")}
-                />
-                <FormError
-                  name="name"
-                  component="div"
-                  className="text-base error-message"
-                />
-                <div className="label-feedback-container">
-                  <label
-                    className={
-                      isLightTheme
-                        ? "lable-backgroud-white"
-                        : "lable-backgroud-black"
-                    }
-                    htmlFor="name"
-                  >
-                    {"Email"}
-                  </label>
-                </div>
-                <Field
-                  className={classNames(
-                    "text-base fieldWrap__input input-background-black",
-                    {
-                      "field-input-error": errors.email && touched.email,
-                      "custom-class-light": isLightTheme,
-                      "custom-class-dark": !isLightTheme,
-                    }
-                  )}
-                  type="text"
-                  name="email"
-                  placeholder="t.shevсhenko@gmail.com"
-                />
-                <FormError
-                  name="email"
-                  component="div"
-                  className="text-base error-message"
-                />
-                <div className="label-feedback-container">
-                  <label
-                    className={
-                      isLightTheme
-                        ? "lable-backgroud-white"
-                        : "lable-backgroud-black"
-                    }
-                    htmlFor="name"
-                  >
-                    {t("messageSubject")}
-                  </label>
-                </div>
-                <Field
-                  className={classNames(
-                    "text-base fieldWrap__input input-background-black",
-                    {
-                      "field-input-error": errors.theme && touched.theme,
-                      "custom-class-light": isLightTheme,
-                      "custom-class-dark": !isLightTheme,
-                    }
-                  )}
-                  type="text"
-                  name="theme"
-                  placeholder={t("enterSubject")}
-                />
-                <FormError
-                  name="theme"
-                  component="div"
-                  className="text-base error-message"
-                />
-                <div className="text-area-wrap">
+    <motion.section
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      variants={animationElement}
+      custom={1}
+      ref={ref}
+    >
+      <div className="container section-form-wrap margin-bottom">
+        <div className="form-wrap">
+          <Formik
+            initialValues={initialValues}
+            validationSchema={schema}
+            onSubmit={handleFormSubmit}
+            innerRef={formikRef}
+          >
+            {({ errors, touched }) => (
+              <Form autoComplete="off">
+                <h2 className="text-4xl text-title-form">
+                  {t("feedbackForm")}
+                </h2>
+                <p className="text-base text-title-form">{t("contactUs")}</p>
+                <div className="fieldWrap">
                   <div className="label-feedback-container">
                     <label
                       className={
@@ -194,59 +131,150 @@ const FormFeedBack = () => {
                       }
                       htmlFor="name"
                     >
-                      {t("messageText")}
+                      {t("name")}
                     </label>
                   </div>
                   <Field
                     className={classNames(
-                      "text-base fieldWrap__input text-area input-background-black",
+                      "text-base fieldWrap__input input-background-black",
                       {
-                        "field-input-error": errors.message && touched.message,
+                        "field-input-error": errors.name && touched.name,
+                      }
+                    )}
+                    type="text"
+                    name="name"
+                    placeholder={t("taras")}
+                  />
+                  <FormError
+                    name="name"
+                    component="div"
+                    className="text-base error-message"
+                  />
+                  <div className="label-feedback-container">
+                    <label
+                      className={
+                        isLightTheme
+                          ? "lable-backgroud-white"
+                          : "lable-backgroud-black"
+                      }
+                      htmlFor="name"
+                    >
+                      {"Email"}
+                    </label>
+                  </div>
+                  <Field
+                    className={classNames(
+                      "text-base fieldWrap__input input-background-black",
+                      {
+                        "field-input-error": errors.email && touched.email,
                         "custom-class-light": isLightTheme,
                         "custom-class-dark": !isLightTheme,
                       }
                     )}
                     type="text"
-                    name="message"
-                    as="textarea"
-                    placeholder={t("enterTextMessage")}
-                    rows="4"
+                    name="email"
+                    placeholder="t.shevсhenko@gmail.com"
                   />
                   <FormError
-                    name="message"
+                    name="email"
                     component="div"
-                    className="error-message text-base"
+                    className="text-base error-message"
                   />
-                </div>
-                <p className="text-sm text-under-text-area">
-                  {t("underTextArea")}
-                </p>
-                <div
-                  className={classNames("button-form", {
-                    "bg-dark": !isLightTheme,
-                  })}
-                >
-                  <ButtonForm
-                    text={t("sendMessage")}
-                    className={classNames("", {
-                      "button-dark": !isLightTheme,
-                    })}
-                    type="submit"
-                    onClick={handleShowPopUp}
+                  <div className="label-feedback-container">
+                    <label
+                      className={
+                        isLightTheme
+                          ? "lable-backgroud-white"
+                          : "lable-backgroud-black"
+                      }
+                      htmlFor="name"
+                    >
+                      {t("messageSubject")}
+                    </label>
+                  </div>
+                  <Field
+                    className={classNames(
+                      "text-base fieldWrap__input input-background-black",
+                      {
+                        "field-input-error": errors.theme && touched.theme,
+                        "custom-class-light": isLightTheme,
+                        "custom-class-dark": !isLightTheme,
+                      }
+                    )}
+                    type="text"
+                    name="theme"
+                    placeholder={t("enterSubject")}
                   />
-                  {showSuccessMessage && (
-                    <PopUpFeedBack
-                      popUpThank={t("popUpThank")}
-                      popupText={t("popupText")}
+                  <FormError
+                    name="theme"
+                    component="div"
+                    className="text-base error-message"
+                  />
+                  <div className="text-area-wrap">
+                    <div className="label-feedback-container">
+                      <label
+                        className={
+                          isLightTheme
+                            ? "lable-backgroud-white"
+                            : "lable-backgroud-black"
+                        }
+                        htmlFor="name"
+                      >
+                        {t("messageText")}
+                      </label>
+                    </div>
+                    <Field
+                      className={classNames(
+                        "text-base fieldWrap__input text-area input-background-black",
+                        {
+                          "field-input-error":
+                            errors.message && touched.message,
+                          "custom-class-light": isLightTheme,
+                          "custom-class-dark": !isLightTheme,
+                        }
+                      )}
+                      type="text"
+                      name="message"
+                      as="textarea"
+                      placeholder={t("enterTextMessage")}
+                      rows="4"
                     />
-                  )}
+                    <FormError
+                      name="message"
+                      component="div"
+                      className="error-message text-base"
+                    />
+                  </div>
+                  <p className="text-sm text-under-text-area">
+                    {t("underTextArea")}
+                  </p>
+                  <div
+                    className={classNames("button-form", {
+                      "bg-dark": !isLightTheme,
+                    })}
+                  >
+                    <ButtonForm
+                      text={t("sendMessage")}
+                      className={classNames("", {
+                        "button-dark": !isLightTheme,
+                      })}
+                      type="submit"
+                      onClick={handleShowPopUp}
+                    />
+                    {showSuccessMessage && (
+                      <PopUpFeedBack
+                        popUpThank={t("popUpThank")}
+                        popupText={t("popupText")}
+                      />
+                    )}
+                  </div>
                 </div>
-              </div>
-            </Form>
-          )}
-        </Formik>
+              </Form>
+            )}
+          </Formik>
+        </div>
       </div>
-    </div>
+    </motion.section>
   );
 };
 
