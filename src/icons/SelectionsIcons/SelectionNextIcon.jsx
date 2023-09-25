@@ -1,3 +1,5 @@
+import React from "react";
+
 export const SelectionNextIconDark = ({ width = 24, height = 24 }) => {
   return (
     <>
@@ -10,13 +12,13 @@ export const SelectionNextIconDark = ({ width = 24, height = 24 }) => {
             height={height}
             rx="20"
             fill="url(#paint0_linear_2812_7788)"
-            fill-opacity="0.1"
+            fillOpacity="0.1"
           />
           <path
             d="M14.7455 15.0172L14.7448 25.0172C14.7447 25.784 16.0843 26.4347 16.7447 26.0173L24.7451 21.0179C25.3563 20.6394 25.3563 19.4062 24.7452 19.0179L16.7456 14.0173C16.0852 13.5999 14.7456 14.2504 14.7455 15.0172Z"
             fill="#E7E7E7"
           />
-          <path d="M27.2036 14.0182L27.2027 26.0182" stroke="#E7E7E7" stroke-width="2" stroke-linecap="round" />
+          <path d="M27.2036 14.0182L27.2027 26.0182" stroke="#E7E7E7" strokeWidth="2" strokeLinecap="round" />
         </g>
         <defs>
           <filter
@@ -26,9 +28,9 @@ export const SelectionNextIconDark = ({ width = 24, height = 24 }) => {
             width="40.0029"
             height="40.0029"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
             <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
             <feOffset />
@@ -45,8 +47,8 @@ export const SelectionNextIconDark = ({ width = 24, height = 24 }) => {
             y2="42.1546"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="white" />
-            <stop offset="1" stop-color="white" stop-opacity="0" />
+            <stop stopColor="white" />
+            <stop offset="1" stopColor="white" stopOpacity="0" />
           </linearGradient>
         </defs>
       </svg>
