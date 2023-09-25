@@ -5,12 +5,16 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 0 44px;
+  gap: 0px;
 }
 
 .about-as-info_title {
   display: grid;
-  grid-column: 1/5;
+  grid-column: 1/13;
   justify-content: start;
+}
+
+.title_margin-bottom {
   margin-bottom: 48px; 
 }
 
@@ -32,7 +36,7 @@
 }
 
 .about-as-info_target {
-  grid-template-columns: 429px 520px;
+  grid-template-columns: 429px 518px;
 }
 
 .about-as-info_support {
