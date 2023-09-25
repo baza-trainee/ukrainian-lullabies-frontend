@@ -14,7 +14,6 @@ import '../node_modules/swiper/swiper-bundle.min.mjs';
 export const App = () => (
   <Router>
     <Routes>
-
       <Route path="/" element={<RootLayout />}>
         <Route path="/" element={<MainPage />} >
           <Route index element={<Navigate to="map" replace />} />
