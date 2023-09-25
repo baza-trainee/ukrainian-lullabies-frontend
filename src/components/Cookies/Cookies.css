@@ -1,15 +1,24 @@
 .cookies {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 41px 120px;
+  flex-direction: column;
+  gap: 16px;
   width: 100%;
-  height: 130px;
-  background: var(--white-0);
-  position: fixed;
-  top: 83vh;
+  padding: 16px;
   z-index: 20;
+  position: fixed;
+  bottom: 0;
+  background: var(--white-0);
   color: var(--gray-black-950);
+
+  @media screen and (min-width: 1160px) {
+    flex-direction: row;
+    gap: 0px;
+    height: 130px;
+    padding: 41px 120px;
+    justify-content: center;
+    align-items: center;
+    top: 83vh;
+  }
 }
 
 .cookies-close-button {
@@ -23,16 +32,23 @@
 }
 
 .cookies-text {
-  margin-right: 32px;
-  width: 55%;
+  padding-top: 40px;
+  @media screen and (min-width: 1160px) {
+    width: 55%;
+    margin-right: 32px;
+    padding-top: 0;
+  }
 }
 
 .cookies-settings-button {
   color: var(--red-700);
-  margin-right: 24px;
   border: none;
   background: transparent;
-  /* text-decoration: underline;   */
+  text-wrap: nowrap;
+
+  @media screen and (min-width: 1160px) {
+    margin-right: 24px;
+  }
 }
 
 .cookies-settings-button span {

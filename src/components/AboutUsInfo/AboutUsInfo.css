@@ -1,67 +1,133 @@
+@media screen and (min-width: 1440px) {
+  .about-as-info_wrapper {
+    display: grid;
+    grid-column: 1/13;
+    background-image: url("../../images/frame-about.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 0 44px;
+    gap: 0px;
+  }
+
+  .about-as-info_title {
+    display: grid;
+    grid-column: 1/13;
+    justify-content: start;
+    margin-bottom: 48px;
+  }
+ 
+  .about-as-info_target,
+  .about-as-info_support {
+    display: grid;
+    grid-column: 1/13;
+    justify-content: space-between;
+  }
+
+  .about-as-info_target {
+    /* grid-template-columns: 429px 518px; */
+    grid-template-columns: 429px minmax(350px,518px);
+  }
+
+  .about-as-info_support {
+    /* grid-template-columns: 520px 429px; */
+    grid-template-columns: minmax(350px,518px) 429px;
+  }
+
+  .about-as-info_img-container {
+    width: 429px;
+    height: 420px;
+  }
+
+  .another-hight {
+    height: 476px;
+  }
+
+  .about-as-info_target-info,
+  .about-as-info_support-info {
+    text-align: start;
+  }
+
+  .about-as-info_ornament {
+    display: grid;
+    grid-column: 1/13;
+    justify-content: center;
+    margin: 80px 0px;
+  }
+
+  .about-as-info_donat_margin-right {
+    margin-right: 24px;
+  }
+}
+/* ------------------------------------------------- */
+@media screen and (min-width: 360px) and (max-width: 768px){
+
 .about-as-info_wrapper {
   display: grid;
-  grid-column: 1/13;
+  grid-column: 1/1;
   background-image: url("../../images/frame-about.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 0 44px;
+  gap: 0px;
 }
 
 .about-as-info_title {
   display: grid;
-  grid-column: 1/5;
+
+  grid-column: 1/1;
   justify-content: start;
-  margin-bottom: 48px; 
-}
+  margin-bottom: 32px;
 
-.about-as-info_title-small {
-    padding-bottom: 16px;
 }
-
-/* .about-as-info_text {
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 400;
-} */
 
 .about-as-info_target,
 .about-as-info_support {
   display: grid;
-  grid-column: 1/13;
-  justify-content: space-between;
+  grid-column: 1/1;
+  grid-template-rows: auto auto;
+  gap: 0;
+  justify-content: center;
+  align-items: center;
+  padding: 0 16px;
 }
 
-.about-as-info_target {
-  grid-template-columns: 429px 520px;
-}
-
-.about-as-info_support {
-  grid-template-columns: 520px 429px;
-}
 
 .about-as-info_img-container {
-  width: 429px;
-  height: 420px;
-}
-
-.another-hight {
-  height: 476px;
-}
-
-.about-as-info_target img,
-.about-as-info_support img{
-  width: inherit;
-  height: inherit;
-  object-fit: cover;
-  overflow: hidden;
-  border-radius: 10px;
+  width: 296px;
+  height: 320px;
+  display: grid;
+  grid-row: 1/2;
+  justify-self: center;
+  align-self: center;
+  margin-bottom: 16px;
 }
 
 .about-as-info_target-info,
 .about-as-info_support-info {
   text-align: start;
+  display: grid;
+  grid-row: 2/3;
 }
 
+.about-as-info_support-info p:nth-child(5) {
+  margin: 32px 0px 16px 0px;
+}
+
+.about-as-info_ornament {
+  display: grid;
+  grid-column: 1/1;
+  justify-content: center;
+  margin: 32px 0px;
+}
+
+.about-as-info_donat_margin-right {
+  margin-right: 22px;
+}
+  
+}
+
+
+/* -------------isn't changed------------------- */
 .about-as-info_target-info p:nth-child(2) {
   margin-bottom: 16px;
 }
@@ -71,11 +137,17 @@
   margin: 16px 0px;
 }
 
-.about-as-info_ornament {
-  display: grid;
-  grid-column: 1/13;
-  justify-content: center;
-  margin: 80px 0px;
+.about-as-info_target img,
+.about-as-info_support img {
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.about-as-info_title-small {
+  padding-bottom: 16px;
 }
 
 .about-as-info_donat-imgs {
@@ -86,7 +158,6 @@
 .about-as-info_donat-bmc {
   width: 174px;
   height: 56px;
-  margin-right: 24px;
 }
 
 .buy-me-a-caffee {
@@ -99,57 +170,57 @@
 }
 
 .buy-me-a-caffee:hover {
-    background: url("../../img/aboutUs/bmc-hover.svg");
+  background: url("../../img/aboutUs/bmc-hover.svg");
 }
 
 .buy-me-a-caffee:active {
-    background: url("../../img/aboutUs/bmc-active.svg");
+  background: url("../../img/aboutUs/bmc-active.svg");
 }
 
 .about-as-info_donat-patreon {
-    width: 100px;
-    height: 56px;
-    cursor: pointer;
+  width: 100px;
+  height: 56px;
+  cursor: pointer;
 }
 
-.patreon_dark:hover  rect,
+.patreon_dark:hover rect,
 .patreon_light:hover rect {
-    fill: #FF424E;
-    stroke: #FF424E;
-    stroke-width: 6px;
+  fill: #ff424e;
+  stroke: #ff424e;
+  stroke-width: 6px;
 }
 
-.patreon_dark:hover  path,
+.patreon_dark:hover path,
 .patreon_light:hover path {
-    fill: var(--white-0);
+  fill: var(--white-0);
 }
 
-.patreon_dark:active  rect {
-    fill: #141518;
-    stroke-width: 0px;
+.patreon_dark:active rect {
+  fill: #141518;
+  stroke-width: 0px;
 }
 
-.patreon_dark:active  path {
-    fill: var(--white-0);
+.patreon_dark:active path {
+  fill: var(--white-0);
 }
 
-.patreon_light rect{
-    fill: #141518;
+.patreon_light rect {
+  fill: #141518;
 }
 
-.patreon_light path{
-    fill: var(--white-0);
+.patreon_light path {
+  fill: var(--white-0);
 }
 
-.patreon_light:active rect{
-    fill: var(--white-0);
+.patreon_light:active rect {
+  fill: var(--white-0);
 }
 
-.patreon_light:active path{
-    fill: #141518;
+.patreon_light:active path {
+  fill: #141518;
 }
 
-.about-us{
+.about-us {
   grid-column: 1/13;
 
   background-image: url("../../images/frame-hero-a.png");

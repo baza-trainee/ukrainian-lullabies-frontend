@@ -41,7 +41,6 @@ export function PopularSongs() {
       initial="hidden"
       animate={ inView ? "visible" : "hidden" }
       variants={ animationElement }
-      custom={ 1 }
       ref={ ref }
       className="PopularSongs margin-bottom">
       <motion.h2
