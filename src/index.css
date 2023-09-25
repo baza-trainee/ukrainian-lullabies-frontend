@@ -179,11 +179,11 @@ a {
 }
 
 .text-2xl {
-font-family: "Unbounded";
-font-size: 12px;
-font-style: normal;
-font-weight: 400;
-line-height: 16px;
+  font-family: "Unbounded";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
 
 
   @media screen and (min-width: 1440px) {
@@ -231,10 +231,14 @@ line-height: 16px;
 
 .text-5xl {
   font-family: "Lutsk-sity";
-  font-size: 64px;
+  font-size: 28px;
   font-style: normal;
   font-weight: 400;
   line-height: 80px;
   /* 125% */
   text-transform: uppercase;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 64px;
+  }
 }
