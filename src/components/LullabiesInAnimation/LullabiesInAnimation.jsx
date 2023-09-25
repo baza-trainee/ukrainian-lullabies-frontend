@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import classNames from "classnames";
 
 export const LullabiesInAnimation = () => {
+
   const [playlist, setPlaylist] = useState([
     {
       url: 'https://www.youtube.com/watch?v=SGjK-uN7jnI',
@@ -111,4 +112,5 @@ export const LullabiesInAnimation = () => {
 
     </section >
   );
+
 };
