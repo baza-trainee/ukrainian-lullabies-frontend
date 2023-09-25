@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
 
@@ -9,7 +10,7 @@ import OrnamentsRightIcon from "../../../icons/OrnamentsRightIcon";
 
 import "./pop-up-feedback.css";
 
-const PopUpFeedBack = () => {
+const PopUpFeedBack = ({ popupText }) => {
   // theme toggle
   const isLightTheme = useSelector(getLightTheme);
 
@@ -19,14 +20,15 @@ const PopUpFeedBack = () => {
         "popup-message-dark": !isLightTheme,
         "popup-message-white": isLightTheme,
       })}
-      // className="popup-message"
     >
       <OrnamentsLeftIcon />
-      <p className="text-2xl pop-up-text-form">
-        Дякуємо, <br /> Ваше повідомлення відправлене!
-      </p>
+      <p className="text-2xl pop-up-text-form">{popupText}</p>
       <OrnamentsRightIcon />
     </div>
   );
 };
 export default PopUpFeedBack;
+
+PopUpFeedBack.propTypes = {
+  popupText: PropTypes.string.isRequired,
+};

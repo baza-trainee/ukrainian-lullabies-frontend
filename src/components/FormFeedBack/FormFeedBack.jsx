@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
+
 import classNames from "classnames";
 import { Formik, Form, Field } from "formik";
 import { object, string } from "yup";
@@ -59,6 +61,9 @@ const initialValues = {
 
 const FormFeedBack = () => {
   const isLightTheme = useSelector(getLightTheme);
+
+  const { t } = useTranslation();
+
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const formikRef = useRef();
 
@@ -71,9 +76,9 @@ const FormFeedBack = () => {
   const handleShowPopUp = () => {
     if (formikRef.current.isValid && formikRef.current.dirty) {
       setShowSuccessMessage(true);
-      setTimeout(() => {
-        setShowSuccessMessage(false);
-      }, 3000);
+      // setTimeout(() => {
+      //   setShowSuccessMessage(false);
+      // }, 3000);
     }
   };
 
@@ -85,17 +90,11 @@ const FormFeedBack = () => {
           validationSchema={schema}
           onSubmit={handleFormSubmit}
           innerRef={formikRef}
-          noValidate
         >
           {({ errors, touched }) => (
             <Form autoComplete="off">
-              <h2 className="text-4xl text-title-form">
-                Форма зворотнього зв’язку
-              </h2>
-              <p className="text-base text-title-form">
-                Якщо у Вас є питання/пропозиції/побажання - чекаємо Ваших
-                повідомлень.
-              </p>
+              <h2 className="text-4xl text-title-form">{t("feedbackForm")}</h2>
+              <p className="text-base text-title-form">{t("contactUs")}</p>
               <div className="fieldWrap">
                 <div className="label-feedback-container">
                   <label
@@ -106,7 +105,7 @@ const FormFeedBack = () => {
                     }
                     htmlFor="name"
                   >
-                    {"Ім'я"}
+                    {t("name")}
                   </label>
                 </div>
                 <Field
@@ -164,7 +163,7 @@ const FormFeedBack = () => {
                     }
                     htmlFor="name"
                   >
-                    {"Тема повідомлення"}
+                    {t("messageSubject")}
                   </label>
                 </div>
                 <Field
@@ -195,7 +194,7 @@ const FormFeedBack = () => {
                       }
                       htmlFor="name"
                     >
-                      {"Текст повідомлення"}
+                      {t("messageText")}
                     </label>
                   </div>
                   <Field
@@ -220,8 +219,7 @@ const FormFeedBack = () => {
                   />
                 </div>
                 <p className="text-sm text-under-text-area">
-                  Поле може містити букви, цифри та спецсимволи. Максимальна
-                  кількість символів 600.
+                  {t("underTextArea")}
                 </p>
                 <div
                   className={classNames("button-form", {
@@ -229,14 +227,16 @@ const FormFeedBack = () => {
                   })}
                 >
                   <ButtonForm
-                    text="Надіслати повідомлення"
+                    text={t("sendMessage")}
                     className={classNames("", {
                       "button-dark": !isLightTheme,
                     })}
                     type="submit"
                     onClick={handleShowPopUp}
                   />
-                  {showSuccessMessage && <PopUpFeedBack />}
+                  {showSuccessMessage && (
+                    <PopUpFeedBack popupText={t("popUpFormText")} />
+                  )}
                 </div>
               </div>
             </Form>
