@@ -1,0 +1,22 @@
+.button-submit {
+  display: flex;
+  height: 56px;
+  gap: 8px;
+  padding: 16px 24px;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 46px;
+  border: 2px solid var(--red-700);
+
+  background-color: inherit;
+  color: var(--red-700);
+}
+.button-submit:hover {
+  background: var(--red-700);
+  color: var(--gray-black-950);
+}
+.button-submit:active {
+  border: 2px solid var(--red-900);
+  background: var(--red-900);
+}
