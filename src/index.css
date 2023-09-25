@@ -31,6 +31,12 @@
   --red-400-error: #ff656c;
 }
 
+/* TEMRORARY!!!!    REMOVE IT!!!!!!! */
+body {
+  overflow-x: hidden;
+}
+/* --------!!!!--------!!!!!!!------ */
+
 /* Reset */
 *,
 *::before,
