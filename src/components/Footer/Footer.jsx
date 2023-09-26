@@ -73,6 +73,7 @@ export const Footer = () => {
     };
   }, []);
   const { t } = useTranslation();
+  
   return (
     <div className="footer">
       <button

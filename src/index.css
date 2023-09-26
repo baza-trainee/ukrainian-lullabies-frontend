@@ -23,17 +23,19 @@
   --gray-black-300: #b0b0b0;
   --gray-black-200: #d1d1d1;
   --gray-black-100: #e7e7e7;
-  --gray-black-25: linear-gradient(
-    172deg,
-    rgba(255, 246, 246, 0.21) 5.87%,
-    #efeeee 103.54%
-  );
+  --gray-black-25: linear-gradient(172deg, rgba(255, 246, 246, 0.21) 5.87%, #efeeee 103.54%);
   --second-text-color-white-player: #7b7b7b;
   --red-700: #c60f18;
   --red-500: #ff3a37;
   --red-900: #87151a;
   --red-400-error: #ff656c;
 }
+
+/* TEMRORARY!!!!    REMOVE IT!!!!!!! */
+body {
+  overflow-x: hidden;
+}
+/* --------!!!!--------!!!!!!!------ */
 
 /* Reset */
 *,
@@ -101,11 +103,17 @@ a {
 }
 
 .text-xs-bold {
-  font-size: 10px;
+  font-size: 8px;
   font-style: normal;
   font-weight: 700;
-  line-height: 14px;
-  /* 140% */
+  line-height: 14px; /* 175% */
+
+  @media screen and (min-width: 1440px) {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 14px; /* 140% */
+  }
 }
 
 .text-sm {
@@ -139,11 +147,18 @@ a {
 }
 
 .text-base-semibold {
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 24px;
-  /* 150% */
+  line-height: 24px; /* 171.429% */
+
+  @media screen and (min-width: 1440px) {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 150% */
+  }
 }
 
 .text-base-bold {
@@ -162,6 +177,13 @@ a {
   line-height: 28px;
   /* 140% */
   letter-spacing: 0.8px;
+}
+
+.text-map {
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 9px; /* 112.5% */
 }
 
 /* Heading */
@@ -200,11 +222,16 @@ a {
 }
 
 .text-3xl {
-  font-family: "Unbounded";
+  /* font-family: "Unbounded";
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
-  line-height: 16px;
+  line-height: 16px; */
+  font-family: "Unbounded";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 150% */
 
   @media screen and (min-width: 1440px) {
     font-size: 20px;
@@ -244,4 +271,3 @@ a {
     font-size: 64px;
   }
 }
-
