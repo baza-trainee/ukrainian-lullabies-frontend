@@ -64,9 +64,7 @@ export const LullabiesInAnimation = () => {
 
     setCurrentVideoIndex(index);
   };
-  const handleDisableScroll = () => {
-    setScrollDisabled(true);
-  };
+
   return (
     <section id="anima" className="lullabies-animation container text-sm margin-bottom">
       <div className="player-container">
@@ -89,7 +87,7 @@ export const LullabiesInAnimation = () => {
 
       </div>
       <div className="wrap">
-        <div className={ classNames('playlist', { 'scroll-disabled': scrollDisabled }) }>
+        <div className='playlist scroll'>
           <ul>
             { playlist.map((video, index) => (
               <li
