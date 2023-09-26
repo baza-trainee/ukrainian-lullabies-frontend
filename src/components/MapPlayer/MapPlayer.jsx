@@ -11,8 +11,8 @@ export const MapPlayer = () => {
   const loading = useSelector(selectLoading);
   const data = useSelector(selectData);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [currentVideoUrl, setCurrentVideoUrl] = useState(loading && (data[0].url));
-  const [currentVideoLyrics, setCurrentVideoLyrics] = useState(loading && data[0].lyrics);
+  const [currentVideoUrl, setCurrentVideoUrl] = useState(loading ? (data[0].url) : '');
+  const [currentVideoLyrics, setCurrentVideoLyrics] = useState(loading ? data[0].lyrics : '');
 
   useEffect(() => {
     dispatch(fetchData());
@@ -48,7 +48,7 @@ export const MapPlayer = () => {
       </div>
       <div className="map-player_wrap">
         <div className={ classNames('map-player_playlist scroll') }>
-          <p className="text-l  text-margin">Колекція музею</p>
+          <p className="text-l text-margin">Колекція музею</p>
           <ul>
             { data.map(({ name, id, url, lyrics }) => (
               <li
