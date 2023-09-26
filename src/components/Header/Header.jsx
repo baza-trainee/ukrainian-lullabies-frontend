@@ -108,11 +108,11 @@ export const Header = () => {
 
   const closeSearchBar = () => {
     const parent = headerOptionsWrapperRef.current.parentNode;
-    parent.childNodes.forEach((el) => {
-      if (el.classList.contains("header-about-link") || el.classList.contains("header-dropdown-wrapper")) {
-        el.classList.remove("hidden");
-      }
-    });
+    const headerAboutLink = document.querySelector(".header-about-link");
+    const headerDropdownWrapper = document.querySelector(".header-dropdown-wrapper");
+
+    headerAboutLink.style.display = "block";
+    headerDropdownWrapper.style.display = "block";
 
     headerOptionsWrapperRef.current.style.display = "grid";
     parent.classList.remove("header-with-search-bar-open");
