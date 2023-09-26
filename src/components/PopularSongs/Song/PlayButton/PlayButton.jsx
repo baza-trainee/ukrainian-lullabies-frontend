@@ -1,3 +1,5 @@
+import React from "react";
+
 export function PlayButton() {
   return (
     <svg
@@ -12,7 +14,7 @@ export function PlayButton() {
         cy="31"
         r="30.5"
         fill="url(#paint0_linear_2118_7163)"
-        fill-opacity="0.1"
+        fillOpacity="0.1"
         stroke="white"
       />
       <path
@@ -28,8 +30,8 @@ export function PlayButton() {
           y2="65.3145"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
       </defs>
     </svg>

@@ -1,6 +1,7 @@
 import React from "react";
 import "./sing-together.css"
+import { TechnicalWorksElement } from "../TechnicalWorks/TechnicalWorkElement";
 
 export const SingTogether = () => {
-    return <div className="sing-together"><h2>SingTogether</h2></div>;
+    return <section id="songs" ><TechnicalWorksElement /></section>;
 };

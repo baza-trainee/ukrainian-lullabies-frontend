@@ -1,3 +1,5 @@
+import React from 'react';
+
 export function CoffeeLogo() {
   return (
     <svg
@@ -9,7 +11,7 @@ export function CoffeeLogo() {
       cursor="pointer"
     >
       <rect y="0.00146484" width="48" height="48" rx="10" fill="#FFDD00" />
-      <g clip-path="url(#clip0_2118_7247)">
+      <g clipPath="url(#clip0_2118_7247)">
         <path
           d="M35.0577 13.3061L35.0299 13.29L34.9656 13.2706C34.9915 13.2922 35.0238 13.3047 35.0577 13.3061Z"
           fill="#0D0C22"

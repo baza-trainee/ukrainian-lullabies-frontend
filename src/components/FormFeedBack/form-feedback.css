@@ -1,0 +1,97 @@
+.section-form-wrap {
+  grid-column: 1/13;
+}
+.form-wrap {
+  display: grid;
+  grid-column: 3/11;
+}
+.text-title-form {
+  margin-bottom: 48px;
+}
+.fieldWrap {
+  display: grid;
+  grid-column: 3/11;
+}
+.lable-text-form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.label-feedback-container {
+  position: relative;
+  margin-top: -20px;
+  z-index: 1;
+}
+
+.label-feedback-container .lable-backgroud-black {
+  position: absolute;
+  background-color: var(--gray-black-950);
+  padding: 0 4px;
+  left: 10px;
+  top: 11px;
+}
+.label-feedback-container .lable-backgroud-white {
+  position: absolute;
+  background-color: var(--white-0);
+  padding: 0 4px;
+  left: 10px;
+  top: 11px;
+}
+
+.label-container .input-background-black {
+  border: 1px solid var(--gray-black-300);
+  padding: 10px 10px 10px 30px;
+}
+
+.fieldWrap__input {
+  background-color: inherit;
+  color: inherit;
+  padding: 18px 0px 18px 16px;
+  align-items: center;
+  border-radius: 36px;
+  border: 1px solid var(--gray-black-800);
+}
+
+.fieldWrap__input:not(:last-child) {
+  margin-bottom: 44px;
+}
+.field-input-error {
+  border: 1px solid var(--red-400-error);
+}
+.field-input-not-error {
+  border: 1px solid var(--gray-black-300);
+}
+.text-area-wrap {
+  display: grid;
+}
+.text-area {
+  height: 200px;
+  resize: none;
+}
+.text-area::placeholder {
+  font-family: Montserrat Alternates;
+}
+.text-under-text-area {
+  display: flex;
+  color: var(--gray-black-200);
+  margin-left: 7px;
+  margin-top: 4px;
+}
+.text-under-text-area:not(:last-child) {
+  margin-bottom: 48px;
+}
+.button-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.error-message {
+  position: relative;
+  top: -32px;
+  left: 12px;
+
+  display: flex;
+  justify-content: flex-start;
+  color: var(--red-400-error);
+  margin: 0;
+}

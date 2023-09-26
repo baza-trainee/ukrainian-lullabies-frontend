@@ -1,6 +1,127 @@
 .lullabies-animation {
-    height: 600px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 32px;
+    margin-bottom: 32px;
+
+    @media screen and (min-width: 1440px) {
+        margin-top: 48px;
+        margin-bottom: 48px;
+        height: 600px;
+    }
+}
+
+.peviev {
+  width: 100px;
+  height: auto;
+}
+
+.player-container{
+  grid-column: 1/9;
+  display: flex;
+  flex-direction: column;
+}
+.wrap{
+  grid-column: 9/13;
+    display: flex;
+  flex-direction: column;
+}
+
+.playlist{
+  overflow-y: auto;
+  max-height: 530px;
+}
+.skroll-disabled {
+  overflow: hidden; 
+}
+
+.info{
+  text-align: left;
+  margin-top: 30px;
+}
+.playlist-card{
+  height: 110px;
+  display: flex;
+  border-radius: 10px;
+  background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.10) 0.88%, rgba(255, 255, 255, 0.00) 99.96%));
+  padding: 8px;
+  margin-bottom: 16px;
+  gap: 16px;
+  margin-right: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  }
+
+.active{
+  border-bottom: 2px solid var(--red-700);
+}
+
+.card-img{
+  width: 156px;
+  height: 94px;
+}
+
+.card-title {
+  margin-bottom: 28px;
+}
+.heart::before{
+  background-image: url(../../images/heart.svg);
+}
+.vievs::before{
+  background-image: url(../../images/Group.svg);
+
+}
+
+.heart::before,
+.vievs::before
+ {
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: inline-block;  
+  background-repeat: no-repeat;
+  vertical-align: text-top;  
+  margin-right: 8px;  
+}
+
+.card-text{
+text-align: left;
+}
+
+.card-info{
+  color: var(--gray-black-400, #7B7B7B);
+}
+
+/* Стилізація смуги прокрутки */
+
+.playlist::-webkit-scrollbar {
+
+  width: 4px;  
+  height: 191.538px;  
+}
+
+/* Стилізація віджета смуги прокрутки */
+
+.playlist::-webkit-scrollbar-thumb { /* Ширина віджета смуги прокрутки */
+
+  background-color: #FFF;  
+  border-radius: 2px;  
+}
+
+/* Стилізація фону смуги прокрутки */
+.playlist::-webkit-scrollbar-track {
+
+  background-color: var(--gray-black-800, #454545);  
+}
+
+/* Заборона прокручування смуги в горизонтальному напрямку */
+.playlist::-webkit-scrollbar-horizontal {
+  display: none;
+}
+
+/* Заборона прокручування смуги в вертикальному напрямку */
+.playlist::-webkit-scrollbar-vertical {
+  display: block;
 }

@@ -1,102 +1,100 @@
 .chat_wrapper {
-    display: grid;
+  display: grid;
+  grid-column: 1/1;
+  grid-template-rows: auto auto auto;
+  margin-bottom: 80px;
+  gap: 0;
+  @media screen and (min-width: 1440px) {
     grid-column: 1/13;
+    grid-template-rows: auto auto;
+    margin-bottom: 140px;
+  }
 }
 
 .chat_info {
-    display: grid;
+  display: grid;
+  grid-column: 1/1;
+  grid-row: 1/2;
+  text-align: left;
+  @media screen and (min-width: 1440px) {
     grid-column: 1/8;
-    /* border: solid 1px red; */
-    text-align: left;
+    grid-row: 1/2;
+  }
 }
 
-.chat_title {
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 40px;
-    
+.chat_button {
+    display: grid;
+    justify-content: center;
+    grid-row: 3/4;
+  @media screen and (min-width: 1440px) {
+    display: grid;
+    grid-column: 1/8;
+    grid-row: 2/3;
+    justify-content: start;
+  }
 }
 
 .chat_rule_list {
-    padding: 38px 0px;
-    list-style-type: none;
-    list-style-position:inside;
+  margin: 24px 0px;
+  list-style-type: none;
+  list-style-position: inside;
+  @media screen and (min-width: 1440px) {
+    margin: 36px 0px 28px 0px;
+  }
 }
 
 .chat_text {
   margin: 12px 0px;
   display: block;
-  line-height: 24px;
-  font-size: 16px;
-  font-weight: 400; 
 }
 
 .chat_picture {
-    /* border: solid 1px red; */
+  grid-column: 1/1;
+  display: grid;
+  grid-row: 2/3;
+  justify-self: end;
+  align-self: center;
+  width: 192px;
+  height: 178px;
+  margin-bottom: 24px;
+  @media screen and (min-width: 1440px) {
     grid-column: 9/13;
-    display: grid;
-    justify-content: center;
-    align-items: center;
+    grid-row: 1/3;
     width: 323px;
     height: 300px;
-    margin: 42px 0px;
+  }
 }
 
-.chat_image {
-    cursor: pointer;
-    /* border: 1px solid blue; */
-    background: url("../../img/motanka/motanka-black.png");
-    width: inherit;
-    height: inherit;
-    object-fit: contain;
-    background-size: contain;
-    /* display: block; */
+.chat_image_dark {
+  cursor: pointer;
+  background: url("../../img/motanka/motanka-black.png");
+  width: inherit;
+  height: inherit;
+  object-fit: contain;
+  background-size: contain;
 }
 
-.chat_image:hover {
-    background: url("../../img/motanka/motanka-black-hover.png");
-    width: inherit;
-    height: inherit;
-    background-size: contain;
-    object-fit: contain;
+.chat_image_dark:hover {
+  background: url("../../img/motanka/motanka-black-hover.png");
+  background-size: contain;
 }
 
-.chat_image:active {
-    background: url("../../img/motanka/motanka-black-active.png");
-    width: inherit;
-    height: inherit;
-    background-size: contain;
-    object-fit: contain;
+.chat_image_dark:active {
+  background: url("../../img/motanka/motanka-black-active.png");
+  background-size: contain;
 }
 
-.chat_button {
-    cursor: pointer;
-    padding: 16px 95.5px;
-    border: 2px solid var(--red-700);
-    border-radius: 46px;
-    width: 250px;
+.chat_image_white {
+  background: url("../../img/motanka/motanka-white.png");
+  background-size: contain;
 }
 
-.chat_button a {
-    color: var(--red-700);
-    text-decoration: none;
-    font-weight: 600; 
-    line-height: 24px;
-} 
-
-.chat_button:hover,  .chat_button:hover a {
-    background-color: var(--red-700);
-    color: var(--gray-black-950);
+.chat_image_white:hover {
+  background: url("../../img/motanka/motanka-white-hover.png");
+  background-size: contain;
 }
 
-.chat_button:active, .chat_button:active a  {
-    background-color: var(--red-900);
-    border: 2px solid var(--red-900);    
-    color: var(--gray0);
+.chat_image_white:active {
+  background: url("../../img/motanka/motanka-white-active.png");
+  background-size: contain;
 }
-
-
-
-
-
-

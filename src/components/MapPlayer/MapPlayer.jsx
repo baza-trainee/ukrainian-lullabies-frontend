@@ -1,5 +1,8 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 export const MapPlayer = () => {
-  return <p >MapPlayer</p>;
+  return <div>
+
+  </div>;
 };

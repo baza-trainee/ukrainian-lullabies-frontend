@@ -1,19 +1,19 @@
-import React, { useState, useRef } from "react";
-import { motion } from "framer-motion";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide, useSwiperSlide } from "swiper/react";
-import { Song } from "./Song/Song";
-import favoriteSongFirst from "../../assets/images/favorite-song-1.png";
-import favoriteSongSecond from "../../assets/images/favorite-song-2.png";
-import favoriteSongThird from "../../assets/images/favorite-song-3.png";
-import "./PopularSongs.css";
-import { useSelector } from "react-redux";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { useTranslation } from 'react-i18next';
+
+import { Song } from './Song/Song';
+import favoriteSongFirst from '../../assets/images/favorite-song-1.png';
+import favoriteSongSecond from '../../assets/images/favorite-song-2.png';
+import favoriteSongThird from '../../assets/images/favorite-song-3.png';
+import './PopularSongs.css';
 
 export function PopularSongs() {
-  const [isPlayingList, setIsPlayingList] = useState([
+  const { t } = useTranslation();
+  const popularSongs = useSelector((state) => state.popularSongs.popularSongs);
+  const swiperRef = useRef(null);
+ const [isPlayingList, setIsPlayingList] = useState([
     true,
     true,
     true,
@@ -21,8 +21,6 @@ export function PopularSongs() {
     true,
     true,
   ]);
-  const popularSongs = useSelector((state) => state.popularSongs.popularSongs);
-  const swiperRef = useRef(null);
 
   const handleSongClick = (index) => {
     const updatedPlayingList = [...isPlayingList];
@@ -45,18 +43,24 @@ export function PopularSongs() {
     }),
   };
 
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+  });
+
   return (
     <motion.section
       initial="hidden"
-      whileInView="visible"
-      className="PopularSongs margin-bottom"
-    >
+
+      animate={ inView ? "visible" : "hidden" }
+      variants={ animationElement }
+      ref={ ref }
+      className="PopularSongs margin-bottom">
       <motion.h2
-        custom={1}
-        variants={animationElement}
-        className="PopularSongsTitle"
-      >
-        Популярні колискові
+        custom={ 1 }
+        variants={ animationElement }
+        className="PopularSongsTitle">
+        { t('popularLullabies') }
+
       </motion.h2>
       <motion.div
         custom={2}

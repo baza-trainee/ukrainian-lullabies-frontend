@@ -8,11 +8,6 @@
 }
 
 .errorPage__title{
-  font-family: "Unbounded", sans-serif;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-
   grid-column:5/10;
   margin-top: 88px;
   width: 308px;
@@ -37,7 +32,6 @@
 
 .element-right{
   grid-column:1/4;
-  
 }
 
 .element-left{
@@ -47,10 +41,6 @@
 
 .element-center{
   text-align: center;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 24px;
   grid-column: 4/10;
 }
 
