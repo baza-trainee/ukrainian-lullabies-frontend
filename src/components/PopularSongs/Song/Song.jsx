@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { PlayButton } from './PlayButton/PlayButton';
 import './Song.css';
 
