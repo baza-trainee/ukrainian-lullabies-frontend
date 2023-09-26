@@ -95,28 +95,28 @@ text-align: left;
 }
 
 /* Стилізація смуги прокрутки */
-::-webkit-scrollbar {
+.playlist::-webkit-scrollbar {
   width: 4px;  
   height: 191.538px;  
 }
 
 /* Стилізація віджета смуги прокрутки */
-::-webkit-scrollbar-thumb { /* Ширина віджета смуги прокрутки */
+.playlist::-webkit-scrollbar-thumb { /* Ширина віджета смуги прокрутки */
   background-color: #FFF;  
   border-radius: 2px;  
 }
 
 /* Стилізація фону смуги прокрутки */
-::-webkit-scrollbar-track {
+.playlist::-webkit-scrollbar-track {
   background-color: var(--gray-black-800, #454545);  
 }
 
 /* Заборона прокручування смуги в горизонтальному напрямку */
-::-webkit-scrollbar-horizontal {
+.playlist::-webkit-scrollbar-horizontal {
   display: none;
 }
 
 /* Заборона прокручування смуги в вертикальному напрямку */
-::-webkit-scrollbar-vertical {
+.playlist::-webkit-scrollbar-vertical {
   display: block;
 }
