@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import classNames from "classnames";
 import { Link } from "react-scroll";
-import { useInView } from 'react-intersection-observer';
-import { useTranslation } from 'react-i18next';
+import { useInView } from "react-intersection-observer";
+import { useTranslation } from "react-i18next";
 
 import { getLightTheme } from "../../redux/theme/themeSelectors";
 import Notification from "./Notification/Notification";
@@ -30,15 +30,12 @@ const Hero = () => {
   };
 
   const copyLinkToClipboard = async () => {
-    try
-    {
-      // Визначаємо URL-адресу, яку ми хочемо скопіювати
+    try {
       const urlToCopy =
         "https://ukrainian-lullabies-frontend-git-dev-baza-trainee.vercel.app/#/map";
       await navigator.clipboard.writeText(urlToCopy);
       notification();
-    } catch (error)
-    {
+    } catch (error) {
       console.error("Не вдалося скопіювати посилання: ", error);
     }
   };
@@ -61,76 +58,65 @@ const Hero = () => {
   return (
     <motion.section
       initial="hidden"
-      animate={ inView ? "visible" : "hidden" }
-      variants={ animationElement }
-      custom={ 1 }
-      ref={ ref }
+      animate={inView ? "visible" : "hidden"}
+      variants={animationElement}
+      custom={1}
+      ref={ref}
       className="container heroWrapper margin-bottom"
     >
       <div className="kolyskovaWrap">
         <motion.div
-          custom={ 1 }
-          variants={ animationElement }
+          custom={1}
+          variants={animationElement}
           className="kolyskovaWrap"
         >
-          <div className="kolyIcon text-5xl">
-            Koly
-          </div>
+          <div className="kolyIcon text-5xl">Koly</div>
           <div className="letterS">
             <SIcon />
           </div>
-          <div className="kovaIcon text-5xl">
-            Kova
-          </div>
-          <div className="oundIconWrap text-5xl">
-            ound
-          </div>
+          <div className="kovaIcon text-5xl">Kova</div>
+          <div className="oundIconWrap text-5xl">ound</div>
         </motion.div>
         <motion.div
-          custom={ 2 }
-          variants={ animationElement }
+          custom={2}
+          variants={animationElement}
           className="ornamentWrap"
         >
           <div className="element-left">
             <OrnamentsLeftIcon />
           </div>
 
-          <p className="text-base center">
-            { t('heroText') }
-          </p>
+          <p className="text-base center">{t("heroText")}</p>
           <div className="element-right">
             <OrnamentsRightIcon />
           </div>
-
         </motion.div>
         <motion.div
-          custom={ 3 }
-          variants={ animationElement }
+          custom={3}
+          variants={animationElement}
           className="hero-btn animation"
         >
           <div
-            className={ classNames("hero-btn", {
+            className={classNames("hero-btn", {
               "bg-dark": !isLightTheme,
-            }) }
+            })}
           >
             <Link
               to="player"
               id="player"
-              className={ classNames("button", "listen-button", {
+              className={classNames("button", "listen-button", {
                 "button-dark": !isLightTheme,
-              }) }
-              spy={ true }
-              smooth={ true }
-              duration={ 500 }
+              })}
+              spy={true}
+              smooth={true}
+              duration={500}
             >
-              { t('listen') }
+              {t("listen")}
             </Link>
-            <ButtonShare text={ t('share') } onClick={ copyLinkToClipboard } />
+            <ButtonShare text={t("share")} onClick={copyLinkToClipboard} />
           </div>
         </motion.div>
-        { isNotification && (
-          <Notification textNotification={ t('shareLink') } />
-        ) }
+        {isNotification && <Notification textNotification={t("shareLink")} />}
       </div>
     </motion.section>
   );

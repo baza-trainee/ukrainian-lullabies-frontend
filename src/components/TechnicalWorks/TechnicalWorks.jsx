@@ -10,7 +10,9 @@ import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
 import { GeneralTitle } from '../GeneralTitle/GeneralTitle';
 import './TechnicalWorks.css'
-export const TechnikalWorks = () => {
+
+
+export const TechnicalWorks = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
   const scrollToTarget = (target) => {
     const scrollTo = document.querySelector(target);
@@ -36,10 +38,10 @@ export const TechnikalWorks = () => {
 
     <motion.section
       initial="hidden"
-      animate={ inView ? "visible" : "hidden" }
-      variants={ animationElement }
-      custom={ 1 }
-      ref={ ref }
+      animate={inView ? "visible" : "hidden"}
+      variants={animationElement}
+      custom={1}
+      ref={ref}
       className='technikal'
     >
       <div className="technical_content">
@@ -49,8 +51,8 @@ export const TechnikalWorks = () => {
           </div>
         </div>
 
-        <motion.div custom={ 3 }
-          variants={ animationElement }
+        <motion.div custom={3}
+          variants={animationElement}
           className="technikal__block container">
           <div className='loader' />
 
@@ -59,10 +61,9 @@ export const TechnikalWorks = () => {
           </div>
           <p className="center text-base">
 
-            { t('technikalWorsk') }
-            <br />
+            {t('technikalWorsk')}
 
-            { t('technikalWorsk2') }
+            {t('technikalWorsk2')}
 
           </p>
 
@@ -70,14 +71,14 @@ export const TechnikalWorks = () => {
             <OrnamentsRightIcon />
           </div>
         </motion.div>
-        <motion.div custom={ 4 }
-          variants={ animationElement } className="container">
+        <motion.div custom={4}
+          variants={animationElement} className="container">
           <NavLink
             to="/"
-            className={ classNames('button', 'technikal-button', { 'button-dark': !isLightTheme, }) }
-            onClick={ () => {
+            className={classNames('button', 'technikal-button', { 'button-dark': !isLightTheme, })}
+            onClick={() => {
               scrollToTarget("#header");
-            } }> { t('toTheMain') } </NavLink>
+            }}> {t('toTheMain')} </NavLink>
         </motion.div>
       </div>
 

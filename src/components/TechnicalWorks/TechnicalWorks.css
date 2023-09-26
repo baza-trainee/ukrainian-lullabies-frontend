@@ -1,0 +1,134 @@
+.technikal {
+  display: grid;
+  grid-column: 1/1;
+  background-image: url("../../images/frame-about.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  justify-content: center;
+  text-align: center;
+  gap: 0px;
+
+  @media screen and (min-width:1440px) {
+    background-image: url("../../images/frame-hero-a.png");
+    background-repeat: no-repeat;
+    justify-content: center;
+    text-align: center;
+    grid-column: 1/13;
+    padding: 48px;
+    background-position: 0 26px;
+  }
+}
+
+.technikal-container {
+  padding-top: 48px;
+
+  @media screen and (min-width:1440px) {
+
+    grid-column: 1/13;
+    justify-content: center;
+    text-align: center;
+    background-position: 0 26px;
+  }
+}
+
+.technical__border {
+  @media screen and (min-width:1440px) {
+    margin-top: 60px;
+  }
+}
+
+.technikal__element {
+
+  @media screen and (min-width:1440px) {
+    grid-column: 1/13;
+    justify-content: center;
+  }
+
+
+}
+
+.loader {
+  width: 88px;
+  height: 80px;
+  margin: 32px auto;
+  background-image: url("../../images/mobile-loader-white.png");
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media screen and (min-width:1440px) {
+    background-image: url("../../images/loader-dark.png");
+    grid-column: 5/8;
+    padding: 48px 59px;
+    width: 216px;
+    height: 100px;
+  }
+}
+
+.technikal__block {
+  display: flex;
+  flex-direction: column-reverse;
+
+
+  @media screen and (min-width:1440px) {
+    display: grid;
+    grid-column: 1/13;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 60px;
+    flex-direction: column;
+  }
+}
+
+.right {
+  display: none;
+
+  @media screen and (min-width:1440px) {
+    display: block;
+    grid-column: 1/4;
+  }
+}
+
+.left {
+  display: none;
+
+  @media screen and (min-width:1440px) {
+    display: block;
+    grid-column: 10/13;
+  }
+}
+
+.center {
+  width: 310px;
+  display: flex;
+
+  @media screen and (min-width:1440px) {
+    grid-column: 4/10;
+    width: 574px;
+    padding-left: 40px;
+  }
+}
+
+.technikal-button {
+  margin: 0 auto;
+
+  @media screen and (min-width:1440px) {
+    grid-column: 5/9;
+    /* margin: 57px 47px 0; */
+  }
+}
+
+.fill-for-dark {
+  fill: var(--white-0);
+}
+
+.fill-for-light {
+  fill: var(--grey-black-950);
+}
+
+.center-tech {
+  width: 310px;
+
+  @media screen and (min-width: 1440px) {
+    width: 580px;
+  }
+}
