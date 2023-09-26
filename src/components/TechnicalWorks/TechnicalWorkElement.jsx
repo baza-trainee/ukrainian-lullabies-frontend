@@ -10,9 +10,17 @@ import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
 import './TechnicalWorks.css'
 
+import TechMobSvg from '../../images/mobile-loader-black.png'
+import TechMobSvgLight from '../../images/mobile-loader-white.png'
+import TechDeskSvg from '../../images/loader-dark1.png';
+import TechDeskSvgLight from '../../images/loader-light.png';
+
 
 export const TechnicalWorksElement = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
+
+  const SvgMob = isLightTheme ? TechMobSvg : TechMobSvgLight;
+  const SvgDesk = isLightTheme ? TechDeskSvg : TechDeskSvgLight;
 
   const animationElement = {
     hidden: {
@@ -42,21 +50,30 @@ export const TechnicalWorksElement = () => {
       <motion.div custom={3}
         variants={animationElement}
         className="technikal__block container">
-        <div className='loader' />
+        <div style={{ flexDirection: "column" }} className='tech-wrap'>
+          <div className='loader'>
+            <img className='svg-tech-mob' width="88px" height="80px" src={SvgMob} alt='loader' />
+            <img className='svg-tech-desk' width="216px" height="100px" src={SvgDesk} alt='loader' />
+          </div>
 
-        <div className="right">
-          <OrnamentsLeftIcon />
-        </div>
-        <p className="center text-base center-tech">
+          <div className="tech-container">
+            <div className="right">
+              <OrnamentsLeftIcon />
+            </div>
+            <div>
+              <p style={{ marginBottom: "20px" }} className="center text-base">
 
-          {t('technikalWorsk')}
+                {t('technikalWorsk')}
 
-          {t('technikalWorsk2')}
+                {t('technikalWorsk2')}
 
-        </p>
+              </p>
+            </div>
 
-        <div className="left">
-          <OrnamentsRightIcon />
+            <div className="left">
+              <OrnamentsRightIcon />
+            </div>
+          </div>
         </div>
       </motion.div>
       <motion.div custom={4}
