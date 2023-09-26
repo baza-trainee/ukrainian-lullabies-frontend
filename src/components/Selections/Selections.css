@@ -247,12 +247,12 @@
   height: 5px;
 }
 
-::-webkit-scrollbar-track {
+.selections-playlist-list::-webkit-scrollbar-track {
   background: var(--gray-black-800);
   border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb {
+.selections-playlist-list::-webkit-scrollbar-thumb {
   background: var(--gray-black-300);
   border-radius: 10px;
 }
