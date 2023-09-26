@@ -1,0 +1,39 @@
+.map-player{
+  grid-column: 1;
+  @media screen and (min-width: 1440px) {
+    grid-column: 1/13;    
+  }
+}
+.map-player_container{
+  grid-column: 1/5;
+}
+
+.map-player_info{
+  width: 248px;
+  height: 530px;
+  grid-column: 5/8;
+}
+.map-player_playlist{
+  width: 416px;
+  overflow-y: auto;
+}
+.map-player_wrap{
+  grid-column: 8/13;
+}
+.map-player_card{
+  cursor: pointer;
+ border-radius: 36px; 
+ background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.10) 0.88%, rgba(255, 255, 255, 0.00) 99.96%));
+ padding: 8px;
+ margin-bottom: 24px;
+}
+
+.map-player_card-title{
+  text-align: left;
+}
+.active-card{
+  border: 2px solid var(--red-700);
+}
+.text-margin{
+margin-bottom: 24px;
+}
