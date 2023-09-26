@@ -25,7 +25,7 @@ export const Cookies = () => {
         &times;
       </button>
       {/* <p className="cookies-text text-base-regular">  */}
-      <p className="cookies-text text-sm"> 
+      <p className="cookies-text text-base"> 
         { t('cookies') }
       </p>
       <CookiesModal isLightTheme={ isLightTheme } closeCookiesBar={ closeCookiesBar } />
