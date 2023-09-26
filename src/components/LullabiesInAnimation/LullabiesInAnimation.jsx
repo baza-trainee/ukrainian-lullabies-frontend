@@ -112,5 +112,4 @@ export const LullabiesInAnimation = () => {
 
     </section >
   );
-
 };
