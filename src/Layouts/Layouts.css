@@ -55,7 +55,7 @@
   margin: 0 auto;
 
   @media screen and (min-width: 360px) {
-    width: 90vw;
+    width: 328px;
   }
 
   @media screen and (min-width: 375px) {
