@@ -9,7 +9,8 @@ import favoriteSongFirst from "../../assets/images/favorite-song-1.png";
 import favoriteSongSecond from "../../assets/images/favorite-song-2.png";
 import favoriteSongThird from "../../assets/images/favorite-song-3.png";
 
-import endSectionOrnament from "../../assets/images/ornamentsMapTabsSection.svg";
+import endSectionOrnamentDesktop from "../../assets/images/ornamentsMapTabsSection.svg";
+import endSectionOrnamentMobile from "../../assets/images/OrnamentsMapTabs.svg";
 
 // icons import
 import { BsRepeat, BsHeart } from "react-icons/bs";
@@ -222,7 +223,8 @@ export const Selections = () => {
           <SelectionsPlayer isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
         </div>
       </div>
-      <img src={endSectionOrnament} alt="ornament" />
+      <img src={endSectionOrnamentDesktop} alt="ornament" className="selections-ornament-desktop" />
+      <img src={endSectionOrnamentMobile} alt="ornament" className="selections-ornament-mobile" />
     </div>
   );
 };
