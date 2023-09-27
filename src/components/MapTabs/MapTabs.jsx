@@ -48,10 +48,10 @@ export const MapTabs = () => {
         </NavLink>
       </motion.div>
       <Outlet />
-      <div className="info-tech-div">
+      <motion.div custom={4} variants={animationElement} className="info-tech-div">
         <motion.img className="mobile-icon" custom={4} src={tabsSvgMob} alt="tabsSvg" />
         <motion.img className="mobile-desktop" custom={4} src={tabsSvg} alt="tabsSvg" />
-      </div>
+      </motion.div>
     </motion.section>
   );
 };
