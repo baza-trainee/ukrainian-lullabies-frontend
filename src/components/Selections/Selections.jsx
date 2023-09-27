@@ -18,6 +18,7 @@ import { FiMoreHorizontal } from "react-icons/fi";
 import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
 import { PauseCircleIconDark } from "../../icons/SelectionsIcons/PauseCircleIcon";
 import { SoundWaveIcon } from "../../icons/SelectionsIcons/SoundWaveIcon";
+import YouTube from "react-youtube";
 
 const playlist = [
   {
@@ -76,6 +77,59 @@ const playlist = [
   },
 ];
 
+const playlist2 = [
+  {
+    url: "https://www.youtube.com/watch?v=SGjK-uN7jnI",
+    title: "Сонько-дрімко",
+    thumbnail: "https://papik.pro/uploads/posts/2022-01/thumbs/1642303842_1-papik-pro-p-son-klipart-1.png",
+    likes: "152",
+    vievs: "295",
+  },
+  {
+    url: "https://www.youtube.com/watch?v=tHAIfNSJM4U",
+    title: "Котику сіренький",
+    thumbnail: "https://psychblog.odb.poltava.ua/wp-content/uploads/2017/01/7896.jpg",
+    likes: "5112",
+    vievs: "25",
+  },
+
+  {
+    url: "https://www.youtube.com/watch?v=lzbQgwjy8wc",
+    title: "Назва   відео",
+    thumbnail: "https://psychblog.odb.poltava.ua/wp-content/uploads/2017/01/7896.jpg",
+    likes: "1112",
+    vievs: "325",
+  },
+  {
+    url: "https://www.youtube.com/watch?v=pBTCycLsX7k&list=OLAK5uy_lXxkzm7tF0RjPEPM0oepTF8T7H9it5Vs4&index=2",
+    title: "Мій солодкий ангел",
+    thumbnail: "https://papik.pro/uploads/posts/2022-01/thumbs/1642303842_1-papik-pro-p-son-klipart-1.png",
+    likes: "133",
+    vievs: "225",
+  },
+  {
+    url: "https://www.youtube.com/watch?v=t2o03R5BsFA",
+    title: "ОЙ ЛЮЛІ ЛЮЛІ налетіли гулі",
+    thumbnail: "https://psychblog.odb.poltava.ua/wp-content/uploads/2017/01/7896.jpg",
+    likes: "12",
+    vievs: "35",
+  },
+  {
+    url: "https://www.youtube.com/watch?v=DPLXJTyDppQ&list=OLAK5uy_lXxkzm7tF0RjPEPM0oepTF8T7H9it5Vs4&index=4",
+    title: "Назва   відео",
+    thumbnail: "https://papik.pro/uploads/posts/2022-01/thumbs/1642303842_1-papik-pro-p-son-klipart-1.png",
+    likes: "108",
+    vievs: "45",
+  },
+  {
+    url: "https://www.youtube.com/watch?v=qzdeqdmcBfY&list=RDEMFOFXNl9_ct3pVQzNXus1DQ&start_radio=1&rv=XjB_0W_w90o",
+    title: "Ой, люлі люлі",
+    thumbnail: "https://papik.pro/uploads/posts/2022-01/thumbs/1642303842_1-papik-pro-p-son-klipart-1.png",
+    likes: "190",
+    vievs: "25",
+  },
+];
+
 export const Selections = () => {
   const { t } = useTranslation();
 
@@ -127,12 +181,42 @@ export const Selections = () => {
     console.log(`Saved ${playlist[id].name}`);
   };
 
+  // youtube player
+
+  const opts = {
+    width: "400",
+    playerVars: {
+      autoplay: 1,
+      controls: 0,
+    },
+  };
+
+  const onReady = (event) => {
+    event.target.seekTo(1);
+    setTimeout(() => {
+      event.target.pauseVideo();
+      setIsPlaying(false);
+    }, 1000);
+  };
+
+  const playerRef = useRef(null);
+
+  const handlePlayClick = () => {
+    if (!isPlaying) {
+      playerRef.current.internalPlayer.playVideo();
+    } else {
+      playerRef.current.internalPlayer.pauseVideo();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
   return (
     <div className="selections margin-bottom">
       <h2 className="selections-title text-4xl">{t("selection")}</h2>
       <div className="selections-wrapper container margin-bottom">
         <div className="selections-image">
-          <img src={favoriteSongFirst} alt="song covering" />
+          {/* <img src={favoriteSongFirst} alt="song covering" /> */}
+          <YouTube videoId="SGjK-uN7jnI" ref={playerRef} className="selections-youtube-player" opts={opts} onReady={onReady} />
         </div>
         <div className="selections-info">
           <div className="selections-info-about">
@@ -151,8 +235,9 @@ export const Selections = () => {
                     className={classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
                       "selections-playlist-item-play-pause-button-light": isLightTheme,
                     })}
+                    onClick={handlePlayClick}
                   >
-                    <PlayCircleIconDark />
+                    {!isPlaying ? <PlayCircleIconDark /> : <PauseCircleIconDark />}
                   </button>
 
                   <span className="selections-playlist-item-name">{item.name.toUpperCase().slice(0, 25)}</span>
