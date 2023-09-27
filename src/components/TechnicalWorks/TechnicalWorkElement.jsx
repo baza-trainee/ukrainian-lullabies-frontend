@@ -1,22 +1,22 @@
 import React from 'react';
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
 import { useTranslation } from 'react-i18next';
-
+import { Loader } from '../Loader/Loader';
 import './TechnicalWorks.css'
 
-import TechMobSvg from '../../images/mobile-loader-black.png'
-import TechMobSvgLight from '../../images/mobile-loader-white.png'
-import TechDeskSvg from '../../images/loader-dark1.png';
-import TechDeskSvgLight from '../../images/loader-light.png';
+// import TechMobSvg from '../../images/mobile-loader-black.png'
+// import TechMobSvgLight from '../../images/mobile-loader-white.png'
+// import TechDeskSvg from '../../images/loader-dark1.png';
+// import TechDeskSvgLight from '../../images/loader-light.png';
 
 
 export const TechnicalWorksElement = () => {
-  const isLightTheme = useSelector((state) => state.theme.isLightTheme);
+  // const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
-  const SvgMob = isLightTheme ? TechMobSvg : TechMobSvgLight;
-  const SvgDesk = isLightTheme ? TechDeskSvg : TechDeskSvgLight;
+  // const SvgMob = isLightTheme ? TechMobSvg : TechMobSvgLight;
+  // const SvgDesk = isLightTheme ? TechDeskSvg : TechDeskSvgLight;
 
   const animationElement = {
     hidden: {
@@ -48,8 +48,9 @@ export const TechnicalWorksElement = () => {
         className="technikal__block container">
         <div style={{ flexDirection: "column" }} className='tech-wrap'>
           <div className='loader'>
-            <img className='svg-tech-mob' width="88px" height="80px" src={SvgMob} alt='loader' />
-            <img className='svg-tech-desk' width="216px" height="100px" src={SvgDesk} alt='loader' />
+            <Loader />
+            {/* <img className='svg-tech-mob' width="88px" height="80px" src={SvgMob} alt='loader' />
+            <img className='svg-tech-desk' width="216px" height="100px" src={SvgDesk} alt='loader' /> */}
           </div>
 
           <div className="tech-container">
