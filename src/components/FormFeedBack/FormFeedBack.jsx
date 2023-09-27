@@ -21,7 +21,7 @@ import "./form-feedback.css";
 const schema = object({
   name: string()
     .matches(
-      /^[A-Za-zʼ-\u04FF\u0400-\u04FF\s-]+$/,
+      /^[A-Za-z'ʼ-\u04FF\u0400-\u04FF\s-]+$/,
       "Поле має містити тільки букви"
     )
     .notOneOf(
@@ -267,6 +267,7 @@ const FormFeedBack = () => {
                       <PopUpFeedBack
                         popUpThank={t("popUpThank")}
                         popupText={t("popupText")}
+                        isLightTheme={isLightTheme}
                       />
                     )}
                   </div>
