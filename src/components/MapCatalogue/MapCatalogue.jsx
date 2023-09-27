@@ -208,54 +208,15 @@ export const MapCatalogue = () => {
   const map = isLightTheme ? mapLight : mapDark;
   const [onButtonClick, setOnButtonClick] = useState(false);
 
-  const calcRegion = (region, pattern) => {
-    const regionPath = document.getElementById(region);
-    const regionWidth = regionPath?.getBBox().width;
-    const regionHeight = regionPath?.getBBox().height;
 
-    const hoverPattern = document.getElementById(pattern);
-    const imageElement = hoverPattern?.querySelector("image");
-    imageElement?.setAttribute("width", regionWidth);
-    imageElement?.setAttribute("height", regionHeight);
-  };
-
-  useEffect(() => {
-    catalogue.map((item) => {
-      calcRegion(item.id, item.pattern);
-    })
-  }, []);
-
-
-  useEffect(() => {
-    const delay = 500;
-
-    const runPattern = async () => {
-      for (const item of pattern) {
-        await new Promise((resolve) => {
-          setTimeout(() => {
-            handleRegionHover(item);
-            resolve();
-          }, delay);
-        });
-
-        await new Promise((resolve) => {
-          setTimeout(() => {
-            handleRegionOut(item);
-            resolve();
-          }, delay);
-        });
-      }
-    };
-
-    runPattern();
-  }, [isLightTheme]);
+  const [currentPatternIndex, setCurrentPatternIndex] = useState(0);
 
   const handleRegionHover = (pattern) => {
     const hoverPattern = document.getElementById(pattern);
     if (hoverPattern) {
       const imageElement = hoverPattern.querySelector("image");
       if (imageElement) {
-        imageElement.classList.add('map-opacity_visible')
+        imageElement.classList.add('map-opacity_visible');
       }
     }
   };
@@ -265,10 +226,26 @@ export const MapCatalogue = () => {
     if (hoverPattern) {
       const imageElement = hoverPattern.querySelector("image");
       if (imageElement) {
-        imageElement.classList.remove('map-opacity_visible')
+        imageElement.classList.remove('map-opacity_visible');
       }
     }
   };
+
+  useEffect(() => {
+    const delay = 500;
+
+    const interval = setInterval(() => {
+      handleRegionHover(pattern[currentPatternIndex]);
+      setTimeout(() => {
+        handleRegionOut(pattern[currentPatternIndex]);
+        setCurrentPatternIndex((prevIndex) => (prevIndex + 1) % pattern.length);
+      }, delay);
+    }, delay * 2);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [currentPatternIndex]);
 
   const mapRegion = catalogue.map((item) => (
     <React.Fragment key={item.id}>
