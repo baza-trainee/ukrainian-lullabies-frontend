@@ -83,10 +83,8 @@ a {
   display: grid;
   text-align: center;
   grid-template-columns: 1fr;
-}
 
-@media (min-width: 1024px) {
-  .container {
+@media (min-width: 1440px) {
     grid-template-columns: repeat(12, 1fr);
     gap: 24px;
   }
@@ -185,7 +183,13 @@ a {
   font-weight: 600;
   line-height: 9px; /* 112.5% */
 }
-
+.text-l {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
 /* Heading */
 .text-xl-medium {
   font-size: 20px;
