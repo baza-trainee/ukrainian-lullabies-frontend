@@ -3,7 +3,7 @@
   background-color: transparent;
   border: none;
 
-  @media screen and (min-width: 1160px) {
+  @media screen and (min-width: 1440px) {
     display: none;
   }
 }
@@ -18,7 +18,7 @@
   left: 0;
   z-index: 3;
 
-  @media screen and (min-width: 1160px) {
+  @media screen and (min-width: 1440px) {
     display: none;
   }
 }
@@ -39,7 +39,7 @@
   z-index: 10;
   background: var(--gray-black-950);
 
-  @media screen and (min-width: 1160px) {
+  @media screen and (min-width: 1440px) {
     display: none;
   }
 }
