@@ -19,39 +19,6 @@ import PopUpFeedBack from "./PopUpFeedBack/PopUpFeedBack";
 
 import "./form-feedback.css";
 
-// const schema = (translations) => {
-//   const { t } = useTranslation();
-//   return object({
-//     name: string()
-//       .matches(
-//         /^[A-Za-z'ʼ-\u04FF\u0400-\u04FF\s-]+$/,
-//         translations.schema.nameInvalidName
-//       )
-//       .notOneOf(
-//         ["%", "^", "*", "|", "~", "{", "}", ";", "<", ">", ".", ","],
-//         translations.schema.nameNotAllowedMessage
-//       )
-//       .min(2, translations.schema.nameMinLengthMessage)
-//       .max(30, translations.schema.nameMaxLengthMessage)
-//       .required(translations.schema.requiredMessage),
-//     email: string()
-//       .matches(
-//         /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-//         translations.schema.emailNotAllowedMessage
-//       )
-//       .min(6, translations.schema.emailMinLengthMessage)
-//       .max(320, translations.schema.emailMaxLengthMessage)
-//       .required(translations.schema.requiredMessage),
-//     theme: string()
-//       .min(6, translations.schema.themeMinLengthMessage)
-//       .max(320, translations.schema.themeMaxLengthMessage)
-//       .required(translations.schema.requiredMessage),
-//     message: string()
-//       .max(600, translations.schema.messageMaxLengthMessage)
-//       .required(translations.schema.requiredMessage),
-//   });
-// };
-
 const initialValues = {
   name: "",
   email: "",
