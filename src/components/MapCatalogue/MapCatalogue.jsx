@@ -289,12 +289,13 @@ export const MapCatalogue = () => {
     variants={animationElement}
     custom={1}
     ref={ref} id="map" className="map-catalogue" >
-    <div className="map">
+    <motion.div custom={3}
+      variants={animationElement} className="map">
       <svg className="svg-map" viewBox="0 0 990 655">
         {mapRegion}
       </svg>
       <img className="img-map" src={map} alt="Map" />
-    </div>
+    </motion.div>
     <Outlet />
   </motion.section>
 };
