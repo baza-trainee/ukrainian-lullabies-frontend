@@ -117,10 +117,6 @@
 .center {
   width: 292px;
 
-  @media screen and (min-width:486px) {
-    width: 400px;
-  }
-
   @media screen and (min-width:1440px) {
     /* grid-column: 4/10; */
     width: 574px;
