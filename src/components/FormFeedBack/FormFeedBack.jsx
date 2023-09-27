@@ -21,8 +21,6 @@ import PopUpFeedBack from "./PopUpFeedBack/PopUpFeedBack";
 
 import "./form-feedback.css";
 
-import "./form-feedback.css";
-
 const initialValues = {
   name: "",
   email: "",
