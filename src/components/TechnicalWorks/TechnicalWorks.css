@@ -164,3 +164,14 @@
     display: block;
   }
 }
+
+.tech-div {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 0;
+
+  @media screen and (min-width: 1440px) {
+    margin-top: 150px;
+    margin-bottom: 150px;
+  }
+}

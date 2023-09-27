@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { motion } from "framer-motion";
+import { useInView } from 'react-intersection-observer';
 import { getLightTheme } from "../../redux/theme/themeSelectors";
 import { NavLink, Outlet } from "react-router-dom";
 import "./map-catalogue.css"
@@ -231,6 +233,22 @@ export const MapCatalogue = () => {
     }
   };
 
+  const animationElement = {
+    hidden: {
+      y: -50,
+      opacity: 0,
+    },
+    visible: (custom) => ({
+      y: 0,
+      opacity: 1,
+      transition: { ease: "easeOut", duration: 2, delay: custom * 0.3 },
+    }),
+  };
+
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+  });
+
   useEffect(() => {
     const delay = 500;
 
@@ -266,8 +284,11 @@ export const MapCatalogue = () => {
       </NavLink>
     </React.Fragment>))
 
-  return <section id="map" className="map-catalogue" >
-    {" "}
+  return <motion.section initial="hidden"
+    animate={inView ? "visible" : "hidden"}
+    variants={animationElement}
+    custom={1}
+    ref={ref} id="map" className="map-catalogue" >
     <div className="map">
       <svg className="svg-map" viewBox="0 0 990 655">
         {mapRegion}
@@ -275,5 +296,5 @@ export const MapCatalogue = () => {
       <img className="img-map" src={map} alt="Map" />
     </div>
     <Outlet />
-  </section>
+  </motion.section>
 };
