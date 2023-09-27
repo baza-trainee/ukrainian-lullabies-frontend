@@ -1,13 +1,9 @@
 import React from 'react';
-import classNames from "classnames";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
 import { useTranslation } from 'react-i18next';
 
-import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
-import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
 import './TechnicalWorks.css'
 
 import TechMobSvg from '../../images/mobile-loader-black.png'
@@ -57,9 +53,6 @@ export const TechnicalWorksElement = () => {
           </div>
 
           <div className="tech-container">
-            <div className="right">
-              <OrnamentsLeftIcon />
-            </div>
             <div>
               <p style={{ marginBottom: "20px" }} className="center text-base">
 
@@ -70,18 +63,8 @@ export const TechnicalWorksElement = () => {
               </p>
             </div>
 
-            <div className="left">
-              <OrnamentsRightIcon />
-            </div>
           </div>
         </div>
-      </motion.div>
-      <motion.div custom={4}
-        variants={animationElement} className="container">
-        <NavLink style={{ marginBottom: "50px" }}
-          to="/"
-          className={classNames('button', 'technikal-button', { 'button-dark': !isLightTheme, })}
-        > {t('toTheMain')} </NavLink>
       </motion.div>
 
     </motion.section>
