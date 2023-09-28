@@ -96,3 +96,9 @@
     display: block;
   }
 }
+
+.info-tech-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
