@@ -173,14 +173,15 @@
 }
 
 .selections-playlist-item-group {
-  display: none;
+  /* grid-column: 6 / 8; */
+  grid-column: 3 / 4;
+  display: flex;
+  gap: 18px;
+  justify-content: right;
+  align-items: center;
+  
   @media screen and (min-width: 1440px) {
-    /* grid-column: 6 / 8; */
-    grid-column: 3 / 4;
-    display: flex;
-    gap: 27px;
-    justify-content: right;
-    align-items: center;
+    gap: 40px;
   }
 }
 

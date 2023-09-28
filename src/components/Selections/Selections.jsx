@@ -157,17 +157,17 @@ export const Selections = () => {
                   </button>
 
                   <span className="selections-playlist-item-name">{item.name.toUpperCase().slice(0, 25)}</span>
-                  <span className="selections-playlist-item-duration text-xs-bold">{item.duration}</span>
                 </div>
                 {/* selections with dropdown for mobile */}
                 <div className="selections-playlist-item-group">
+                  <span className="selections-playlist-item-duration text-xs-bold">{item.duration}</span>
                   <button
                     className="selections-playlist-item-repeat-button selection-playlist-button"
                     onClick={() => handleRepeatClick(item.id)}
                   >
                     <BsRepeat />
                   </button>
-                  <button
+                  {/* <button
                     className="selections-playlist-item-like-button selection-playlist-button"
                     onClick={() => handleLikeClick(item.id)}
                   >
@@ -178,9 +178,9 @@ export const Selections = () => {
                     onClick={() => handleSaveClick(item.id)}
                   >
                     <BsHeart />
-                  </button>
+                  </button> */}
                 </div>
-                <button
+                {/* <button
                   className={classNames("selections-playlist-item-group-menuIcon-mobile", {
                     "selections-playlist-item-group-menuIcon-mobile-active": activeButtonMoreIndex === index,
                   })}
@@ -216,7 +216,7 @@ export const Selections = () => {
                   >
                     <BsHeart /> Додати до улюлених
                   </button>
-                </div>
+                </div> */}
               </li>
             ))}
           </ul>
