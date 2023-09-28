@@ -8,34 +8,13 @@
   background-position: center;
 }
 
-/*
-@media screen and (min-width: 1160px) {
-  .heroWrapper {
-    min-height: 100%;
-    display: grid;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    background-image: url("../../images/frame-hero-a.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    .sectionMain {
-      background-image: url("../../images/lineDecorehero2x.png");
-    }
-  }
-} */
 .kolyskovaWrap {
   display: grid;
   grid-column: 1/13;
   justify-content: center;
-  margin-top: 56px;
+  margin-top: 26px;
 
-  @media screen and (min-width:1440px) {
+  @media screen and (min-width: 1440px) {
     padding-top: 81px;
   }
 }
