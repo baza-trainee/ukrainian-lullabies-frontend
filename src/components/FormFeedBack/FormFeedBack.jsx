@@ -5,6 +5,7 @@ import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useTranslation } from "react-i18next";
+import translations from "./translations";
 
 import classNames from "classnames";
 import { Formik, Form, Field } from "formik";
@@ -18,35 +19,38 @@ import PopUpFeedBack from "./PopUpFeedBack/PopUpFeedBack";
 
 import "./form-feedback.css";
 
-const schema = object({
-  name: string()
-    .matches(
-      /^[A-Za-z'ʼ-\u04FF\u0400-\u04FF\s-]+$/,
-      "Введіть, будь ласка, коректне ім’я"
-    )
-    .notOneOf(
-      ["%", "^", "*", "|", "~", "{", "}", ";", "<", ">", ".", ","],
-      'Заборонено використовувати такі символи: «% ^ * | ~ {} ; "<>. , /»'
-    )
-    .min(2, "Кількість символів має бути не менше 2")
-    .max(30, "Кількість символів має бути не більше 30")
-    .required("Це поле обов'язкове для заповнення"),
-  email: string()
-    .matches(
-      /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-      "Введіть, будь ласка, коректний email"
-    )
-    .min(6, "Кількість символів має бути не менше 6")
-    .max(320, "Кількість символів має бути не більше 320")
-    .required("Це поле обов'язкове для заповнення"),
-  theme: string()
-    .min(6, "Кількість символів має бути не менше 6")
-    .max(320, "Кількість символів має бути не більше 320")
-    .required("Це поле обов'язкове для заповнення"),
-  message: string()
-    .max(600, "Кількість символів має бути не більше 600")
-    .required("Це поле обов'язкове для заповнення"),
-});
+// const schema = (translations) => {
+//   const { t } = useTranslation();
+//   return object({
+//     name: string()
+//       .matches(
+//         /^[A-Za-z'ʼ-\u04FF\u0400-\u04FF\s-]+$/,
+//         translations.schema.nameInvalidName
+//       )
+//       .notOneOf(
+//         ["%", "^", "*", "|", "~", "{", "}", ";", "<", ">", ".", ","],
+//         translations.schema.nameNotAllowedMessage
+//       )
+//       .min(2, translations.schema.nameMinLengthMessage)
+//       .max(30, translations.schema.nameMaxLengthMessage)
+//       .required(translations.schema.requiredMessage),
+//     email: string()
+//       .matches(
+//         /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+//         translations.schema.emailNotAllowedMessage
+//       )
+//       .min(6, translations.schema.emailMinLengthMessage)
+//       .max(320, translations.schema.emailMaxLengthMessage)
+//       .required(translations.schema.requiredMessage),
+//     theme: string()
+//       .min(6, translations.schema.themeMinLengthMessage)
+//       .max(320, translations.schema.themeMaxLengthMessage)
+//       .required(translations.schema.requiredMessage),
+//     message: string()
+//       .max(600, translations.schema.messageMaxLengthMessage)
+//       .required(translations.schema.requiredMessage),
+//   });
+// };
 
 const initialValues = {
   name: "",
@@ -58,8 +62,45 @@ const initialValues = {
 const FormFeedBack = () => {
   const isLightTheme = useSelector(getLightTheme);
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  //
+  // Функція для створення схеми з перекладами
+  const schema = (translations) => {
+    const currentLanguage = i18n.language;
+    const currentTranslations = translations[currentLanguage];
 
+    return object({
+      name: string()
+        .matches(
+          /^[A-Za-z'ʼ-\u04FF\u0400-\u04FF\s-]+$/,
+          currentTranslations.schema.nameInvalidName
+        )
+        .notOneOf(
+          ["%", "^", "*", "|", "~", "{", "}", ";", "<", ">", ".", ","],
+          currentTranslations.schema.nameNotAllowedMessage
+        )
+        .min(2, currentTranslations.schema.nameMinLengthMessage)
+        .max(30, currentTranslations.schema.nameMaxLengthMessage)
+        .required(currentTranslations.schema.requiredMessage),
+      email: string()
+        .matches(
+          /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+          currentTranslations.schema.emailNotAllowedMessage
+        )
+        .min(6, currentTranslations.schema.emailMinLengthMessage)
+        .max(320, currentTranslations.schema.emailMaxLengthMessage)
+        .required(currentTranslations.schema.requiredMessage),
+      theme: string()
+        .min(6, currentTranslations.schema.themeMinLengthMessage)
+        .max(320, currentTranslations.schema.themeMaxLengthMessage)
+        .required(currentTranslations.schema.requiredMessage),
+      message: string()
+        .max(600, currentTranslations.schema.messageMaxLengthMessage)
+        .required(currentTranslations.schema.requiredMessage),
+    });
+  };
+
+  //
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const formikRef = useRef();
 
@@ -105,7 +146,7 @@ const FormFeedBack = () => {
         <div className="form-wrap">
           <Formik
             initialValues={initialValues}
-            validationSchema={schema}
+            validationSchema={schema(translations)}
             onSubmit={handleFormSubmit}
             innerRef={formikRef}
           >
