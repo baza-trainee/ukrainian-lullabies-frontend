@@ -89,6 +89,7 @@
 .shareIcon {
   margin-left: 8px;
 }
+
 @media (max-width: 1439px) {
   .ornament-mobile-hero {
     display: block;
@@ -102,8 +103,3 @@
     display: none;
   }
 }
-/* .info-tech-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
