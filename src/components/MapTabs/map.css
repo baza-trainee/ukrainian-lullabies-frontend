@@ -13,7 +13,6 @@
 .map-tabs {
   display: grid;
   gap: 10px;
-  padding: 0 16px;
 
   @media screen and (min-width: 1440px) {
     display: grid;
