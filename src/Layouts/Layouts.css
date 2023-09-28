@@ -23,11 +23,27 @@
 }
 
 .bg-image-dark {
-  background-image: url("../images/ornamentsDark.png");
+  background-image: url("../images/mobile-dark-ornaments.png");
+
+  @media screen and (min-width: 1024px) {
+    background-image: url("../images/tab-dark-ornaments.png");
+  }
+
+  @media screen and (min-width: 1440px) {
+    background-image: url("../images/ornamentsDark.png")
+  }
 }
 
 .bg-image-light {
-  background-image: url("../images/ornamentsLight.png");
+  background-image: url("../images/mobile-white-ornaments.png");
+
+  @media screen and (min-width: 1024px) {
+    background-image: url("../images/tab-white-ornaments.png");
+  }
+
+  @media screen and (min-width: 1440px) {
+    background-image: url("../images/ornamentsLight.png");
+  }
 }
 
 .bg-img-left {
@@ -59,15 +75,7 @@
   }
 
   @media screen and (min-width: 375px) {
-    width: 80vw;
-  }
-
-  @media screen and (min-width: 425px) {
-    width: 75vw;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 70vw;
+    width: 85vw;
   }
 
   @media screen and (min-width: 1440px) {
