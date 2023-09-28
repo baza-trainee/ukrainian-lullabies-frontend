@@ -33,36 +33,3 @@ const translations = {
   },
 };
 export default translations;
-
-// {
-//   "ua": {
-//     "translations": {
-//       "schema.nameInvalidName": "Введіть, будь ласка, коректне ім’я",
-//       "schema.nameNotAllowedMessage": "Заборонено використовувати такі символи: «% ^ * | ~ {} ; \"<>. , /»",
-//       "schema.nameMinLengthMessage": "Кількість символів має бути не менше 2",
-//       "schema.nameMaxLengthMessage": "Кількість символів має бути не більше 30",
-//       "schema.requiredMessage": "Це поле обов'язкове для заповнення",
-//       "schema.emailNotAllowedMessage": "Введіть, будь ласка, коректний email",
-//       "schema.emailMinLengthMessage": "Кількість символів має бути не менше 6",
-//       "schema.emailMaxLengthMessage": "Кількість символів має бути не більше 30",
-//       "schema.themeMinLengthMessage": "Кількість символів має бути не менше 6",
-//       "schema.themeMaxLengthMessage": "Кількість символів має бути не більше 30",
-//       "schema.messageMaxLengthMessage": "Кількість символів має бути не більше 600"
-//     }
-//   },
-//   "en": {
-//     "translations": {
-//       "schema.nameInvalidName": "Please enter a valid name",
-//       "schema.nameNotAllowedMessage": "It is forbidden to use the following symbols:«% ^ * | ~ {} ; \"<>. , /»",
-//       "schema.nameMinLengthMessage": "The number of characters must be at least 2",
-//       "schema.nameMaxLengthMessage": "The number of characters must not exceed 30",
-//       "schema.requiredMessage": "This field is mandatory",
-//       "schema.emailNotAllowedMessage": "Please enter a valid email",
-//       "schema.emailMinLengthMessage": "The number of characters must be at least 2",
-//       "schema.emailMaxLengthMessage": "The number of characters must not exceed 30",
-//       "schema.themeMinLengthMessage": "The number of characters must be at least 6",
-//       "schema.themeMaxLengthMessage": "The number of characters must not exceed 30",
-//       "schema.messageMaxLengthMessage": "The number of characters must not exceed 600"
-//     }
-//   }
-// }
