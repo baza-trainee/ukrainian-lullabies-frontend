@@ -64,6 +64,34 @@ export const MapPlayer = () => {
                 </div>
               </li>
             )) }
+            { data.map(({ name, id, url, lyrics }) => (
+              <li
+                key={ id }
+                className={ classNames('map-player_card', { 'active-card': id === currentVideoIndex }) }
+                onClick={ () => handleVideoChange(url, id, lyrics) }
+              >
+                <div className="map-player_card-text">
+                  <div className={ classNames({ 'play': id === currentVideoIndex }) }>
+
+                  </div>
+                  <p className="map-player_card-title text-sm">{ name }</p>
+                </div>
+              </li>
+            )) }
+            { data.map(({ name, id, url, lyrics }) => (
+              <li
+                key={ id }
+                className={ classNames('map-player_card', { 'active-card': id === currentVideoIndex }) }
+                onClick={ () => handleVideoChange(url, id, lyrics) }
+              >
+                <div className="map-player_card-text">
+                  <div className={ classNames({ 'play': id === currentVideoIndex }) }>
+
+                  </div>
+                  <p className="map-player_card-title text-sm">{ name }</p>
+                </div>
+              </li>
+            )) }
           </ul>
         </div>
       </div>
