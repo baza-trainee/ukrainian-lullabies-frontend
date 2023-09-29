@@ -89,14 +89,14 @@ const AboutUsInfo = () => {
           <p className='text-base-semibold'>
             { t('donateHere') }
           </p>
-          <div className='about-as-info_donat-imgs'>
+        </div>
+        <div className='about-as-info_donat-imgs'>
             <div className='about-as-info_donat-bmc about-as-info_donat_margin-right'>
               <Link href='#' className="buy-me-a-caffee"></Link>
             </div>
             <div className='about-as-info_donat-patreon'>
               <Link href='#'><Patreon /></Link>
             </div>
-          </div>
         </div>
         <div className='about-as-info_img-container another-hight'>
           <img src='/img/aboutUs/aboutUs-support.png' alt='mother with baby' />
