@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { motion } from "framer-motion";
+import { useInView } from 'react-intersection-observer';
 import { getLightTheme } from "../../redux/theme/themeSelectors";
 import { NavLink, Outlet } from "react-router-dom";
 import "./map-catalogue.css"
@@ -208,48 +210,8 @@ export const MapCatalogue = () => {
   const map = isLightTheme ? mapLight : mapDark;
   const [onButtonClick, setOnButtonClick] = useState(false);
 
-  const calcRegion = (region, pattern) => {
-    const regionPath = document.getElementById(region);
-    const regionWidth = regionPath?.getBBox().width;
-    const regionHeight = regionPath?.getBBox().height;
 
-    const hoverPattern = document.getElementById(pattern);
-    const imageElement = hoverPattern?.querySelector("image");
-    imageElement?.setAttribute("width", regionWidth);
-    imageElement?.setAttribute("height", regionHeight);
-  };
-
-  useEffect(() => {
-    catalogue.map((item) => {
-      calcRegion(item.id, item.pattern);
-    })
-  }, []);
-
-
-  useEffect(() => {
-    const delay = 500;
-
-    const runPattern = async () => {
-      for (const item of pattern)
-      {
-        await new Promise((resolve) => {
-          setTimeout(() => {
-            handleRegionHover(item);
-            resolve();
-          }, delay);
-        });
-
-        await new Promise((resolve) => {
-          setTimeout(() => {
-            handleRegionOut(item);
-            resolve();
-          }, delay);
-        });
-      }
-    };
-
-    runPattern();
-  }, [isLightTheme]);
+  const [currentPatternIndex, setCurrentPatternIndex] = useState(0);
 
   const handleRegionHover = (pattern) => {
     const hoverPattern = document.getElementById(pattern);
@@ -258,7 +220,7 @@ export const MapCatalogue = () => {
       const imageElement = hoverPattern.querySelector("image");
       if (imageElement)
       {
-        imageElement.classList.add('map-opacity_visible')
+        imageElement.classList.add('map-opacity_visible');
       }
     }
   };
@@ -270,10 +232,42 @@ export const MapCatalogue = () => {
       const imageElement = hoverPattern.querySelector("image");
       if (imageElement)
       {
-        imageElement.classList.remove('map-opacity_visible')
+        imageElement.classList.remove('map-opacity_visible');
       }
     }
   };
+
+  const animationElement = {
+    hidden: {
+      y: -50,
+      opacity: 0,
+    },
+    visible: (custom) => ({
+      y: 0,
+      opacity: 1,
+      transition: { ease: "easeOut", duration: 2, delay: custom * 0.3 },
+    }),
+  };
+
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+  });
+
+  useEffect(() => {
+    const delay = 500;
+
+    const interval = setInterval(() => {
+      handleRegionHover(pattern[currentPatternIndex]);
+      setTimeout(() => {
+        handleRegionOut(pattern[currentPatternIndex]);
+        setCurrentPatternIndex((prevIndex) => (prevIndex + 1) % pattern.length);
+      }, delay);
+    }, delay * 2);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [currentPatternIndex]);
 
   const mapRegion = catalogue.map((item) => (
     <React.Fragment key={ item.id }>
@@ -294,14 +288,18 @@ export const MapCatalogue = () => {
       </NavLink>
     </React.Fragment>))
 
-  return <section id="map" className="map-catalogue" >
-    { " " }
-    <div className="map">
+  return <motion.section initial="hidden"
+    animate={ inView ? "visible" : "hidden" }
+    variants={ animationElement }
+    custom={ 1 }
+    ref={ ref } id="map" className="map-catalogue" >
+    <motion.div custom={ 3 }
+      variants={ animationElement } className="map">
       <svg className="svg-map" viewBox="0 0 990 655">
         { mapRegion }
       </svg>
       <img className="img-map" src={ map } alt="Map" />
-    </div>
+    </motion.div>
     <Outlet />
-  </section>
+  </motion.section>
 };

@@ -1,18 +1,27 @@
 .technikal {
+  display: grid;
+  grid-column: 1/1;
   background-image: url("../../images/frame-about.png");
   background-repeat: no-repeat;
   background-size: contain;
   justify-content: center;
   text-align: center;
 
+  @media screen and (min-width:475px) {
+    background-size: contain;
+  }
+
+
+  @media screen and (min-width:892px) {
+    background-size: cover;
+  }
+
   @media screen and (min-width:1440px) {
-    background-image: url("../../images/frame-hero-a.png");
-    background-repeat: no-repeat;
-    justify-content: center;
     text-align: center;
     grid-column: 1/13;
-    padding-top: 156px;
+    padding-top: 100px;
     background-position: 0 26px;
+    background-size: contain;
   }
 }
 
@@ -108,10 +117,6 @@
 .center {
   width: 292px;
 
-  @media screen and (min-width:486px) {
-    width: 400px;
-  }
-
   @media screen and (min-width:1440px) {
     /* grid-column: 4/10; */
     width: 574px;
@@ -121,8 +126,10 @@
 .technikal-button {
   margin: 0 auto;
 
+
   @media screen and (min-width:1440px) {
     grid-column: 5/9;
+    margin-bottom: 50px;
     /* margin: 57px 47px 0; */
   }
 }
@@ -156,5 +163,16 @@
 
   @media screen and (min-width: 1440px) {
     display: block;
+  }
+}
+
+.tech-div {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 0;
+
+  @media screen and (min-width: 1440px) {
+    margin-top: 150px;
+    margin-bottom: 150px;
   }
 }

@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
+import ReactPlayer from "react-player/youtube";
 
 import "./Selections.css";
 import { SelectionsPlayer } from "./SelectionsPlayer";
@@ -9,7 +10,8 @@ import favoriteSongFirst from "../../assets/images/favorite-song-1.png";
 import favoriteSongSecond from "../../assets/images/favorite-song-2.png";
 import favoriteSongThird from "../../assets/images/favorite-song-3.png";
 
-import endSectionOrnament from "../../assets/images/ornamentsMapTabsSection.svg";
+import endSectionOrnamentDesktop from "../../assets/images/ornamentsMapTabsSection.svg";
+import endSectionOrnamentMobile from "../../assets/images/OrnamentsMapTabs.svg";
 
 // icons import
 import { BsRepeat, BsHeart } from "react-icons/bs";
@@ -19,60 +21,34 @@ import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
 import { PauseCircleIconDark } from "../../icons/SelectionsIcons/PauseCircleIcon";
 import { SoundWaveIcon } from "../../icons/SelectionsIcons/SoundWaveIcon";
 
-const playlist = [
+const songsData = [
   {
     id: 0,
-    name: "люлі люлі люлечки",
-    watches: "42,822",
-    duration: "3:21",
+    url: "https://www.youtube.com/watch?v=DbnjO85lusM",
+    name: "Dreaming in Rain",
+    watches: 100,
+    duration: "1:20",
   },
   {
     id: 1,
-    name: "ХОДЕ СОН КОЛО ВІКОН",
-    watches: "67,420",
-    duration: "3:30",
+    url: "https://www.youtube.com/watch?v=OxzG2UMAkRo",
+    name: "Wonderland | Beautiful Chill Mix",
+    watches: 1500,
+    duration: "12:00",
   },
   {
     id: 2,
-    name: "ОЙ, НИ-НИ-НИ",
-    watches: "38,556",
-    duration: "2:40",
+    url: "https://www.youtube.com/watch?v=tKxxB8IPyZM",
+    name: "Relax Coffee Shop ☕ Lofi Coffee Ambiance",
+    watches: 2000,
+    duration: "3:20",
   },
   {
     id: 3,
-    name: "ЛЮЛІ ЛЮЛЄЧКИ",
-    watches: "35,820",
-    duration: "3:30",
-  },
-  {
-    id: 4,
-    name: "МАЛЬОВАНА КОЛИСОЧКА",
-    watches: "51,432",
-    duration: "4:01",
-  },
-  {
-    id: 5,
-    name: "abcd",
-    watches: "51,432",
-    duration: "1:01",
-  },
-  {
-    id: 6,
-    name: "МАЛЬОВАНА КОЛИСОЧКА",
-    watches: "51,432",
-    duration: "4:01",
-  },
-  {
-    id: 7,
-    name: "МАЛЬОВАНА КОЛИСОЧКА",
-    watches: "51,432",
-    duration: "4:01",
-  },
-  {
-    id: 8,
-    name: "МАЛЬОВАНА КОЛИСОЧКА",
-    watches: "51,432",
-    duration: "4:01",
+    url: "https://www.youtube.com/watch?v=urZ0bhF9bB4",
+    name: "Sample video 5s",
+    watches: 2000,
+    duration: "0:05",
   },
 ];
 
@@ -82,57 +58,97 @@ export const Selections = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isLooped, setIsLooped] = useState(false);
+  const [volume, setVolume] = useState(0.5);
+  const [playlist, setPlaylist] = useState(songsData);
+  const [currentSong, setCurrentSong] = useState(playlist[0].url);
+  const [currentSongIndex, setCurrentSongIndex] = useState(0);
+
+  const reactPlayerRef = useRef(null);
+  // ------------+----+-----+----
+  // ----+++---+---
+
+  const playPauseSong = (url) => {
+    if (!isPlaying && currentSong === url) {
+      setIsPlaying(true);
+    } else if (!isPlaying) {
+      setCurrentSong(url);
+      setIsPlaying(true);
+      setIsLooped(false);
+    } else if (isPlaying && currentSong == url) {
+      setIsPlaying(false);
+    } else {
+      setCurrentSong(url);
+      setIsLooped(false);
+    }
+
+    setCurrentSongIndex(playlist.findIndex((song) => song.url === url));
+  };
+
+  const handleLoop = () => {
+    setIsLooped(!isLooped);
+  };
 
   // dropdown menu item group for mobile
-  const [isItemGroupOpen, setIsItemGroupOpen] = useState([]);
-  const [activeButtonMoreIndex, setActiveButtonMoreIndex] = useState(null); // for buttom more to change colour
+  // const [isItemGroupOpen, setIsItemGroupOpen] = useState([]);
+  // const [activeButtonMoreIndex, setActiveButtonMoreIndex] = useState(null); // for buttom more to change colour
 
-  const itemGroupMenuClick = (index, e) => {
-    setIsItemGroupOpen(new Array(playlist.length).fill(false));
+  // const itemGroupMenuClick = (index, e) => {
+  //   setIsItemGroupOpen(new Array(playlist.length).fill(false));
 
-    setIsItemGroupOpen((prev) => {
-      const updatedState = [...prev];
-      updatedState[index] = !updatedState[index];
-      return updatedState;
-    });
+  //   setIsItemGroupOpen((prev) => {
+  //     const updatedState = [...prev];
+  //     updatedState[index] = !updatedState[index];
+  //     return updatedState;
+  //   });
 
-    setActiveButtonMoreIndex(isItemGroupOpen[index] ? null : index);
-  };
+  //   setActiveButtonMoreIndex(isItemGroupOpen[index] ? null : index);
+  // };
 
-  const menuRefs = playlist.map(() => useRef(null)); // Create an array of refs
+  // const menuRefs = playlist.map(() => useRef(null)); // Create an array of refs
 
-  useEffect(() => {
-    const closeMenusOnBodyClick = (e) => {
-      if (!menuRefs.some((ref) => ref.current && ref.current.contains(e.target))) {
-        setIsItemGroupOpen(new Array(playlist.length).fill(false));
-        setActiveButtonMoreIndex(null);
-      }
-    };
+  // useEffect(() => {
+  //   const closeMenusOnBodyClick = (e) => {
+  //     if (!menuRefs.some((ref) => ref.current && ref.current.contains(e.target))) {
+  //       setIsItemGroupOpen(new Array(playlist.length).fill(false));
+  //       setActiveButtonMoreIndex(null);
+  //     }
+  //   };
 
-    document.body.addEventListener("click", closeMenusOnBodyClick);
+  //   document.body.addEventListener("click", closeMenusOnBodyClick);
 
-    return () => document.body.removeEventListener("click", closeMenusOnBodyClick);
-  }, [menuRefs, playlist]);
+  //   return () => document.body.removeEventListener("click", closeMenusOnBodyClick);
+  // }, [menuRefs, playlist]);
 
-  //  handle click on buttons
-  const handleRepeatClick = (id) => {
-    console.log(`Repeating ${playlist[id].name}`);
-  };
+  // //  handle click on buttons
+  // const handleRepeatClick = (id) => {
+  //   console.log(`Repeating ${playlist[id].name}`);
+  // };
 
-  const handleLikeClick = (id) => {
-    console.log(`Liked ${playlist[id].name}`);
-  };
+  // const handleLikeClick = (id) => {
+  //   console.log(`Liked ${playlist[id].name}`);
+  // };
 
-  const handleSaveClick = (id) => {
-    console.log(`Saved ${playlist[id].name}`);
-  };
+  // const handleSaveClick = (id) => {
+  //   console.log(`Saved ${playlist[id].name}`);
+  // };
 
   return (
     <div className="selections margin-bottom">
       <h2 className="selections-title text-4xl">{t("selection")}</h2>
       <div className="selections-wrapper container margin-bottom">
-        <div className="selections-image">
-          <img src={favoriteSongFirst} alt="song covering" />
+        <div className="selections-youtubePlayer">
+          {/* <img src={favoriteSongFirst} alt="song covering" /> */}
+          <ReactPlayer
+            ref={reactPlayerRef}
+            url={currentSong}
+            width="100%"
+            height="100%"
+            playing={isPlaying}
+            onEnded={() => setIsPlaying(false)}
+            loop={isLooped}
+            volume={volume}
+          />
         </div>
         <div className="selections-info">
           <div className="selections-info-about">
@@ -145,28 +161,32 @@ export const Selections = () => {
                 className={classNames("selections-playlist-list-item", { "selections-playlist-list-item-light": isLightTheme })}
                 key={index}
               >
-                <span className="selections-playlist-item-number">{index + 1}</span>
+                <span className="selections-playlist-item-number">
+                  {isPlaying && item.url === currentSong ? <SoundWaveIcon /> : index + 1}
+                </span>
                 <div className="selection-playlist-playBtn-name-group">
                   <button
                     className={classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
                       "selections-playlist-item-play-pause-button-light": isLightTheme,
                     })}
+                    onClick={() => playPauseSong(item.url)}
                   >
-                    <PlayCircleIconDark />
+                    {isPlaying && item.url === currentSong ? <PauseCircleIconDark /> : <PlayCircleIconDark />}
                   </button>
 
-                  <span className="selections-playlist-item-name">{item.name.toUpperCase().slice(0, 25)}</span>
-                  <span className="selections-playlist-item-duration text-xs-bold">{item.duration}</span>
+                  <span className="selections-playlist-item-name">{item.name.toUpperCase().slice(0, 50)}</span>
                 </div>
                 {/* selections with dropdown for mobile */}
                 <div className="selections-playlist-item-group">
+                  <span className="selections-playlist-item-duration text-xs-bold">{item.duration}</span>
                   <button
                     className="selections-playlist-item-repeat-button selection-playlist-button"
-                    onClick={() => handleRepeatClick(item.id)}
+                    onClick={handleLoop}
+                    disabled={currentSong !== item.url}
                   >
-                    <BsRepeat />
+                    <BsRepeat style={isLooped && currentSong === item.url && { fill: "var(--red-700)" }} />
                   </button>
-                  <button
+                  {/* <button
                     className="selections-playlist-item-like-button selection-playlist-button"
                     onClick={() => handleLikeClick(item.id)}
                   >
@@ -177,9 +197,9 @@ export const Selections = () => {
                     onClick={() => handleSaveClick(item.id)}
                   >
                     <BsHeart />
-                  </button>
+                  </button> */}
                 </div>
-                <button
+                {/* <button
                   className={classNames("selections-playlist-item-group-menuIcon-mobile", {
                     "selections-playlist-item-group-menuIcon-mobile-active": activeButtonMoreIndex === index,
                   })}
@@ -215,14 +235,27 @@ export const Selections = () => {
                   >
                     <BsHeart /> Додати до улюлених
                   </button>
-                </div>
+                </div> */}
               </li>
             ))}
           </ul>
-          <SelectionsPlayer isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
+          <SelectionsPlayer
+            isLightTheme={isLightTheme}
+            isPlaying={isPlaying}
+            setIsPlaying={setIsPlaying}
+            setCurrentSong={setCurrentSong}
+            playlist={playlist}
+            currentSongIndex={currentSongIndex}
+            setCurrentSongIndex={setCurrentSongIndex}
+            handleLoop={handleLoop}
+            isLooped={isLooped}
+            volume={volume}
+            setVolume={setVolume}
+          />
         </div>
       </div>
-      <img src={endSectionOrnament} alt="ornament" />
+      <img src={endSectionOrnamentDesktop} alt="ornament" className="selections-ornament-desktop" />
+      <img src={endSectionOrnamentMobile} alt="ornament" className="selections-ornament-mobile" />
     </div>
   );
 };
