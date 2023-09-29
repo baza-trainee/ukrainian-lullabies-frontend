@@ -18,7 +18,7 @@
   display: grid;
   grid-column: 1/13;
   justify-content: center;
-  margin-top: 24px;
+  padding-top: 32px;
 
   @media screen and (min-width: 1440px) {
     padding-top: 81px;
