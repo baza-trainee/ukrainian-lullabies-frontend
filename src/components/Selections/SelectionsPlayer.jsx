@@ -1,15 +1,48 @@
 import "./SelectionsPlayer.css";
-import { useSelector } from "react-redux";
 import classNames from "classnames";
 import { FiShare2, FiShuffle, FiRefreshCw } from "react-icons/fi";
 import { BsFillSkipEndFill, BsFillSkipStartFill, BsPlayFill, BsPauseFill } from "react-icons/bs";
-import { HiVolumeUp } from "react-icons/hi";
+import { HiVolumeUp, HiVolumeOff } from "react-icons/hi";
 
-export const SelectionsPlayer = ({ isPlaying, setIsPlaying }) => {
-  const isLightTheme = useSelector((state) => state.theme.isLightTheme);
+export const SelectionsPlayer = ({
+  isLightTheme,
+  isPlaying,
+  setIsPlaying,
+  setCurrentSong,
+  playlist,
+  currentSongIndex,
+  setCurrentSongIndex,
+  handleLoop,
+  isLooped,
+  volume,
+  setVolume,
+}) => {
   const playStopToggle = () => {
     setIsPlaying(!isPlaying);
   };
+
+  const nextSongIndex = (currentSongIndex + 1) % playlist.length;
+  const previousSongIndex = (currentSongIndex - 1) % playlist.length;
+
+  const handleNextSong = () => {
+    setCurrentSong(playlist[nextSongIndex].url);
+    setCurrentSongIndex(nextSongIndex);
+  };
+
+  const handlePreviousSong = () => {
+    setCurrentSong(playlist[previousSongIndex].url);
+    setCurrentSongIndex(previousSongIndex);
+  };
+
+  const handleVolumeChange = (event) => {
+    const newVolume = parseFloat(event.target.value);
+    setVolume(newVolume);
+  };
+
+  const handleMute = () => {
+    setVolume(0);
+  };
+
   return (
     <div className="selections-player">
       <div
@@ -26,6 +59,7 @@ export const SelectionsPlayer = ({ isPlaying, setIsPlaying }) => {
             className={classNames("selections-player-previous-button", {
               "selections-player-previous-button-light": isLightTheme,
             })}
+            onClick={handlePreviousSong}
           >
             <BsFillSkipStartFill />
           </button>
@@ -41,15 +75,32 @@ export const SelectionsPlayer = ({ isPlaying, setIsPlaying }) => {
             className={classNames("selections-player-next-button", {
               "selections-player-next-button-light": isLightTheme,
             })}
+            onClick={handleNextSong}
           >
             <BsFillSkipEndFill />
           </button>
         </div>
         <div className="selections-player-secondary-buttons-right">
-          <FiRefreshCw className="selections-player-refresh-button" />
+          <FiRefreshCw
+            className="selections-player-refresh-button"
+            onClick={handleLoop}
+            style={isLooped && { color: "var(--red-700)" }}
+          />
           <div className="selections-player-volume-wrapper">
-            <HiVolumeUp className="selections-player-volume-button" />
-            <input type="range" id="selectionsVolumeInputId" />
+            {volume > 0 ? (
+              <HiVolumeUp className="selections-player-volume-button" onClick={handleMute} />
+            ) : (
+              <HiVolumeOff className="selections-player-volume-button" onClick={handleMute} />
+            )}
+            <input
+              type="range"
+              id="selectionsVolumeInputId"
+              min={0}
+              max={1}
+              step={0.01}
+              value={volume}
+              onChange={handleVolumeChange}
+            />
           </div>
         </div>
       </div>
