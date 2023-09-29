@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import ReactPlayer from "react-player/youtube";
@@ -21,8 +21,7 @@ import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
 import { PauseCircleIconDark } from "../../icons/SelectionsIcons/PauseCircleIcon";
 import { SoundWaveIcon } from "../../icons/SelectionsIcons/SoundWaveIcon";
 
-
-const playlist = [
+const songsData = [
   {
     id: 0,
     url: "https://www.youtube.com/watch?v=DbnjO85lusM",
@@ -39,17 +38,17 @@ const playlist = [
   },
   {
     id: 2,
-    url: "https://www.youtube.com/watch?v=9PpXu-2fPHc",
-    name: "Dream On",
+    url: "https://www.youtube.com/watch?v=tKxxB8IPyZM",
+    name: "Relax Coffee Shop ☕ Lofi Coffee Ambiance",
     watches: 2000,
     duration: "3:20",
   },
   {
     id: 3,
     url: "https://www.youtube.com/watch?v=urZ0bhF9bB4",
-    name: "Giới thiệu CoinVlog (Video 5s)",
+    name: "Sample video 5s",
     watches: 2000,
-    duration: "1:00",
+    duration: "0:05",
   },
 ];
 
@@ -60,8 +59,14 @@ export const Selections = () => {
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLooped, setIsLooped] = useState(false);
+  const [volume, setVolume] = useState(0.5);
+  const [playlist, setPlaylist] = useState(songsData);
   const [currentSong, setCurrentSong] = useState(playlist[0].url);
+  const [currentSongIndex, setCurrentSongIndex] = useState(0);
+
   const reactPlayerRef = useRef(null);
+  // ------------+----+-----+----
+  // ----+++---+---
 
   const playPauseSong = (url) => {
     if (!isPlaying && currentSong === url) {
@@ -76,6 +81,8 @@ export const Selections = () => {
       setCurrentSong(url);
       setIsLooped(false);
     }
+
+    setCurrentSongIndex(playlist.findIndex((song) => song.url === url));
   };
 
   const handleLoop = () => {
@@ -140,6 +147,7 @@ export const Selections = () => {
             playing={isPlaying}
             onEnded={() => setIsPlaying(false)}
             loop={isLooped}
+            volume={volume}
           />
         </div>
         <div className="selections-info">
@@ -231,7 +239,19 @@ export const Selections = () => {
               </li>
             ))}
           </ul>
-          <SelectionsPlayer isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
+          <SelectionsPlayer
+            isLightTheme={isLightTheme}
+            isPlaying={isPlaying}
+            setIsPlaying={setIsPlaying}
+            setCurrentSong={setCurrentSong}
+            playlist={playlist}
+            currentSongIndex={currentSongIndex}
+            setCurrentSongIndex={setCurrentSongIndex}
+            handleLoop={handleLoop}
+            isLooped={isLooped}
+            volume={volume}
+            setVolume={setVolume}
+          />
         </div>
       </div>
       <img src={endSectionOrnamentDesktop} alt="ornament" className="selections-ornament-desktop" />
