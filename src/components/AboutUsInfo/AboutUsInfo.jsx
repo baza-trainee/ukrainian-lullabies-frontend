@@ -27,40 +27,40 @@ const AboutUsInfo = () => {
   return (
     <motion.section
       initial="hidden"
-      animate={ inView ? "visible" : "hidden" }
-      variants={ animationElement }
-      ref={ ref }
+      animate={inView ? "visible" : "hidden"}
+      variants={animationElement}
+      ref={ref}
       className='container about-as-info_wrapper margin-bottom'
     >
-      <motion.div custom={ 1 } variants={ animationElement } className='kolyskovaWrap'>
+      <motion.div custom={1} variants={animationElement} style={{ margin: 0 }} className='kolyskovaWrap'>
         <GeneralTitle />
       </motion.div>
 
       <motion.p
-        custom={ 1 }
-        variants={ animationElement }
+        custom={1}
+        variants={animationElement}
         className='text-4xl about-as-info_title title_margin-bottom'
       >
-        { t('aboutUs') }
+        {t('aboutUs')}
       </motion.p>
       <motion.div
         initial="hidden"
         whileInView="visible"
-        custom={ 1 }
-        variants={ animationElement }
+        custom={1}
+        variants={animationElement}
         className='about-as-info_target'>
         <div className='about-as-info_img-container'>
           <img src='/img/aboutUs/aboutUs-target.png' alt='mother with baby' />
         </div>
         <div className='about-as-info_target-info'>
           <p className='text-2xl about-as-info_title-small'>
-            { t('projectPurpose') }
+            {t('projectPurpose')}
           </p>
           <p className='text-base'>
-            { t('projectDescription') }
+            {t('projectDescription')}
           </p>
           <p className='text-base'>
-            { t('projectDescription2') }
+            {t('projectDescription2')}
           </p>
         </div>
       </motion.div>
@@ -69,25 +69,25 @@ const AboutUsInfo = () => {
       </div>
       <motion.div initial="hidden"
         whileInView="visible"
-        custom={ 2 }
-        variants={ animationElement }
+        custom={2}
+        variants={animationElement}
         className='about-as-info_support'
       >
         <div className='about-as-info_support-info'>
           <p className='text-2xl about-as-info_title-small'>
-            { t('supportUs') }
+            {t('supportUs')}
           </p>
           <p className='text-base'>
-            { t('supportDescription') }
+            {t('supportDescription')}
           </p>
           <p className='text-base'>
-            { t('supportDescription2') }
+            {t('supportDescription2')}
           </p>
           <p className='text-base'>
-            { t('supportDescription3') }
+            {t('supportDescription3')}
           </p>
           <p className='text-base-semibold'>
-            { t('donateHere') }
+            {t('donateHere')}
           </p>
           <div className='about-as-info_donat-imgs'>
             <div className='about-as-info_donat-bmc about-as-info_donat_margin-right'>

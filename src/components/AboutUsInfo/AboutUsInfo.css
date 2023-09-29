@@ -4,17 +4,20 @@
   background-image: url("../../images/frame-about.png");
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: 0 44px;
   gap: 0px;
+
   @media screen and (min-width: 1440px) {
+    background-position: 0 44px;
     grid-column: 1/13;
   }
 }
+
 .about-as-info_title {
   display: grid;
   grid-column: 1/1;
   justify-content: start;
   margin-bottom: 32px;
+
   @media screen and (min-width: 1440px) {
     grid-column: 1/13;
     margin-bottom: 48px;
@@ -29,7 +32,7 @@
   gap: 0;
   justify-content: center;
   align-items: center;
-  padding: 0 16px;
+
   @media screen and (min-width: 1440px) {
     display: grid;
     grid-column: 1/13;
@@ -40,14 +43,14 @@
 
 .about-as-info_target {
   @media screen and (min-width: 1440px) {
-  grid-template-columns: 429px minmax(330px, 518px);
-}
+    grid-template-columns: 429px minmax(330px, 518px);
+  }
 }
 
 .about-as-info_support {
   @media screen and (min-width: 1440px) {
-  grid-template-columns: minmax(330px, 518px) 429px;
-}
+    grid-template-columns: minmax(330px, 518px) 429px;
+  }
 }
 
 .about-as-info_img-container {
@@ -58,6 +61,7 @@
   justify-self: center;
   align-self: center;
   margin-bottom: 16px;
+
   @media screen and (min-width: 1440px) {
     width: 429px;
     height: 420px;
@@ -74,6 +78,7 @@
   text-align: start;
   display: grid;
   grid-row: 2/3;
+
   @media screen and (min-width: 1440px) {
     text-align: start;
     grid-row: 1/1;
@@ -85,6 +90,7 @@
   grid-column: 1/1;
   justify-content: center;
   margin: 32px 0px;
+
   @media screen and (min-width: 1440px) {
     grid-column: 1/13;
     margin: 80px 0px;
@@ -93,6 +99,7 @@
 
 .about-as-info_donat_margin-right {
   margin-right: 22px;
+
   @media screen and (min-width: 1440px) {
     margin-right: 24px;
   }
@@ -108,6 +115,7 @@
 
 .about-as-info_support-info p:nth-child(5) {
   margin: 32px 0px 16px 0px;
+
   @media screen and (min-width: 1440px) {
     margin: 16px 0px;
   }
