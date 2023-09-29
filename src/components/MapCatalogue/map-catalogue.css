@@ -5,7 +5,7 @@
     padding-bottom: 32px;
 
     @media screen and (min-width: 1440px) {
-        padding-top: 48px;
+        margin-top: 48px;
         padding-bottom: 48px;
     }
 }

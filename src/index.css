@@ -160,7 +160,7 @@ a {
 }
 
 .text-base-bold {
-  font-family: "Unbounded";
+  font-family: "Unbounded", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -216,7 +216,7 @@ a {
   line-height: 16px;
 
   @media screen and (min-width: 1440px) {
-    font-family: "Unbounded";
+    font-family: "Unbounded", sans-serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -231,7 +231,7 @@ a {
   font-style: normal;
   font-weight: 600;
   line-height: 16px; */
-  font-family: "Unbounded";
+  font-family: "Unbounded", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -247,14 +247,14 @@ a {
 }
 
 .text-4xl {
-  font-family: Unbounded;
+  font-family: "Unbounded", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
   line-height: 28px;
 
   @media screen and (min-width: 1440px) {
-    font-family: "Unbounded";
+    font-family: "Unbounded", sans-serif;
     font-size: 32px;
     font-style: normal;
     font-weight: 700;

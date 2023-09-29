@@ -292,7 +292,10 @@ export const MapCatalogue = () => {
     animate={ inView ? "visible" : "hidden" }
     variants={ animationElement }
     custom={ 1 }
-    ref={ ref } id="map" className="map-catalogue" >
+    ref={ ref }
+    id="map"
+    className="map-catalogue"
+  >
     <motion.div custom={ 3 }
       variants={ animationElement } className="map">
       <svg className="svg-map" viewBox="0 0 990 655">

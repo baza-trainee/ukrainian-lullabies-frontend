@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   currentUrl: '',
+  currentName: '',
   currentLyrics: '',
   currentId: 0,
 };
@@ -13,6 +14,9 @@ const currentSongSlice = createSlice({
     setCurrentUrl: (state, action) => {
       state.currentUrl = action.payload;
     },
+    setCurrentName: (state, action) => {
+      state.currentName = action.payload;
+    },
     setCurrentLyrics: (state, action) => {
       state.currentLyrics = action.payload;
     },
@@ -22,5 +26,5 @@ const currentSongSlice = createSlice({
   },
 });
 
-export const { setCurrentUrl, setCurrentLyrics, setCurrentId } = currentSongSlice.actions;
+export const { setCurrentUrl, setCurrentLyrics, setCurrentId, setCurrentName } = currentSongSlice.actions;
 export default currentSongSlice.reducer;
