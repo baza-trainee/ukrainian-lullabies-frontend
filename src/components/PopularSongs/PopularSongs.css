@@ -15,10 +15,50 @@
 }
 
 .PopularSongsList {
-    grid-column: 3/12;
+    grid-column: 2/12;
     width: 800px;
     margin-top: 48px;
     display: flex;
     justify-content: space-between;
+    margin-left: 30px;
     align-items: flex-end;
+}
+
+.swiper {
+  width: 800px;
+  display: flex;
+  height: 352px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background-color: inherit;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide img {
+  display: block;
+  object-fit: cover;
+
+}
+
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-wrapper {
+  display: flex;
+  height: 352px;
+  gap: 40px;
+
+}
+
+.swiper-slide.swiper-slide-active {
+  margin-right: 50px;
 }

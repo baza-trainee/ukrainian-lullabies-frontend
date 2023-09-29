@@ -1,23 +1,36 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { useTranslation } from 'react-i18next';
+import React, { useState, useRef } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useTranslation } from "react-i18next";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Swiper, SwiperSlide, useSwiperSlide } from "swiper/react";
+import { Song } from "./Song/Song";
+import favoriteSongFirst from "../../assets/images/favorite-song-1.png";
+import favoriteSongSecond from "../../assets/images/favorite-song-2.png";
+import favoriteSongThird from "../../assets/images/favorite-song-3.png";
+import "./PopularSongs.css";
+import { useSelector } from "react-redux";
 
-import { Song } from './Song/Song';
-import favoriteSongFirst from '../../assets/images/favorite-song-1.png';
-import favoriteSongSecond from '../../assets/images/favorite-song-2.png';
-import favoriteSongThird from '../../assets/images/favorite-song-3.png';
-import './PopularSongs.css';
+
+const songs = [favoriteSongFirst, favoriteSongSecond, favoriteSongThird];
+const clonedSongs = [...songs, ...songs];
 
 export function PopularSongs() {
   const { t } = useTranslation();
 
-  const [isPlayingList, setIsPlayingList] = useState([true, true, true]);
+  const [isPlayingIndex, setIsPlayingIndex] = useState(-1);
+  const popularSongs = useSelector((state) => state.popularSongs.popularSongs);
+  const swiperRef = useRef(null);
 
   const handleSongClick = (index) => {
-    const updatedPlayingList = Array(3).fill(true);
-    updatedPlayingList[index] = !isPlayingList[index];
-    setIsPlayingList(updatedPlayingList);
+    if (isPlayingIndex === index) {
+      setIsPlayingIndex(-1);
+      swiperRef.current.slideTo(index);
+    } else {
+      setIsPlayingIndex(index);
+    }
   };
 
   const animationElement = {
@@ -25,12 +38,12 @@ export function PopularSongs() {
       y: -50,
       opacity: 0,
     },
-    visible: custom => ({
+    visible: (custom) => ({
       y: 0,
       opacity: 1,
       transition: { ease: "easeOut", duration: 2, delay: custom * 0.3 },
     }),
-  }
+  };
 
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -39,26 +52,62 @@ export function PopularSongs() {
   return (
     <motion.section
       initial="hidden"
-      animate={ inView ? "visible" : "hidden" }
-      variants={ animationElement }
-      ref={ ref }
-      className="PopularSongs margin-bottom">
+      whileInView="visible"
+      className="PopularSongs margin-bottom"
+    >
       <motion.h2
-        custom={ 1 }
-        variants={ animationElement }
-        className="PopularSongsTitle">
-        { t('popularLullabies') }
+        custom={1}
+        variants={animationElement}
+        className="PopularSongsTitle"
+      >
+        {t("popularLullabies")}
       </motion.h2>
       <motion.div
-        custom={ 2 }
-        variants={ animationElement }
+        custom={2}
+        variants={animationElement}
         className="PopularSongsList"
       >
-        <Song isPlaying={ isPlayingList[0] } onClick={ () => handleSongClick(0) } backgroundUrl={ favoriteSongFirst } songName={ "“Сонце сідає”" } />
-        <Song isPlaying={ isPlayingList[1] } onClick={ () => handleSongClick(1) } height={ "304px" } backgroundUrl={ favoriteSongSecond } width={ "264px" } songName={ "“Ой, ходить сон коло вікон”" } />
-        <Song isPlaying={ isPlayingList[2] } onClick={ () => handleSongClick(2) } backgroundUrl={ favoriteSongThird } songName={ "“Повішу я колисочку”" } />
+        <Swiper
+          slidesPerView={3}
+          loop={true}
+          centeredSlides={true}
+          className="mySwiper"
+          ref={swiperRef}
+        >
+          {clonedSongs.map((song, index) => (
+            <SwiperSlide key={index}>
+              <CustomSong
+                onClick={() => handleSongClick(index)}
+                backgroundUrl={song}
+                songName={popularSongs[index % 3]?.title || ""}
+                isActive={index === isPlayingIndex}
+                videoID={popularSongs[index % 3]?.id || ""}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </motion.div>
-      <div className="currentSong"></div>
     </motion.section>
+  );
+}
+
+function CustomSong({ onClick, backgroundUrl, songName, isActive, videoID }) {
+  const swiperSlide = useSwiperSlide();
+
+  const isCenterSlide = swiperSlide.isActive;
+  const height = isCenterSlide ? "304px" : "226px";
+  const width = isCenterSlide ? "264px" : "200px";
+
+  return (
+    <Song
+      isPlaying={isActive}
+      onClick={onClick}
+      backgroundUrl={backgroundUrl}
+      songName={songName}
+      height={height}
+      width={width}
+      videoID={videoID}
+      isCenterSlide={isCenterSlide}
+    />
   );
 }

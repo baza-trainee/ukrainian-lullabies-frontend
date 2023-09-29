@@ -1,20 +1,19 @@
 .song {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-   
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: .3s ease-in-out;
 }
 
 .songName {
-  color: var(--gray-0, #fafafa);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 24px;
+color: var(--gray-0, #fafafa);
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 24px;
+text-align: start;
 }
 
 .songBackground {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+cursor: pointer;
 }
