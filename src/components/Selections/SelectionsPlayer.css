@@ -6,7 +6,7 @@
   border-radius: 36px;
   background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.1) 0.88%, rgba(255, 255, 255, 0) 99.96%));
 
-  @media screen and (min-width: 1160px) {
+  @media screen and (min-width: 1440px) {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -82,7 +82,7 @@
   align-items: center;
   gap: 40px;
 
-  @media screen and (min-width: 1160px) {
+  @media screen and (min-width: 1440px) {
     gap: 54px;
   }
 }
@@ -91,7 +91,7 @@
   grid-column: 1 / 2;
   justify-self: end;
 
-  @media screen and (min-width: 1160px) {
+  @media screen and (min-width: 1440px) {
     margin: 0 16px 0 auto;
   }
 }
@@ -100,7 +100,7 @@
   grid-column: 2 / 3;
   justify-self: start;
 
-  @media screen and (min-width: 1160px) {
+  @media screen and (min-width: 1440px) {
     margin: 0 auto 0 16px;
   }
 }
@@ -136,7 +136,7 @@
 #selectionsVolumeInputId {
   display: none;
 
-  @media screen and (min-width: 1160px) {
+  @media screen and (min-width: 1440px) {
     display: block;
     background: transparent;
     cursor: pointer;

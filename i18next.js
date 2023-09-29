@@ -83,9 +83,9 @@ i18n
           chatBot: "Chat-bot",
 
           cookies:
-            "By clicking 'Accept All Cookies,' you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts.",
-          acceptAllCookies: "Accept all cookies",
-          cookieSettings: "Cookie settings",
+            "By clicking \"Accept All Cookies\", you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts.",
+          acceptAllCookies: "Accept All Cookies",
+          cookieSettings: "Cookie Settings",
           toTheMain: "To the main page",
           technikalWorsk:
             "We are currently working on improving the functionality of the site. ",
