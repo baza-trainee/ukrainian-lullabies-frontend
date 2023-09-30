@@ -97,7 +97,7 @@ const songsData = [
 export const MapPlaylist = () => {
   const dispatch = useDispatch();
   const loading = useSelector(selectLoading);
-  const data = songsData; // Замінити `data` на ваш тестовий масив `songsData`
+  const data = useSelector(selectData);
 
   useEffect(() => {
     dispatch(fetchData());
@@ -108,9 +108,20 @@ export const MapPlaylist = () => {
     dispatch(setCurrentLyrics(lyrics));
     dispatch(setCurrentId(id));
     dispatch(setCurrentName(name));
-
     localStorage.setItem('currentSong', JSON.stringify({ url, id, lyrics, name }));
   };
+
+  useEffect(() => {
+    const buttonMap = document.getElementById("map-tab");
+    if (buttonMap)
+    {
+      buttonMap.classList.add("active-btn");
+
+      return () => {
+        buttonMap.classList.remove("active-btn");
+      };
+    }
+  }, [])
 
   return (
     !loading && data && (

@@ -1,16 +1,17 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setCurrentLyrics, setCurrentName, setCurrentUrl } from "../../redux/currentSong/currentSongSlice";
 import "./Player.css";
 import classNames from "classnames";
 import { FiShare2, FiShuffle, FiRefreshCw } from "react-icons/fi";
 import { BsFillSkipEndFill, BsFillSkipStartFill, BsPlayFill, BsPauseFill } from "react-icons/bs";
 import { HiVolumeUp, HiVolumeOff } from "react-icons/hi";
-import { use } from "i18next";
 
 export const Player = ({
   isLightTheme,
   isPlaying,
   setIsPlaying,
-  setCurrentSong,
   playlist,
   currentSongIndex,
   setCurrentSongIndex,
@@ -22,30 +23,22 @@ export const Player = ({
   const playStopToggle = () => {
     setIsPlaying(!isPlaying);
   };
-
-  useEffect(() => {
-    const buttonMap = document.getElementById("map-tab");
-    if (buttonMap)
-    {
-      buttonMap.classList.add("active-btn");
-
-      return () => {
-        buttonMap.classList.remove("active-btn");
-      };
-    }
-  }, [])
-
+  const dispatch = useDispatch();
   const nextSongIndex = (currentSongIndex + 1) % playlist.length;
   const previousSongIndex = (currentSongIndex - 1) % playlist.length;
 
   const handleNextSong = () => {
-    setCurrentSong(playlist[nextSongIndex].url);
+    dispatch(setCurrentUrl(playlist[nextSongIndex].url));
+    dispatch(setCurrentLyrics(playlist[nextSongIndex].lyrics));
+    dispatch(setCurrentName(playlist[nextSongIndex].name));
     setCurrentSongIndex(nextSongIndex);
   };
 
   const handlePreviousSong = () => {
-    setCurrentSong(playlist[previousSongIndex].url);
+    dispatch(setCurrentUrl(playlist[previousSongIndex].url));
     setCurrentSongIndex(previousSongIndex);
+    dispatch(setCurrentLyrics(playlist[previousSongIndex].lyrics));
+    dispatch(setCurrentName(playlist[previousSongIndex].name));
   };
 
   const handleVolumeChange = (event) => {

@@ -92,6 +92,7 @@ export const Selections = () => {
       setIsPlaying(false);
     } else
     {
+
       setCurrentSong(url);
       setIsLooped(false);
     }
