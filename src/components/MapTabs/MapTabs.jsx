@@ -37,7 +37,7 @@ export const MapTabs = () => {
         { t('lullabiesMuseum') }
       </motion.h2>
       <motion.div custom={ 3 } className="map-tabs">
-        <NavLink className="map-tabs__button text-2xl tabs1" to="/map">
+        <NavLink id="map-tab" className="map-tabs__button text-2xl tabs1" to="/map">
           { t('traditionalLullabies') }
         </NavLink>
         <NavLink className="map-tabs__button text-2xl tabs2" to="/songs">

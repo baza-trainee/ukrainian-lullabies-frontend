@@ -14,6 +14,10 @@ import Notification from "./Notification/Notification";
 import SIcon from "../../icons/SIcon";
 import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
+import OrnamentMobileHero from "../../icons/OrnamentMobileHero";
+// import tabsSvgMob from "../../assets/images/OrnamentsMapTabs.svg";
+// import tabsSvg from "../../assets/images/ornamentsMapTabsSection.svg";
+
 import ButtonShare from "./Button/ButtonShare";
 
 import "./hero.css";
@@ -117,6 +121,9 @@ const Hero = () => {
           </div>
         </motion.div>
         {isNotification && <Notification textNotification={t("shareLink")} />}
+      </div>
+      <div className="ornament-mobile-hero">
+        <OrnamentMobileHero className="ornament-mobile-hero-icon" />
       </div>
     </motion.section>
   );

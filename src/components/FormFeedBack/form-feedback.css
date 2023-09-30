@@ -1,3 +1,9 @@
+@media screen and (min-width: 360px) and (max-width: 424px) {
+  .container {
+    display: block;
+  }
+}
+
 .section-form-wrap {
   grid-column: 1/13;
 }
@@ -5,8 +11,13 @@
   display: grid;
   grid-column: 3/11;
 }
+
 .text-title-form {
-  margin-bottom: 48px;
+  margin-bottom: 16px;
+
+  @media screen and(min-width:1440px) {
+    margin-bottom: 48px;
+  }
 }
 .fieldWrap {
   display: grid;
