@@ -6,10 +6,9 @@
   display: flex;
   justify-content: center;
   height: 209px;
-  min-width: 320px;
-  width: 100%;
+   width: 320px;
   @media screen and (min-width: 768px) {
-    min-width: 688px;
+     width: 688px;
     height: 461px;
   }
     @media screen and (min-width: 1440px) {
@@ -18,9 +17,9 @@
     }
 }
 
-.playlist-map{
-display: grid;
-}
+ .playlist-wrap{
+  margin-right: 55px;
+ }
 .playlist{
 display: flex;
 flex-direction: column;

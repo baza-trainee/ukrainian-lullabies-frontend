@@ -42,15 +42,13 @@ export const MapPlaylist = () => {
         <div className="map-playlist_container"></div>
         <p className="text-2xl alert"> Ми працюємо над поліпшенням сайту і невдовзі Ви зможете за допомогою карти прослухати колискові з обраного регіону. </p>
       </div>
-      <div className="map-player_wrap">
+      <div className="playlist-wrap">
         <div className={ classNames('map-player_playlist scroll') }>
           <p className="text-l text-margin">{ t('collection') }</p>
           <ul>
             { data.map(({ name, url, lyrics, duration }, index) => (
               <li
                 key={ index }
-
-
               >
                 <Link
                   to={ `/player` }
