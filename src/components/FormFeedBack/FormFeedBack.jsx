@@ -1,9 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
+
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useTranslation } from "react-i18next";
+import translations from "./translations";
 
 import classNames from "classnames";
 import { Formik, Form, Field } from "formik";
@@ -14,45 +16,8 @@ import { getLightTheme } from "../../redux/theme/themeSelectors";
 import ButtonForm from "./ButtonForm/ButtonForm";
 import FormError from "./FormError/FormError";
 import PopUpFeedBack from "./PopUpFeedBack/PopUpFeedBack";
-import "./form-feedback.css";
 
-const schema = object({
-  name: string()
-    .matches(
-      /^[A-Za-zʼ-\u04FF\u0400-\u04FF\s-]+$/,
-      "Поле має містити тільки букви"
-    )
-    .notOneOf(
-      ["%", "^", "*", "|", "~", "{", "}", ";", "<", ">", ".", ","],
-      'Заборонено використовувати такі символи: «% ^ * | ~ {} ; "<>. , /»'
-    )
-    .min(2, "Кількість символів має бути не менше 2")
-    .max(30, "Кількість символів має бути не більше 30")
-    .required("Це поле обов'язкове для заповнення"),
-  email: string()
-    .matches(
-      /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-      "Поле має містити тільки букви, цифри, спецсимволи"
-    )
-    .min(6, "Кількість символів має бути не менше 6")
-    .max(320, "Кількість символів має бути не більше 320")
-    .required("Це поле обов'язкове для заповнення"),
-  theme: string()
-    // .matches(
-    //   /^[A-Za-zʼ-\u04FF\u0400-\u04FF\s-]+$/,
-    //   "Поле має містити тільки букви, цифри, спецсимволи"
-    // )
-    .min(6, "Кількість символів має бути не менше 6")
-    .max(320, "Кількість символів має бути не більше 320")
-    .required("Це поле обов'язкове для заповнення"),
-  message: string()
-    .max(600, "Кількість символів має бути не більше 600")
-    // .matches(
-    //   /^[A-Za-zʼ-\u04FF\u0400-\u04FF\s-]+$/,
-    //   "Поле має містити тільки букви, цифри, спецсимволи"
-    // )
-    .required("Це поле обов'язкове для заповнення"),
-});
+import "./form-feedback.css";
 
 const initialValues = {
   name: "",
@@ -64,8 +29,45 @@ const initialValues = {
 const FormFeedBack = () => {
   const isLightTheme = useSelector(getLightTheme);
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  //
+  // Функція для створення схеми з перекладами
+  const schema = (translations) => {
+    const currentLanguage = i18n.language;
+    const currentTranslations = translations[currentLanguage];
 
+    return object({
+      name: string()
+        .matches(
+          /^[A-Za-z'ʼ-\u04FF\u0400-\u04FF\s-]+$/,
+          currentTranslations.schema.nameInvalidName
+        )
+        .notOneOf(
+          ["%", "^", "*", "|", "~", "{", "}", ";", "<", ">", ".", ","],
+          currentTranslations.schema.nameNotAllowedMessage
+        )
+        .min(2, currentTranslations.schema.nameMinLengthMessage)
+        .max(30, currentTranslations.schema.nameMaxLengthMessage)
+        .required(currentTranslations.schema.requiredMessage),
+      email: string()
+        .matches(
+          /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+          currentTranslations.schema.emailNotAllowedMessage
+        )
+        .min(6, currentTranslations.schema.emailMinLengthMessage)
+        .max(320, currentTranslations.schema.emailMaxLengthMessage)
+        .required(currentTranslations.schema.requiredMessage),
+      theme: string()
+        .min(6, currentTranslations.schema.themeMinLengthMessage)
+        .max(320, currentTranslations.schema.themeMaxLengthMessage)
+        .required(currentTranslations.schema.requiredMessage),
+      message: string()
+        .max(600, currentTranslations.schema.messageMaxLengthMessage)
+        .required(currentTranslations.schema.requiredMessage),
+    });
+  };
+
+  //
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const formikRef = useRef();
 
@@ -111,7 +113,7 @@ const FormFeedBack = () => {
         <div className="form-wrap">
           <Formik
             initialValues={initialValues}
-            validationSchema={schema}
+            validationSchema={schema(translations)}
             onSubmit={handleFormSubmit}
             innerRef={formikRef}
           >
@@ -265,6 +267,7 @@ const FormFeedBack = () => {
                       <PopUpFeedBack
                         popUpThank={t("popUpThank")}
                         popupText={t("popupText")}
+                        isLightTheme={isLightTheme}
                       />
                     )}
                   </div>

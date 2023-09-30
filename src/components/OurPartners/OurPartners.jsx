@@ -1,116 +1,36 @@
 import React from 'react';
-import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
 import { useTranslation } from 'react-i18next';
 
 import { OrnamentDouble, OrnamentTriple } from '../../icons/OrnamentTripple';
-import 'swiper/css';
 import './OurPartners.css';
+import BazaDark from '../../images/Card_partners_black_baza.png';
+import BazaLight from '../../images/Card_partners_white_baza.png';
+import EtnoDark from '../../images/Card_partners_black_etno.png';
+import EtnoLight from '../../images/Card_partners_white-etno.png';
+import Red from '../../images/Card_partners_red.png';
 
 export const OurPartners = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
+  const bazaSvg = isLightTheme ? BazaLight : BazaDark;
+  const etnoSvg = isLightTheme ? EtnoLight : EtnoDark;
 
-  const breakpoints = {
-    320: {
-      slidesPerView: 2,
-      spaceBetween: 16
-    },
-
-    1024: {
-      slidesPerView: 4,
-      spaceBetween: 24
-    },
-  };
   const { t } = useTranslation();
   return (
-    <>
-      <h2 className='text-4xl ourPartners'>{ t('aboutUs') }</h2>
-      <Swiper
-        spaceBetween={ 24 }
-        slidesPerView={ 4 }
-        modules={ [Autoplay] }
-        loop={ true }
-        autoplay={ { delay: 0, disableOnInteraction: false } }
-        onSlideChange={ () => { } }
-        noSwiping={ true }
-        speed={ 2000 }
-        effect="slide"
-        freeMode={ true }
-        allowSlidePrev={ true }
-        allowSlideNext={ true }
-        allowTouchMove={ false }
-        className="swiper-container"
-        breakpoints={ breakpoints } // Встановлення breakpoints
-      >
-        <SwiperSlide
-          className={ classNames('margin-bottom', {
-            'baza-dark': !isLightTheme,
-            'baza-light': isLightTheme,
-          }) }
-        >
-          <Link to="https://baza-trainee.tech"></Link>
-        </SwiperSlide>
-        <SwiperSlide
-          className={ classNames({
-            'etno-dark': !isLightTheme,
-            'etno-light': isLightTheme,
-          }) }
-        >
-          <Link to="https://www.facebook.com/etnofotka/photos/"></Link>
-        </SwiperSlide>
-        <SwiperSlide className="red-dark">
-          <Link to="#"></Link>
-        </SwiperSlide>
-
-        <SwiperSlide
-          className={ classNames({
-            'baza-dark': !isLightTheme,
-            'baza-light': isLightTheme,
-          }) }
-        >
-          <Link to="https://baza-trainee.tech"></Link>
-        </SwiperSlide>
-        <SwiperSlide
-          className={ classNames({
-            'etno-dark': !isLightTheme,
-            'etno-light': isLightTheme,
-          }) }
-        >
-          <Link to="https://www.facebook.com/etnofotka/photos/"></Link>
-        </SwiperSlide>
-        <SwiperSlide className="red-dark">
-          <Link to="#"></Link>
-        </SwiperSlide>
-
-        <SwiperSlide
-          className={ classNames({
-            'baza-dark': !isLightTheme,
-            'baza-light': isLightTheme,
-          }) }
-        >
-          <Link to="https://baza-trainee.tech"></Link>
-        </SwiperSlide>
-        <SwiperSlide
-          className={ classNames({
-            'etno-dark': !isLightTheme,
-            'etno-light': isLightTheme,
-          }) }
-        >
-          <Link to="https://www.facebook.com/etnofotka/photos/"></Link>
-        </SwiperSlide>
-        <SwiperSlide className="red-dark">
-          <Link to="#"></Link>
-        </SwiperSlide>
-      </Swiper>
+    <section className='margin-bottom'>
+      <h2 className='text-4xl ourPartners'>{t('aboutUs')}</h2>
+      <div className='partners-container margin-bottom'>
+        <Link to="https://baza-trainee.tech"><img src={bazaSvg} alt='Baza' /></Link>
+        <Link to="https://www.facebook.com/etnofotka/photos/"><img src={etnoSvg} alt='Etno' /></Link>
+        <Link to="#"><img src={Red} alt='Partners' /></Link>
+      </div>
       <div className='ornament-triple margin-bottom'>
         <OrnamentTriple />
       </div>
       <div className='ornament-double margin-bottom'>
         <OrnamentDouble />
       </div>
-    </>
+    </section>
   );
 };

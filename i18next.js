@@ -76,7 +76,7 @@ i18n
           popUpThank: "Thank you,",
           popupText: "Your message has been sent!",
           underTextArea:
-            "The field can contain letters, numbers and special characters. The maximum number of characters is 600.",
+            "Please enter the text of the message. The maximum number of characters is 600.",
           share: "To share",
           shareLink: "Share a link to the site",
           searchUnavailable: "Search is temporarily unavailable",
@@ -173,7 +173,7 @@ i18n
           popUpThank: "Дякуємо,",
           popupText: "Ваше повідомлення відправлене!",
           underTextArea:
-            "Поле може містити букви, цифри та спецсимволи. Максимальна кількість символів 600.",
+            "Введіть, будь ласка, текст повідомлення. Максимальна кількість символів 600.",
         },
       },
     },

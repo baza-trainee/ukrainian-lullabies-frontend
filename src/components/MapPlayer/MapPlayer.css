@@ -1,39 +1,63 @@
-.map-player{
-  grid-column: 1;
-  @media screen and (min-width: 1440px) {
-    grid-column: 1/13;    
-  }
+.map-player-wrapper{
+  display: flex;
 }
 .map-player_container{
   grid-column: 1/5;
 }
 
 .map-player_info{
-  width: 248px;
+  width: 240px;
   height: 530px;
   grid-column: 5/8;
 }
+
 .map-player_playlist{
-  width: 416px;
   overflow-y: auto;
-}
-.map-player_wrap{
+  overflow-x: hidden;
   grid-column: 8/13;
 }
+
+.playlist-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-player_card:hover {
+  background-color: var(--gray-black-600);
+}
+
 .map-player_card{
+  display: flex;
+  justify-content: space-between;
+  width: 385px;
   cursor: pointer;
- border-radius: 36px; 
- background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.10) 0.88%, rgba(255, 255, 255, 0.00) 99.96%));
- padding: 8px;
- margin-bottom: 24px;
+  border-radius: 36px; 
+  padding: 8px;
+  height: 56px;
+  margin-bottom: 24px;
+}
+
+.map-player_card-light{
+
 }
 
 .map-player_card-title{
   text-align: left;
 }
+
 .active-card{
   border: 2px solid var(--red-700);
 }
+
+.item-group{
+  display: flex;
+}
+
+.current-name{
+  margin: 30px 0;
+}
+
 .text-margin{
-margin-bottom: 24px;
+  margin-bottom: 24px;
 }

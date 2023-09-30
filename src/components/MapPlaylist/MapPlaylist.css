@@ -1,0 +1,11 @@
+.map-playlist_container{
+  background-image: url('../../images/map-playlist.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 611px;
+}
+
+.playlist{
+display: flex;
+}

@@ -24,27 +24,48 @@ import { SoundWaveIcon } from "../../icons/SelectionsIcons/SoundWaveIcon";
 const songsData = [
   {
     id: 0,
+    url: "https://www.youtube.com/watch?v=UcqNIuiP-SM",
+    name: "Ой люля, люля, мій малесенький синульку | Наспів з Західного Полісся",
+    watches: 100,
+    duration: "1:27",
+  },
+  {
+    id: 1,
+    url: "https://www.youtube.com/watch?v=J1l9fbPeEic",
+    name: "Ой ну коту волохатий | Наспів з Полтавщини",
+    watches: 100,
+    duration: "1:20",
+  },
+  {
+    id: 2,
+    url: "https://www.youtube.com/watch?v=DbnjO85lusM",
+    name: "Ой ходить сон коло вікон | Наспів з Поділля",
+    watches: 100,
+    duration: "1:20",
+  },
+  {
+    id: 3,
     url: "https://www.youtube.com/watch?v=DbnjO85lusM",
     name: "Dreaming in Rain",
     watches: 100,
     duration: "1:20",
   },
   {
-    id: 1,
+    id: 4,
     url: "https://www.youtube.com/watch?v=OxzG2UMAkRo",
     name: "Wonderland | Beautiful Chill Mix",
     watches: 1500,
     duration: "12:00",
   },
   {
-    id: 2,
+    id: 5,
     url: "https://www.youtube.com/watch?v=tKxxB8IPyZM",
     name: "Relax Coffee Shop ☕ Lofi Coffee Ambiance",
     watches: 2000,
     duration: "3:20",
   },
   {
-    id: 3,
+    id: 6,
     url: "https://www.youtube.com/watch?v=urZ0bhF9bB4",
     name: "Sample video 5s",
     watches: 2000,
@@ -69,15 +90,19 @@ export const Selections = () => {
   // ----+++---+---
 
   const playPauseSong = (url) => {
-    if (!isPlaying && currentSong === url) {
+    if (!isPlaying && currentSong === url)
+    {
       setIsPlaying(true);
-    } else if (!isPlaying) {
+    } else if (!isPlaying)
+    {
       setCurrentSong(url);
       setIsPlaying(true);
       setIsLooped(false);
-    } else if (isPlaying && currentSong == url) {
+    } else if (isPlaying && currentSong == url)
+    {
       setIsPlaying(false);
-    } else {
+    } else
+    {
       setCurrentSong(url);
       setIsLooped(false);
     }
@@ -135,56 +160,56 @@ export const Selections = () => {
 
   return (
     <div className="selections margin-bottom">
-      <h2 className="selections-title text-4xl">{t("selection")}</h2>
+      <h2 className="selections-title text-4xl">{ t("selection") }</h2>
       <div className="selections-wrapper container margin-bottom">
         <div className="selections-youtubePlayer">
-          {/* <img src={favoriteSongFirst} alt="song covering" /> */}
+          {/* <img src={favoriteSongFirst} alt="song covering" /> */ }
           <ReactPlayer
-            ref={reactPlayerRef}
-            url={currentSong}
+            ref={ reactPlayerRef }
+            url={ currentSong }
             width="100%"
             height="100%"
-            playing={isPlaying}
-            onEnded={() => setIsPlaying(false)}
-            loop={isLooped}
-            volume={volume}
+            playing={ isPlaying }
+            onEnded={ () => setIsPlaying(false) }
+            loop={ isLooped }
+            volume={ volume }
           />
         </div>
         <div className="selections-info">
           <div className="selections-info-about">
-            <h4 className="selections-info-title text-2xl">{t("ukrainianLullabies")}</h4>
-            <p className="selections-info-text text-base">{t("lullabySong")}</p>
+            <h4 className="selections-info-title text-2xl">{ t("ukrainianLullabies") }</h4>
+            <p className="selections-info-text text-base">{ t("lullabySong") }</p>
           </div>
           <ul className="selections-playlist-list">
-            {playlist.map((item, index) => (
+            { playlist.map((item, index) => (
               <li
-                className={classNames("selections-playlist-list-item", { "selections-playlist-list-item-light": isLightTheme })}
-                key={index}
+                className={ classNames("selections-playlist-list-item", { "selections-playlist-list-item-light": isLightTheme }) }
+                key={ index }
               >
                 <span className="selections-playlist-item-number">
-                  {isPlaying && item.url === currentSong ? <SoundWaveIcon /> : index + 1}
+                  { isPlaying && item.url === currentSong ? <SoundWaveIcon /> : index + 1 }
                 </span>
                 <div className="selection-playlist-playBtn-name-group">
                   <button
-                    className={classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
+                    className={ classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
                       "selections-playlist-item-play-pause-button-light": isLightTheme,
-                    })}
-                    onClick={() => playPauseSong(item.url)}
+                    }) }
+                    onClick={ () => playPauseSong(item.url) }
                   >
-                    {isPlaying && item.url === currentSong ? <PauseCircleIconDark /> : <PlayCircleIconDark />}
+                    { isPlaying && item.url === currentSong ? <PauseCircleIconDark /> : <PlayCircleIconDark /> }
                   </button>
 
-                  <span className="selections-playlist-item-name">{item.name.toUpperCase().slice(0, 50)}</span>
+                  <span className="selections-playlist-item-name">{ item.name.toUpperCase().slice(0, 50) }</span>
                 </div>
-                {/* selections with dropdown for mobile */}
+                {/* selections with dropdown for mobile */ }
                 <div className="selections-playlist-item-group">
-                  <span className="selections-playlist-item-duration text-xs-bold">{item.duration}</span>
+                  <span className="selections-playlist-item-duration text-xs-bold">{ item.duration }</span>
                   <button
                     className="selections-playlist-item-repeat-button selection-playlist-button"
-                    onClick={handleLoop}
-                    disabled={currentSong !== item.url}
+                    onClick={ handleLoop }
+                    disabled={ currentSong !== item.url }
                   >
-                    <BsRepeat style={isLooped && currentSong === item.url && { fill: "var(--red-700)" }} />
+                    <BsRepeat style={ isLooped && currentSong === item.url && { fill: "var(--red-700)" } } />
                   </button>
                   {/* <button
                     className="selections-playlist-item-like-button selection-playlist-button"
@@ -237,25 +262,25 @@ export const Selections = () => {
                   </button>
                 </div> */}
               </li>
-            ))}
+            )) }
           </ul>
           <SelectionsPlayer
-            isLightTheme={isLightTheme}
-            isPlaying={isPlaying}
-            setIsPlaying={setIsPlaying}
-            setCurrentSong={setCurrentSong}
-            playlist={playlist}
-            currentSongIndex={currentSongIndex}
-            setCurrentSongIndex={setCurrentSongIndex}
-            handleLoop={handleLoop}
-            isLooped={isLooped}
-            volume={volume}
-            setVolume={setVolume}
+            isLightTheme={ isLightTheme }
+            isPlaying={ isPlaying }
+            setIsPlaying={ setIsPlaying }
+            setCurrentSong={ setCurrentSong }
+            playlist={ playlist }
+            currentSongIndex={ currentSongIndex }
+            setCurrentSongIndex={ setCurrentSongIndex }
+            handleLoop={ handleLoop }
+            isLooped={ isLooped }
+            volume={ volume }
+            setVolume={ setVolume }
           />
         </div>
       </div>
-      <img src={endSectionOrnamentDesktop} alt="ornament" className="selections-ornament-desktop" />
-      <img src={endSectionOrnamentMobile} alt="ornament" className="selections-ornament-mobile" />
+      <img src={ endSectionOrnamentDesktop } alt="ornament" className="selections-ornament-desktop" />
+      <img src={ endSectionOrnamentMobile } alt="ornament" className="selections-ornament-mobile" />
     </div>
   );
 };
