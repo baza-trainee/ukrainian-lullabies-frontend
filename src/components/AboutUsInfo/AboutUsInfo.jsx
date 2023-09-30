@@ -49,7 +49,7 @@ const AboutUsInfo = () => {
         custom={ 1 }
         variants={ animationElement }
         className='target-container'>
-        <div className='img-container'>
+        <div className='img-container target-img'>
           <img src='/img/aboutUs/aboutUs-target.png' alt='mother with baby' />
         </div>
         <div className='target-info'>
@@ -98,7 +98,7 @@ const AboutUsInfo = () => {
               <Link href='#'><Patreon /></Link>
             </div>
         </div>
-        <div className='img-container another-hight'>
+        <div className='img-container support-img'>
           <img src='/img/aboutUs/aboutUs-support.png' alt='mother with baby' />
         </div>
       </motion.div>
