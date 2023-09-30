@@ -10,6 +10,7 @@
     grid-column: 1/7;
   }
   @media screen and (min-width: 1440px) {
+    background-position: 0 44px;
     grid-column: 1/13;
   }
 }
@@ -119,6 +120,7 @@
   text-align: start;
   display: grid;
   grid-row: 2/3;
+
   @media screen and (min-width: 1440px) {
     text-align: start;
     grid-row: 1/1;
@@ -173,6 +175,7 @@
 
 .support-info p:nth-child(5) {
   margin: 32px 0px 16px 0px;
+
   @media screen and (min-width: 1440px) {
     margin: 16px 0px;
   }

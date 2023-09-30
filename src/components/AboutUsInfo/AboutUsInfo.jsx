@@ -32,7 +32,7 @@ const AboutUsInfo = () => {
       ref={ ref }
       className='container wrapper margin-bottom'
     >
-      <motion.div custom={ 1 } variants={ animationElement } className='kolyskovaWrap'>
+      <motion.div custom={1} variants={animationElement} style={{ margin: 0 }} className='kolyskovaWrap'>
         <GeneralTitle />
       </motion.div>
 
@@ -41,7 +41,7 @@ const AboutUsInfo = () => {
         variants={ animationElement }
         className='text-4xl title title_margin-bottom'
       >
-        { t('aboutUs') }
+        {t('aboutUs')}
       </motion.p>
       <motion.div
         initial="hidden"
@@ -57,10 +57,10 @@ const AboutUsInfo = () => {
             { t('projectPurpose') }
           </p>
           <p className='text-base'>
-            { t('projectDescription') }
+            {t('projectDescription')}
           </p>
           <p className='text-base'>
-            { t('projectDescription2') }
+            {t('projectDescription2')}
           </p>
         </div>
       </motion.div>
@@ -78,16 +78,16 @@ const AboutUsInfo = () => {
             { t('supportUs') }
           </p>
           <p className='text-base'>
-            { t('supportDescription') }
+            {t('supportDescription')}
           </p>
           <p className='text-base'>
-            { t('supportDescription2') }
+            {t('supportDescription2')}
           </p>
           <p className='text-base'>
-            { t('supportDescription3') }
+            {t('supportDescription3')}
           </p>
           <p className='text-base-semibold'>
-            { t('donateHere') }
+            {t('donateHere')}
           </p>
         </div>
         <div className='donat-imgs'>

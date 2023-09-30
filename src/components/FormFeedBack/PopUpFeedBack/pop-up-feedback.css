@@ -1,23 +1,42 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.8;
+  background: var(--gray-black-100);
+  color: var(--gray-black-950);
+  z-index: 999;
+}
 .popup-message {
+  min-width: 849px;
+  min-height: 268px;
+
   display: flex;
   gap: 32px;
 
   position: absolute;
-  top: 88%;
+  top: 41%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 36px;
 
   padding: 106px 21px;
-  z-index: 999;
+  z-index: 10;
+  background: var(--gray-black-950);
+  color: var(--gray0);
 
   text-align: center;
   align-items: center;
 }
-.popup-message-dark {
-  background-color: var(--gray-black-950);
+
+.overlay-light {
+  background: var(--gray-black-100);
 }
+
 .popup-message-white {
+  color: var(--gray-black-950);
   background-color: var(--white-0);
 }
 

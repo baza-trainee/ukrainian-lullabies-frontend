@@ -1,11 +1,11 @@
 import React from "react";
-import "./SelectionsPlayer.css";
+import "./Player.css";
 import classNames from "classnames";
 import { FiShare2, FiShuffle, FiRefreshCw } from "react-icons/fi";
 import { BsFillSkipEndFill, BsFillSkipStartFill, BsPlayFill, BsPauseFill } from "react-icons/bs";
 import { HiVolumeUp, HiVolumeOff } from "react-icons/hi";
 
-export const SelectionsPlayer = ({
+export const Player = ({
   isLightTheme,
   isPlaying,
   setIsPlaying,
@@ -45,57 +45,57 @@ export const SelectionsPlayer = ({
   };
 
   return (
-    <div className="selections-player">
+    <div className="map-player">
       <div
-        className={ classNames("selections-player-navigation-wrapper", {
-          "selections-player-navigation-wrapper-light": isLightTheme,
+        className={ classNames("map-player-navigation-wrapper", {
+          "map-player-navigation-wrapper-light": isLightTheme,
         }) }
       >
-        <div className="selections-player-secondary-buttons-left">
-          <FiShare2 className="selections-player-share-button" />
-          <FiShuffle className="selections-player-shuffle-button" />
+        <div className="map-player-secondary-buttons-left">
+          <FiShare2 className="map-player-share-button" />
+          <FiShuffle className="map-player-shuffle-button" />
         </div>
-        <div className="selections-player-primary-buttons-group">
+        <div className="map-player-primary-buttons-group">
           <button
-            className={ classNames("selections-player-previous-button", {
-              "selections-player-previous-button-light": isLightTheme,
+            className={ classNames("map-player-previous-button", {
+              "map-player-previous-button-light": isLightTheme,
             }) }
             onClick={ handlePreviousSong }
           >
             <BsFillSkipStartFill />
           </button>
           <button
-            className={ classNames("selections-player-play-pause-button", {
-              "selections-player-play-pause-button-light": isLightTheme,
+            className={ classNames("map-player-play-pause-button", {
+              "map-player-play-pause-button-light": isLightTheme,
             }) }
             onClick={ playStopToggle }
           >
             { !isPlaying ? <BsPlayFill /> : <BsPauseFill style={ { fill: "var(--red-700)" } } /> }
           </button>
           <button
-            className={ classNames("selections-player-next-button", {
-              "selections-player-next-button-light": isLightTheme,
+            className={ classNames("map-player-next-button", {
+              "map-player-next-button-light": isLightTheme,
             }) }
             onClick={ handleNextSong }
           >
             <BsFillSkipEndFill />
           </button>
         </div>
-        <div className="selections-player-secondary-buttons-right">
+        <div className="map-player-secondary-buttons-right">
           <FiRefreshCw
-            className="selections-player-refresh-button"
+            className="map-player-refresh-button"
             onClick={ handleLoop }
             style={ isLooped && { color: "var(--red-700)" } }
           />
-          <div className="selections-player-volume-wrapper">
+          <div className="map-player-volume-wrapper">
             { volume > 0 ? (
-              <HiVolumeUp className="selections-player-volume-button" onClick={ handleMute } />
+              <HiVolumeUp className="map-player-volume-button" onClick={ handleMute } />
             ) : (
-              <HiVolumeOff className="selections-player-volume-button" onClick={ handleMute } />
+              <HiVolumeOff className="map-player-volume-button" onClick={ handleMute } />
             ) }
             <input
               type="range"
-              id="selectionsVolumeInputId"
+              id="mapVolumeInputId"
               min={ 0 }
               max={ 1 }
               step={ 0.01 }

@@ -1,15 +1,17 @@
-.ourPartners{
+.ourPartners {
   text-align: left;
   margin-bottom: 48px;
   margin-top: 80px;
 }
- .swiper-wrapper{
+
+.swiper-wrapper {
   max-width: 970px;
   display: flex;
-   -webkit-transition-timing-function: linear !important;
-          transition-timing-function: linear !important;
+  -webkit-transition-timing-function: linear !important;
+  transition-timing-function: linear !important;
 }
- .swiper-slide{
+
+.swiper-slide {
   cursor: pointer;
   display: block;
   background-repeat: no-repeat;
@@ -18,18 +20,20 @@
   max-width: 140px;
   height: 109px;
 
- @media screen and (min-width: 1440px) { 
+  @media screen and (min-width: 1440px) {
     max-width: 226px;
     height: 119px;
   }
- }
+}
 
- .slider{
-grid-column: 1/13;
- }
+.slider {
+  grid-column: 1/13;
+}
 
 .baza-dark {
   background-image: url("../../images/Card_partners_black_baza.png");
+  background-repeat: no-repeat;
+  content: '';
 }
 
 .etno-dark {
@@ -48,19 +52,27 @@ grid-column: 1/13;
 .etno-light {
   background-image: url("../../images/Card_partners_white-etno.png");
 }
-.ornament-triple{
+
+.ornament-triple {
   display: none;
+
   @media screen and (min-width: 1440px) {
     display: flex;
     justify-content: center;
   }
 }
 
-.ornament-double{
+.ornament-double {
   display: flex;
-    justify-content: center;
+  justify-content: center;
 
   @media screen and (min-width: 1440px) {
     display: none;
   }
+}
+
+.partners-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
