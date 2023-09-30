@@ -3,9 +3,51 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 611px;
+  display: flex;
+  justify-content: center;
+  height: 209px;
+  min-width: 320px;
+  width: 100%;
+  @media screen and (min-width: 768px) {
+    min-width: 688px;
+    height: 461px;
+  }
+    @media screen and (min-width: 1440px) {
+        width: 611px;
+  height: 404px;
+    }
 }
 
+.playlist-map{
+display: grid;
+}
 .playlist{
 display: flex;
+flex-direction: column;
+text-align: left;
+  margin-top: 15px;
+gap: 24px;
+@media screen and (min-width: 768px) {
+
+  }
+    @media screen and (min-width: 1440px) {
+      flex-direction: row;
+      margin-top: 62px;
+    }
+}
+
+.alert{
+  width: 80%;
+  margin-left: 50px;
+}
+
+.alert::before{
+  content: "";
+  background-image: url("../../images/alert-circle.png");
+  display: flex;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  top: 30px;
+  right: 50px;
 }

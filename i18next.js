@@ -90,10 +90,14 @@ i18n
           technikalWorsk:
             "We are currently working on improving the functionality of the site. ",
           technikalWorsk2: "We apologize for the temporary inconvenience.",
+          lyrics: 'Lyrics',
+          collection: 'Museum collection',
         },
       },
       ua: {
         translations: {
+          collection: 'Колекція музею',
+          lyrics: 'Текст',
           chatBot: "Чат-бот",
           toTheMain: "На головну",
           technikalWorsk:
