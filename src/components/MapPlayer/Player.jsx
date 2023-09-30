@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Player.css";
 import classNames from "classnames";
 import { FiShare2, FiShuffle, FiRefreshCw } from "react-icons/fi";
 import { BsFillSkipEndFill, BsFillSkipStartFill, BsPlayFill, BsPauseFill } from "react-icons/bs";
 import { HiVolumeUp, HiVolumeOff } from "react-icons/hi";
+import { use } from "i18next";
 
 export const Player = ({
   isLightTheme,
@@ -21,6 +22,18 @@ export const Player = ({
   const playStopToggle = () => {
     setIsPlaying(!isPlaying);
   };
+
+  useEffect(() => {
+    const buttonMap = document.getElementById("map-tab");
+    if (buttonMap)
+    {
+      buttonMap.classList.add("active-btn");
+
+      return () => {
+        buttonMap.classList.remove("active-btn");
+      };
+    }
+  }, [])
 
   const nextSongIndex = (currentSongIndex + 1) % playlist.length;
   const previousSongIndex = (currentSongIndex - 1) % playlist.length;

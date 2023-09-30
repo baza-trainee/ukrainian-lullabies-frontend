@@ -149,20 +149,20 @@ export const Selections = () => {
 
   return (
     <div className="selections margin-bottom">
+      <ReactPlayer
+        width="0px"
+        height="0px"
+        ref={ reactPlayerRef }
+        url={ currentSong }
+        playing={ isPlaying }
+        onEnded={ () => setIsPlaying(false) }
+        loop={ isLooped }
+        volume={ volume }
+      />
       <h2 className="selections-title text-4xl">{ t("selection") }</h2>
       <div className="selections-wrapper container margin-bottom">
-        <div className="selections-youtubePlayer">
-          {/* <img src={favoriteSongFirst} alt="song covering" /> */ }
-          <ReactPlayer
-            ref={ reactPlayerRef }
-            url={ currentSong }
-            width="100%"
-            height="100%"
-            playing={ isPlaying }
-            onEnded={ () => setIsPlaying(false) }
-            loop={ isLooped }
-            volume={ volume }
-          />
+        <div className="selections-image">
+          <img src={ favoriteSongFirst } alt="song covering" />
         </div>
         <div className="selections-info">
           <div className="selections-info-about">
