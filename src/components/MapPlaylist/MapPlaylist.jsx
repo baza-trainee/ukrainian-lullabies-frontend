@@ -23,32 +23,45 @@ export const MapPlaylist = () => {
     dispatch(fetchData());
   }, [dispatch]);
 
+  useEffect(() => {
+    const buttonMap = document.getElementById("map-tab");
+    if (buttonMap) {
+      buttonMap.classList.add("active-btn");
+
+      return () => {
+        buttonMap.classList.remove("active-btn");
+      };
+    }
+  }, [])
+
+
+
   return (
     !loading && data && (
       <section id="anima" className="playlist margin-bottom">
         <div className="map-playlist_container"></div>
 
         <div className="map-player_wrap">
-          <div className={ classNames('map-player_playlist scroll') }>
+          <div className={classNames('map-player_playlist scroll')}>
             <p className="text-l text-margin">Колекція музею</p>
             <ul>
-              { data.map(({ name, id, url, lyrics }) => (
+              {data.map(({ name, id, url, lyrics }) => (
                 <li
-                  key={ id }
-                  className={ classNames('map-player_card') }
+                  key={id}
+                  className={classNames('map-player_card')}
                 >
                   <Link
-                    to={ `/player` }
+                    to={`/player`}
                     className="map-player_card-link"
-                    onClick={ handleVideoChange(url, id, lyrics, name) }
+                    onClick={handleVideoChange(url, id, lyrics, name)}
                   >
                     <div className="map-player_card-text">
-                      <div className={ classNames('play') }></div>
-                      <p className="map-player_card-title text-sm">{ name }</p>
+                      <div className={classNames('play')}></div>
+                      <p className="map-player_card-title text-sm">{name}</p>
                     </div>
                   </Link>
                 </li>
-              )) }
+              ))}
             </ul>
           </div>
         </div>

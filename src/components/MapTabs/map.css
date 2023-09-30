@@ -101,3 +101,15 @@
   justify-content: center;
   align-items: center;
 }
+
+.active-btn {
+  gap: 10;
+  padding: 16px 0;
+  border: none;
+  border-bottom: 2px solid var(--red-700, #C60F18);
+  background-color: transparent;
+
+  @media screen and (min-width: 1440px) {
+    padding: 24px 8px;
+  }
+}
