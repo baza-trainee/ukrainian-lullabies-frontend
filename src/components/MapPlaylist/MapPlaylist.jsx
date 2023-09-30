@@ -1,30 +1,29 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../../redux/Lullabies/fetchLullabies";
-import { selectData, selectLoading } from "../../redux/DataSlice";
+import { selectData } from "../../redux/DataSlice";
 import './MapPlaylist.css';
 import classNames from "classnames";
 import { setCurrentUrl, setCurrentLyrics, setCurrentId, setCurrentName } from "../../redux/currentSong/currentSongSlice";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
 
 export const MapPlaylist = () => {
   const dispatch = useDispatch();
-  const loading = useSelector(selectLoading);
   const data = useSelector(selectData);
   const { t } = useTranslation();
   useEffect(() => {
     dispatch(fetchData());
   }, [dispatch]);
 
-  const handleAudioChange = (url, id, lyrics, name) => {
+  const handleAudioChange = (url, lyrics, name) => {
     dispatch(setCurrentUrl(url));
     dispatch(setCurrentLyrics(lyrics));
-    dispatch(setCurrentId(id));
     dispatch(setCurrentName(name));
-    localStorage.setItem('currentSong', JSON.stringify({ url, id, lyrics, name }));
+    localStorage.setItem('currentSong', JSON.stringify({ url, lyrics, name }));
   };
-
+  const isLightTheme = useSelector((state) => state.theme.isLightTheme);
   useEffect(() => {
     const buttonMap = document.getElementById("map-tab");
     if (buttonMap)
@@ -38,35 +37,52 @@ export const MapPlaylist = () => {
   }, [])
 
   return (
-    !loading && data && (
-      <section id="anima" className="playlist margin-bottom">
+    <section id="anima" className="playlist margin-bottom">
+      <div className="playlist-map">
         <div className="map-playlist_container"></div>
+        <p className="text-2xl alert"> Ми працюємо над поліпшенням сайту і невдовзі Ви зможете за допомогою карти прослухати колискові з обраного регіону. </p>
+      </div>
+      <div className="map-player_wrap">
+        <div className={ classNames('map-player_playlist scroll') }>
+          <p className="text-l text-margin">{ t('collection') }</p>
+          <ul>
+            { data.map(({ name, url, lyrics, duration }, index) => (
+              <li
+                key={ index }
 
-        <div className="map-player_wrap">
-          <div className={ classNames('map-player_playlist scroll') }>
-            <p className="text-l text-margin">{ t('collection') }</p>
-            <ul>
-              { data.map(({ name, id, url, lyrics }) => (
-                <li
-                  key={ id }
-                  className={ classNames('map-player_card') }
+
+              >
+                <Link
+                  to={ `/player` }
+                  className={ classNames("map-player_card", { "map-player_card-light": isLightTheme }) }
+                  onClick={ () => handleAudioChange(url, index, lyrics, name) }
                 >
-                  <Link
-                    to={ `/player` }
-                    className="map-player_card-link"
-                    onClick={ () => handleAudioChange(url, id, lyrics, name) }
-                  >
-                    <div className="map-player_card-text">
-                      <div className={ classNames('play') }></div>
-                      <p className="map-player_card-title text-sm">{ name }</p>
+                  <div className="card-buttons">
+                    <span className="item-number">
+                      { index + 1 }
+                    </span>
+                    <div className="playlist-item ">
+                      <button
+                        className={ classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
+                          "selections-playlist-item-play-pause-button-light": isLightTheme,
+                        }) }
+                      >
+                        <PlayCircleIconDark />
+                      </button>
                     </div>
-                  </Link>
-                </li>
-              )) }
-            </ul>
-          </div>
+
+                    <span className="selections-playlist-item-name">{ name.toUpperCase().slice(0, 50) }</span>
+                  </div>
+                  <div className="card-buttons">
+                    <span className="item-duration text-xs-bold">{ duration }</span>
+                  </div>
+                </Link>
+              </li>
+            )) }
+          </ul>
         </div>
-      </section>
-    )
+      </div>
+    </section>
+
   );
 };

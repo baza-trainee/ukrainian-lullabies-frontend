@@ -9,9 +9,9 @@
       margin-top: 62px;
     flex-direction: row;
     height: 530px;
-
   }
 }
+
 .player-wrapper{
   display: flex;
   flex-direction: column;
@@ -82,7 +82,7 @@ background: var(--gray-black-850, rgba(255, 255, 255, 0.15));
   cursor: pointer;
   border-radius: 36px;
   min-width: 280px;
-  width: 100%;
+  width: 95%;
   height: 48px;
   padding: 0 8px;
 
@@ -95,10 +95,10 @@ background: var(--gray-black-850, rgba(255, 255, 255, 0.15));
   margin-bottom: 24px;
   }
 }
-
+/* 
 .map-player_card-light{
 
-}
+} */
 
 .map-player_card-title{
   text-align: left;
