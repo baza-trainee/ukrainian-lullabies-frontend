@@ -1,6 +1,7 @@
 .map-player-wrapper{
   display: flex;
 }
+
 .map-player_container{
   grid-column: 1/5;
 }
@@ -12,6 +13,7 @@
 }
 
 .map-player_playlist{
+  height: 530px;
   overflow-y: auto;
   overflow-x: hidden;
   grid-column: 8/13;
@@ -60,4 +62,34 @@
 
 .text-margin{
   margin-bottom: 24px;
+}
+
+.map-player_playlis::-webkit-scrollbar {
+
+  width: 4px;  
+  height: 191.538px;  
+}
+
+/* Стилізація віджета смуги прокрутки */
+
+.map-player_playlis::-webkit-scrollbar-thumb { /* Ширина віджета смуги прокрутки */
+
+  background-color: #FFF;  
+  border-radius: 2px;  
+}
+
+/* Стилізація фону смуги прокрутки */
+.map-player_playlis::-webkit-scrollbar-track {
+
+  background-color: var(--gray-black-800, #454545);  
+}
+
+/* Заборона прокручування смуги в горизонтальному напрямку */
+.map-player_playlis::-webkit-scrollbar-horizontal {
+  display: none;
+}
+
+/* Заборона прокручування смуги в вертикальному напрямку */
+.map-player_playlis::-webkit-scrollbar-vertical {
+  display: block;
 }

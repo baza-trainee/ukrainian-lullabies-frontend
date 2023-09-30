@@ -160,7 +160,7 @@ a {
 }
 
 .text-base-bold {
-  font-family: "Unbounded", sans-serif;
+  font-family: "Unbounded";
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -274,4 +274,33 @@ a {
   @media screen and (min-width: 1440px) {
     font-size: 64px;
   }
+}
+::-webkit-scrollbar {
+
+  width: 4px;  
+  height: 191.538px;  
+}
+
+/* Стилізація віджета смуги прокрутки */
+
+::-webkit-scrollbar-thumb { /* Ширина віджета смуги прокрутки */
+
+  background-color: #FFF;  
+  border-radius: 2px;  
+}
+
+/* Стилізація фону смуги прокрутки */
+::-webkit-scrollbar-track {
+
+  background-color: var(--gray-black-800, #454545);  
+}
+
+/* Заборона прокручування смуги в горизонтальному напрямку */
+::-webkit-scrollbar-horizontal {
+  display: none;
+}
+
+/* Заборона прокручування смуги в вертикальному напрямку */
+::-webkit-scrollbar-vertical {
+  display: block;
 }
