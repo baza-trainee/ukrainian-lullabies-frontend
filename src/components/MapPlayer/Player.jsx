@@ -20,9 +20,11 @@ export const Player = ({
   volume,
   setVolume,
 }) => {
+
   const playStopToggle = () => {
     setIsPlaying(!isPlaying);
   };
+
   const dispatch = useDispatch();
   const nextSongIndex = (currentSongIndex + 1) % playlist.length;
   const previousSongIndex = (currentSongIndex - 1) % playlist.length;

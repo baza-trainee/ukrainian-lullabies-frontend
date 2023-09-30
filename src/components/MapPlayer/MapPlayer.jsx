@@ -13,6 +13,7 @@ import { PauseCircleIconDark } from "../../icons/SelectionsIcons/PauseCircleIcon
 import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
 import './MapPlayer.css';
 import { useRef } from "react";
+import { SoundWaveIcon } from "../../icons/SelectionsIcons/SoundWaveIcon";
 
 export const MapPlayer = () => {
   const { t } = useTranslation();
@@ -24,7 +25,6 @@ export const MapPlayer = () => {
   const currentLyrics = useSelector((state) => state.currentSong.currentLyrics);
 
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
-  const [currentSongUrl, setCurrentSongUrl] = useState(currentUrl);
 
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
@@ -111,9 +111,8 @@ export const MapPlayer = () => {
   const reactPlayerRef = useRef(null);
 
   return (
-    <div className=" margin-bottom">
-
-      <div className="map-player-wrapper container ">
+    <div className="map-player-wrapper container margin-bottom">
+      <div className="player-wrapper">
         <div className="map-player_container">
           <div className="player-photo"></div>
           <ReactPlayer
@@ -133,7 +132,7 @@ export const MapPlayer = () => {
             isLightTheme={ isLightTheme }
             isPlaying={ isPlaying }
             setIsPlaying={ setIsPlaying }
-            setCurrentSong={ setCurrentSongUrl }
+            setCurrentSong={ currentUrl }
             playlist={ data }
             currentSongIndex={ currentSongIndex }
             setCurrentSongIndex={ setCurrentSongIndex }
@@ -145,19 +144,24 @@ export const MapPlayer = () => {
         </div>
 
         <div className="map-player_info">
-          <p className="text-l text-margin">Текст</p>
-          <p className="text-base scroll">{ currentLyrics } </p>
+          <p className="text-l text-margin">{ t('lyrics') }</p>
+          <p className="text-base">{ currentLyrics } </p>
         </div>
-        <div className="map-player_playlist">
-          <p className="text-l text-margin">Колекція музею</p>
-          <ul className=" map-player_playlist">
-            {
-              data.map(({ name, url, lyrics, duration }, index) => (
-                <li
-                  key={ index }
-                  className={ classNames("map-player_card", { "map-player_card-light": isLightTheme }) }
-                  onClick={ () => { handleVideoChange(url, index, lyrics, name); playPauseSong(url) } }
-                >
+      </div>
+      <div className="map-player_playlist">
+        <p className="text-l text-margin">{ t('lullabiesMuseum') }</p>
+        <ul className=" player_playlist">
+          {
+            data.map(({ name, url, lyrics, duration }, index) => (
+              <li
+                key={ index }
+                className={ classNames("map-player_card", { "map-player_card-light": isLightTheme }) }
+                onClick={ () => { handleVideoChange(url, index, lyrics, name); playPauseSong(url) } }
+              >
+                <div className="card-buttons">
+                  <span className="item-number">
+                    { isPlaying && url === currentUrl ? <SoundWaveIcon /> : index + 1 }
+                  </span>
                   <div className="playlist-item ">
                     <button
                       className={ classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
@@ -167,23 +171,23 @@ export const MapPlayer = () => {
                     >
                       { isPlaying && url === currentUrl ? <PauseCircleIconDark /> : <PlayCircleIconDark /> }
                     </button>
+                  </div>
 
-                    <span className="selections-playlist-item-name">{ name.toUpperCase().slice(0, 50) }</span>
-                  </div>
-                  <div className="playlist-item">
-                    <span className="selections-playlist-item-duration text-xs-bold">{ duration }</span>
-                    <button
-                      className="selections-playlist-item-repeat-button selection-playlist-button"
-                      onClick={ handleLoop }
-                      disabled={ currentUrl !== url }
-                    >
-                      <BsRepeat style={ isLooped && currentUrl === url && { fill: "var(--red-700)" } } />
-                    </button>
-                  </div>
-                </li>
-              ))
-            } </ul>
-        </div>
+                  <span className="selections-playlist-item-name">{ name.toUpperCase().slice(0, 50) }</span>
+                </div>
+                <div className="card-buttons">
+                  <span className="item-duration text-xs-bold">{ duration }</span>
+                  <button
+                    className="selections-playlist-item-repeat-button selection-playlist-button"
+                    onClick={ handleLoop }
+                    disabled={ currentUrl !== url }
+                  >
+                    <BsRepeat style={ isLooped && currentUrl === url && { fill: "var(--red-700)" } } />
+                  </button>
+                </div>
+              </li>
+            ))
+          } </ul>
       </div>
     </div>
   );
