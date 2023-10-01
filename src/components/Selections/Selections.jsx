@@ -144,7 +144,7 @@ export const Selections = () => {
   // };
 
   return (
-    <div className="selections margin-bottom">
+    <div className="selections margin-bottom" id="selections">
       <ReactPlayer
         width="0px"
         height="0px"
