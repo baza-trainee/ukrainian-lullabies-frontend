@@ -95,7 +95,9 @@ export const Selections = () => {
   const reactPlayerRef = useRef(null);
 
   // preventing players from playing alltogether
-  const currentPlayer = useSelector((state) => state.currentPlayer.currentPlayer);
+  const currentPlayer = useSelector(
+    (state) => state.currentPlayer.currentPlayer
+  );
   useEffect(() => {
     if (isPlaying) {
       dispatch(playerChanged("selections"));
@@ -234,20 +236,28 @@ export const Selections = () => {
           ref={reactPlayerRef}
           url={currentSong}
           playing={isPlaying}
-          onEnded={() => (isPlaylistLooped ? handleNextSong() : setIsPlaying(false))}
+          onEnded={() =>
+            isPlaylistLooped ? handleNextSong() : setIsPlaying(false)
+          }
           loop={isLooped}
           volume={volume}
         />
       </motion.div>
 
       <h2 className="selections-title text-4xl">{t("selection")}</h2>
-      <motion.div custom={1} variants={animationElement} className="selections-wrapper container margin-bottom">
+      <motion.div
+        custom={1}
+        variants={animationElement}
+        className="selections-wrapper container margin-bottom"
+      >
         <div className="selections-image">
           <img src={favoriteSongFirst} alt="song covering" />
         </div>
         <div className="selections-info">
           <div className="selections-info-about">
-            <h4 className="selections-info-title text-2xl">{t("ukrainianLullabies")}</h4>
+            <h4 className="selections-info-title text-2xl">
+              {t("ukrainianLullabies")}
+            </h4>
             <p className="selections-info-text text-base">{t("lullabySong")}</p>
           </div>
           {!playlistError ? (
@@ -257,34 +267,58 @@ export const Selections = () => {
                   <li
                     className={classNames("selections-playlist-list-item", {
                       "selections-playlist-list-item-light": isLightTheme,
-                      "selections-playlist-list-item-active": item.url === currentSong,
-                      "selections-playlist-list-item-active-light": isLightTheme && item.url === currentSong,
+                      "selections-playlist-list-item-active":
+                        item.url === currentSong,
+                      "selections-playlist-list-item-active-light":
+                        isLightTheme && item.url === currentSong,
                     })}
                     key={index}
                     onClick={() => playPauseSong(item.url)}
                   >
                     <span className="selections-playlist-item-number">
-                      {isPlaying && item.url === currentSong ? <SoundWaveIcon /> : index + 1}
+                      {isPlaying && item.url === currentSong ? (
+                        <SoundWaveIcon />
+                      ) : (
+                        index + 1
+                      )}
                     </span>
                     <div className="selection-playlist-playBtn-name-group">
                       <button
-                        className={classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
-                          "selections-playlist-item-play-pause-button-light": isLightTheme,
-                        })}
+                        className={classNames(
+                          "selections-playlist-item-play-pause-button",
+                          "selection-playlist-button",
+                          {
+                            "selections-playlist-item-play-pause-button-light":
+                              isLightTheme,
+                          }
+                        )}
                         onClick={() => playPauseSong(item.url)}
                       >
-                        {isPlaying && item.url === currentSong ? <PauseCircleIconDark /> : <PlayCircleIconDark />}
+                        {isPlaying && item.url === currentSong ? (
+                          <PauseCircleIconDark />
+                        ) : (
+                          <PlayCircleIconDark />
+                        )}
                       </button>
 
-                      <span className="selections-playlist-item-name">{item.name.toUpperCase().slice(0, 50)}</span>
+                      <span className="selections-playlist-item-name">
+                        {item.name.toUpperCase().slice(0, 50)}
+                      </span>
                     </div>
                     {/* selections with dropdown for mobile */}
                     <div className="selections-playlist-item-group">
-                      <span className="selections-playlist-item-duration text-xs-bold">{item.duration}</span>
+                      <span className="selections-playlist-item-duration text-xs-bold">
+                        {item.duration}
+                      </span>
                       <button
-                        className={classNames("selections-playlist-item-repeat-button", "selection-playlist-button", {
-                          "selections-playlist-item-repeat-button-light": isLightTheme,
-                        })}
+                        className={classNames(
+                          "selections-playlist-item-repeat-button",
+                          "selection-playlist-button",
+                          {
+                            "selections-playlist-item-repeat-button-light":
+                              isLightTheme,
+                          }
+                        )}
                         onClick={(e) => {
                           e.stopPropagation();
                           handleLoop();
@@ -354,7 +388,9 @@ export const Selections = () => {
                 ))}
             </ul>
           ) : (
-            <div className="selections-playlist-error text-l">Error: {playlistError}</div>
+            <div className="selections-playlist-error text-l">
+              Error: {playlistError}
+            </div>
           )}
           <SelectionsPlayer
             isLightTheme={isLightTheme}
