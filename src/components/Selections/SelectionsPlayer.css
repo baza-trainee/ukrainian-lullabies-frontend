@@ -9,7 +9,8 @@
   @media screen and (min-width: 1440px) {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 4px;
   }
 }
 
@@ -110,9 +111,19 @@
 .selections-player-refresh-button,
 .selections-player-volume-button {
   grid-row: 2 / 4;
+  display: block;
+  background: transparent;
+  border: none;
+  color: inherit;
+  position: relative;
+}
+
+.selections-player-share-button svg,
+.selections-player-shuffle-button svg,
+.selections-player-refresh-button svg,
+.selections-player-volume-button svg {
   width: 22px;
   height: 22px;
-  cursor: pointer;
 }
 
 .selections-player-share-button:hover,
@@ -123,6 +134,47 @@
 
 /* activated buttons */
 .selections-player-button-active {
+  color: var(--red-700);
+}
+
+/* popup effects on hover */
+.selections-player-share-button:hover:after,
+.selections-player-shuffle-button:hover:after,
+.selections-player-refresh-button:hover:after {
+  display: block;
+}
+
+.selections-player-share-button:after,
+.selections-player-shuffle-button:after,
+.selections-player-refresh-button:after {
+  display: none;
+  background: var(--gray-black-800);
+  color: var(--white-0);
+  padding: 4px 8px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 110%;
+  right: 0px;
+  z-index: 10;
+}
+
+.selections-player-share-button:after {
+  content: "Поділитись";
+}
+
+.selections-player-shuffle-button:after {
+  content: "Перемішати";
+}
+
+.selections-player-refresh-button:after {
+  content: "Слухати по колу";
+  text-wrap: nowrap;
+}
+
+.selections-player-share-button-light:after,
+.selections-player-shuffle-button-light:after,
+.selections-player-refresh-button-light:after {
+  background: var(--gray-black-100);
   color: var(--red-700);
 }
 

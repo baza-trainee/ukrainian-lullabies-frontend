@@ -18,6 +18,8 @@ export const SelectionsPlayer = ({
   isLooped,
   volume,
   setVolume,
+  previousVolume,
+  setPreviousVolume,
 }) => {
   const playStopToggle = () => {
     setIsPlaying(!isPlaying);
@@ -42,66 +44,79 @@ export const SelectionsPlayer = ({
   };
 
   const handleMute = () => {
-    setVolume(0);
+    if (volume > 0) {
+      setPreviousVolume(volume);
+      setVolume(0);
+    } else {
+      setVolume(previousVolume);
+      setPreviousVolume(0);
+    }
   };
 
   return (
     <div className="selections-player">
       <div
-        className={ classNames("selections-player-navigation-wrapper", {
+        className={classNames("selections-player-navigation-wrapper", {
           "selections-player-navigation-wrapper-light": isLightTheme,
-        }) }
+        })}
       >
         <div className="selections-player-secondary-buttons-left">
-          <FiShare2 className="selections-player-share-button" />
-          <FiShuffle className="selections-player-shuffle-button" />
+          <button
+            className={classNames("selections-player-share-button", { "selections-player-share-button-light": isLightTheme })}
+          >
+            <FiShare2 />
+          </button>
+          <button
+            className={classNames("selections-player-shuffle-button", { "selections-player-shuffle-button-light": isLightTheme })}
+          >
+            <FiShuffle />
+          </button>
         </div>
         <div className="selections-player-primary-buttons-group">
           <button
-            className={ classNames("selections-player-previous-button", {
+            className={classNames("selections-player-previous-button", {
               "selections-player-previous-button-light": isLightTheme,
-            }) }
-            onClick={ handlePreviousSong }
+            })}
+            onClick={handlePreviousSong}
           >
             <BsFillSkipStartFill />
           </button>
           <button
-            className={ classNames("selections-player-play-pause-button", {
+            className={classNames("selections-player-play-pause-button", {
               "selections-player-play-pause-button-light": isLightTheme,
-            }) }
-            onClick={ playStopToggle }
+            })}
+            onClick={playStopToggle}
           >
-            { !isPlaying ? <BsPlayFill /> : <BsPauseFill style={ { fill: "var(--red-700)" } } /> }
+            {!isPlaying ? <BsPlayFill /> : <BsPauseFill style={{ fill: "var(--red-700)" }} />}
           </button>
           <button
-            className={ classNames("selections-player-next-button", {
+            className={classNames("selections-player-next-button", {
               "selections-player-next-button-light": isLightTheme,
-            }) }
-            onClick={ handleNextSong }
+            })}
+            onClick={handleNextSong}
           >
             <BsFillSkipEndFill />
           </button>
         </div>
         <div className="selections-player-secondary-buttons-right">
-          <FiRefreshCw
-            className="selections-player-refresh-button"
-            onClick={ handleLoop }
-            style={ isLooped && { color: "var(--red-700)" } }
-          />
+          <button
+            className={classNames("selections-player-refresh-button", { "selections-player-refresh-button-light": isLightTheme })}
+            onClick={handleLoop}
+          >
+            <FiRefreshCw style={isLooped && { color: "var(--red-700)" }} />
+          </button>
           <div className="selections-player-volume-wrapper">
-            { volume > 0 ? (
-              <HiVolumeUp className="selections-player-volume-button" onClick={ handleMute } />
-            ) : (
-              <HiVolumeOff className="selections-player-volume-button" onClick={ handleMute } />
-            ) }
+            <button className="selections-player-volume-button">
+              {volume > 0 ? <HiVolumeUp onClick={handleMute} /> : <HiVolumeOff onClick={handleMute} />}
+            </button>
             <input
               type="range"
               id="selectionsVolumeInputId"
-              min={ 0 }
-              max={ 1 }
-              step={ 0.01 }
-              value={ volume }
-              onChange={ handleVolumeChange }
+              min={0}
+              max={1}
+              step={0.01}
+              value={volume}
+              onChange={handleVolumeChange}
             />
           </div>
         </div>
