@@ -91,7 +91,7 @@
   margin-left: 8px;
 }
 
-@media (max-width: 1439px) {
+@media screen and (max-width: 1439px) {
   .ornament-mobile-hero {
     display: block;
     justify-content: center;
@@ -99,7 +99,7 @@
     margin-top: 32px;
   }
 }
-@media (min-width: 1440px) {
+@media screen and (min-width: 1440px) {
   .ornament-mobile-hero {
     display: none;
   }
