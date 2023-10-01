@@ -19,8 +19,10 @@
   grid-column: 1/13;
   justify-content: center;
   margin-top: 32px;
+}
 
-  @media screen and (min-width: 1440px) {
+@media screen and (min-width: 1440px) {
+  .kolyskovaWrap {
     margin-top: 48px;
   }
 }
