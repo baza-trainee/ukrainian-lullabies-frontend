@@ -28,6 +28,7 @@ export const HeaderUserIcon = ({ isLightTheme }) => {
         }
         modal
         lockScroll
+        overlayStyle={isLightTheme ? { background: "rgba(0, 0, 0, 0.6)" } : { background: "rgba(231, 231, 231, 0.6)" }}
       >
         {(close) => (
           <div className={classNames("header-user-modal", { "header-user-modal-light": isLightTheme })}>
@@ -80,8 +81,8 @@ export const HeaderResponsiveUserLink = ({ isLightTheme }) => {
 
 // helper
 const HeaderTechnicalWorksElement = ({ isLightTheme }) => {
-  const SvgMob = !isLightTheme ? TechMobSvg : TechMobSvgLight;
-  const SvgDesk = !isLightTheme ? TechDeskSvg : TechDeskSvgLight;
+  const SvgMob = isLightTheme ? TechMobSvg : TechMobSvgLight;
+  const SvgDesk = isLightTheme ? TechDeskSvg : TechDeskSvgLight;
   const { t } = useTranslation();
   return (
     <div style={{ flexDirection: "column" }} className="tech-wrap">
