@@ -18,11 +18,10 @@
   display: grid;
   grid-column: 1/13;
   justify-content: center;
-  padding-top: 32px;
+  margin-top: 32px;
 
   @media screen and (min-width: 1440px) {
-    padding-top: 81px;
-    margin-top: 26px;
+    margin-top: 48px;
   }
 }
 
