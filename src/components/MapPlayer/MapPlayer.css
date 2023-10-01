@@ -1,20 +1,51 @@
 .map-player-wrapper{
   display: flex;
+  flex-direction: column;
+   text-align: left;
+   margin-top: 15px;
+   @media screen and (min-width: 768px) {
+  }
+    @media screen and (min-width: 1440px) {
+      margin-top: 62px;
+    flex-direction: row;
+    height: 530px;
+  }
+}
+
+.player-wrapper{
+  display: flex;
+  flex-direction: column;
+   @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 16px;
+  }
+    @media screen and (min-width: 1440px) {
+    gap: 24px;
+  }
+  
 }
 .map-player_container{
+  /* background: #0a0a0a; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   grid-column: 1/5;
+  border-radius: 36px;
 }
 
 .map-player_info{
   width: 240px;
-  height: 530px;
   grid-column: 5/8;
+  overflow-x: hidden;
 }
 
 .map-player_playlist{
-  overflow-y: auto;
-  overflow-x: hidden;
-  grid-column: 8/13;
+  overflow-y: auto; 
+  height: 380px;
+  @media screen and (min-width: 1440px) {
+    grid-column: 8/13;
+    height: 530px;
+  }
 }
 
 .playlist-item{
@@ -23,24 +54,51 @@
   align-items: center;
 }
 
+.item-number{
+  display: block;
+  width: 26px;
+ @media screen and (min-width: 768px) {
+
+  }
+    @media screen and (min-width: 1440px) {
+      display: none;
+    }
+}
+
+.card-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
 .map-player_card:hover {
-  background-color: var(--gray-black-600);
+background: var(--gray-black-850, rgba(255, 255, 255, 0.15));
 }
 
 .map-player_card{
   display: flex;
   justify-content: space-between;
-  width: 385px;
   cursor: pointer;
-  border-radius: 36px; 
-  padding: 8px;
-  height: 56px;
-  margin-bottom: 24px;
-}
+  border-radius: 36px;
+  min-width: 280px;
+  width: 95%;
+  height: 48px;
+  padding: 0 8px;
 
+  @media screen and (min-width: 768px) {
+    
+  }
+    @media screen and (min-width: 1440px) {
+    width: 385px;
+  height: 40px;
+  margin-bottom: 24px;
+  }
+}
+/* 
 .map-player_card-light{
 
-}
+} */
 
 .map-player_card-title{
   text-align: left;
@@ -61,3 +119,43 @@
 .text-margin{
   margin-bottom: 24px;
 }
+
+.map-player_playlis::-webkit-scrollbar {
+  width: 4px;  
+  height: 191.538px;  
+}
+
+.player-photo{
+background-image: url("../../images/Baby_photo.png");
+width: 309px;
+height: 248px;
+display: block;
+border-radius: 8px;
+
+  @media screen and (min-width: 768px) {
+    width: 328px;
+    height: 270px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 339px;
+  }
+}
+
+
+/* .map-player_playlis::-webkit-scrollbar-thumb { 
+  background-color: #FFF;  
+  border-radius: 2px;  
+}
+
+.map-player_playlis::-webkit-scrollbar-track {
+
+  background-color: var(--gray-black-800, #454545);  
+}
+
+.map-player_playlis::-webkit-scrollbar-horizontal {
+  display: none;
+}
+
+.map-player_playlis::-webkit-scrollbar-vertical {
+  display: block;
+} */

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
-import ReactPlayer from "react-player/youtube";
+import ReactPlayer from "react-player";
 
 import "./Selections.css";
 import { SelectionsPlayer } from "./SelectionsPlayer";
@@ -24,50 +24,39 @@ import { SoundWaveIcon } from "../../icons/SelectionsIcons/SoundWaveIcon";
 const songsData = [
   {
     id: 0,
-    url: "https://www.youtube.com/watch?v=UcqNIuiP-SM",
-    name: "Ой люля, люля, мій малесенький синульку | Наспів з Західного Полісся",
-    watches: 100,
-    duration: "1:27",
+    url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
+    name: "Колискова для мами",
+    duration: "3:02",
+    lyrics: "колискова для мами слова",
   },
   {
     id: 1,
-    url: "https://www.youtube.com/watch?v=J1l9fbPeEic",
-    name: "Ой ну коту волохатий | Наспів з Полтавщини",
-    watches: 100,
-    duration: "1:20",
+    url: "https://deti.e-papa.com.ua/mpf/17146805.mp3",
+    name: "Ходить сон бiля вiкон",
+    watches: 1500,
+    duration: "1:27",
+    lyrics: "Ходить сон бiля вiкон",
   },
   {
     id: 2,
-    url: "https://www.youtube.com/watch?v=DbnjO85lusM",
-    name: "Ой ходить сон коло вікон | Наспів з Поділля",
-    watches: 100,
-    duration: "1:20",
+    url: "https://deti.e-papa.com.ua/mpf/9211811816.mp3",
+    name: "Котику сіренький",
+    watches: 2000,
+    duration: "1:07",
+    lyrics: "Котику сіренький текст",
   },
   {
     id: 3,
-    url: "https://www.youtube.com/watch?v=DbnjO85lusM",
-    name: "Dreaming in Rain",
-    watches: 100,
-    duration: "1:20",
+    url: "https://deti.e-papa.com.ua/mpf/921180978.mp3",
+    name: "Колискова",
+    watches: 2000,
+    duration: "1:07",
+    lyrics: "Котику сіренький текст",
   },
   {
     id: 4,
-    url: "https://www.youtube.com/watch?v=OxzG2UMAkRo",
-    name: "Wonderland | Beautiful Chill Mix",
-    watches: 1500,
-    duration: "12:00",
-  },
-  {
-    id: 5,
-    url: "https://www.youtube.com/watch?v=tKxxB8IPyZM",
-    name: "Relax Coffee Shop ☕ Lofi Coffee Ambiance",
-    watches: 2000,
-    duration: "3:20",
-  },
-  {
-    id: 6,
-    url: "https://www.youtube.com/watch?v=urZ0bhF9bB4",
-    name: "Sample video 5s",
+    url: "https://soundbible.com/mp3/Radio%20Tune-SoundBible.com-1525681700.mp3",
+    name: "Radio tune",
     watches: 2000,
     duration: "0:05",
   },
@@ -103,6 +92,7 @@ export const Selections = () => {
       setIsPlaying(false);
     } else
     {
+
       setCurrentSong(url);
       setIsLooped(false);
     }
@@ -160,20 +150,20 @@ export const Selections = () => {
 
   return (
     <div className="selections margin-bottom">
+      <ReactPlayer
+        width="0px"
+        height="0px"
+        ref={ reactPlayerRef }
+        url={ currentSong }
+        playing={ isPlaying }
+        onEnded={ () => setIsPlaying(false) }
+        loop={ isLooped }
+        volume={ volume }
+      />
       <h2 className="selections-title text-4xl">{ t("selection") }</h2>
       <div className="selections-wrapper container margin-bottom">
-        <div className="selections-youtubePlayer">
-          {/* <img src={favoriteSongFirst} alt="song covering" /> */ }
-          <ReactPlayer
-            ref={ reactPlayerRef }
-            url={ currentSong }
-            width="100%"
-            height="100%"
-            playing={ isPlaying }
-            onEnded={ () => setIsPlaying(false) }
-            loop={ isLooped }
-            volume={ volume }
-          />
+        <div className="selections-image">
+          <img src={ favoriteSongFirst } alt="song covering" />
         </div>
         <div className="selections-info">
           <div className="selections-info-about">
