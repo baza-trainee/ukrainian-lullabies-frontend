@@ -35,5 +35,5 @@ export default PopUpFeedBack;
 PopUpFeedBack.propTypes = {
   popUpThank: PropTypes.string.isRequired,
   popupText: PropTypes.string.isRequired,
-  isLightTheme: PropTypes.func,
+  isLightTheme: PropTypes.bool,
 };
