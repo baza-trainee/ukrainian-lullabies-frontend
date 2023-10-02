@@ -201,9 +201,8 @@ a {
   padding: 60px 20px;
   text-align: center;
   border-radius: 10px;
-  background: var(--gray-black-100);
-  color: var(--gray-black-950);
-  box-shadow: 5px 5px 15px var(--gray-black-600);
+  background: var(--gray-black-950);
+  color: var(--white-0);
   position: relative;
 }
 
@@ -215,11 +214,12 @@ a {
   position: absolute;
   top: 5px;
   right: 10px;
+  outline: none;
 }
 
 .header-user-modal-light {
-  background: var(--gray-black-600);
-  color: var(--white-0);
+  background: var(--white-0);
+  color: var(--gray-black-950);
 }
 
 /* search */
