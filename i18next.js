@@ -111,7 +111,7 @@ i18n
           searchUnavailable: "Пошук тимчасово недоступний",
           share: "Поділитися",
           aboutUs: "Про нас",
-          lullabiesMuseum: "Музей колискових",
+          lullabiesMuseum: "Музей колискової",
           traditionalLullabies: "Традиційні колискові",
           singingTogether: "Співаємо разом",
           animatedLullabies: "Колискові в анімаціях",
