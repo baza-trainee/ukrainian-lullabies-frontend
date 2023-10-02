@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./Footer.css";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchContacts } from "../../redux/Contacts/contactsSlice";
+import { fetchPartners } from "../../redux/Partners/partnersSlice";
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 
@@ -16,32 +18,40 @@ import logoBazaTraineeBlack from "../../assets/icons/logo_baza_trainee_black.svg
 import logoEtnoPhotosWhite from "../../assets/icons/logo_etno_photos_white.svg";
 import logoEtnoPhotosBlack from "../../assets/icons/logo_etno_photos_black.svg";
 
-const partners = [
-  {
-    name: "Partner Red",
-    logoDarkTheme: logoPartnerRed,
-    logoLightTheme: logoPartnerRed,
-    alt: "Partner Red logo",
-    url: "#",
-  },
-  {
-    name: "Baza Trainee",
-    logoDarkTheme: logoBazaTraineeWhite,
-    logoLightTheme: logoBazaTraineeBlack,
-    alt: "Baza Trainee logo",
-    url: "https://baza-trainee.tech",
-  },
-  {
-    name: "Etno Photos",
-    logoDarkTheme: logoEtnoPhotosWhite,
-    logoLightTheme: logoEtnoPhotosBlack,
-    alt: "Ento Photos logo",
-    url: "https://www.facebook.com/etnofotka/photos/",
-  },
-];
+// const partners = [
+//   {
+//     name: "Partner Red",
+//     logoDarkTheme: logoPartnerRed,
+//     logoLightTheme: logoPartnerRed,
+//     alt: "Partner Red logo",
+//     url: "#",
+//   },
+//   {
+//     name: "Baza Trainee",
+//     logoDarkTheme: logoBazaTraineeWhite,
+//     logoLightTheme: logoBazaTraineeBlack,
+//     alt: "Baza Trainee logo",
+//     url: "https://baza-trainee.tech",
+//   },
+//   {
+//     name: "Etno Photos",
+//     logoDarkTheme: logoEtnoPhotosWhite,
+//     logoLightTheme: logoEtnoPhotosBlack,
+//     alt: "Ento Photos logo",
+//     url: "https://www.facebook.com/etnofotka/photos/",
+//   },
+// ];
 
 export const Footer = () => {
+  const { t } = useTranslation();
+  const dispatch = useDispatch();
+
+  // fetch data from store
+  const contacts = useSelector((state) => state.contacts.data);
+  const partners = useSelector((state) => state.partners.data);
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
+
+  // scroll to top button
   const [isScrollUpButtonVisible, setIsScrollUpButtonVisible] = useState(false);
   // const navigate = useNavigate();
 
@@ -67,7 +77,11 @@ export const Footer = () => {
       window.removeEventListener("scroll", checkVisibility);
     };
   }, []);
-  const { t } = useTranslation();
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+    dispatch(fetchPartners());
+  }, [dispatch]);
 
   return (
     <div className="footer">
@@ -129,11 +143,13 @@ export const Footer = () => {
           </li>
           <li>
             <p className="footer-contacts-list-title text-sm-semibold">{t("telephone")}</p>
-            <a href="tel:+380979373496">+ 380 979373496</a>
+            <a href={contacts.length > 1 ? contacts[1].value : "#"}>{contacts.length > 1 ? contacts[1].value : "Loading..."}</a>
           </li>
           <li>
             <p className="footer-contacts-list-title text-sm-semibold">E-mail:</p>
-            <a href="mailto:museum.kolyskova@gmail.com">museum.kolyskova@gmail.com</a>
+            <a href={`mailto:${contacts.length > 1 ? contacts[2].value : "#"}`}>
+              {contacts.length > 1 ? contacts[2].value : "Loading..."}
+            </a>
           </li>
         </ul>
         <div className="footer-socials-wrapper">
@@ -157,11 +173,13 @@ export const Footer = () => {
           <div className="footer-socials-partners">
             <p className="text-sm-semibold">{t("ourPartners")}:</p>
             <div className="footer-partners-icons">
-              {partners.map((partner, index) => (
-                <a href={partner.url} target="_blank" rel="noopener nofollow noreferrer" key={index}>
-                  <img src={isLightTheme ? partner.logoLightTheme : partner.logoDarkTheme} alt={partner.alt} height="40" />
-                </a>
-              ))}
+              {partners &&
+                partners.map((partner, index) => (
+                  <a href={partner.website} target="_blank" rel="noopener nofollow noreferrer" key={index}>
+                    {/* <img src={isLightTheme ? partner.logoLightTheme : partner.logoDarkTheme} alt="partner logo" height="40" /> */}
+                    <img src={partner.logo} alt="partner logo" height="40" />
+                  </a>
+                ))}
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchData } from "../../redux/SelectionSongs/selectionSongsSlice";
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import ReactPlayer from "react-player";
@@ -64,9 +65,16 @@ const songsData = [
 
 export const Selections = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
 
+  // get theme
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
+  // get songs
+  const sliceData = useSelector((state) => state.selectionSongs);
+  // console.log(sliceData);
+
+  // player variables
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLooped, setIsLooped] = useState(false);
   const [volume, setVolume] = useState(0.5);
@@ -144,6 +152,10 @@ export const Selections = () => {
   //   console.log(`Saved ${playlist[id].name}`);
   // };
 
+  useEffect(() => {
+    dispatch(fetchData());
+  }, [dispatch]);
+
   return (
     <div className="selections margin-bottom" id="selections">
       <ReactPlayer
@@ -163,74 +175,46 @@ export const Selections = () => {
         </div>
         <div className="selections-info">
           <div className="selections-info-about">
-            <h4 className="selections-info-title text-2xl">
-              {t("ukrainianLullabies")}
-            </h4>
+            <h4 className="selections-info-title text-2xl">{t("ukrainianLullabies")}</h4>
             <p className="selections-info-text text-base">{t("lullabySong")}</p>
           </div>
-          <ul className="selections-playlist-list">
-            {playlist.map((item, index) => (
-              <li
-                className={classNames("selections-playlist-list-item", {
-                  "selections-playlist-list-item-light": isLightTheme,
-                })}
-                key={index}
-              >
-                <span className="selections-playlist-item-number">
-                  {isPlaying && item.url === currentSong ? (
-                    <SoundWaveIcon />
-                  ) : (
-                    index + 1
-                  )}
-                </span>
-                <div className="selection-playlist-playBtn-name-group">
-                  <button
-                    className={classNames(
-                      "selections-playlist-item-play-pause-button",
-                      "selection-playlist-button",
-                      {
-                        "selections-playlist-item-play-pause-button-light":
-                          isLightTheme,
-                      }
-                    )}
-                    onClick={() => playPauseSong(item.url)}
-                  >
-                    {isPlaying && item.url === currentSong ? (
-                      <PauseCircleIconDark />
-                    ) : (
-                      <PlayCircleIconDark />
-                    )}
-                  </button>
+          {playlist && (
+            <ul className="selections-playlist-list">
+              {playlist.map((item, index) => (
+                <li
+                  className={classNames("selections-playlist-list-item", {
+                    "selections-playlist-list-item-light": isLightTheme,
+                  })}
+                  key={index}
+                >
+                  <span className="selections-playlist-item-number">
+                    {isPlaying && item.url === currentSong ? <SoundWaveIcon /> : index + 1}
+                  </span>
+                  <div className="selection-playlist-playBtn-name-group">
+                    <button
+                      className={classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
+                        "selections-playlist-item-play-pause-button-light": isLightTheme,
+                      })}
+                      onClick={() => playPauseSong(item.url)}
+                    >
+                      {isPlaying && item.url === currentSong ? <PauseCircleIconDark /> : <PlayCircleIconDark />}
+                    </button>
 
-                  <span className="selections-playlist-item-name">
-                    {item.name.toUpperCase().slice(0, 50)}
-                  </span>
-                </div>
-                {/* selections with dropdown for mobile */}
-                <div className="selections-playlist-item-group">
-                  <span className="selections-playlist-item-duration text-xs-bold">
-                    {item.duration}
-                  </span>
-                  <button
-                    className={classNames(
-                      "selections-playlist-item-repeat-button",
-                      "selection-playlist-button",
-                      {
-                        "selections-playlist-item-repeat-button-light":
-                          isLightTheme,
-                      }
-                    )}
-                    onClick={handleLoop}
-                    disabled={currentSong !== item.url}
-                  >
-                    <BsRepeat
-                      style={
-                        isLooped &&
-                        currentSong === item.url && { fill: "var(--red-700)" }
-                      }
-                    />
-                  </button>
-                  {/* <button
+                    <span className="selections-playlist-item-name">{item.name.toUpperCase().slice(0, 50)}</span>
+                  </div>
+                  {/* selections with dropdown for mobile */}
+                  <div className="selections-playlist-item-group">
+                    <span className="selections-playlist-item-duration text-xs-bold">{item.duration}</span>
+                    <button
+                      className={classNames("selections-playlist-item-repeat-button", "selection-playlist-button", {
+                        "selections-playlist-item-repeat-button-light": isLightTheme,
+                      })}
+                      onClick={handleLoop}
+                      disabled={currentSong !== item.url}
+                    >
+                      <BsRepeat style={isLooped && currentSong === item.url && { fill: "var(--red-700)" }} />
+                    </button>
+                    {/* <button
                     className="selections-playlist-item-like-button selection-playlist-button"
                     onClick={() => handleLikeClick(item.id)}
                   >
@@ -242,8 +226,8 @@ export const Selections = () => {
                   >
                     <BsHeart />
                   </button> */}
-                </div>
-                {/* <button
+                  </div>
+                  {/* <button
                   className={classNames("selections-playlist-item-group-menuIcon-mobile", {
                     "selections-playlist-item-group-menuIcon-mobile-active": activeButtonMoreIndex === index,
                   })}
@@ -280,9 +264,11 @@ export const Selections = () => {
                     <BsHeart /> Додати до улюлених
                   </button>
                 </div> */}
-              </li>
-            ))}
-          </ul>
+                </li>
+              ))}
+            </ul>
+          )}
+
           <SelectionsPlayer
             isLightTheme={isLightTheme}
             isPlaying={isPlaying}
@@ -300,16 +286,8 @@ export const Selections = () => {
           />
         </div>
       </div>
-      <img
-        src={endSectionOrnamentDesktop}
-        alt="ornament"
-        className="selections-ornament-desktop"
-      />
-      <img
-        src={endSectionOrnamentMobile}
-        alt="ornament"
-        className="selections-ornament-mobile"
-      />
+      <img src={endSectionOrnamentDesktop} alt="ornament" className="selections-ornament-desktop" />
+      <img src={endSectionOrnamentMobile} alt="ornament" className="selections-ornament-mobile" />
     </div>
   );
 };
