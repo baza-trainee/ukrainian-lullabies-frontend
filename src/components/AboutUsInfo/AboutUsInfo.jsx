@@ -27,34 +27,34 @@ const AboutUsInfo = () => {
   return (
     <motion.section
       initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      variants={animationElement}
-      ref={ref}
-      className='container about-as-info_wrapper margin-bottom'
+      animate={ inView ? "visible" : "hidden" }
+      variants={ animationElement }
+      ref={ ref }
+      className='container wrapper margin-bottom'
     >
       <motion.div custom={1} variants={animationElement} style={{ margin: 0 }} className='kolyskovaWrap'>
         <GeneralTitle />
       </motion.div>
 
       <motion.p
-        custom={1}
-        variants={animationElement}
-        className='text-4xl about-as-info_title title_margin-bottom'
+        custom={ 1 }
+        variants={ animationElement }
+        className='text-4xl title title_margin-bottom'
       >
         {t('aboutUs')}
       </motion.p>
       <motion.div
         initial="hidden"
         whileInView="visible"
-        custom={1}
-        variants={animationElement}
-        className='about-as-info_target'>
-        <div className='about-as-info_img-container'>
+        custom={ 1 }
+        variants={ animationElement }
+        className='target-container'>
+        <div className='img-container target-img'>
           <img src='/img/aboutUs/aboutUs-target.png' alt='mother with baby' />
         </div>
-        <div className='about-as-info_target-info'>
-          <p className='text-2xl about-as-info_title-small'>
-            {t('projectPurpose')}
+        <div className='target-info'>
+          <p className='text-2xl title-small'>
+            { t('projectPurpose') }
           </p>
           <p className='text-base'>
             {t('projectDescription')}
@@ -64,18 +64,18 @@ const AboutUsInfo = () => {
           </p>
         </div>
       </motion.div>
-      <div className='about-as-info_ornament'>
+      <div className='ornament'>
         <img src="/img/aboutUs/Ornaments.svg" alt="ornament" />
       </div>
       <motion.div initial="hidden"
         whileInView="visible"
-        custom={2}
-        variants={animationElement}
-        className='about-as-info_support'
+        custom={ 2 }
+        variants={ animationElement }
+        className='support-container'
       >
-        <div className='about-as-info_support-info'>
-          <p className='text-2xl about-as-info_title-small'>
-            {t('supportUs')}
+        <div className='support-info'>
+          <p className='text-2xl title-small'>
+            { t('supportUs') }
           </p>
           <p className='text-base'>
             {t('supportDescription')}
@@ -89,16 +89,16 @@ const AboutUsInfo = () => {
           <p className='text-base-semibold'>
             {t('donateHere')}
           </p>
-          <div className='about-as-info_donat-imgs'>
-            <div className='about-as-info_donat-bmc about-as-info_donat_margin-right'>
+        </div>
+        <div className='donat-imgs'>
+            <div className='donat-bmc donat_margin-right'>
               <Link href='#' className="buy-me-a-caffee"></Link>
             </div>
-            <div className='about-as-info_donat-patreon'>
+            <div className='donat-patreon'>
               <Link href='#'><Patreon /></Link>
             </div>
-          </div>
         </div>
-        <div className='about-as-info_img-container another-hight'>
+        <div className='img-container support-img'>
           <img src='/img/aboutUs/aboutUs-support.png' alt='mother with baby' />
         </div>
       </motion.div>
