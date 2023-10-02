@@ -1,11 +1,17 @@
-@media screen and (min-width: 360px) and (max-width: 424px) {
-  .container {
+@media screen and (min-width: 360px) and (max-width: 1439px) {
+  .wrapper-form {
     display: block;
   }
 }
-
+@media screen and (min-width: 1440px) {
+  .wrapper-form {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
 .section-form-wrap {
-  grid-column: 1/13;
+  grid-column: 3/11;
 }
 .form-wrap {
   display: grid;
@@ -14,11 +20,14 @@
 
 .text-title-form {
   margin-bottom: 16px;
+}
 
-  @media screen and(min-width:1440px) {
+@media screen and (min-width: 1440px) {
+  .text-title-form {
     margin-bottom: 48px;
   }
 }
+
 .fieldWrap {
   display: grid;
   grid-column: 3/11;
@@ -64,7 +73,13 @@
 }
 
 .fieldWrap__input:not(:last-child) {
-  margin-bottom: 44px;
+  margin-bottom: 16px;
+}
+
+@media screen and (min-width: 1440px) {
+  .fieldWrap__input:not(:last-child) {
+    margin-bottom: 24px;
+  }
 }
 .field-input-error {
   border: 1px solid var(--red-400-error);
@@ -87,10 +102,17 @@
   color: var(--gray-black-200);
   margin-left: 7px;
   margin-top: 4px;
+  text-align: start;
 }
 .text-under-text-area:not(:last-child) {
-  margin-bottom: 48px;
+  margin-bottom: 16px;
 }
+@media screen and (min-width: 1440px) {
+  .text-under-text-area:not(:last-child) {
+    margin-bottom: 48px;
+  }
+}
+
 .button-form {
   display: flex;
   justify-content: center;
@@ -98,7 +120,7 @@
 }
 .error-message {
   position: relative;
-  top: -32px;
+  top: -13px;
   left: 12px;
 
   display: flex;

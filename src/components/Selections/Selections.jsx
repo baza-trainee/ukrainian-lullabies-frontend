@@ -145,7 +145,7 @@ export const Selections = () => {
   // };
 
   return (
-    <div className="selections margin-bottom">
+    <div className="selections margin-bottom" id="selections">
       <ReactPlayer
         width="0px"
         height="0px"
@@ -163,6 +163,7 @@ export const Selections = () => {
         </div>
         <div className="selections-info">
           <div className="selections-info-about">
+
             <h4 className="selections-info-title text-2xl">{t("ukrainianLullabies")}</h4>
             <p className="selections-info-text text-base">{t("lullabySong")}</p>
           </div>
@@ -198,6 +199,7 @@ export const Selections = () => {
                     disabled={currentSong !== item.url}
                   >
                     <BsRepeat style={isLooped && currentSong === item.url && { fill: "var(--red-700)" }} />
+
                   </button>
                   {/* <button
                     className="selections-playlist-item-like-button selection-playlist-button"
@@ -271,6 +273,7 @@ export const Selections = () => {
       </div>
       <img src={endSectionOrnamentDesktop} alt="ornament" className="selections-ornament-desktop" />
       <img src={endSectionOrnamentMobile} alt="ornament" className="selections-ornament-mobile" />
+
     </div>
   );
 };
