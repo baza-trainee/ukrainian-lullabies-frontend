@@ -78,26 +78,26 @@ i18n
           underTextArea:
             "Please enter the text of the message. The maximum number of characters is 600.",
           share: "To share",
-          shareLink: "Share a link to the site",
+          shareLink: "The link has been copied",
           searchUnavailable: "Search is temporarily unavailable",
           chatBot: "Chat-bot",
 
           cookies:
-            "By clicking \"Accept All Cookies\", you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts.",
+            'By clicking "Accept All Cookies", you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts.',
           acceptAllCookies: "Accept All Cookies",
           cookieSettings: "Cookie Settings",
           toTheMain: "To the main page",
           technikalWorsk:
             "We are currently working on improving the functionality of the site. ",
           technikalWorsk2: "We apologize for the temporary inconvenience.",
-          lyrics: 'Lyrics',
-          collection: 'Museum collection',
+          lyrics: "Lyrics",
+          collection: "Museum collection",
         },
       },
       ua: {
         translations: {
-          collection: 'Колекція музею',
-          lyrics: 'Текст',
+          collection: "Колекція музею",
+          lyrics: "Текст",
           chatBot: "Чат-бот",
           toTheMain: "На головну",
           technikalWorsk:
@@ -107,7 +107,7 @@ i18n
           acceptAllCookies: " Прийняти всі cookies",
           cookies:
             "Натискаючи «Прийняти всі файли cookie», ви погоджуєтеся на збереження файлів cookie на вашому пристрої для покращення навігації сайтом, аналізу використання сайту та допомоги в наших маркетингових зусиллях.",
-          shareLink: "Поділитися посиланням на сайт",
+          shareLink: "Посилання скопійоване",
           searchUnavailable: "Пошук тимчасово недоступний",
           share: "Поділитися",
           aboutUs: "Про нас",
@@ -175,7 +175,7 @@ i18n
           enterTextMessage: "Введіть текст повідомлення",
           sendMessage: "Надіслати повідомлення",
           popUpThank: "Дякуємо,",
-          popupText: "Ваше повідомлення відправлене!",
+          popupText: "Ваше повідомлення надіслано!",
           underTextArea:
             "Введіть, будь ласка, текст повідомлення. Максимальна кількість символів 600.",
         },
