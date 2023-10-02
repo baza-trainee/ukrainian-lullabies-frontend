@@ -2,7 +2,7 @@ import React from "react";
 
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import classNames from "classnames";
 import { Link } from "react-scroll";
 import { useInView } from "react-intersection-observer";
@@ -15,8 +15,6 @@ import SIcon from "../../icons/SIcon";
 import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
 import OrnamentMobileHero from "../../icons/OrnamentMobileHero";
-// import tabsSvgMob from "../../assets/images/OrnamentsMapTabs.svg";
-// import tabsSvg from "../../assets/images/ornamentsMapTabsSection.svg";
 
 import ButtonShare from "./Button/ButtonShare";
 
@@ -27,6 +25,8 @@ const Hero = () => {
   const isLightTheme = useSelector(getLightTheme);
   // notofication
   const [isNotification, setIsNotification] = useState(false);
+  // for scroll
+  const selectionsRef = useRef(null);
 
   const notification = () => {
     setIsNotification(true);
@@ -41,6 +41,12 @@ const Hero = () => {
       notification();
     } catch (error) {
       console.error("Не вдалося скопіювати посилання: ", error);
+    }
+  };
+
+  const scrollToSelections = () => {
+    if (selectionsRef.current) {
+      selectionsRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -106,14 +112,11 @@ const Hero = () => {
             })}
           >
             <Link
-              to="player"
-              id="player"
+              to="selections"
               className={classNames("button", "listen-button", {
                 "button-dark": !isLightTheme,
               })}
-              spy={true}
-              smooth={true}
-              duration={500}
+              onClick={scrollToSelections}
             >
               {t("listen")}
             </Link>

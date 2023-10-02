@@ -3,7 +3,7 @@ import "./Footer.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 import { LogoDark, LogoLight } from "../SVGComponents/Logo";
 import { BsFacebook, BsArrowUpShort } from "react-icons/bs";
@@ -45,11 +45,6 @@ export const Footer = () => {
   const [isScrollUpButtonVisible, setIsScrollUpButtonVisible] = useState(false);
   // const navigate = useNavigate();
 
-  // establish scrollToTop
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
-
   // handle logo behaviour
   // const handleLogoClick = () => {
   //   scrollToTop();
@@ -73,67 +68,77 @@ export const Footer = () => {
     };
   }, []);
   const { t } = useTranslation();
-  
+
   return (
     <div className="footer">
       <button
-        className={ classNames("footer-scroll-up-button", {
+        className={classNames("footer-scroll-up-button", {
           "footer-scroll-up-button-invisible": !isScrollUpButtonVisible,
           "footer-scroll-up-button-light": isLightTheme,
-        }) }
-        onClick={ scrollToTop }
+        })}
+        onClick={() => scrollToTarget("#header")}
       >
-        <BsArrowUpShort style={ { width: "32px", height: "32px" } } />
+        <BsArrowUpShort style={{ width: "32px", height: "32px" }} />
       </button>
+
       <div className="footer-wrapper container text-sm">
-        <div className="separation-line"></div>
+        <div className="footer-rights text-base">
+          <p>
+            2023 © ГО “МУЗЕЙ КОЛИСКОВОЇ” веде діяльність, метою якої є збереження та популяризація нематеріальної культурної
+            спадщини України. Надаючи контент, ми не надаємо прав на його використання, окрім ознайомлення, прослуховування та
+            вивчення, не передаємо будь-яких майнових прав власників.
+          </p>
+          <p>
+            Усі права на використані матеріали охороняються у відповідності до чинного законодавства України та діючих міжнародних
+            угод і не можуть бути використані без узгодження з ГО “МУЗЕЙ КОЛИСКОВОЇ”.
+          </p>
+          <p>Детальніше в “Правилах та умовах”.</p>
+        </div>
 
         <div className="footer-logo">
           <Link
             to="/"
-            onClick={ () => {
+            onClick={() => {
               scrollToTarget("#header");
-            } }
+            }}
           >
-            { isLightTheme ? <LogoLight width="92" height="88" /> : <LogoDark width="92" height="88" /> }
+            {isLightTheme ? <LogoLight width="92" height="88" /> : <LogoDark width="92" height="88" />}
           </Link>
         </div>
         <ul className="footer-docs-wrapper">
           <li>
             <Link to="/" className="text-sm-semibold">
-              { t('termsAndConditions') }
+              {t("termsAndConditions")}
             </Link>
           </li>
           <li>
             <Link to="/" className="text-sm-semibold">
-              { t('privacy') }
+              {t("privacy")}
             </Link>
           </li>
           <li>
             <Link to="/" className="text-sm-semibold">
-              { t('poRegulations') }
+              {t("poRegulations")}
             </Link>
           </li>
         </ul>
         <ul className="footer-contacts-wrapper">
           <li>
-            <p className="text-sm-semibold">
-              { t('address') }
-            </p>
-            <p>{ t('UkraineKyiv') }</p>
+            <p className="footer-contacts-list-title text-sm-semibold">{t("address")}</p>
+            <p>{t("UkraineKyiv")}</p>
           </li>
           <li>
-            <p className="text-sm-semibold">{ t('telephone') }</p>
+            <p className="footer-contacts-list-title text-sm-semibold">{t("telephone")}</p>
             <a href="tel:+380979373496">+ 380 979373496</a>
           </li>
           <li>
-            <p className="text-sm-semibold">E-mail:</p>
+            <p className="footer-contacts-list-title text-sm-semibold">E-mail:</p>
             <a href="mailto:museum.kolyskova@gmail.com">museum.kolyskova@gmail.com</a>
           </li>
         </ul>
         <div className="footer-socials-wrapper">
           <div className="footer-socials-socials">
-            <p className="text-sm-semibold">{ t('followUsHere') }:</p>
+            <p className="text-sm-semibold">{t("followUsHere")}:</p>
             <div className="footer-socials-icons">
               <a href="https://www.youtube.com/@Kolyskovamuseum" target="_blank" rel="noopener nofollow noreferrer">
                 <FaYoutube />
@@ -150,18 +155,18 @@ export const Footer = () => {
             </div>
           </div>
           <div className="footer-socials-partners">
-            <p className="text-sm-semibold">{ t('ourPartners') }:</p>
+            <p className="text-sm-semibold">{t("ourPartners")}:</p>
             <div className="footer-partners-icons">
-              { partners.map((partner, index) => (
-                <a href={ partner.url } target="_blank" rel="noopener nofollow noreferrer" key={ index }>
-                  <img src={ isLightTheme ? partner.logoLightTheme : partner.logoDarkTheme } alt={ partner.alt } height="40" />
+              {partners.map((partner, index) => (
+                <a href={partner.url} target="_blank" rel="noopener nofollow noreferrer" key={index}>
+                  <img src={isLightTheme ? partner.logoLightTheme : partner.logoDarkTheme} alt={partner.alt} height="40" />
                 </a>
-              )) }
+              ))}
             </div>
           </div>
         </div>
       </div>
-      <p className="footer-author-rights text-xs-bold">{ t('developedBy') } </p>
+      <p className="footer-author-rights text-xs-bold">{t("developedBy")} </p>
     </div>
   );
 };

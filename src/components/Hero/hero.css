@@ -18,11 +18,12 @@
   display: grid;
   grid-column: 1/13;
   justify-content: center;
-  padding-top: 32px;
+  margin-top: 32px;
+}
 
-  @media screen and (min-width: 1440px) {
-    padding-top: 81px;
-    margin-top: 26px;
+@media screen and (min-width: 1440px) {
+  .kolyskovaWrap {
+    margin-top: 48px;
   }
 }
 
@@ -90,7 +91,7 @@
   margin-left: 8px;
 }
 
-@media (max-width: 1439px) {
+@media screen and (max-width: 1439px) {
   .ornament-mobile-hero {
     display: block;
     justify-content: center;
@@ -98,7 +99,7 @@
     margin-top: 32px;
   }
 }
-@media (min-width: 1440px) {
+@media screen and (min-width: 1440px) {
   .ornament-mobile-hero {
     display: none;
   }

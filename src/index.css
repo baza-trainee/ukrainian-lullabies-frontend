@@ -23,23 +23,13 @@
   --gray-black-300: #b0b0b0;
   --gray-black-200: #d1d1d1;
   --gray-black-100: #e7e7e7;
-  --gray-black-25: linear-gradient(
-    172deg,
-    rgba(255, 246, 246, 0.21) 5.87%,
-    #efeeee 103.54%
-  );
+  --gray-black-25: linear-gradient(172deg, rgba(255, 246, 246, 0.21) 5.87%, #efeeee 103.54%);
   --second-text-color-white-player: #7b7b7b;
   --red-700: #c60f18;
   --red-500: #ff3a37;
   --red-900: #87151a;
   --red-400-error: #ff656c;
 }
-
-/* TEMRORARY!!!!    REMOVE IT!!!!!!! */
-body {
-  overflow-x: hidden;
-}
-/* --------!!!!--------!!!!!!!------ */
 
 /* Reset */
 *,
@@ -87,11 +77,8 @@ a {
   display: grid;
   text-align: center;
   grid-template-columns: 1fr;
-  @media screen and (min-width: 768px) and (max-width: 1439px) {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 32px;
-  }
-@media (min-width: 1440px) {
+
+  @media (min-width: 1440px) {
     grid-template-columns: repeat(12, 1fr);
     gap: 24px;
   }
@@ -191,7 +178,7 @@ a {
   line-height: 9px; /* 112.5% */
 }
 .text-l {
-  font-family: 'Unbounded', sans-serif;
+  font-family: "Unbounded", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
@@ -281,4 +268,33 @@ a {
   @media screen and (min-width: 1440px) {
     font-size: 64px;
   }
+}
+
+body::-webkit-scrollbar {
+  width: 4px;
+  height: 191.538px;
+}
+
+/* Стилізація віджета смуги прокрутки */
+
+body::-webkit-scrollbar-thumb {
+  /* Ширина віджета смуги прокрутки */
+
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+/* Стилізація фону смуги прокрутки */
+body::-webkit-scrollbar-track {
+  background-color: var(--gray-black-800, #454545);
+}
+
+/* Заборона прокручування смуги в горизонтальному напрямку */
+body::-webkit-scrollbar:horizontal {
+  display: none;
+}
+
+/* Заборона прокручування смуги в вертикальному напрямку */
+body::-webkit-scrollbar-vertical {
+  display: block;
 }

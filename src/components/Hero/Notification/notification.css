@@ -1,11 +1,27 @@
 .notification {
+  width: 149px;
+
+  grid-column: 4/6;
   position: relative;
-  bottom: 68px;
-  left: 243%;
+  bottom: 72px;
+
+  left: 15px;
+
   transform: translateX(107%);
+
   padding: 4px 8px;
   border-radius: 10px;
   animation: slide-top 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@media screen and (min-width: 768px) {
+  .notification {
+    width: 200px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .notification {
+    grid-column: 10/8;
+  }
 }
 .notification-dark {
   background-color: var(--gray-black-800);
