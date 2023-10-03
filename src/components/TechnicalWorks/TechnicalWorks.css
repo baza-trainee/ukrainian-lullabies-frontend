@@ -19,17 +19,17 @@
   @media screen and (min-width:1440px) {
     text-align: center;
     grid-column: 1/13;
-    padding-top: 100px;
-    background-position: 0 26px;
+    /* padding-top: 100px; */
+    /* background-position: 0 26px; */
     background-size: contain;
   }
 }
 
-.technikal-container {
-  padding-top: 48px;
+.technikal__container {
+  padding-top: 56px;
 
   @media screen and (min-width:1440px) {
-    padding-top: 56px;
+    padding-top: 110px;
     grid-column: 1/13;
     justify-content: center;
     text-align: center;
@@ -53,6 +53,7 @@
 .technikal__element {
 
   @media screen and (min-width:1440px) {
+    padding-top: 105px;
     grid-column: 1/13;
     justify-content: center;
   }

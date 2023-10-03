@@ -8,9 +8,7 @@
   background-size: 100%;
 
   @media screen and (min-width: 1440px) {
-    .heroWrapper {
-      background-position: center;
-    }
+    background-position: center;
   }
 }
 
@@ -23,7 +21,7 @@
 
 @media screen and (min-width: 1440px) {
   .kolyskovaWrap {
-    margin-top: 48px;
+    margin-top: 55px;
   }
 }
 
@@ -36,12 +34,15 @@
 }
 
 @media (max-width: 1439px) {
+
   .element-left,
   .element-right {
     display: none;
   }
 }
+
 @media (min-width: 1440px) {
+
   .element-left,
   .element-right {
     display: block;
@@ -99,6 +100,7 @@
     margin-top: 32px;
   }
 }
+
 @media screen and (min-width: 1440px) {
   .ornament-mobile-hero {
     display: none;

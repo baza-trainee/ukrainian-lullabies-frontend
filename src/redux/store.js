@@ -3,7 +3,9 @@ import PopularSongsSlice from "./PopularSongs/PopularSongsSlice";
 import themeReducer from "./theme/themeSlice";
 import dataReducer from "./DataSlice";
 import currentSongReducer from "./currentSong/currentSongSlice";
-
+import selectionSongsReducer from "./SelectionSongs/selectionSongsSlice";
+import contactsSlice from "./Contacts/contactsSlice";
+import partnersSlice from "./Partners/partnersSlice";
 
 const store = configureStore({
   reducer: {
@@ -11,6 +13,9 @@ const store = configureStore({
     popularSongs: PopularSongsSlice,
     data: dataReducer,
     currentSong: currentSongReducer,
+    selectionSongs: selectionSongsReducer,
+    contacts: contactsSlice,
+    partners: partnersSlice,
   },
 });
 

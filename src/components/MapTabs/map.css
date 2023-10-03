@@ -1,5 +1,4 @@
 .tabs {
-  display: grid;
   grid-column: 1/3;
   text-align: left;
 
@@ -56,6 +55,7 @@
     border: none;
     border-bottom: 2px solid var(--red-700, #C60F18);
     background-color: transparent;
+    outline: none;
 
     @media screen and (min-width: 1440px) {
       padding: 24px 8px;

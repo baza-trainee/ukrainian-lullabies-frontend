@@ -162,6 +162,10 @@
   content: "Поділитись";
 }
 
+.selections-player-share-clicked::after {
+  content: "Посилання скопійовано";
+}
+
 .selections-player-shuffle-button:after {
   content: "Перемішати";
 }

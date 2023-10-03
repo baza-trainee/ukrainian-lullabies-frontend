@@ -47,7 +47,7 @@ export const TechnicalWorks = () => {
     >
       <div className="technical_content">
         <div className="technikal__border ">
-          <div className="technikal__element container">
+          <div className="technikal__container container">
             <GeneralTitle />
           </div>
         </div>

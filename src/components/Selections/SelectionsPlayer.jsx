@@ -2,9 +2,10 @@
 import React from "react";
 import "./SelectionsPlayer.css";
 import classNames from "classnames";
-import { FiShare2, FiShuffle, FiRefreshCw } from "react-icons/fi";
+import { FiShare2, FiShuffle, FiRefreshCw, FiCheck } from "react-icons/fi";
 import { BsFillSkipEndFill, BsFillSkipStartFill, BsPlayFill, BsPauseFill } from "react-icons/bs";
 import { HiVolumeUp, HiVolumeOff } from "react-icons/hi";
+import { useState } from "react";
 
 export const SelectionsPlayer = ({
   isLightTheme,
@@ -16,11 +17,16 @@ export const SelectionsPlayer = ({
   setCurrentSongIndex,
   handleLoop,
   isLooped,
+  isPlaylistLooped,
+  setIsPlaylistLooped,
+  handleLoopPlaylist,
   volume,
   setVolume,
   previousVolume,
   setPreviousVolume,
 }) => {
+  const [shareClicked, setShareClicked] = useState(false);
+
   const playStopToggle = () => {
     setIsPlaying(!isPlaying);
   };
@@ -53,6 +59,16 @@ export const SelectionsPlayer = ({
     }
   };
 
+  const handleShare = async () => {
+    if (!shareClicked) {
+      const urlToCopy = "https://ukrainian-lullabies-frontend-git-dev-baza-trainee.vercel.app/#/map";
+      await navigator.clipboard.writeText(urlToCopy);
+      setShareClicked(true);
+    }
+
+    setTimeout(() => setShareClicked(false), 2000);
+  };
+
   return (
     <div className="selections-player">
       <div
@@ -62,9 +78,13 @@ export const SelectionsPlayer = ({
       >
         <div className="selections-player-secondary-buttons-left">
           <button
-            className={classNames("selections-player-share-button", { "selections-player-share-button-light": isLightTheme })}
+            className={classNames("selections-player-share-button", {
+              "selections-player-share-button-light": isLightTheme,
+              "selections-player-share-clicked": shareClicked,
+            })}
+            onClick={handleShare}
           >
-            <FiShare2 />
+            {shareClicked ? <FiCheck /> : <FiShare2 />}
           </button>
           <button
             className={classNames("selections-player-shuffle-button", { "selections-player-shuffle-button-light": isLightTheme })}
@@ -101,9 +121,9 @@ export const SelectionsPlayer = ({
         <div className="selections-player-secondary-buttons-right">
           <button
             className={classNames("selections-player-refresh-button", { "selections-player-refresh-button-light": isLightTheme })}
-            onClick={handleLoop}
+            onClick={handleLoopPlaylist}
           >
-            <FiRefreshCw style={isLooped && { color: "var(--red-700)" }} />
+            <FiRefreshCw style={isPlaylistLooped && { color: "var(--red-700)" }} />
           </button>
           <div className="selections-player-volume-wrapper">
             <button className="selections-player-volume-button">

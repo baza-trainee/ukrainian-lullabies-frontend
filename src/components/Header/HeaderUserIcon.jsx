@@ -44,12 +44,13 @@ export const HeaderUserIcon = ({ isLightTheme }) => {
 };
 
 export const HeaderResponsiveUserLink = ({ isLightTheme }) => {
+  const { t, i18n } = useTranslation();
   return (
     <>
       <Popup
         trigger={
           <div className="header-responsive-user-link">
-            <span>Особистий кабінет</span>
+            <span>{t("personalCabinet")}</span>
             <div className={classNames("header-responsive-user-icon", { "header-responsive-user-icon-light": isLightTheme })}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
