@@ -13,10 +13,6 @@
   grid-column: 1/13;
   justify-content: center;
   box-sizing: border-box;
-  /* padding-top: 56px; */
-  /* @media screen and (min-width: 1440px) {
-    padding-top: 105px;
-  } */
 }
 
 .kolyIcon {
