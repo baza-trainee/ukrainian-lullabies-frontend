@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
+import { useTranslation } from "react-i18next";
+
 import "./HeaderResponsiveSidebar.css";
 
 // import components
@@ -20,6 +22,8 @@ import { FaTiktok, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FiX } from "react-icons/fi";
 
 export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentLanguage, scrollToTarget }) => {
+  const { t, i18n } = useTranslation();
+
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const body = document.body;
 
@@ -62,7 +66,7 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
   // responsive search bar
   const responsiveSearchBarRef = useRef();
   return (
-    <>
+    <div className="header-responsive-sidebar text-2xl">
       <button className="header-burgerIcon" onClick={handleBurgerClick}>
         <svg width="30" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -126,8 +130,8 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
         </Link>
         <ul className="header-responsive-options">
           <li>
-            <Link to="/about" onClick={handleBurgerClick} className="header-responsive-about">
-              Про нас
+            <Link to="/about" onClick={handleBurgerClick} className="header-responsive-about text-4xl">
+              {t("aboutUs")}
             </Link>
           </li>
           <li>
@@ -137,7 +141,7 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
               })}
               onClick={responsiveDropdownMenuClick}
             >
-              <span>Музей колискової</span>
+              <span>{t("lullabiesMuseum")}</span>
               <IoIosArrowDown style={{ width: "24px", height: "24px" }} />
             </div>
             <div
@@ -153,7 +157,7 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
                   handleBurgerClick();
                 }}
               >
-                Традиційні колискові
+                {t("traditionalLullabies")}
               </Link>
               <Link
                 to="/songs"
@@ -162,7 +166,7 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
                   handleBurgerClick();
                 }}
               >
-                Співаємо разом
+                {t("singingTogether")}
               </Link>
               <Link
                 to="/anima"
@@ -171,7 +175,7 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
                   handleBurgerClick();
                 }}
               >
-                Колискові в анімаціях
+                {t("animatedLullabies")}
               </Link>
             </div>
           </li>
@@ -218,7 +222,7 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
               className={classNames("header-responsive-search-bar", { "header-responsive-search-bar-light": isLightTheme })}
               ref={responsiveSearchBarRef}
             >
-              <input type="text" placeholder="Пошук тимчасово недоступний" className="text-2xl-mobile" id="headerSearchInput" />
+              <input type="text" placeholder={t("searchUnavailable")} className="text-2xl-mobile" id="headerSearchInput" />
               <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M4 22L8.35 17.65M6 12C6 16.4183 9.58172 20 14 20C18.4183 20 22 16.4183 22 12C22 7.58172 18.4183 4 14 4C9.58172 4 6 7.58172 6 12Z"
@@ -233,7 +237,7 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
           </li>
         </ul>
         <div className="header-responsive-support">
-          <span>Допомогти розвитку проєкту:</span>
+          <span>{t("helpWith")}</span>
           <div className="header-responsive-support-icons">
             <a href="#" target="_blank" rel="noopener nofollow noreferrer">
               <img src={!isLightTheme ? patreonLogoWhite : patreonLogoBlack} alt="patreon" />
@@ -244,7 +248,7 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
           </div>
         </div>
         <div className="header-responsive-follow">
-          <p>Слідкуй за нами тут:</p>
+          <p>{t("followUsHere")}</p>
           <div className="header-responsive-follow-icons">
             <a href="https://www.youtube.com/@Kolyskovamuseum" target="_blank" rel="noopener nofollow noreferrer">
               <FaYoutube style={{ width: "34px", height: "24px" }} />
@@ -261,6 +265,6 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
