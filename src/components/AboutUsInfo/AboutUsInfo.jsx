@@ -30,7 +30,7 @@ const AboutUsInfo = () => {
       animate={inView ? "visible" : "hidden"}
       variants={animationElement}
       ref={ref}
-      className=' wrapper margin-bottom'
+      className='container wrapper margin-bottom'
     >
       <motion.div custom={1} variants={animationElement} className='technikal__container container'>
         <GeneralTitle />
