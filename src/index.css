@@ -98,13 +98,15 @@ a {
   font-size: 8px;
   font-style: normal;
   font-weight: 700;
-  line-height: 14px; /* 175% */
+  line-height: 14px;
+  /* 175% */
 
   @media screen and (min-width: 1440px) {
     font-size: 10px;
     font-style: normal;
     font-weight: 700;
-    line-height: 14px; /* 140% */
+    line-height: 14px;
+    /* 140% */
   }
 }
 
@@ -142,7 +144,8 @@ a {
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 24px; /* 171.429% */
+  line-height: 24px;
+  /* 171.429% */
 
   @media screen and (min-width: 1440px) {
     font-size: 16px;
@@ -175,8 +178,10 @@ a {
   font-size: 8px;
   font-style: normal;
   font-weight: 600;
-  line-height: 9px; /* 112.5% */
+  line-height: 9px;
+  /* 112.5% */
 }
+
 .text-l {
   font-family: "Unbounded", sans-serif;
   font-size: 20px;
@@ -184,6 +189,7 @@ a {
   font-weight: 600;
   line-height: normal;
 }
+
 /* Heading */
 .text-xl-medium {
   font-size: 20px;
@@ -229,7 +235,8 @@ a {
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
+  /* 150% */
 
   @media screen and (min-width: 1440px) {
     font-size: 20px;

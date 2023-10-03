@@ -8,9 +8,7 @@
   background-size: 100%;
 
   @media screen and (min-width: 1440px) {
-    .heroWrapper {
-      background-position: center;
-    }
+    background-position: center;
   }
 }
 
