@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setCurrentLyrics, setCurrentName, setCurrentUrl } from "../../redux/currentSong/currentSongSlice";
 import "./Player.css";
@@ -15,8 +15,10 @@ export const Player = ({
   playlist,
   currentSongIndex,
   setCurrentSongIndex,
-  handleLoop,
-  isLooped,
+  isLoopedPlaylist,
+  setIsLoopedPlaylist,
+  isRandom,
+  setIsRandom,
   volume,
   setVolume,
 }) => {
@@ -43,6 +45,22 @@ export const Player = ({
     dispatch(setCurrentName(playlist[previousSongIndex].name));
   };
 
+  const handleRandomPlay = () => {
+    const min = 0;
+    const max = playlist.length - 1;
+
+    let newIndex;
+    do
+    {
+      newIndex = Math.floor(Math.random() * (max - min + 1)) + min;
+    } while (newIndex === currentSongIndex);
+
+    dispatch(setCurrentUrl(playlist[newIndex].url));
+    dispatch(setCurrentLyrics(playlist[newIndex].lyrics));
+    dispatch(setCurrentName(playlist[newIndex].name));
+    setCurrentSongIndex(newIndex);
+  };
+
   const handleVolumeChange = (event) => {
     const newVolume = parseFloat(event.target.value);
     setVolume(newVolume);
@@ -51,7 +69,12 @@ export const Player = ({
   const handleMute = () => {
     setVolume(0);
   };
-
+  const handleUnMute = () => {
+    setVolume(1);
+  };
+  const hendleRandom = () => {
+    setIsRandom(!isRandom)
+  }
   return (
     <div className="map-player">
       <div
@@ -61,14 +84,14 @@ export const Player = ({
       >
         <div className="map-player-secondary-buttons-left">
           <FiShare2 className="map-player-share-button" />
-          <FiShuffle className="map-player-shuffle-button" />
+          <FiShuffle className="map-player-shuffle-button" style={ isRandom && { color: "var(--red-700)" } } onClick={ hendleRandom } />
         </div>
         <div className="map-player-primary-buttons-group">
           <button
             className={ classNames("map-player-previous-button", {
               "map-player-previous-button-light": isLightTheme,
             }) }
-            onClick={ handlePreviousSong }
+            onClick={ () => { isRandom ? handleRandomPlay() : handlePreviousSong() } }
           >
             <BsFillSkipStartFill />
           </button>
@@ -84,7 +107,7 @@ export const Player = ({
             className={ classNames("map-player-next-button", {
               "map-player-next-button-light": isLightTheme,
             }) }
-            onClick={ handleNextSong }
+            onClick={ () => { isRandom ? handleRandomPlay() : handleNextSong() } }
           >
             <BsFillSkipEndFill />
           </button>
@@ -92,14 +115,14 @@ export const Player = ({
         <div className="map-player-secondary-buttons-right">
           <FiRefreshCw
             className="map-player-refresh-button"
-            onClick={ handleLoop }
-            style={ isLooped && { color: "var(--red-700)" } }
+            onClick={ () => setIsLoopedPlaylist(!isLoopedPlaylist) }
+            style={ isLoopedPlaylist && { color: "var(--red-700)" } }
           />
           <div className="map-player-volume-wrapper">
             { volume > 0 ? (
               <HiVolumeUp className="map-player-volume-button" onClick={ handleMute } />
             ) : (
-              <HiVolumeOff className="map-player-volume-button" onClick={ handleMute } />
+              <HiVolumeOff className="map-player-volume-button" onClick={ handleUnMute } />
             ) }
             <input
               type="range"
