@@ -49,6 +49,7 @@
   padding: 16px 0;
   text-decoration: none;
   gap: 10;
+  outline: transparent;
 
   &.active {
     gap: 10;
