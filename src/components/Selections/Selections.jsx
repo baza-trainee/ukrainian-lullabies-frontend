@@ -77,6 +77,7 @@ export const Selections = () => {
   // player variables
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLooped, setIsLooped] = useState(false);
+  const [isPlaylistLooped, setIsPlaylistLooped] = useState(false);
   const [volume, setVolume] = useState(0.5);
   const [previousVolume, setPreviousVolume] = useState(0);
   const [playlist, setPlaylist] = useState(songsData);
@@ -106,6 +107,16 @@ export const Selections = () => {
 
   const handleLoop = () => {
     setIsLooped(!isLooped);
+  };
+
+  const handleLoopPlaylist = () => {
+    setIsPlaylistLooped(!isPlaylistLooped);
+  };
+
+  const handleNextSong = () => {        // its own function, we have similar in SelectionsPlayer
+    const nextSongIndex = (currentSongIndex + 1) % playlist.length;
+    setCurrentSong(playlist[nextSongIndex].url);
+    setCurrentSongIndex(nextSongIndex);
   };
 
   // dropdown menu item group for mobile
@@ -164,7 +175,7 @@ export const Selections = () => {
         ref={reactPlayerRef}
         url={currentSong}
         playing={isPlaying}
-        onEnded={() => setIsPlaying(false)}
+        onEnded={() => (isPlaylistLooped ? handleNextSong() : setIsPlaying(false))}
         loop={isLooped}
         volume={volume}
       />
@@ -279,6 +290,9 @@ export const Selections = () => {
             setCurrentSongIndex={setCurrentSongIndex}
             handleLoop={handleLoop}
             isLooped={isLooped}
+            isPlaylistLooped={isPlaylistLooped}
+            setIsPlaylistLooped={setIsPlaylistLooped}
+            handleLoopPlaylist={handleLoopPlaylist}
             volume={volume}
             setVolume={setVolume}
             previousVolume={previousVolume}
