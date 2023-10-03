@@ -66,7 +66,7 @@
 }
 
 .chat_image_dark {
-  cursor: pointer;
+  /* cursor: pointer; */
   background: url("../../img/motanka/motanka-black.png");
   width: inherit;
   height: inherit;
