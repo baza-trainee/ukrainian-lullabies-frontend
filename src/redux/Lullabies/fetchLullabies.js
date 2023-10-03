@@ -33,6 +33,13 @@ const songsData = [
     lyrics: 'Котику сіренький текст',
     duration: '00:59',
   },
+   {
+    id: 4,
+    url: "https://soundbible.com/mp3/Radio%20Tune-SoundBible.com-1525681700.mp3",
+    name: "Radio tune",
+    watches: 2000,
+    duration: "0:05",
+  },
 ];
 
 export const fetchData = () => async (dispatch) => {
