@@ -1,15 +1,17 @@
 .lullabies-animation {
     height: 200px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 32px;
     margin-bottom: 32px;
-
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 768px) {
+     
+    } @media screen and (min-width: 1440px) {
         margin-top: 48px;
         margin-bottom: 48px;
-        height: 600px;
+        height: 600px;flex-direction: row;
     }
 }
 
@@ -19,10 +21,16 @@
 }
 
 .player-container{
-  grid-column: 1/9;
-  display: flex;
+   display: flex;
   flex-direction: column;
-}
+  grid-column: 1;
+ @media screen and (min-width: 768px) {
+
+ }
+    @media screen and (min-width: 1440px) {
+       grid-column: 1/9;}
+ }
+ 
 .wrap{
   grid-column: 9/13;
     display: flex;
@@ -36,7 +44,17 @@
 .skroll-disabled {
   overflow: hidden; 
 }
+.video-player{
+ width: 296px;
+ @media screen and (min-width: 768px) {
+ width: 672px;
+ }
+    @media screen and (min-width: 1440px) {
+      width: 700px;
+      height: 487px;
+    }
 
+}
 .info{
   text-align: left;
   margin-top: 30px;

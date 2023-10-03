@@ -23,7 +23,9 @@ export const MapPlaylist = () => {
     dispatch(setCurrentLyrics(lyrics));
     dispatch(setCurrentName(name));
   };
+
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
+
   useEffect(() => {
     const buttonMap = document.getElementById("map-tab");
     if (buttonMap)

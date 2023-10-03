@@ -72,8 +72,7 @@ export const LullabiesInAnimation = () => {
           className="video-player"
           url={ playlist[currentVideoIndex].url }
           controls={ true }
-          width={ 700 }
-          height={ 488 }
+
           onEnded={ () => {
             if (currentVideoIndex < playlist.length - 1)
             {
