@@ -65,7 +65,7 @@ const AboutUsInfo = () => {
         </div>
       </motion.div>
       <div className='ornament'>
-        <img src="/img/aboutUs/Ornaments.svg" alt="ornament" />
+        {/* <img src="/img/aboutUs/Ornaments.svg" alt="ornament" /> */}
       </div>
       <motion.div initial="hidden"
         whileInView="visible"
