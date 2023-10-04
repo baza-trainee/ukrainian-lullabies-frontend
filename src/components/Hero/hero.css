@@ -45,6 +45,35 @@
   }
 }
 
+.kolyskovaBlok {
+  display: grid;
+  grid-column: 1/13;
+  justify-content: center;
+}
+
+.kolyIcon {
+  grid-column: 3/6;
+  margin-right: 8px;
+  margin-top: -24px;
+}
+.letterS {
+  grid-column: 6/8;
+}
+
+.kovaIcon {
+  grid-column: 8/11;
+  margin-left: 7px;
+  margin-top: -24px;
+}
+.oundIconWrap {
+  grid-column: 7/11;
+  margin-top: -58px;
+  margin-right: -45px;
+  @media screen and (min-width: 1440px) {
+    margin-top: -89px;
+    margin-right: -115px;
+  }
+}
 .fill-for-dark {
   fill: var(--white-0);
 }
@@ -100,7 +129,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   gap: 24px;
 
   font-size: 16px;
@@ -114,9 +142,12 @@
   display: -ms-flexbox;
   display: flex;
     flex-direction: inherit;
+
     justify-content: center;
     align-items: center;
   }
+  /* @media screen and (min-width: 1440px) {
+  } */
 }
 
 .listen-button {
