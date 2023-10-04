@@ -49,6 +49,15 @@
   display: grid;
   grid-column: 1/13;
   justify-content: center;
+  margin-bottom: 24px;
+
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    margin-bottom: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 48px;
+  }
 }
 
 .kolyIcon {
@@ -58,6 +67,11 @@
 }
 .letterS {
   grid-column: 6/8;
+  margin-top: -20px;
+
+  @media screen and (min-width: 1440px) {
+    margin-top: -40px;
+  }
 }
 
 .kovaIcon {
@@ -67,8 +81,10 @@
 }
 .oundIconWrap {
   grid-column: 7/11;
-  margin-top: -58px;
-  margin-right: -45px;
+
+  margin-top: -42px;
+  margin-right: -48px;
+
   @media screen and (min-width: 1440px) {
     margin-top: -89px;
     margin-right: -115px;
