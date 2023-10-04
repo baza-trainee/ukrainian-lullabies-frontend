@@ -87,6 +87,7 @@
   border-radius: 45px;
   width: 98%;
   position: relative;
+  cursor: pointer;
 
   @media screen and (min-width: 1440px) {
     grid-template-columns: 50px 330px 150px;
@@ -107,6 +108,15 @@
   background-color: var(--gray-black-200);
 }
 
+.selections-playlist-list-item-active {
+  background: var(--gray-black-850);
+}
+
+.selections-playlist-list-item-active-light {
+  background: var(--gray-black-200);
+}
+
+/*  playlist buttons styles */
 .selection-playlist-button {
   display: flex;
   justify-content: center;
@@ -241,10 +251,9 @@
 }
 
 /* popup effects on hover */
-.selections-playlist-item-repeat-button:hover:after {
+/* .selections-playlist-item-repeat-button:hover:after {
   display: block;
 }
-
 .selections-playlist-item-repeat-button:after {
   content: "Повторити";
   display: none;
@@ -257,11 +266,10 @@
   right: 0px;
   z-index: 10;
 }
-
 .selections-playlist-item-repeat-button-light:after {
   background: var(--gray-black-100);
   color: var(--red-700);
-}
+} */
 
 /* scrollbar */
 

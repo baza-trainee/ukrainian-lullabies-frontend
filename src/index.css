@@ -17,6 +17,7 @@
   --gray0: #fafafa;
   --white-0: #fff;
   --gray-black-950: #000;
+  --gray-black-850: rgba(255, 255, 255, 0.15);
   --gray-black-800: #454545;
   --gray-black-600: #5d5d5d;
   --gray-black-400: #7b7b7b;
@@ -80,7 +81,7 @@ a {
 
   @media (min-width: 1440px) {
     grid-template-columns: repeat(12, 1fr);
-    gap: 24px;
+    column-gap: 24px;
   }
 }
 
