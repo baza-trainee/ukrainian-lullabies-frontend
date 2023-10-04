@@ -1,0 +1,45 @@
+.achievements-support-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-column: 1/1;
+  justify-content: start;
+  align-items: center;
+  margin-top: 32px;
+  padding: 0 16px;
+  @media screen and (min-width: 1440px) {
+    grid-column: 1/13;
+    margin-top: 56px; /*(80-24gap)*/
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+  }
+}
+
+.donats {
+  margin-top: 16px;
+  text-align: start;
+
+  @media screen and (min-width: 1440px) {
+    margin-left: 16px;
+  }
+}
+
+.achievements-ornament {
+  display: grid;
+  grid-column: 1/1;
+  justify-self: center;
+  width: 328px;
+  height: 27px;
+  margin: 32px 0px;
+  background: url("../../../img/ornament/Ornaments-mobile.svg");
+  overflow: hidden;
+  background-repeat: no-repeat;
+
+  @media screen and (min-width: 1440px) {
+    grid-column: 1/13;
+    margin: 56px 0px 56px 0px; /*(80-24gap)*/
+    background: url("../../../img/ornament/Ornaments.svg");
+    width: 1160px;
+    height: 46px;
+  }
+}

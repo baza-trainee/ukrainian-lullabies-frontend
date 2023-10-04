@@ -2,9 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useTranslation } from "react-i18next";
-import { CoffeeLogo } from "./CoffeeLogo/CoffeeLogo";
-import { PatreonLogo } from "./PatreonLogo/PatreonLogo";
-import { Link } from "react-router-dom";
 import "./OurAchivements.css";
 
 export const OurAchivements = () => {
@@ -71,20 +68,6 @@ export const OurAchivements = () => {
           <div className="text-3xl">{t("performers")}</div>
         </motion.div>
       </motion.div>
-      <div className="achievements-support-container">
-        <p className="text-2xl">{t("helpWith")}</p>
-        <div className="donats">
-          <Link href="#">
-            <CoffeeLogo />
-          </Link>
-          <Link href="#">
-            <PatreonLogo />
-          </Link>
-        </div>
-      </div>
-      <div className="achievements-ornament">
-        <img src="/img/aboutUs/Ornaments.svg" alt="ornament" />
-      </div>
     </motion.section>
   );
 };
