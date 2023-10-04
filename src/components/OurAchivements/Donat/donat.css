@@ -24,22 +24,4 @@
   }
 }
 
-.achievements-ornament {
-  display: grid;
-  grid-column: 1/1;
-  justify-self: center;
-  width: 328px;
-  height: 27px;
-  margin: 32px 0px;
-  background: url("../../../img/ornament/Ornaments-mobile.svg");
-  overflow: hidden;
-  background-repeat: no-repeat;
-
-  @media screen and (min-width: 1440px) {
-    grid-column: 1/13;
-    margin: 56px 0px 56px 0px; /*(80-24gap)*/
-    background: url("../../../img/ornament/Ornaments.svg");
-    width: 1160px;
-    height: 46px;
-  }
-}
+ 
