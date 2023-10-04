@@ -6,11 +6,11 @@ import { useTranslation } from "react-i18next";
 import "./donat.css";
 
 export const Donat = () => {
-    const { t } = useTranslation();
-return (
+  const { t } = useTranslation();
+  return (
     <>
-        <div className="achievements-support-container">
-        <p className="text-2xl">{t("helpWith")}</p>
+      <div className="achievements-support-container">
+        <p className="text-2xl">{ t("helpWith") }</p>
         <div className="donats">
           <Link href="#">
             <CoffeeLogo />
@@ -20,8 +20,7 @@ return (
           </Link>
         </div>
       </div>
-      <div className="achievements-ornament">
-      </div>
+    </div >
     </>
 )
 }
