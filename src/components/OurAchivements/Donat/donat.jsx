@@ -20,7 +20,6 @@ export const Donat = () => {
           </Link>
         </div>
       </div>
-    </div >
     </>
-)
+  )
 }
