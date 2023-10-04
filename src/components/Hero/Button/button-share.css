@@ -11,6 +11,7 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
+  position: relative;
 
   @media screen and (min-width: 1440px) {
     width: 250px;
