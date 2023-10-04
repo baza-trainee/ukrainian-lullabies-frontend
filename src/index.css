@@ -17,6 +17,7 @@
   --gray0: #fafafa;
   --white-0: #fff;
   --gray-black-950: #000;
+  --gray-black-850: rgba(255, 255, 255, 0.15);
   --gray-black-800: #454545;
   --gray-black-600: #5d5d5d;
   --gray-black-400: #7b7b7b;
@@ -225,16 +226,21 @@ a {
 }
 
 .text-3xl {
+  font-family: "Unbounded", sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
   /* font-family: "Unbounded";
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
   line-height: 16px; */
-  font-family: "Unbounded", sans-serif;
+  /* font-family: "Unbounded", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 24px;
+  line-height: 24px; */
   /* 150% */
 
   @media screen and (min-width: 1440px) {
@@ -264,15 +270,16 @@ a {
 
 .text-5xl {
   font-family: "Lutsk-sity";
-  font-size: 28px;
+  font-size: 36px;
   font-style: normal;
   font-weight: 400;
-  line-height: 80px;
+  line-height: 45px;
   /* 125% */
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 
   @media screen and (min-width: 1440px) {
     font-size: 64px;
+  line-height: 80px;
   }
 }
 

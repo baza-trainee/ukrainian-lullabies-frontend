@@ -1,0 +1,27 @@
+.achievements-support-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-column: 1/1;
+  justify-content: start;
+  align-items: center;
+  margin-top: 32px;
+  padding: 0 16px;
+  @media screen and (min-width: 1440px) {
+    grid-column: 1/13;
+    margin-top: 56px; /*(80-24gap)*/
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+  }
+}
+
+.donats {
+  margin-top: 16px;
+  text-align: start;
+
+  @media screen and (min-width: 1440px) {
+    margin-left: 16px;
+  }
+}
+
+ 
