@@ -3,7 +3,10 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useTranslation } from 'react-i18next';
 
-import { Song } from './Song/Song';
+import popularSvgMob from "../../assets/images/OrnamentsMapTabs.svg";
+import popularSvg from "../../assets/images/ornamentsMapTabsSection.svg";
+import playButton from "../../assets/images/play-popular.png";
+
 import favoriteSongFirst from '../../assets/images/favorite-song-1.png';
 import favoriteSongSecond from '../../assets/images/favorite-song-2.png';
 import favoriteSongThird from '../../assets/images/favorite-song-3.png';
@@ -12,13 +15,36 @@ import './PopularSongs.css';
 export function PopularSongs() {
   const { t } = useTranslation();
 
-  const [isPlayingList, setIsPlayingList] = useState([true, true, true]);
+  const [images, setImages] = useState([
+    favoriteSongFirst,
+    favoriteSongSecond,
+    favoriteSongThird
+  ]);
 
-  const handleSongClick = (index) => {
-    const updatedPlayingList = Array(3).fill(true);
-    updatedPlayingList[index] = !isPlayingList[index];
-    setIsPlayingList(updatedPlayingList);
+  const [title, setTitle] = useState([
+    `“Сонце сідає”`,
+    `“Ой, ходить сон коло вікон”`,
+    `“Повішу я колисочку”`
+  ])
+
+  const handleLeftClick = () => {
+    const [left, center, right] = images;
+    const [leftTitle, centerTitle, rightTitle] = title;
+    setImages([center, left, right]);
+    setTitle([centerTitle, leftTitle, rightTitle]);
   };
+
+  const nandleCenterClick = () => {
+    console.log("centerrrr");
+  }
+
+  const handleRightClick = () => {
+    const [left, center, right] = images;
+    const [leftTitle, centerTitle, rightTitle] = title;
+    setImages([left, right, center]);
+    setTitle([leftTitle, rightTitle, centerTitle]);
+  };
+
 
   const animationElement = {
     hidden: {
@@ -39,26 +65,85 @@ export function PopularSongs() {
   return (
     <motion.section
       initial="hidden"
-      animate={ inView ? "visible" : "hidden" }
-      variants={ animationElement }
-      ref={ ref }
-      className="PopularSongs margin-bottom">
+      animate={inView ? "visible" : "hidden"}
+      variants={animationElement}
+      ref={ref}
+      className="popular-songs-section margin-bottom">
       <motion.h2
-        custom={ 1 }
-        variants={ animationElement }
-        className="PopularSongsTitle">
-        { t('popularLullabies') }
+        custom={1}
+        variants={animationElement}
+        className="text-4xl title-h">
+        {t('popularLullabies')}
       </motion.h2>
       <motion.div
-        custom={ 2 }
-        variants={ animationElement }
-        className="PopularSongsList"
+        custom={2}
+        variants={animationElement}
       >
-        <Song isPlaying={ isPlayingList[0] } onClick={ () => handleSongClick(0) } backgroundUrl={ favoriteSongFirst } songName={ "“Сонце сідає”" } />
-        <Song isPlaying={ isPlayingList[1] } onClick={ () => handleSongClick(1) } height={ "304px" } backgroundUrl={ favoriteSongSecond } width={ "264px" } songName={ "“Ой, ходить сон коло вікон”" } />
-        <Song isPlaying={ isPlayingList[2] } onClick={ () => handleSongClick(2) } backgroundUrl={ favoriteSongThird } songName={ "“Повішу я колисочку”" } />
+        <div className="carousel-container desktop">
+          <div className='small-div'>
+            <div className='title-container small-div'>
+              <h3 className='title-popular'>{title[0]}</h3>
+            </div>
+            <div className="small-image-container">
+              <img onClick={() => handleLeftClick()} className='play-icon' src={playButton} alt="Play" />
+              <img className='img-popular' src={images[0]} alt="Left" />
+            </div>
+          </div>
+          <div className='large-div'>
+            <div className='title-container large-div'>
+              <h3 className='title-popular'>{title[1]}</h3>
+            </div>
+            <div className="large-image-container">
+              <img onClick={nandleCenterClick} className='play-icon' src={playButton} alt="Play" />
+              <img className='img-popular' src={images[1]} alt="Center" />
+            </div>
+          </div>
+          <div className='small-div'>
+            <div className='title-container small-div'>
+              <h3 className='title-popular'>{title[2]}</h3>
+            </div>
+            <div className="small-image-container">
+              <img onClick={() => handleRightClick()} className='play-icon' src={playButton} alt="Play" />
+              <img className='img-popular' src={images[2]} alt="Right" />
+            </div>
+          </div>
+        </div>
+        <div className="carousel-container mobile">
+          <div>
+            <div className='title-container large-div'>
+              <h3 className='title-popular'>{title[1]}</h3>
+            </div>
+            <div className="large-image-container">
+              <img onClick={nandleCenterClick} className='play-icon' src={playButton} alt="Play" />
+              <img className='img-popular' src={images[1]} alt="Center" />
+            </div>
+          </div>
+          <div className='mobile-div'>
+            <div className='margin-right-popular'>
+              <div className='title-container small-div'>
+                <h3 className='title-popular'>{title[0]}</h3>
+              </div>
+              <div className="small-image-container">
+                <img onClick={() => handleLeftClick()} className='play-icon' src={playButton} alt="Play" />
+                <img className='img-popular' src={images[0]} alt="Left" />
+              </div>
+            </div>
+            <div >
+              <div className='title-container small-div'>
+                <h3 className='title-popular'>{title[2]}</h3>
+              </div>
+              <div className="small-image-container">
+                <img onClick={() => handleRightClick()} className='play-icon' src={playButton} alt="Play" />
+                <img className='img-popular' src={images[2]} alt="Right" />
+              </div>
+            </div>
+          </div>
+        </div>
       </motion.div>
-      <div className="currentSong"></div>
+      <motion.div custom={4} variants={animationElement} className="info-tech-div">
+        <motion.img className="mobile-icon" custom={4} src={popularSvgMob} alt="popularSvgMob" />
+        <motion.img className="mobile-desktop" custom={4} src={popularSvg} alt="popularSvg" />
+      </motion.div>
     </motion.section>
   );
 }
