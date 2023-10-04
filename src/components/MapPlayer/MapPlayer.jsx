@@ -71,6 +71,7 @@ export const MapPlayer = () => {
   console.log(isRandom);
   console.log(currentSongIndex);
 
+
   const handleAutoPlayNext = () => {
     const index = data.findIndex((song) => song.url === currentUrl);
     const min = 0;
@@ -106,7 +107,7 @@ export const MapPlayer = () => {
     setCurrentSongIndex(index);
     dispatch(setCurrentName(name));
 
-
+    localStorage.setItem('currentSong', JSON.stringify({ url, index, lyrics, name }));
   };
 
   useEffect(() => {
@@ -190,7 +191,7 @@ export const MapPlayer = () => {
                     </button>
                   </div>
 
-                  <span className="selections-playlist-item-name">{ name }</span>
+                  <span className="selections-playlist-item-name">{ name.toUpperCase().slice(0, 50) }</span>
                 </div>
                 <div className="card-buttons">
                   <span className="item-duration text-xs-bold">{ duration }</span>

@@ -22,12 +22,12 @@ export const MapPlaylist = () => {
     dispatch(setCurrentUrl(url));
     dispatch(setCurrentLyrics(lyrics));
     dispatch(setCurrentName(name));
+    localStorage.setItem('currentSong', JSON.stringify({ url, lyrics, name }));
   };
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
   useEffect(() => {
     const buttonMap = document.getElementById("map-tab");
-    if (buttonMap)
-    {
+    if (buttonMap) {
       buttonMap.classList.add("active-btn");
 
       return () => {
@@ -40,46 +40,46 @@ export const MapPlaylist = () => {
     <section id="anima" className="playlist margin-bottom">
       <div className="playlist-map">
         <div >
-          <img className="map-playlist-png" src={ MapSvg } alt="map" />
+          <img className="map-playlist-png" src={MapSvg} alt="map" />
         </div>
         <p className="text-2xl alert"> Ми працюємо над поліпшенням сайту і невдовзі Ви зможете за допомогою карти прослухати колискові з обраного регіону. </p>
       </div>
 
       <div className="playlist-wrap">
-        <div className={ classNames('map-player_playlist scroll') }>
-          <p className="text-l text-margin">{ t('collection') }</p>
+        <div className={classNames('map-player_playlist scroll')}>
+          <p className="text-l text-margin">{t('collection')}</p>
           <ul>
-            { data.map(({ name, url, lyrics, duration }, index) => (
+            {data.map(({ name, url, lyrics, duration }, index) => (
               <li
-                key={ index }
+                key={index}
               >
                 <Link
-                  to={ `/player` }
-                  className={ classNames("map-player_card", { "map-player_card-light": isLightTheme }) }
-                  onClick={ () => handleAudioChange(url, index, lyrics, name) }
+                  to={`/player`}
+                  className={classNames("map-player_card", { "map-player_card-light": isLightTheme })}
+                  onClick={() => handleAudioChange(url, index, lyrics, name)}
                 >
                   <div className="card-buttons">
                     <span className="item-number">
-                      { index + 1 }
+                      {index + 1}
                     </span>
                     <div className="playlist-item ">
                       <button
-                        className={ classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
+                        className={classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
                           "selections-playlist-item-play-pause-button-light": isLightTheme,
-                        }) }
+                        })}
                       >
                         <PlayCircleIconDark />
                       </button>
                     </div>
 
-                    <span className="selections-playlist-item-name">{ name.toUpperCase().slice(0, 50) }</span>
+                    <span className="selections-playlist-item-name">{name.toUpperCase().slice(0, 50)}</span>
                   </div>
                   <div className="card-buttons">
-                    <span className="item-duration text-xs-bold">{ duration }</span>
+                    <span className="item-duration text-xs-bold">{duration}</span>
                   </div>
                 </Link>
               </li>
-            )) }
+            ))}
           </ul>
         </div>
       </div>
