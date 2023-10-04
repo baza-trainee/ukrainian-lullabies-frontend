@@ -1,28 +1,65 @@
 .ourAchivements {
+  display: grid;
+  grid-column: 1/1;
+  grid-row-gap: 0;
+  
+  @media screen and (min-width: 1440px) {
   grid-column: 1/13;
   text-align: start;
-}
+}}
 
-.ourAchivementsTitle {
-  grid-column: 1/5;
-}
+.achievements-title {
+  display: grid;
+  grid-column: 1/1;
+  justify-content: start;
+  margin-bottom: 48px;
+ 
+  @media screen and (min-width: 1440px) {
+  grid-column: 1/13;
+}}
 
 .achivements {
-  display: flex;
-  padding: 48px;
+  display: grid;
+  grid-column: 1/1;
   justify-content: space-between;
-  margin-top: 58px;
-  grid-column: 1/13;
   border: 2px solid var(--red-700);
   border-radius: 56px;
-}
+  grid-template-columns: repeat(3, auto);
+
+  @media screen and (min-width: 1440px) {
+  grid-column: 1/13;
+  padding: 48px 101px;
+  margin-bottom: 80px;
+}}
 
 .achivement {
-  grid-column: 2/3;
-}
-.achivement:nth-child(2) {
-  grid-column: 6/7;
+  display: grid;
+  justify-content: start;
 }
 
-.data {
+.achievements-support-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column: 1/1;
+  justify-content: start;
+  align-items: center;
+  @media screen and (min-width: 1440px) {
+    grid-column: 1/13;
+  }
+}
+
+.donats {
+  margin-left: 16px;
+}
+
+.achievements-ornament {
+  display: grid;
+  grid-column: 1/1;
+  justify-content: center;
+  margin: 32px 0px;
+
+  @media screen and (min-width: 1440px) {
+    grid-column: 1/13;
+    margin: 80px 0px 56px 0px;
+  }
 }
