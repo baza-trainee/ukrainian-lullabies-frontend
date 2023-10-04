@@ -1,15 +1,20 @@
 .lullabies-animation {
-    height: 200px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 32px;
     margin-bottom: 32px;
+    grid-column: 1;
+    @media screen and (min-width: 768px) {
+     
+    }
 
     @media screen and (min-width: 1440px) {
         margin-top: 48px;
         margin-bottom: 48px;
-        height: 600px;
+        flex-direction: row;
+        grid-column: 1/13;
     }
 }
 
@@ -19,11 +24,17 @@
 }
 
 .player-container{
-  grid-column: 1/9;
   display: flex;
   flex-direction: column;
-}
-.wrap{
+  grid-column: 1;
+  @media screen and (min-width: 768px) {
+
+ }
+    @media screen and (min-width: 1440px) {
+       grid-column: 1/9;}
+ }
+ 
+.wrap-animation {
   grid-column: 9/13;
     display: flex;
   flex-direction: column;
@@ -33,26 +44,63 @@
   overflow-y: auto;
   max-height: 530px;
 }
+
 .skroll-disabled {
   overflow: hidden; 
+}
+
+.video-player{
+  width: 296px;
+
+ @media screen and (min-width: 768px) {
+    width: 672px;
+ }
+    @media screen and (min-width: 1440px) {
+      width: 700px;
+      height: 487px;
+    }
+
 }
 
 .info{
   text-align: left;
   margin-top: 30px;
 }
+
+.playlist{
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0 auto;
+  height: 680px;
+  @media screen and (min-width: 768px) {
+    flex-wrap: wrap;
+    width: 660px;
+    height: 236px;
+    flex-direction: row;
+  }
+    @media screen and (min-width: 1440px) {
+     flex-direction: column;
+    }
+}
+
 .playlist-card{
+  max-width: 296px;
+  width: 100%;
   height: 110px;
   display: flex;
   border-radius: 10px;
   background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.10) 0.88%, rgba(255, 255, 255, 0.00) 99.96%));
   padding: 8px;
-  margin-bottom: 16px;
   gap: 16px;
-  margin-right: 24px;
+  margin-bottom: 16px;
   display: grid;
   grid-template-columns: repeat(2, 50%);
   }
+
+.playlist-card:nth-child(odd) {
+  margin-right: 60px;
+}
 
 .active{
   border-bottom: 2px solid var(--red-700);

@@ -78,7 +78,6 @@ a {
   display: grid;
   text-align: center;
   grid-template-columns: 1fr;
-
   @media (min-width: 1440px) {
     grid-template-columns: repeat(12, 1fr);
     column-gap: 24px;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactPlayer from 'react-player'
 import "./lullabies-animation.css";
 import { useTranslation } from 'react-i18next';
@@ -6,7 +6,7 @@ import classNames from "classnames";
 
 export const LullabiesInAnimation = () => {
 
-  const [playlist, setPlaylist] = useState([
+  const [playlist] = useState([
     {
       url: 'https://www.youtube.com/watch?v=SGjK-uN7jnI',
       title: 'Сонько-дрімко',
@@ -64,16 +64,44 @@ export const LullabiesInAnimation = () => {
 
     setCurrentVideoIndex(index);
   };
+  const [playerSize, setPlayerSize] = useState({ width: 672, height: 404 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      const screenWidth = window.innerWidth;
+
+      if (screenWidth < 768)
+      {
+        setPlayerSize({ width: '296px', height: '304px' });
+      } else if (screenWidth >= 768 && screenWidth < 1440)
+      {
+        setPlayerSize({ width: '672px', height: '404px' });
+      } else
+      {
+        setPlayerSize({ width: '700px', height: '468px' });
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [window.innerWidth]);
+
+  console.log(window.innerWidth);
 
   return (
-    <section id="anima" className="lullabies-animation container text-sm margin-bottom">
+    <section id="anima" className="lullabies-animation text-sm margin-bottom">
       <div className="player-container">
         <ReactPlayer
           className="video-player"
           url={ playlist[currentVideoIndex].url }
+          width={ playerSize.width }
+          height={ playerSize.height }
           controls={ true }
-          width={ 700 }
-          height={ 488 }
           onEnded={ () => {
             if (currentVideoIndex < playlist.length - 1)
             {
@@ -86,25 +114,23 @@ export const LullabiesInAnimation = () => {
         </div>
 
       </div>
-      <div className="wrap">
-        <div className='playlist scroll'>
-          <ul>
-            { playlist.map((video, index) => (
-              <li
-                key={ index }
-                className={ classNames('playlist-card', { 'active': index === currentVideoIndex }) }
-                onClick={ () => handleVideoChange(index) }
-              >
-                <img src={ video.thumbnail } alt={ `Мініатюра відео ${index + 1}` } className="card-img" />
-                <div className="card-text">
-                  <p className="card-title">{ video.title }</p>
-                  <p className="card-info heart">{ video.likes } лайків </p>
-                  <p className="card-info vievs">{ video.vievs } переглядів </p></div>
-              </li>
-            )) }
-          </ul>
+      <div className=' scroll'>
+        <ul className="playlist">
+          { playlist.map((video, index) => (
+            <li
+              key={ index }
+              className={ classNames('playlist-card', { 'active': index === currentVideoIndex }) }
+              onClick={ () => handleVideoChange(index) }
+            >
+              <img src={ video.thumbnail } alt={ `Мініатюра відео ${index + 1}` } className="card-img" />
+              <div className="card-text">
+                <p className="card-title">{ video.title }</p>
+                <p className="card-info heart">{ video.likes } лайків </p>
+                <p className="card-info vievs">{ video.vievs } переглядів </p></div>
+            </li>
+          )) }
+        </ul>
 
-        </div>
 
       </div>
 
