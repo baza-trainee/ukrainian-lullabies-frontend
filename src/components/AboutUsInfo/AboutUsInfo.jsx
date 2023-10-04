@@ -27,40 +27,40 @@ const AboutUsInfo = () => {
   return (
     <motion.section
       initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      variants={animationElement}
-      ref={ref}
-      className='container wrapper margin-bottom'
+      animate={ inView ? "visible" : "hidden" }
+      variants={ animationElement }
+      ref={ ref }
+      className='wrapper margin-bottom'
     >
-      <motion.div custom={1} variants={animationElement} className='technikal__container container'>
+      <motion.div custom={ 1 } variants={ animationElement } className='technikal__container'>
         <GeneralTitle />
       </motion.div>
 
       <motion.p
-        custom={1}
-        variants={animationElement}
+        custom={ 1 }
+        variants={ animationElement }
         className='text-4xl title title_margin-bottom'
       >
-        {t('aboutUs')}
+        { t('aboutUs') }
       </motion.p>
       <motion.div
         initial="hidden"
         whileInView="visible"
-        custom={1}
-        variants={animationElement}
+        custom={ 1 }
+        variants={ animationElement }
         className='target-container'>
         <div className='img-container target-img'>
           <img src='/img/aboutUs/aboutUs-target.png' alt='mother with baby' />
         </div>
         <div className='target-info'>
           <p className='text-2xl title-small'>
-            {t('projectPurpose')}
+            { t('projectPurpose') }
           </p>
           <p className='text-base'>
-            {t('projectDescription')}
+            { t('projectDescription') }
           </p>
           <p className='text-base'>
-            {t('projectDescription2')}
+            { t('projectDescription2') }
           </p>
         </div>
       </motion.div>
@@ -69,25 +69,25 @@ const AboutUsInfo = () => {
       </div>
       <motion.div initial="hidden"
         whileInView="visible"
-        custom={2}
-        variants={animationElement}
+        custom={ 2 }
+        variants={ animationElement }
         className='support-container'
       >
         <div className='support-info'>
           <p className='text-2xl title-small'>
-            {t('supportUs')}
+            { t('supportUs') }
           </p>
           <p className='text-base'>
-            {t('supportDescription')}
+            { t('supportDescription') }
           </p>
           <p className='text-base'>
-            {t('supportDescription2')}
+            { t('supportDescription2') }
           </p>
           <p className='text-base'>
-            {t('supportDescription3')}
+            { t('supportDescription3') }
           </p>
           <p className='text-base-semibold'>
-            {t('donateHere')}
+            { t('donateHere') }
           </p>
         </div>
         <div className='donat-imgs'>
