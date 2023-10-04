@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
    text-align: left;
+   justify-content: center;
+   align-items: center;
    margin-top: 15px;
    @media screen and (min-width: 768px) {
   }
@@ -42,6 +44,7 @@
 .map-player_playlist{
   overflow-y: auto; 
   height: 380px;
+  width: 100%;
   @media screen and (min-width: 1440px) {
     grid-column: 8/13;
     height: 530px;
@@ -72,8 +75,8 @@
   gap: 20px;
 }
 
-.map-player_card:hover {
-background: var(--gray-black-850, rgba(255, 255, 255, 0.15));
+.map-player_card-dark:hover {
+  background: var(--gray-black-600, #5D5D5D);
 }
 
 .map-player_card{
@@ -82,9 +85,9 @@ background: var(--gray-black-850, rgba(255, 255, 255, 0.15));
   cursor: pointer;
   border-radius: 36px;
   min-width: 280px;
-  width: 95%;
+  width: 100%;
   height: 48px;
-  padding: 0 8px;
+  padding: 0 16px;
 
   @media screen and (min-width: 768px) {
     
@@ -95,10 +98,18 @@ background: var(--gray-black-850, rgba(255, 255, 255, 0.15));
   margin-bottom: 24px;
   }
 }
-/* 
-.map-player_card-light{
 
-} */
+.active-map-card-light {
+  background: var(--gray-black-200, #D1D1D1);
+}
+
+.active-map-card {
+  background: var(--gray-black-850, rgba(255, 255, 255, 0.15));
+}
+
+.map-player_card-light:hover{
+  background: var(--gray-black-100, #E7E7E7);
+}
 
 .map-player_card-title{
   text-align: left;

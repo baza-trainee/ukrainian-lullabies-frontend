@@ -28,7 +28,9 @@ export const MapPlayer = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isRandom, setIsRandom] = useState(false);
   const [isLooped, setIsLooped] = useState(false);
+  const [isLoopedPlaylist, setIsLoopedPlaylist] = useState(false);
   const [volume, setVolume] = useState(0.5);
 
   useEffect(() => {
@@ -66,23 +68,34 @@ export const MapPlayer = () => {
     const newIndex = data.findIndex((song) => song.url === url);
     setCurrentSongIndex(newIndex);
   };
+  console.log(isRandom);
+  console.log(currentSongIndex);
 
-  const autoPlayNext = () => {
+  const handleAutoPlayNext = () => {
     const index = data.findIndex((song) => song.url === currentUrl);
-    const newIndex = index + 1;
-    if (data.lenght - 1 > index)
+    const min = 0;
+    const max = data.length - 1;
+
+    const newIndex = !isRandom ? (index + 1) : Math.floor(Math.random() * (max - min + 1)) + min;
+
+    if (newIndex < data.length)
     {
-      setCurrentSongIndex();
-      setCurrentName(data[newIndex].name);
-      setCurrentLyrics(data[newIndex].lyrics);
-      setCurrentUrl(data[newIndex].url);
-    }
-    else
+      setCurrentSongIndex(newIndex);
+      dispatch(setCurrentName(data[newIndex].name));
+      dispatch(setCurrentLyrics(data[newIndex].lyrics));
+      dispatch(setCurrentUrl(data[newIndex].url));
+    } else if (isLoopedPlaylist)
+    {
+      setCurrentSongIndex(0);
+      dispatch(setCurrentName(data[0].name));
+      dispatch(setCurrentLyrics(data[0].lyrics));
+      dispatch(setCurrentUrl(data[0].url));
+    } else
     {
       setIsPlaying(false);
     }
+  };
 
-  }
   const handleLoop = () => {
     setIsLooped(!isLooped);
   };
@@ -93,7 +106,7 @@ export const MapPlayer = () => {
     setCurrentSongIndex(index);
     dispatch(setCurrentName(name));
 
-    localStorage.setItem('currentSong', JSON.stringify({ url, index, lyrics, name }));
+
   };
 
   useEffect(() => {
@@ -107,8 +120,8 @@ export const MapPlayer = () => {
       };
     }
   }, [])
-  const reactPlayerRef = useRef(null);
 
+  const reactPlayerRef = useRef(null);
   return (
     <div className="map-player-wrapper container margin-bottom">
       <div className="player-wrapper">
@@ -120,7 +133,7 @@ export const MapPlayer = () => {
             ref={ reactPlayerRef }
             url={ currentUrl }
             playing={ isPlaying }
-            onEnded={ autoPlayNext }
+            onEnded={ handleAutoPlayNext }
             loop={ isLooped }
             volume={ volume }
           />
@@ -135,8 +148,10 @@ export const MapPlayer = () => {
             playlist={ data }
             currentSongIndex={ currentSongIndex }
             setCurrentSongIndex={ setCurrentSongIndex }
-            handleLoop={ handleLoop }
-            isLooped={ isLooped }
+            isLoopedPlaylist={ isLoopedPlaylist }
+            setIsLoopedPlaylist={ setIsLoopedPlaylist }
+            isRandom={ isRandom }
+            setIsRandom={ setIsRandom }
             volume={ volume }
             setVolume={ setVolume }
           />
@@ -154,7 +169,10 @@ export const MapPlayer = () => {
             data.map(({ name, url, lyrics, duration }, index) => (
               <li
                 key={ index }
-                className={ classNames("map-player_card", { "map-player_card-light": isLightTheme }) }
+                className={ classNames("map-player_card", {
+                  'map-player_card-dark': !isLightTheme,
+                  'map-player_card-light': isLightTheme, 'active-map-card': (url === currentUrl && !isLightTheme), 'active-map-card-light': (isLightTheme && url === currentUrl)
+                }) }
                 onClick={ () => { handleVideoChange(url, index, lyrics, name); playPauseSong(url) } }
               >
                 <div className="card-buttons">
@@ -172,7 +190,7 @@ export const MapPlayer = () => {
                     </button>
                   </div>
 
-                  <span className="selections-playlist-item-name">{ name.toUpperCase().slice(0, 50) }</span>
+                  <span className="selections-playlist-item-name">{ name }</span>
                 </div>
                 <div className="card-buttons">
                   <span className="item-duration text-xs-bold">{ duration }</span>
