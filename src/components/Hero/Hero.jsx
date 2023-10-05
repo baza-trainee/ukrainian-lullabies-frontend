@@ -90,7 +90,6 @@ const Hero = () => {
           <div className="element-left">
             <OrnamentsLeftIcon />
           </div>
-
           <p className="text-base center">{t("heroText")}</p>
           <div className="element-right">
             <OrnamentsRightIcon />
