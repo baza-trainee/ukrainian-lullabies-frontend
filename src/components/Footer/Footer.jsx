@@ -147,13 +147,13 @@ export const Footer = () => {
           <li>
             <p className="footer-contacts-list-title text-sm-semibold">{t("telephone")}</p>
             <a href={contacts.length > 1 ? contacts[1].value : "#"}>
-              {contacts.length > 1 ? contacts[1].value : `error: ${contactsError}`}
+              {contacts.length > 1 ? contacts[1].value : `Error: ${contactsError}`}
             </a>
           </li>
           <li>
             <p className="footer-contacts-list-title text-sm-semibold">E-mail:</p>
             <a href={`mailto:${contacts.length > 1 ? contacts[2].value : "#"}`}>
-              {contacts.length > 1 ? contacts[2].value : `error: ${contactsError}`}
+              {contacts.length > 1 ? contacts[2].value : `Error: ${contactsError}`}
             </a>
           </li>
         </ul>
@@ -185,7 +185,7 @@ export const Footer = () => {
                   </a>
                 ))
               ) : (
-                <div className="footer-partners-error">{partnersError}</div>
+                <div>Error: {partnersError}</div>
               )}
             </div>
           </div>
