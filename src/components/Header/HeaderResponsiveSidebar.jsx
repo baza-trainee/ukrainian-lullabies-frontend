@@ -30,12 +30,12 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
   const handleBurgerClick = () => {
     if (!isSideMenuOpen) {
       setIsSideMenuOpen(true);
-      body.classList.add("no-scroll");
+      body.style.overflow = "hidden";
     } else {
       setIsSideMenuOpen(false);
       setIsResponsiveDropdownMenuOpen(false);
       setIsResponsiveLanguageMenuOpen(false);
-      body.classList.remove("no-scroll");
+      body.style.overflow = "auto";
     }
   };
 

@@ -25,6 +25,7 @@ export const SelectionsPlayer = ({
   previousVolume,
   setPreviousVolume,
 }) => {
+  const isEnglishLanguage = localStorage.getItem("selectedLanguage") === "en";
   const [shareClicked, setShareClicked] = useState(false);
   const nextSongIndex = (currentSongIndex + 1) % playlist.length;
   const previousSongIndex = currentSongIndex > 0 ? (currentSongIndex - 1) % playlist.length : playlist.length - 1;
@@ -91,14 +92,19 @@ export const SelectionsPlayer = ({
           <button
             className={classNames("selections-player-share-button", {
               "selections-player-share-button-light": isLightTheme,
+              "selections-player-share-button-en": isEnglishLanguage,
               "selections-player-share-clicked": shareClicked,
+              "selections-player-share-clicked-en": shareClicked && isEnglishLanguage,
             })}
             onClick={handleShare}
           >
             {shareClicked ? <FiCheck /> : <FiShare2 />}
           </button>
           <button
-            className={classNames("selections-player-shuffle-button", { "selections-player-shuffle-button-light": isLightTheme })}
+            className={classNames("selections-player-shuffle-button", {
+              "selections-player-shuffle-button-light": isLightTheme,
+              "selections-player-shuffle-button-en": isEnglishLanguage,
+            })}
             onClick={handleShuffle}
           >
             <FiShuffle style={isPlaylistShuffled && { color: "var(--red-700)" }} />
@@ -132,7 +138,10 @@ export const SelectionsPlayer = ({
         </div>
         <div className="selections-player-secondary-buttons-right">
           <button
-            className={classNames("selections-player-refresh-button", { "selections-player-refresh-button-light": isLightTheme })}
+            className={classNames("selections-player-refresh-button", {
+              "selections-player-refresh-button-light": isLightTheme,
+              "selections-player-refresh-button-en": isEnglishLanguage,
+            })}
             onClick={handleLoopPlaylist}
           >
             <FiRefreshCw style={isPlaylistLooped && { color: "var(--red-700)" }} />
