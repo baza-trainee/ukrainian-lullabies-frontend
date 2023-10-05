@@ -83,7 +83,7 @@ export const MapPlaylist = () => {
   }, [])
 
   return (
-    <section id="anima" className="playlist-wrap  margin-bottom">
+    <section id="anima" className="map-playlist  margin-bottom">
       <div className="playlist-map">
         <div >
           <img className="map-playlist-png" src={ MapSvg } alt="map" />
