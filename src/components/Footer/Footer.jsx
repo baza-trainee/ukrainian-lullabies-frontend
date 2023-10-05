@@ -51,6 +51,7 @@ export const Footer = () => {
   const contacts = useSelector((state) => state.contacts.data);
   const contactsError = useSelector((state) => state.contacts.error);
   const partners = useSelector((state) => state.partners.data);
+  const partnersError = useSelector((state) => state.partners.error);
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
   // scroll to top button
@@ -177,12 +178,15 @@ export const Footer = () => {
           <div className="footer-socials-partners">
             <p className="text-sm-semibold">{t("ourPartners")}:</p>
             <div className="footer-partners-icons">
-              {partners &&
+              {!partnersError ? (
                 partners.map((partner, index) => (
                   <a href={partner.website} target="_blank" rel="noopener nofollow noreferrer" title={partner.name} key={index}>
                     <img src={isLightTheme ? partner.classic_logo : partner.dark_logo} alt={partner.name} height="40" />
                   </a>
-                ))}
+                ))
+              ) : (
+                <div className="footer-partners-error">{partnersError}</div>
+              )}
             </div>
           </div>
         </div>
