@@ -21,6 +21,7 @@ import { FiMoreHorizontal } from "react-icons/fi";
 import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
 import { PauseCircleIconDark } from "../../icons/SelectionsIcons/PauseCircleIcon";
 import { SoundWaveIcon } from "../../icons/SelectionsIcons/SoundWaveIcon";
+import { Ornaments } from "../Ornaments/Ornaments";
 
 const songsData = [
   {
@@ -322,8 +323,7 @@ export const Selections = () => {
           />
         </div>
       </div>
-      <img src={endSectionOrnamentDesktop} alt="ornament" className="selections-ornament-desktop" />
-      <img src={endSectionOrnamentMobile} alt="ornament" className="selections-ornament-mobile" />
+      <Ornaments />
     </div>
   );
 };

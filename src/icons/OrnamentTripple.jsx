@@ -3,54 +3,54 @@ import React from 'react';
 export const OrnamentDouble = () => {
   return (
     <svg width="328" height="29" viewBox="0 0 328 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M148.998 7L151.998 10L148.998 12L142.998 6L147.998 1L163.998 16" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M149 21L152 18L149 16L143 22L148 27L164 12" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M138 7L135 10L138 12L144 6L139 1L123 16" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M138 21L135 18L138 16L144 22L139 27L123 12" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M141 14L143 17L146 14L143 12L141 14Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M126 3L128 6L131 3L128 1L126 3Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M126 25L128 28L131 25L128 23L126 25Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M94.0005 3L96.0005 6L99.0005 3L96.0005 1L94.0005 3Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M94.0005 25L96.0005 28L99.0005 25L96.0005 23L94.0005 25Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M63.0005 3L65.0005 6L68.0005 3L65.0005 1L63.0005 3Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M63.0005 25L65.0005 28L68.0005 25L65.0005 23L63.0005 25Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M118 7L121 10L118 12L112 6L117 1L133 16" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M118 21L121 18L118 16L112 22L117 27L133 12" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M106 7L103 10L106 12L112 6L107 1L91.0005 16" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M106 21L103 18L106 16L112 22L107 27L91.0005 12" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M109 14L111 17L114 14L111 12L109 14Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M86.0005 7L89.0005 10L86.0005 12L80.0005 6L85.0005 1L101 16" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M86.0005 21L89.0005 18L86.0005 16L80.0005 22L85.0005 27L101 12" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M75.0005 7L72.0005 10L75.0005 12L81.0005 6L76.0005 1L60.0005 16" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M75.0005 21L72.0005 18L75.0005 16L81.0005 22L76.0005 27L60.0005 12" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M78.0005 14L80.0005 17L83.0005 14L80.0005 12L78.0005 14Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M55.0005 7L58.0005 10L55.0005 12L49.0005 6L54.0005 1L70.0005 16" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M55.0005 21L58.0005 18L55.0005 16L49.0005 22L54.0005 27L70.0005 12" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M47.0005 14L49.0005 17L52.0005 14L49.0005 12L47.0005 14Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M179 7L176 10L179 12L185 6L180 1L164 16" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M179 21L176 18L179 16L185 22L180 27L164 12" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M190 7L193 10L190 12L184 6L189 1L205 16" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M190 21L193 18L190 16L184 22L189 27L205 12" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M186 14L184 17L181 14L184 12L186 14Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M202 3L200 6L197 3L200 1L202 3Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M202 25L200 28L197 25L200 23L202 25Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M234 3L232 6L229 3L232 1L234 3Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M234 25L232 28L229 25L232 23L234 25Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M265 3L263 6L260 3L263 1L265 3Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M265 25L263 28L260 25L263 23L265 25Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M209 7L206 10L209 12L215 6L210 1L194 16" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M209 21L206 18L209 16L215 22L210 27L194 12" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M222 7L225 10L222 12L216 6L221 1L237 16" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M222 21L225 18L222 16L216 22L221 27L237 12" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M218 14L216 17L213 14L216 12L218 14Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M241 7L238 10L241 12L247 6L242 1L226 16" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M241 21L238 18L241 16L247 22L242 27L226 12" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M253 7L256 10L253 12L247 6L252 1L268 16" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M253 21L256 18L253 16L247 22L252 27L268 12" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M249 14L247 17L244 14L247 12L249 14Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M272 7L269 10L272 12L278 6L273 1L257 16" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M272 21L269 18L272 16L278 22L273 27L257 12" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M281 14L279 17L276 14L279 12L281 14Z" stroke="#C60F18" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M148.998 7L151.998 10L148.998 12L142.998 6L147.998 1L163.998 16" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M149 21L152 18L149 16L143 22L148 27L164 12" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M138 7L135 10L138 12L144 6L139 1L123 16" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M138 21L135 18L138 16L144 22L139 27L123 12" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M141 14L143 17L146 14L143 12L141 14Z" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M126 3L128 6L131 3L128 1L126 3Z" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M126 25L128 28L131 25L128 23L126 25Z" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M94.0005 3L96.0005 6L99.0005 3L96.0005 1L94.0005 3Z" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M94.0005 25L96.0005 28L99.0005 25L96.0005 23L94.0005 25Z" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M63.0005 3L65.0005 6L68.0005 3L65.0005 1L63.0005 3Z" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M63.0005 25L65.0005 28L68.0005 25L65.0005 23L63.0005 25Z" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M118 7L121 10L118 12L112 6L117 1L133 16" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M118 21L121 18L118 16L112 22L117 27L133 12" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M106 7L103 10L106 12L112 6L107 1L91.0005 16" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M106 21L103 18L106 16L112 22L107 27L91.0005 12" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M109 14L111 17L114 14L111 12L109 14Z" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M86.0005 7L89.0005 10L86.0005 12L80.0005 6L85.0005 1L101 16" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M86.0005 21L89.0005 18L86.0005 16L80.0005 22L85.0005 27L101 12" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M75.0005 7L72.0005 10L75.0005 12L81.0005 6L76.0005 1L60.0005 16" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M75.0005 21L72.0005 18L75.0005 16L81.0005 22L76.0005 27L60.0005 12" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M78.0005 14L80.0005 17L83.0005 14L80.0005 12L78.0005 14Z" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M55.0005 7L58.0005 10L55.0005 12L49.0005 6L54.0005 1L70.0005 16" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M55.0005 21L58.0005 18L55.0005 16L49.0005 22L54.0005 27L70.0005 12" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M47.0005 14L49.0005 17L52.0005 14L49.0005 12L47.0005 14Z" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M179 7L176 10L179 12L185 6L180 1L164 16" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M179 21L176 18L179 16L185 22L180 27L164 12" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M190 7L193 10L190 12L184 6L189 1L205 16" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M190 21L193 18L190 16L184 22L189 27L205 12" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M186 14L184 17L181 14L184 12L186 14Z" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M202 3L200 6L197 3L200 1L202 3Z" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M202 25L200 28L197 25L200 23L202 25Z" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M234 3L232 6L229 3L232 1L234 3Z" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M234 25L232 28L229 25L232 23L234 25Z" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M265 3L263 6L260 3L263 1L265 3Z" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M265 25L263 28L260 25L263 23L265 25Z" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M209 7L206 10L209 12L215 6L210 1L194 16" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M209 21L206 18L209 16L215 22L210 27L194 12" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M222 7L225 10L222 12L216 6L221 1L237 16" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M222 21L225 18L222 16L216 22L221 27L237 12" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M218 14L216 17L213 14L216 12L218 14Z" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M241 7L238 10L241 12L247 6L242 1L226 16" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M241 21L238 18L241 16L247 22L242 27L226 12" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M253 7L256 10L253 12L247 6L252 1L268 16" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M253 21L256 18L253 16L247 22L252 27L268 12" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M249 14L247 17L244 14L247 12L249 14Z" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M272 7L269 10L272 12L278 6L273 1L257 16" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M272 21L269 18L272 16L278 22L273 27L257 12" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M281 14L279 17L276 14L279 12L281 14Z" stroke="#C60F18" strokeWidth="1" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
     </svg>)
 }
 

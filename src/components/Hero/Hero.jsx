@@ -10,11 +10,11 @@ import { useTranslation } from "react-i18next";
 
 import { getLightTheme } from "../../redux/theme/themeSelectors";
 import Notification from "./Notification/Notification";
+import { Ornaments } from "../Ornaments/Ornaments";
+import { GeneralTitle } from "../GeneralTitle/GeneralTitle";
 
-import SIcon from "../../icons/SIcon";
 import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
-import OrnamentMobileHero from "../../icons/OrnamentMobileHero";
 
 import ButtonShare from "./Button/ButtonShare";
 
@@ -74,18 +74,13 @@ const Hero = () => {
       ref={ref}
       className="container heroWrapper margin-bottom"
     >
-      <div className="kolyskovaWrap">
+      <div className="kolyskovaWrap hero-margin">
         <motion.div
           custom={1}
           variants={animationElement}
           className="kolyskovaWrap"
         >
-          <div className="kolyIcon text-5xl">Koly</div>
-          <div className="letterS">
-            <SIcon />
-          </div>
-          <div className="kovaIcon text-5xl">Kova</div>
-          <div className="oundIconWrap text-5xl">ound</div>
+          <GeneralTitle />
         </motion.div>
         <motion.div
           custom={2}
@@ -125,8 +120,8 @@ const Hero = () => {
         </motion.div>
         {isNotification && <Notification textNotification={t("shareLink")} />}
       </div>
-      <div className="ornament-mobile-hero">
-        <OrnamentMobileHero className="ornament-mobile-hero-icon" />
+      <div className="ornamets-hero">
+        <Ornaments />
       </div>
     </motion.section>
   );
