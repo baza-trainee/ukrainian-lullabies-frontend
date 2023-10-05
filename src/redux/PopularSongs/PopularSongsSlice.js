@@ -17,13 +17,13 @@ export const getPopularSongs = createAsyncThunk(
         `https://www.googleapis.com/youtube/v3/playlistItems?key=${apiKey}&playlistId=${playlistId}&maxResults=${maxResults}`
       );
 
-      console.log(result);
+      // console.log(result);
       const list = result.data.items.map((item) => item.id);
 
       dispatch(setPopularSongs(list));
       return list;
     } catch (error) {
-      console.error("Error:", error);
+      // console.error("Error:", error);
       return rejectWithValue(error.message);
     }
   }
@@ -35,7 +35,7 @@ export const popularSongsSlice = createSlice({
   reducers: {
     setPopularSongs: (state, action) => {
       state.popularSongs = action.payload;
-      console.log(state.popularSongs);
+      // console.log(state.popularSongs);
     },
   },
 });

@@ -77,24 +77,6 @@
   }
 }
 
-.mobile-icon {
-  display: block;
-
-  @media screen and (min-width: 1440px) {
-    display: none;
-  }
-}
-
-.mobile-desktop {
-  @media screen and (max-width: 1439px) {
-    display: none;
-  }
-
-  @media screen and (min-width: 1440px) {
-    display: block;
-  }
-}
-
 .info-tech-div {
   display: flex;
   justify-content: center;

@@ -29,7 +29,7 @@ export const OurAchivements = () => {
       animate={inView ? "visible" : "hidden"}
       variants={animationElement}
       ref={ref}
-      className="container ourAchivements"
+      className="ourAchivements"
     >
       <motion.p
         custom={1}

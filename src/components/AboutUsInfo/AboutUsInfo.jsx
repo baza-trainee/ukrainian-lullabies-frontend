@@ -5,6 +5,7 @@ import Patreon from "./patreon";
 import { motion } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
 import { GeneralTitle } from '../GeneralTitle/GeneralTitle';
+import { Ornaments } from '../Ornaments/Ornaments';
 import "./AboutUsInfo.css";
 
 const AboutUsInfo = () => {
@@ -64,8 +65,8 @@ const AboutUsInfo = () => {
           </p>
         </div>
       </motion.div>
-      <div className='ornament'>
-        {/* <img src="/img/aboutUs/Ornaments.svg" alt="ornament" /> */}
+      <div className='ornaments-about'>
+        <Ornaments />
       </div>
       <motion.div initial="hidden"
         whileInView="visible"

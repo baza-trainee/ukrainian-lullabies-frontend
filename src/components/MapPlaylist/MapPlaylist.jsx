@@ -23,7 +23,9 @@ export const MapPlaylist = () => {
     dispatch(setCurrentLyrics(lyrics));
     dispatch(setCurrentName(name));
   };
+
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
+
   useEffect(() => {
     const buttonMap = document.getElementById("map-tab");
     if (buttonMap)
@@ -56,7 +58,8 @@ export const MapPlaylist = () => {
                 <Link
                   to={ `/player` }
                   className={ classNames("map-player_card", { "map-player_card-light": isLightTheme }) }
-                  onClick={ () => handleAudioChange(url, index, lyrics, name) }
+                  onClick={ () => handleAudioChange(url, lyrics, name) }
+
                 >
                   <div className="card-buttons">
                     <span className="item-number">

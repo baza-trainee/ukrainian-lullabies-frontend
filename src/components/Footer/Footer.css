@@ -213,6 +213,10 @@ ul {
   height: 24px;
 }
 
+.footer-partners-error {
+  color: var(--red-700);
+}
+
 .footer-author-rights {
   position: absolute;
   bottom: -35px;

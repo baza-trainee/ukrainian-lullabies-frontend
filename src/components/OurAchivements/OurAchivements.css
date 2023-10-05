@@ -1,23 +1,24 @@
 .ourAchivements {
-  display: grid;
   grid-column: 1/1;
   grid-row-gap: 0;
-  
+
   @media screen and (min-width: 1440px) {
-  grid-column: 1/13;
-  text-align: start;
-}}
+    grid-column: 1/13;
+    text-align: start;
+  }
+}
 
 .achievements-title {
   display: grid;
   grid-column: 1/1;
   justify-content: start;
   margin-bottom: 24px;
- 
+
   @media screen and (min-width: 1440px) {
-  grid-column: 1/13;
-  margin-bottom: 48px;
-}}
+    grid-column: 1/13;
+    margin-bottom: 48px;
+  }
+}
 
 .achivements {
   display: grid;
@@ -28,16 +29,16 @@
   border-radius: 56px;
   grid-template-columns: repeat(3, auto);
   padding: 32px 21.5px;
+  margin-bottom: 32px;
+
   @media screen and (min-width: 1440px) {
-  grid-column: 1/13;
-  padding: 48px 101px;
-}}
+    grid-column: 1/13;
+    padding: 48px 101px;
+    margin-bottom: 80px;
+  }
+}
 
 .achivement {
   display: grid;
   justify-content: start;
 }
-
-
-
-

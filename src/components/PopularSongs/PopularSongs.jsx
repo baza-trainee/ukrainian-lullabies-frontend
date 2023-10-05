@@ -1,19 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import ReactPlayer from 'react-player';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useTranslation } from 'react-i18next';
 
-import popularSvgMob from "../../assets/images/OrnamentsMapTabs.svg";
-import popularSvg from "../../assets/images/ornamentsMapTabsSection.svg";
 import playButton from "../../assets/images/play-popular.png";
+import pauseButton from "../../assets/images/pause-popular.png"
 
 import favoriteSongFirst from '../../assets/images/favorite-song-1.png';
 import favoriteSongSecond from '../../assets/images/favorite-song-2.png';
 import favoriteSongThird from '../../assets/images/favorite-song-3.png';
 import './PopularSongs.css';
+import { Ornaments } from '../Ornaments/Ornaments';
 
 export function PopularSongs() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentSong, setCurrentSong] = useState(null);
+
+  const buttonPopular = isPlaying ? pauseButton : playButton;
+
   const { t } = useTranslation();
+
+
+
+  const [songs, setSongs] = useState([
+    "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
+    "https://deti.e-papa.com.ua/mpf/17146805.mp3",
+    "https://deti.e-papa.com.ua/mpf/9211811816.mp3",
+  ]);
 
   const [images, setImages] = useState([
     favoriteSongFirst,
@@ -25,24 +39,38 @@ export function PopularSongs() {
     `“Сонце сідає”`,
     `“Ой, ходить сон коло вікон”`,
     `“Повішу я колисочку”`
-  ])
+  ]);
+
+  useEffect(() => {
+    setCurrentSong(songs[1]);
+  }, []);
+
+  useEffect(() => {
+    setCurrentSong(songs[1]);
+  }, [songs[1]]);
 
   const handleLeftClick = () => {
     const [left, center, right] = images;
     const [leftTitle, centerTitle, rightTitle] = title;
+    const [leftSong, centerSong, rightSong] = songs;
+    setIsPlaying(true);
     setImages([center, left, right]);
     setTitle([centerTitle, leftTitle, rightTitle]);
+    setSongs([centerSong, leftSong, rightSong]);
   };
 
-  const nandleCenterClick = () => {
-    console.log("centerrrr");
+  const handleCenterClick = () => {
+    setIsPlaying(!isPlaying);
   }
 
   const handleRightClick = () => {
     const [left, center, right] = images;
     const [leftTitle, centerTitle, rightTitle] = title;
+    const [leftSong, centerSong, rightSong] = songs;
+    setIsPlaying(true);
     setImages([left, right, center]);
     setTitle([leftTitle, rightTitle, centerTitle]);
+    setSongs([leftSong, rightSong, centerSong]);
   };
 
 
@@ -94,8 +122,15 @@ export function PopularSongs() {
               <h3 className='title-popular'>{title[1]}</h3>
             </div>
             <div className="large-image-container">
-              <img onClick={nandleCenterClick} className='play-icon' src={playButton} alt="Play" />
+              <img onClick={handleCenterClick} className='play-icon' src={buttonPopular} alt="Play" />
               <img className='img-popular' src={images[1]} alt="Center" />
+              <ReactPlayer
+                url={currentSong}
+                playing={isPlaying}
+                controls
+                volume={0.5}
+                onEnded={() => setIsPlaying(false)}
+              />
             </div>
           </div>
           <div className='small-div'>
@@ -114,8 +149,15 @@ export function PopularSongs() {
               <h3 className='title-popular'>{title[1]}</h3>
             </div>
             <div className="large-image-container">
-              <img onClick={nandleCenterClick} className='play-icon' src={playButton} alt="Play" />
+              <img onClick={handleCenterClick} className='play-icon' src={buttonPopular} alt="Play" />
               <img className='img-popular' src={images[1]} alt="Center" />
+              <ReactPlayer
+                url={currentSong}
+                playing={isPlaying}
+                controls
+                volume={0.5}
+                onEnded={() => setIsPlaying(false)}
+              />
             </div>
           </div>
           <div className='mobile-div'>
@@ -140,10 +182,7 @@ export function PopularSongs() {
           </div>
         </div>
       </motion.div>
-      <motion.div custom={4} variants={animationElement} className="info-tech-div">
-        <motion.img className="mobile-icon" custom={4} src={popularSvgMob} alt="popularSvgMob" />
-        <motion.img className="mobile-desktop" custom={4} src={popularSvg} alt="popularSvg" />
-      </motion.div>
+      <Ornaments />
     </motion.section>
   );
 }

@@ -271,6 +271,11 @@
   color: var(--red-700);
 } */
 
+.selections-playlist-error {
+  padding: 50px 0;
+  color: var(--red-700);
+}
+
 /* scrollbar */
 
 .selections-playlist-list::-webkit-scrollbar {
@@ -288,10 +293,6 @@
   border-radius: 10px;
 }
 
-.selections-endSectionOrnament svg {
-  width: 400px;
-  height: 400px;
-}
 
 /* end section ornament */
 .selections-ornament-desktop {
@@ -308,4 +309,9 @@
   @media screen and (min-width: 1440px) {
     display: none;
   }
+}
+
+.selections-endSectionOrnament svg {
+  width: 400px;
+  height: 400px;
 }
