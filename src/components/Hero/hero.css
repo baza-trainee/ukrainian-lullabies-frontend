@@ -63,6 +63,7 @@
     display: block;
   }
 }
+
 .text-tablet-hero {
   text-align: center;
 }
@@ -102,7 +103,6 @@
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: inherit;
-
     justify-content: center;
     align-items: center;
   }
