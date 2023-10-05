@@ -1,9 +1,9 @@
-@media screen and (min-width: 360px) and (max-width: 1439px) {
+@media screen and (min-width: 360px) and (max-width: 767px) {
   .wrapper-form {
     display: block;
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 768px) {
   .wrapper-form {
     display: grid;
     grid-template-columns: repeat(12, 1fr);

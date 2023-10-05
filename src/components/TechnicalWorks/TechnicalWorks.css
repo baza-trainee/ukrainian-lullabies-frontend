@@ -19,8 +19,6 @@
   @media screen and (min-width:1440px) {
     text-align: center;
     grid-column: 1/13;
-    /* padding-top: 100px; */
-    /* background-position: 0 26px; */
     background-size: contain;
   }
 }
@@ -118,7 +116,6 @@
 
   @media screen and (min-width:1440px) {
     display: block;
-    /* grid-column: 10/13; */
   }
 }
 
@@ -126,7 +123,6 @@
   width: 292px;
 
   @media screen and (min-width:1440px) {
-    /* grid-column: 4/10; */
     width: 574px;
   }
 }
@@ -138,7 +134,6 @@
   @media screen and (min-width:1440px) {
     grid-column: 5/9;
     margin-bottom: 50px;
-    /* margin: 57px 47px 0; */
   }
 }
 

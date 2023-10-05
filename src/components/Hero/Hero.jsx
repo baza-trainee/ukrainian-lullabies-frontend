@@ -90,8 +90,7 @@ const Hero = () => {
           <div className="element-left">
             <OrnamentsLeftIcon />
           </div>
-
-          <p className="text-base center">{t("heroText")}</p>
+          <p className="text-base text-tablet-hero">{t("heroText")}</p>
           <div className="element-right">
             <OrnamentsRightIcon />
           </div>
@@ -99,7 +98,7 @@ const Hero = () => {
         <motion.div
           custom={3}
           variants={animationElement}
-          className="hero-btn animation"
+          className="animation"
         >
           <div
             className={classNames("hero-btn", {

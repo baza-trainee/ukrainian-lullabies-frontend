@@ -17,7 +17,7 @@ const Notification = ({ textNotification }) => {
         "notification-white": isLightTheme,
       })}
     >
-      <p className="text-xs">{textNotification}</p>
+      <p className="notification-text text-xs">{textNotification}</p>
     </div>
   );
 };

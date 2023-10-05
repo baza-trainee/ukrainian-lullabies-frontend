@@ -195,7 +195,9 @@ export const Selections = () => {
         ref={reactPlayerRef}
         url={currentSong}
         playing={isPlaying}
-        onEnded={() => (isPlaylistLooped ? handleNextSong() : setIsPlaying(false))}
+        onEnded={() =>
+          isPlaylistLooped ? handleNextSong() : setIsPlaying(false)
+        }
         loop={isLooped}
         volume={volume}
       />
@@ -206,7 +208,9 @@ export const Selections = () => {
         </div>
         <div className="selections-info">
           <div className="selections-info-about">
-            <h4 className="selections-info-title text-2xl">{t("ukrainianLullabies")}</h4>
+            <h4 className="selections-info-title text-2xl">
+              {t("ukrainianLullabies")}
+            </h4>
             <p className="selections-info-text text-base">{t("lullabySong")}</p>
           </div>
           {!playlistError ? (
