@@ -168,24 +168,6 @@
   }
 }
 
-.mobile-icon {
-  display: block;
-
-  @media screen and (min-width: 1440px) {
-    display: none;
-  }
-}
-
-.mobile-desktop {
-  @media screen and (max-width: 1439px) {
-    display: none;
-  }
-
-  @media screen and (min-width: 1440px) {
-    display: block;
-  }
-}
-
 .popular-light {
   color: var(--gray-black-950, #000);
 }
@@ -199,8 +181,13 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 46px;
   z-index: 1;
   cursor: pointer;
+
+  @media screen and (min-width: 1440px) {
+    width: 62px;
+    height: 62px;
+  }
 }
