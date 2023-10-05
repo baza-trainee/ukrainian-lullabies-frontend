@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useTranslation } from "react-i18next";
 import "./OurAchivements.css";
-import { Ornaments } from "../Ornaments/Ornaments";
 
 export const OurAchivements = () => {
   const { t } = useTranslation();
@@ -69,7 +68,6 @@ export const OurAchivements = () => {
           <div className="text-3xl">{t("performers")}</div>
         </motion.div>
       </motion.div>
-      <Ornaments />
     </motion.section>
   );
 };
