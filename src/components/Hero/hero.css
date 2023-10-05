@@ -16,12 +16,19 @@
   display: grid;
   grid-column: 1/13;
   justify-content: center;
-  margin-top: 32px;
+
+
 }
 
-@media screen and (min-width: 1440px) {
-  .kolyskovaWrap {
-    margin-top: 55px;
+
+
+.hero-margin {
+  margin-bottom: 32px;
+  margin-top: 56px;
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 0;
+    margin-top: 110px;
   }
 }
 
@@ -103,6 +110,12 @@
 
 @media screen and (min-width: 1440px) {
   .ornament-mobile-hero {
+    display: none;
+  }
+}
+
+.ornamets-hero {
+  @media screen and (min-width: 1440px) {
     display: none;
   }
 }

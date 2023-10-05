@@ -3,14 +3,13 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useTranslation } from 'react-i18next';
 
-import popularSvgMob from "../../assets/images/OrnamentsMapTabs.svg";
-import popularSvg from "../../assets/images/ornamentsMapTabsSection.svg";
 import playButton from "../../assets/images/play-popular.png";
 
 import favoriteSongFirst from '../../assets/images/favorite-song-1.png';
 import favoriteSongSecond from '../../assets/images/favorite-song-2.png';
 import favoriteSongThird from '../../assets/images/favorite-song-3.png';
 import './PopularSongs.css';
+import { Ornaments } from '../Ornaments/Ornaments';
 
 export function PopularSongs() {
   const { t } = useTranslation();
@@ -140,10 +139,7 @@ export function PopularSongs() {
           </div>
         </div>
       </motion.div>
-      <motion.div custom={4} variants={animationElement} className="info-tech-div">
-        <motion.img className="mobile-icon" custom={4} src={popularSvgMob} alt="popularSvgMob" />
-        <motion.img className="mobile-desktop" custom={4} src={popularSvg} alt="popularSvg" />
-      </motion.div>
+      <Ornaments />
     </motion.section>
   );
 }

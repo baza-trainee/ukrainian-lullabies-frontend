@@ -1,5 +1,4 @@
 .wrapper {
-  display: grid;
   grid-column: 1/1;
   background-image: url("../../images/frame-about.png");
   background-repeat: no-repeat;
@@ -169,6 +168,7 @@
   overflow: hidden;
   background-repeat: no-repeat;
   background: url("../../img/ornament/Ornaments-mobile.svg");
+
   @media screen and (min-width: 768px) {
     grid-column: 1/7;
     margin: 32px 0px;
@@ -298,4 +298,16 @@
   background-image: url("../../images/frame-hero-a.png");
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.ornaments-about {
+  grid-column: 1/2;
+  margin-top: 32px;
+  margin-bottom: 32px;
+
+  @media screen and (min-width: 1440px) {
+    grid-column: 1/13;
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
 }

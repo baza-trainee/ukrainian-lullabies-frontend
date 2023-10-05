@@ -25,6 +25,14 @@
   }
 }
 
+.tech-margin {
+  margin-bottom: 17px;
+
+  @media screen and (min-width:1440px) {
+    margin-bottom: 48px;
+  }
+}
+
 .technikal__container {
   padding-top: 56px;
 
@@ -74,7 +82,6 @@
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
-
 
   @media screen and (min-width:1440px) {
     grid-column: 1/13;
