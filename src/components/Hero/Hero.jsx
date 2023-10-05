@@ -98,7 +98,7 @@ const Hero = () => {
         <motion.div
           custom={3}
           variants={animationElement}
-          className="hero-btn animation"
+          className="animation"
         >
           <div
             className={classNames("hero-btn", {
