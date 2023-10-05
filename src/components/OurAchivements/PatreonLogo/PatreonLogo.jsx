@@ -1,8 +1,16 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import classNames from "classnames";
+import "./PatreonLogo.css";
 
-export function DonatLogo() {
+export function PatreonLogo() {
+  const isLightTheme = useSelector((state) => state.theme.isLightTheme);
+  
   return (
     <svg
+    className={classNames("achievements-patreon_dark", {
+      "achievements-patreon_light": isLightTheme,
+     })}
       width="48"
       height="49"
       viewBox="0 0 48 49"

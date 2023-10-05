@@ -60,6 +60,7 @@ export const MapPlaylist = () => {
                   to={ `/player` }
                   className={ classNames("map-player_card", { "map-player_card-light": isLightTheme }) }
                   onClick={ () => handleAudioChange(url, lyrics, name) }
+
                 >
                   <div className="card-buttons">
                     <span className="item-number">

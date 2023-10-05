@@ -15,33 +15,40 @@ export const SelectionsPlayer = ({
   playlist,
   currentSongIndex,
   setCurrentSongIndex,
-  handleLoop,
-  isLooped,
   isPlaylistLooped,
-  setIsPlaylistLooped,
   handleLoopPlaylist,
+  isPlaylistShuffled,
+  setIsPlaylistShuffled,
+  playRandomSong,
   volume,
   setVolume,
   previousVolume,
   setPreviousVolume,
 }) => {
   const [shareClicked, setShareClicked] = useState(false);
+  const nextSongIndex = (currentSongIndex + 1) % playlist.length;
+  const previousSongIndex = currentSongIndex > 0 ? (currentSongIndex - 1) % playlist.length : playlist.length - 1;
 
   const playStopToggle = () => {
     setIsPlaying(!isPlaying);
   };
 
-  const nextSongIndex = (currentSongIndex + 1) % playlist.length;
-  const previousSongIndex = (currentSongIndex - 1) % playlist.length;
-
   const handleNextSong = () => {
-    setCurrentSong(playlist[nextSongIndex].url);
-    setCurrentSongIndex(nextSongIndex);
+    if (isPlaylistShuffled) {
+      playRandomSong();
+    } else {
+      setCurrentSong(playlist[nextSongIndex].url);
+      setCurrentSongIndex(nextSongIndex);
+    }
   };
 
   const handlePreviousSong = () => {
-    setCurrentSong(playlist[previousSongIndex].url);
-    setCurrentSongIndex(previousSongIndex);
+    if (isPlaylistShuffled) {
+      playRandomSong();
+    } else {
+      setCurrentSong(playlist[previousSongIndex].url);
+      setCurrentSongIndex(previousSongIndex);
+    }
   };
 
   const handleVolumeChange = (event) => {
@@ -61,12 +68,16 @@ export const SelectionsPlayer = ({
 
   const handleShare = async () => {
     if (!shareClicked) {
-      const urlToCopy = "https://ukrainian-lullabies-frontend-git-dev-baza-trainee.vercel.app/#/map";
+      const urlToCopy = "https://ukrainian-lullabies-frontend-git-dev-baza-trainee.vercel.app/";
       await navigator.clipboard.writeText(urlToCopy);
       setShareClicked(true);
     }
 
     setTimeout(() => setShareClicked(false), 2000);
+  };
+
+  const handleShuffle = () => {
+    setIsPlaylistShuffled(!isPlaylistShuffled);
   };
 
   return (
@@ -88,8 +99,9 @@ export const SelectionsPlayer = ({
           </button>
           <button
             className={classNames("selections-player-shuffle-button", { "selections-player-shuffle-button-light": isLightTheme })}
+            onClick={handleShuffle}
           >
-            <FiShuffle />
+            <FiShuffle style={isPlaylistShuffled && { color: "var(--red-700)" }} />
           </button>
         </div>
         <div className="selections-player-primary-buttons-group">

@@ -162,9 +162,13 @@
 .ornament {
   display: grid;
   grid-column: 1/1;
-  justify-content: center;
+  justify-self: center;
+  width: 328px;
+  height: 27px;
   margin: 32px 0px;
-
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background: url("../../img/ornament/Ornaments-mobile.svg");
   @media screen and (min-width: 768px) {
     grid-column: 1/7;
     margin: 32px 0px;
@@ -173,6 +177,9 @@
   @media screen and (min-width: 1440px) {
     grid-column: 1/13;
     margin: 80px 0px;
+    background: url("../../img/ornament/Ornaments.svg");
+    width: 1160px;
+    height: 46px;
   }
 }
 

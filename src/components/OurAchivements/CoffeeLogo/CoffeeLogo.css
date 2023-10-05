@@ -1,0 +1,11 @@
+.achievements-bmc {
+    margin-right: 27px;
+}
+
+.achievements-bmc:hover rect{
+    fill: var(--red-700);
+}
+
+.achievements-bmc:active rect{
+    fill: var(--red-900);
+}
