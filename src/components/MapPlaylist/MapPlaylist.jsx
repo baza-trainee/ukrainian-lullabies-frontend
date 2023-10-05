@@ -54,12 +54,17 @@ export const MapPlaylist = () => {
   const data = songsData;
 
   const { t } = useTranslation();
+  const [serchParams, setSerchParams] = useSearchParams();
 
   useEffect(() => {
     dispatch(fetchData());
+    const name = serchParams.get('name');
+    const { url, lyrics } = data.find((song) => song.name === name);
+    dispatch(setCurrentUrl(url));
+    dispatch(setCurrentLyrics(lyrics));
+    dispatch(setCurrentName(name));
   }, [dispatch]);
-  const [serchParams, setSerchParams] = useSearchParams();
-  const name = serchParams.get('name');
+
 
   const handleAudioChange = (url, lyrics, name) => {
     dispatch(setCurrentUrl(url));
