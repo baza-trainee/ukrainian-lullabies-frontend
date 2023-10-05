@@ -43,7 +43,10 @@ export function PopularSongs() {
 
   useEffect(() => {
     setCurrentSong(songs[1]);
-    console.log("songs[1]", songs[1]);
+  }, []);
+
+  useEffect(() => {
+    setCurrentSong(songs[1]);
   }, [songs[1]]);
 
   const handleLeftClick = () => {
@@ -126,6 +129,7 @@ export function PopularSongs() {
                 playing={isPlaying}
                 controls
                 volume={0.5}
+                onEnded={() => setIsPlaying(false)}
               />
             </div>
           </div>
@@ -152,6 +156,7 @@ export function PopularSongs() {
                 playing={isPlaying}
                 controls
                 volume={0.5}
+                onEnded={() => setIsPlaying(false)}
               />
             </div>
           </div>
