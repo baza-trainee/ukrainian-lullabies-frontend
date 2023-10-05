@@ -5,11 +5,12 @@
   grid-column: 1/1;
   justify-content: start;
   align-items: center;
-  margin-top: 32px;
+  margin-bottom: 32px;
   padding: 0 16px;
+
   @media screen and (min-width: 1440px) {
     grid-column: 1/13;
-    margin-top: 56px; /*(80-24gap)*/
+    margin-bottom: 80px;
     grid-template-columns: auto auto;
     grid-template-rows: auto;
   }
@@ -24,4 +25,12 @@
   }
 }
 
- 
+.donats-ornament {
+  grid-column: 1/2;
+  margin-bottom: 32px;
+
+  @media screen and (min-width: 1440px) {
+    grid-column: 1/13;
+    margin-bottom: 80px;
+  }
+}
