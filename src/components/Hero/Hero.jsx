@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 
 import { getLightTheme } from "../../redux/theme/themeSelectors";
 import Notification from "./Notification/Notification";
-// import { Ornaments } from "../Ornaments/Ornaments";
+import { Ornaments } from "../Ornaments/Ornaments";
 import { GeneralTitle } from "../GeneralTitle/GeneralTitle";
 
 import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
@@ -90,7 +90,7 @@ const Hero = () => {
           <div className="element-left">
             <OrnamentsLeftIcon />
           </div>
-          <p className="text-base center">{t("heroText")}</p>
+          <p className="text-base text-tablet-hero">{t("heroText")}</p>
           <div className="element-right">
             <OrnamentsRightIcon />
           </div>
@@ -119,9 +119,9 @@ const Hero = () => {
         </motion.div>
         {isNotification && <Notification textNotification={t("shareLink")} />}
       </div>
-      {/* <div className="ornament-mobile-hero">
-        <OrnamentMobileHero className="ornament-mobile-hero-icon" />
-      </div> */}
+      <div className="ornamets-hero">
+        <Ornaments />
+      </div>
     </motion.section>
   );
 };

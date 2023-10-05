@@ -11,14 +11,16 @@
   @media screen and (min-width: 768px) {
     display: flex;
     grid-column: 1/13;
-    /* background-position: center; */
+    background-size: cover;
   }
 }
-
+@media screen and (min-width: 1440px) {
+  .heroWrapper {
+    background-size: contain;
+  }
+}
 .kolyskovaWrap {
-  display: grid;
   grid-column: 1/13;
-  justify-content: center;
 }
 
 .hero-margin {
@@ -52,14 +54,14 @@
     display: block;
   }
 }
-
+/* .text-tablet-hero {
+} */
 .ornamentWrap {
-  grid-column: 1/13;
+  /* grid-column: 1/13; */
   display: flex;
   justify-content: center;
   gap: 32px;
   margin-bottom: 24px;
-  padding: 0 12px;
 
   @media screen and (max-width: 768px) and (max-width: 1439px) {
     margin-bottom: 32px;
@@ -86,6 +88,7 @@
 
   @media screen and (min-width: 768px) {
     display: flex;
+    flex-direction: inherit;
     justify-content: center;
     align-items: center;
   }
@@ -100,23 +103,8 @@
   margin-left: 8px;
 }
 
-@media screen and (max-width: 1439px) {
-  .ornament-mobile-hero {
-    display: block;
-    justify-content: center;
-    align-items: center;
-    margin-top: 32px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .ornament-mobile-hero {
-    display: none;
-  }
-}
-
 .ornamets-hero {
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 768px) {
     display: none;
   }
 }
