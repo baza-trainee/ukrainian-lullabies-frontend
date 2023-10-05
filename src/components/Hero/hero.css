@@ -66,6 +66,7 @@
     display: block;
   }
 }
+
 .text-tablet-hero {
   text-align: center;
 }
@@ -114,7 +115,6 @@
   display: -ms-flexbox;
   display: flex;
     flex-direction: inherit;
-
     justify-content: center;
     align-items: center;
   }
