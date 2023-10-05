@@ -3,13 +3,30 @@ import axios from "axios";
 
 const initialState = {
   loading: false,
-  data: [],
+  data: [
+    {
+      id: 0,
+      name: "---- ----",
+      url: "#",
+      duration: "00.00",
+    },
+  ],
   error: "",
 };
 
 export const fetchData = createAsyncThunk("selectionSongs/fetchData", async () => {
-  const response = await axios.get("https://jsonplaceholder.typicode.com/todos/");
-  return response.data;
+  try {
+    const response = await axios.get("http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/?source-format=audio");
+    const formatedData = await response.data.map((item, index) => ({
+      id: index,
+      name: item.name,
+      url: item.source.audio,
+      duration: "10.00",
+    }));
+    return formatedData;
+  } catch (err) {
+    throw err;
+  }
 });
 
 const selecionSongsSlice = createSlice({
@@ -23,7 +40,7 @@ const selecionSongsSlice = createSlice({
       (state.loading = false), (state.data = action.payload), (state.error = "");
     });
     builder.addCase(fetchData.rejected, (state, action) => {
-      (state.loading = false), (state.data = []), (state.error = action.error.message);
+      (state.loading = false), (state.error = action.error.message);
     });
   },
 });
