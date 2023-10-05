@@ -47,7 +47,9 @@ export const Footer = () => {
   const dispatch = useDispatch();
 
   // fetch data from store
+  // const contactsResponse = useSelector((state) => state.contacts);
   const contacts = useSelector((state) => state.contacts.data);
+  const contactsError = useSelector((state) => state.contacts.error);
   const partners = useSelector((state) => state.partners.data);
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
@@ -143,12 +145,14 @@ export const Footer = () => {
           </li>
           <li>
             <p className="footer-contacts-list-title text-sm-semibold">{t("telephone")}</p>
-            <a href={contacts.length > 1 ? contacts[1].value : "#"}>{contacts.length > 1 ? contacts[1].value : "Loading..."}</a>
+            <a href={contacts.length > 1 ? contacts[1].value : "#"}>
+              {contacts.length > 1 ? contacts[1].value : `error: ${contactsError}`}
+            </a>
           </li>
           <li>
             <p className="footer-contacts-list-title text-sm-semibold">E-mail:</p>
             <a href={`mailto:${contacts.length > 1 ? contacts[2].value : "#"}`}>
-              {contacts.length > 1 ? contacts[2].value : "Loading..."}
+              {contacts.length > 1 ? contacts[2].value : `error: ${contactsError}`}
             </a>
           </li>
         </ul>
@@ -175,9 +179,8 @@ export const Footer = () => {
             <div className="footer-partners-icons">
               {partners &&
                 partners.map((partner, index) => (
-                  <a href={partner.website} target="_blank" rel="noopener nofollow noreferrer" key={index}>
-                    {/* <img src={isLightTheme ? partner.logoLightTheme : partner.logoDarkTheme} alt="partner logo" height="40" /> */}
-                    <img src={partner.logo} alt="partner logo" height="40" />
+                  <a href={partner.website} target="_blank" rel="noopener nofollow noreferrer" title={partner.name} key={index}>
+                    <img src={isLightTheme ? partner.classic_logo : partner.dark_logo} alt={partner.name} height="40" />
                   </a>
                 ))}
             </div>

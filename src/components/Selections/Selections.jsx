@@ -72,8 +72,8 @@ export const Selections = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
   // get songs
-  const sliceData = useSelector((state) => state.selectionSongs);
-  // console.log(sliceData);
+  const playlist = useSelector((state) => state.selectionSongs.data);
+  const playlistError = useSelector((state) => state.selectionSongs.error);
 
   // player variables
   const [isPlaying, setIsPlaying] = useState(false);
@@ -82,7 +82,7 @@ export const Selections = () => {
   const [isPlaylistShuffled, setIsPlaylistShuffled] = useState(false);
   const [volume, setVolume] = useState(0.5);
   const [previousVolume, setPreviousVolume] = useState(0);
-  const [playlist, setPlaylist] = useState(songsData);
+  // const [playlist, setPlaylist] = useState(songsData);
   const [currentSong, setCurrentSong] = useState(playlist[0].url);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
 
@@ -209,46 +209,50 @@ export const Selections = () => {
             <h4 className="selections-info-title text-2xl">{t("ukrainianLullabies")}</h4>
             <p className="selections-info-text text-base">{t("lullabySong")}</p>
           </div>
-          {playlist && (
+          {!playlistError ? (
             <ul className="selections-playlist-list">
-              {playlist.map((item, index) => (
-                <li
-                  className={classNames("selections-playlist-list-item", {
-                    "selections-playlist-list-item-light": isLightTheme,
-                    "selections-playlist-list-item-active": item.url === currentSong,
-                    "selections-playlist-list-item-active-light": isLightTheme && item.url === currentSong,
-                  })}
-                  key={index}
-                  onClick={() => playPauseSong(item.url)}
-                >
-                  <span className="selections-playlist-item-number">
-                    {isPlaying && item.url === currentSong ? <SoundWaveIcon /> : index + 1}
-                  </span>
-                  <div className="selection-playlist-playBtn-name-group">
-                    <button
-                      className={classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
-                        "selections-playlist-item-play-pause-button-light": isLightTheme,
-                      })}
-                      onClick={() => playPauseSong(item.url)}
-                    >
-                      {isPlaying && item.url === currentSong ? <PauseCircleIconDark /> : <PlayCircleIconDark />}
-                    </button>
+              {playlist &&
+                playlist.map((item, index) => (
+                  <li
+                    className={classNames("selections-playlist-list-item", {
+                      "selections-playlist-list-item-light": isLightTheme,
+                      "selections-playlist-list-item-active": item.url === currentSong,
+                      "selections-playlist-list-item-active-light": isLightTheme && item.url === currentSong,
+                    })}
+                    key={index}
+                    onClick={() => playPauseSong(item.url)}
+                  >
+                    <span className="selections-playlist-item-number">
+                      {isPlaying && item.url === currentSong ? <SoundWaveIcon /> : index + 1}
+                    </span>
+                    <div className="selection-playlist-playBtn-name-group">
+                      <button
+                        className={classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
+                          "selections-playlist-item-play-pause-button-light": isLightTheme,
+                        })}
+                        onClick={() => playPauseSong(item.url)}
+                      >
+                        {isPlaying && item.url === currentSong ? <PauseCircleIconDark /> : <PlayCircleIconDark />}
+                      </button>
 
-                    <span className="selections-playlist-item-name">{item.name.toUpperCase().slice(0, 50)}</span>
-                  </div>
-                  {/* selections with dropdown for mobile */}
-                  <div className="selections-playlist-item-group">
-                    <span className="selections-playlist-item-duration text-xs-bold">{item.duration}</span>
-                    <button
-                      className={classNames("selections-playlist-item-repeat-button", "selection-playlist-button", {
-                        "selections-playlist-item-repeat-button-light": isLightTheme,
-                      })}
-                      onClick={handleLoop}
-                      disabled={currentSong !== item.url}
-                    >
-                      <BsRepeat style={isLooped && currentSong === item.url && { fill: "var(--red-700)" }} />
-                    </button>
-                    {/* <button
+                      <span className="selections-playlist-item-name">{item.name.toUpperCase().slice(0, 50)}</span>
+                    </div>
+                    {/* selections with dropdown for mobile */}
+                    <div className="selections-playlist-item-group">
+                      <span className="selections-playlist-item-duration text-xs-bold">{item.duration}</span>
+                      <button
+                        className={classNames("selections-playlist-item-repeat-button", "selection-playlist-button", {
+                          "selections-playlist-item-repeat-button-light": isLightTheme,
+                        })}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleLoop();
+                        }}
+                        disabled={currentSong !== item.url}
+                      >
+                        <BsRepeat style={isLooped && currentSong === item.url && { fill: "var(--red-700)" }} />
+                      </button>
+                      {/* <button
                     className="selections-playlist-item-like-button selection-playlist-button"
                     onClick={() => handleLikeClick(item.id)}
                   >
@@ -260,8 +264,8 @@ export const Selections = () => {
                   >
                     <BsHeart />
                   </button> */}
-                  </div>
-                  {/* <button
+                    </div>
+                    {/* <button
                   className={classNames("selections-playlist-item-group-menuIcon-mobile", {
                     "selections-playlist-item-group-menuIcon-mobile-active": activeButtonMoreIndex === index,
                   })}
@@ -298,9 +302,11 @@ export const Selections = () => {
                     <BsHeart /> Додати до улюлених
                   </button>
                 </div> */}
-                </li>
-              ))}
+                  </li>
+                ))}
             </ul>
+          ) : (
+            <div className="selections-playlist-error text-l">Error: {playlistError}</div>
           )}
 
           <SelectionsPlayer
