@@ -27,20 +27,24 @@
   display: flex;
   flex-direction: column;
   grid-column: 1;
+
   @media screen and (min-width: 768px) {
 
  }
     @media screen and (min-width: 1440px) {
        grid-column: 1/9;}
  }
- 
+ .video-player-container {
+  border-radius: 10px;
+  overflow: hidden;  
+}
 .wrap-animation {
   grid-column: 9/13;
     display: flex;
   flex-direction: column;
 }
 
-.scroll{
+.playlist-anima{
   overflow-y: auto;
   max-height: 530px;
 }
@@ -67,7 +71,7 @@
   margin-top: 30px;
 }
 
-.playlist{
+.playlist-anima{
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -81,6 +85,10 @@
   }
     @media screen and (min-width: 1440px) {
      flex-direction: column;
+     flex-wrap: nowrap;
+     width: 300px;
+     height: 487px;
+     overflow-x: hidden;
     }
 }
 
@@ -90,7 +98,6 @@
   height: 110px;
   display: flex;
   border-radius: 10px;
-  background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.10) 0.88%, rgba(255, 255, 255, 0.00) 99.96%));
   padding: 8px;
   gap: 16px;
   margin-bottom: 16px;
@@ -98,11 +105,24 @@
   grid-template-columns: repeat(2, 50%);
   }
 
-.playlist-card:nth-child(odd) {
-  margin-right: 60px;
+.playlist-card-light {
+background: var(--gray-black-25, linear-gradient(172deg, rgba(255, 246, 246, 0.21) 5.87%, #EFEEEE 103.54%));
 }
 
-.active{
+.playlist-card-dark {
+background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.10) 0.88%, rgba(255, 255, 255, 0.00) 99.96%));
+}
+
+.playlist-card:nth-child(odd) {
+    @media screen and (min-width: 768px) {
+   margin-right: 60px;
+  }
+  @media screen and (min-width: 1440px) {
+     margin-right: 0;
+    }
+}
+
+.current-card{
   border-bottom: 2px solid var(--red-700);
 }
 
@@ -143,8 +163,8 @@ text-align: left;
 }
 
 /* Стилізація смуги прокрутки */
-
-.scroll::-webkit-scrollbar {
+ 
+.playlist-anima::-webkit-scrollbar {
 
   width: 4px;  
   height: 191.538px;  
@@ -152,24 +172,24 @@ text-align: left;
 
 /* Стилізація віджета смуги прокрутки */
 
-.scroll::-webkit-scrollbar-thumb { /* Ширина віджета смуги прокрутки */
+.playlist-anima::-webkit-scrollbar-thumb { /* Ширина віджета смуги прокрутки */
 
   background-color: #FFF;  
   border-radius: 2px;  
 }
 
 /* Стилізація фону смуги прокрутки */
-.scroll::-webkit-scrollbar-track {
+.playlist-anima::-webkit-scrollbar-track {
 
   background-color: var(--gray-black-800, #454545);  
 }
 
 /* Заборона прокручування смуги в горизонтальному напрямку */
-.scroll::-webkit-scrollbar-horizontal {
+.playlist-anima::-webkit-scrollbar-horizontal {
   display: none;
 }
 
 /* Заборона прокручування смуги в вертикальному напрямку */
-.scroll::-webkit-scrollbar-vertical {
+.playlist-anima::-webkit-scrollbar-vertical {
   display: block;
 }

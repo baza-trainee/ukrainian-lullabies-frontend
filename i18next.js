@@ -1,8 +1,10 @@
 import i18n from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
+import LocalStorageBackend from 'i18next-localstorage-backend';
 import { initReactI18next } from "react-i18next";
 
 i18n
+  .use(LocalStorageBackend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
@@ -93,10 +95,12 @@ i18n
           technikalWorsk2: "We apologize for the temporary inconvenience.",
           lyrics: "Lyrics",
           collection: "Museum collection",
+          alertText: 'We are working on updating the site and soon you will be able to listen to lullabies from the selected region using the map.',
         },
       },
       ua: {
         translations: {
+          alertText: 'Ми працюємо над поліпшенням сайту і невдовзі Ви зможете за допомогою карти прослухати колискові з обраного регіону.',
           collection: "Колекція музею",
           lyrics: "Текст",
           chatBot: "Чат-бот",
@@ -187,15 +191,24 @@ i18n
     lng: "ua",
     fallbackLng: "en",
     debug: true,
-
     ns: ["translations"],
     defaultNS: "translations",
-
     keySeparator: false,
-
     interpolation: {
       escapeValue: false,
     },
+    backend: {
+      prefix: 'appLanguage',  
+    },
   });
+
+i18n.on('languageChanged', (lng) => {
+  if (lng) {
+    localStorage.setItem('selectedLanguage', lng);
+  }
+});
+
+const savedLanguage = localStorage.getItem('selectedLanguage');
+i18n.changeLanguage(savedLanguage || 'en');
 
 export default i18n;
