@@ -30,16 +30,16 @@ export const Donat = () => {
   return (
     <motion.section
       initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      variants={animationElement}
-      ref={ref}
+      animate={ inView ? "visible" : "hidden" }
+      variants={ animationElement }
+      ref={ ref }
       className="achievements-support-div">
       <div className="achievements-support-container">
-        <motion.p custom={2}
-          variants={animationElement} className="text-2xl">{t("helpWith")}</motion.p>
+        <motion.p custom={ 2 }
+          variants={ animationElement } className="text-2xl">{ t("helpWith") }</motion.p>
         <motion.div
-          custom={3}
-          variants={animationElement}
+          custom={ 3 }
+          variants={ animationElement }
           className="donats">
           <Link href="#">
             <CoffeeLogo />
@@ -49,8 +49,8 @@ export const Donat = () => {
           </Link>
         </motion.div>
       </div>
-      <motion.div custom={3}
-        variants={animationElement}
+      <motion.div custom={ 3 }
+        variants={ animationElement }
         className="donats-ornament">
         <Ornaments />
       </motion.div>
