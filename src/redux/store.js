@@ -6,6 +6,7 @@ import currentSongReducer from "./currentSong/currentSongSlice";
 import selectionSongsReducer from "./SelectionSongs/selectionSongsSlice";
 import contactsSlice from "./Contacts/contactsSlice";
 import partnersSlice from "./Partners/partnersSlice";
+import sendFormSlice from "./sendForm/sendForm-slice";
 
 const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
     selectionSongs: selectionSongsReducer,
     contacts: contactsSlice,
     partners: partnersSlice,
+    sendForm: sendFormSlice.reducer,
   },
 });
 
