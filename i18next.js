@@ -1,8 +1,10 @@
 import i18n from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
+import LocalStorageBackend from 'i18next-localstorage-backend';
 import { initReactI18next } from "react-i18next";
 
 i18n
+  .use(LocalStorageBackend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
@@ -189,15 +191,24 @@ i18n
     lng: "ua",
     fallbackLng: "en",
     debug: true,
-
     ns: ["translations"],
     defaultNS: "translations",
-
     keySeparator: false,
-
     interpolation: {
       escapeValue: false,
     },
+    backend: {
+      prefix: 'appLanguage',  
+    },
   });
+
+i18n.on('languageChanged', (lng) => {
+  if (lng) {
+    localStorage.setItem('selectedLanguage', lng);
+  }
+});
+
+const savedLanguage = localStorage.getItem('selectedLanguage');
+i18n.changeLanguage(savedLanguage || 'en');
 
 export default i18n;
