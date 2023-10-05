@@ -116,12 +116,14 @@ background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.
 }
 
 .playlist-card:nth-child(odd) {
+ 
   @media screen and (min-width: 768px) {
     margin-right: 60px;
   }
   @media screen and (min-width: 1440px) {
     margin-right: 0;
   }
+ 
 }
 
 .current-card{
@@ -166,6 +168,7 @@ text-align: left;
 
 /* Стилізація смуги прокрутки */
  
+ 
 .playlist-scroll::-webkit-scrollbar {
   width: 5px;
   height: 5px;  
@@ -186,5 +189,6 @@ text-align: left;
 }
 
 .playlist-scroll::-webkit-scrollbar-vertical {
+ 
   display: block;
 }

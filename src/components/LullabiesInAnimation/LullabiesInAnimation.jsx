@@ -117,7 +117,9 @@ export const LullabiesInAnimation = () => {
         </div>
 
       </div>
+ 
       <ul className="playlist-anima playlist-scroll">
+ 
         { playlist.map((video, index) => (
           <li
             key={ index }
