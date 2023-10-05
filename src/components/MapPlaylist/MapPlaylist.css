@@ -16,7 +16,7 @@ height: auto;
   }
 }
 
-.playlist {
+.map-playlist {
   display: flex;
   flex-direction: column;
   text-align: left;
