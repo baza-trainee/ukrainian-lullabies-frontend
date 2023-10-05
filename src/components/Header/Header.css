@@ -284,6 +284,8 @@ a {
   background-color: var(--gray-black-800);
   position: relative;
   cursor: pointer;
+  transition: 3s ease-in;
+
 }
 
 #themeToggleCirlce {

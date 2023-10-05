@@ -92,7 +92,7 @@ export const MapPlaylist = () => {
       </div>
 
       <div className="playlist-wrap">
-        <div className={ classNames('map-player_playlist scroll') }>
+        <div className='map-player_playlist playlist-scroll'>
           <p className="text-l text-margin">{ t('collection') }</p>
           <ul>
             { data.map(({ name, url, lyrics, duration }, index) => (

@@ -200,9 +200,9 @@ export const MapPlayer = () => {
           <p className="text-base">{ currentLyrics } </p>
         </div>
       </div>
-      <div className="map-player_playlist">
+      <div className="map-player_playlist playlist-scroll">
         <p className="text-l text-margin">{ t('lullabiesMuseum') }</p>
-        <ul className=" player_playlist">
+        <ul className="player_playlist">
           {
             data.map(({ name, url, duration }, index) => (
               <li
