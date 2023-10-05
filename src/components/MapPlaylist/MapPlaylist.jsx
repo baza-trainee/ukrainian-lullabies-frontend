@@ -54,17 +54,12 @@ export const MapPlaylist = () => {
   const data = songsData;
 
   const { t } = useTranslation();
-  const [serchParams, setSerchParams] = useSearchParams();
 
   useEffect(() => {
     dispatch(fetchData());
-    const name = serchParams.get('name');
-    const { url, lyrics } = data.find((song) => song.name === name);
-    dispatch(setCurrentUrl(url));
-    dispatch(setCurrentLyrics(lyrics));
-    dispatch(setCurrentName(name));
   }, [dispatch]);
-
+  const [serchParams, setSerchParams] = useSearchParams();
+  const name = serchParams.get('name');
 
   const handleAudioChange = (url, lyrics, name) => {
     dispatch(setCurrentUrl(url));
@@ -88,7 +83,7 @@ export const MapPlaylist = () => {
   }, [])
 
   return (
-    <section id="anima" className="playlist margin-bottom">
+    <section id="anima" className="playlist-wrap  margin-bottom">
       <div className="playlist-map">
         <div >
           <img className="map-playlist-png" src={ MapSvg } alt="map" />
@@ -108,6 +103,7 @@ export const MapPlaylist = () => {
                   to={ `/player/?name=${name}` }
                   className={ classNames("map-player_card", { "map-player_card-light": isLightTheme }) }
                   onClick={ () => handleAudioChange(url, lyrics, name) }
+
                 >
                   <div className="card-buttons">
                     <span className="item-number">
