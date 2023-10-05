@@ -4,7 +4,7 @@ import { fetchData } from "../../redux/Lullabies/fetchLullabies";
 import { selectData } from "../../redux/DataSlice";
 import './MapPlaylist.css';
 import classNames from "classnames";
-import { setCurrentUrl, setCurrentLyrics, setCurrentId, setCurrentName } from "../../redux/currentSong/currentSongSlice";
+import { setCurrentUrl, setCurrentLyrics, setCurrentName } from "../../redux/currentSong/currentSongSlice";
 import { Link, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
@@ -58,8 +58,8 @@ export const MapPlaylist = () => {
   useEffect(() => {
     dispatch(fetchData());
   }, [dispatch]);
+
   const [serchParams, setSerchParams] = useSearchParams();
-  const name = serchParams.get('name');
 
   const handleAudioChange = (url, lyrics, name) => {
     dispatch(setCurrentUrl(url));
@@ -88,7 +88,7 @@ export const MapPlaylist = () => {
         <div >
           <img className="map-playlist-png" src={ MapSvg } alt="map" />
         </div>
-        <p className="text-2xl alert"> Ми працюємо над поліпшенням сайту і невдовзі Ви зможете за допомогою карти прослухати колискові з обраного регіону. </p>
+        <p className="text-2xl alert"> { t('alertText') } </p>
       </div>
 
       <div className="playlist-wrap">

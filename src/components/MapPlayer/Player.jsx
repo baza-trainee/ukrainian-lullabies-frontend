@@ -4,9 +4,10 @@ import { useDispatch } from "react-redux";
 import { setCurrentLyrics, setCurrentName, setCurrentUrl } from "../../redux/currentSong/currentSongSlice";
 import "./Player.css";
 import classNames from "classnames";
-import { FiShare2, FiShuffle, FiRefreshCw } from "react-icons/fi";
+import { FiShare2, FiShuffle, FiRefreshCw, FiCheck } from "react-icons/fi";
 import { BsFillSkipEndFill, BsFillSkipStartFill, BsPlayFill, BsPauseFill } from "react-icons/bs";
 import { HiVolumeUp, HiVolumeOff } from "react-icons/hi";
+import { useSearchParams } from "react-router-dom";
 
 export const Player = ({
   isLightTheme,
@@ -30,6 +31,9 @@ export const Player = ({
   const dispatch = useDispatch();
   const nextSongIndex = (currentSongIndex + 1) % playlist.length;
   const previousSongIndex = (currentSongIndex - 1) % playlist.length;
+
+  const [serchParams] = useSearchParams()
+  const name = serchParams.get('name');
 
   const handleNextSong = () => {
     dispatch(setCurrentUrl(playlist[nextSongIndex].url));
@@ -65,7 +69,18 @@ export const Player = ({
     const newVolume = parseFloat(event.target.value);
     setVolume(newVolume);
   };
+  const [shareClicked, setShareClicked] = useState(false);
 
+  const handleShare = async () => {
+    if (!shareClicked)
+    {
+      const urlToCopy = `https://kolyskova-sound-git-dev-baza-trainee-ukraine.vercel.app/#/player/?name=${name}`;
+      await navigator.clipboard.writeText(urlToCopy);
+      setShareClicked(true);
+    }
+
+    setTimeout(() => setShareClicked(false), 2000);
+  };
   const handleMute = () => {
     setVolume(0);
   };
@@ -74,7 +89,8 @@ export const Player = ({
   };
   const hendleRandom = () => {
     setIsRandom(!isRandom)
-  }
+  };
+
   return (
     <div className="map-player">
       <div
@@ -83,8 +99,23 @@ export const Player = ({
         }) }
       >
         <div className="map-player-secondary-buttons-left">
-          <FiShare2 className="map-player-share-button" />
-          <FiShuffle className="map-player-shuffle-button" style={ isRandom && { color: "var(--red-700)" } } onClick={ hendleRandom } />
+          <button
+            className={ classNames("selections-player-share-button", {
+              "selections-player-share-button-light": isLightTheme,
+              "selections-player-share-clicked": shareClicked,
+            }) }
+            onClick={ handleShare }
+          >
+            { shareClicked ? <FiCheck /> : <FiShare2 /> }
+          </button>
+          <button
+            className={ classNames("selections-player-shuffle-button", { "selections-player-shuffle-button-light": isLightTheme }) }
+            onClick={ hendleRandom }
+          >
+            <FiShuffle
+              className="map-player-shuffle-button"
+              style={ isRandom && { color: "var(--red-700)" } } />
+          </button>
         </div>
         <div className="map-player-primary-buttons-group">
           <button

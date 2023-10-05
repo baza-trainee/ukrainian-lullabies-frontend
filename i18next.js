@@ -93,10 +93,12 @@ i18n
           technikalWorsk2: "We apologize for the temporary inconvenience.",
           lyrics: "Lyrics",
           collection: "Museum collection",
+          alertText: 'We are working on updating the site and soon you will be able to listen to lullabies from the selected region using the map.',
         },
       },
       ua: {
         translations: {
+          alertText: 'Ми працюємо над поліпшенням сайту і невдовзі Ви зможете за допомогою карти прослухати колискові з обраного регіону.',
           collection: "Колекція музею",
           lyrics: "Текст",
           chatBot: "Чат-бот",

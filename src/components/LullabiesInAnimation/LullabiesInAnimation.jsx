@@ -3,6 +3,7 @@ import ReactPlayer from 'react-player'
 import "./lullabies-animation.css";
 import { useTranslation } from 'react-i18next';
 import classNames from "classnames";
+import { useSelector } from "react-redux";
 
 export const LullabiesInAnimation = () => {
 
@@ -59,7 +60,7 @@ export const LullabiesInAnimation = () => {
     },
   ]);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [scrollDisabled, setScrollDisabled] = useState(false);
+  const isLightTheme = useSelector((state) => state.theme.isLightTheme);
   const handleVideoChange = (index) => {
 
     setCurrentVideoIndex(index);
@@ -96,44 +97,41 @@ export const LullabiesInAnimation = () => {
   return (
     <section id="anima" className="lullabies-animation text-sm margin-bottom">
       <div className="player-container">
-        <ReactPlayer
-          className="video-player"
-          url={ playlist[currentVideoIndex].url }
-          width={ playerSize.width }
-          height={ playerSize.height }
-          controls={ true }
-          onEnded={ () => {
-            if (currentVideoIndex < playlist.length - 1)
-            {
-              setCurrentVideoIndex(currentVideoIndex + 1);
-            }
-          } }
-        />
+        <div className="video-player-container">
+          <ReactPlayer
+            className="video-player"
+            url={ playlist[currentVideoIndex].url }
+            width={ playerSize.width }
+            height={ playerSize.height }
+            controls={ true }
+            onEnded={ () => {
+              if (currentVideoIndex < playlist.length - 1)
+              {
+                setCurrentVideoIndex(currentVideoIndex + 1);
+              }
+            } }
+          /></div>
+
         <div className="info">
           <p className="text-base">{ playlist[currentVideoIndex].title }</p>
         </div>
 
       </div>
-      <div className=' scroll'>
-        <ul className="playlist">
-          { playlist.map((video, index) => (
-            <li
-              key={ index }
-              className={ classNames('playlist-card', { 'active': index === currentVideoIndex }) }
-              onClick={ () => handleVideoChange(index) }
-            >
-              <img src={ video.thumbnail } alt={ `Мініатюра відео ${index + 1}` } className="card-img" />
-              <div className="card-text">
-                <p className="card-title">{ video.title }</p>
-                <p className="card-info heart">{ video.likes } лайків </p>
-                <p className="card-info vievs">{ video.vievs } переглядів </p></div>
-            </li>
-          )) }
-        </ul>
-
-
-      </div>
-
+      <ul className="playlist-anima">
+        { playlist.map((video, index) => (
+          <li
+            key={ index }
+            className={ classNames('playlist-card', { 'current-card': index === currentVideoIndex, 'playlist-card-light': isLightTheme, 'playlist-card-dark': !isLightTheme }) }
+            onClick={ () => handleVideoChange(index) }
+          >
+            <img src={ video.thumbnail } alt={ `Мініатюра відео ${index + 1}` } className="card-img" />
+            <div className="card-text">
+              <p className="card-title">{ video.title }</p>
+              <p className="card-info heart">{ video.likes } лайків </p>
+              <p className="card-info vievs">{ video.vievs } переглядів </p></div>
+          </li>
+        )) }
+      </ul>
     </section >
   );
 };
