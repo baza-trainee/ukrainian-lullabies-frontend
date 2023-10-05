@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../../redux/Lullabies/fetchLullabies";
 import { selectData } from "../../redux/DataSlice";
 import './MapPlaylist.css';
 import classNames from "classnames";
-import { setCurrentUrl, setCurrentLyrics, setCurrentId, setCurrentName } from "../../redux/currentSong/currentSongSlice";
+import { setCurrentUrl, setCurrentLyrics, setCurrentName } from "../../redux/currentSong/currentSongSlice";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
@@ -12,6 +12,7 @@ import MapSvg from '../../images/map-playlist.png'
 
 export const MapPlaylist = () => {
   const dispatch = useDispatch();
+
   const data = useSelector(selectData);
   const { t } = useTranslation();
   useEffect(() => {
@@ -37,7 +38,7 @@ export const MapPlaylist = () => {
       };
     }
   }, [])
-
+  console.log(data);
   return (
     <section id="anima" className="map-playlist margin-bottom">
       <div className="playlist-map">
@@ -51,7 +52,7 @@ export const MapPlaylist = () => {
         <div className={ classNames('map-player_playlist scroll') }>
           <p className="text-l text-margin">{ t('collection') }</p>
           <ul>
-            { data.map(({ name, url, lyrics, duration }, index) => (
+            { data.map(({ name, url, lyrics, duration, index }) => (
               <li
                 key={ index }
               >
