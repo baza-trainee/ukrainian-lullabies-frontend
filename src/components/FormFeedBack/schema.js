@@ -29,7 +29,7 @@ const schema = (translations) => {
       .required(currentTranslations.schema.requiredMessage),
     theme: string()
       .min(6, currentTranslations.schema.themeMinLengthMessage)
-      .max(320, currentTranslations.schema.themeMaxLengthMessage)
+      .max(100, currentTranslations.schema.themeMaxLengthMessage)
       .required(currentTranslations.schema.requiredMessage),
     message: string()
       .max(600, currentTranslations.schema.messageMaxLengthMessage)
