@@ -38,6 +38,7 @@
   left: 0;
   z-index: 10;
   background: var(--gray-black-950);
+  animation: growToRight 200ms ease-in-out forwards;
 
   @media screen and (min-width: 1440px) {
     display: none;
@@ -207,4 +208,14 @@
   align-items: center;
   justify-content: center;
   gap: 18px;
+}
+
+@keyframes growToRight {
+  0% {
+    transform: translateX(-500px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
