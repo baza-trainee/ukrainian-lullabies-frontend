@@ -9,8 +9,8 @@
   }
     @media screen and (min-width: 1440px) {
       margin-top: 62px;
-    flex-direction: row;
-    height: 530px;
+      flex-direction: row;
+      height: 530px;
   }
 }
 
@@ -22,7 +22,8 @@
     gap: 16px;
   }
     @media screen and (min-width: 1440px) {
-    gap: 24px;
+      height: 530px;
+      gap: 24px;
   }
   
 }

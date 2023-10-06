@@ -7,7 +7,7 @@ import { Player } from "./Player";
 import { selectData } from "../../redux/DataSlice";
 import { fetchData } from "../../redux/Lullabies/fetchLullabies";
 import { BsRepeat } from "react-icons/bs";
-import { setCurrentUrl, setCurrentLyrics, setCurrentId, setCurrentName } from "../../redux/currentSong/currentSongSlice";
+import { setCurrentUrl, setCurrentLyrics, setCurrentName } from "../../redux/currentSong/currentSongSlice";
 import { PauseCircleIconDark } from "../../icons/SelectionsIcons/PauseCircleIcon";
 import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
 import './MapPlayer.css';
@@ -55,7 +55,6 @@ const songsData = [
 export const MapPlayer = () => {
   const [serchParams, setSerchParams] = useSearchParams()
 
-
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
@@ -69,7 +68,7 @@ export const MapPlayer = () => {
 
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(currentUrl ? true : false);
   const [isRandom, setIsRandom] = useState(false);
   const [isLooped, setIsLooped] = useState(false);
   const [isLoopedPlaylist, setIsLoopedPlaylist] = useState(false);
@@ -83,7 +82,6 @@ export const MapPlayer = () => {
     dispatch(setCurrentLyrics(lyrics));
     setCurrentSongIndex(index);
     dispatch(setCurrentName(name));
-
   }, [dispatch]);
 
   const playPauseSong = (url) => {
@@ -164,12 +162,13 @@ export const MapPlayer = () => {
   // autoscroll to #mapTabsId ONLY when the song turned
   const location = useLocation();
   useEffect(() => {
-    if (location.search.slice(0, 5) === "?name") {
+    if (location.search.slice(0, 5) === "?name")
+    {
       const target = document.querySelector("#mapTabsId");
       target.scrollIntoView({ block: "start" });
     }
   }, []);
-  
+
   return (
     <div className="map-player-wrapper container margin-bottom">
       <div className="player-wrapper">
@@ -238,13 +237,18 @@ export const MapPlayer = () => {
                     </button>
                   </div>
 
-                  <span className="selections-playlist-item-name">{ name }</span>
+                  <span className="selections-playlist-item-name">
+                    { name.toUpperCase() }
+                  </span>
                 </div>
                 <div className="card-buttons">
                   <span className="item-duration text-xs-bold">{ duration }</span>
                   <button
                     className="selections-playlist-item-repeat-button selection-playlist-button"
-                    onClick={ handleLoop }
+                    onClick={ (e) => {
+                      e.stopPropagation();
+                      handleLoop();
+                    } }
                     disabled={ currentUrl !== url }
                   >
                     <BsRepeat style={ isLooped && currentUrl === url && { fill: "var(--red-700)" } } />
