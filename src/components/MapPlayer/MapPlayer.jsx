@@ -169,6 +169,30 @@ export const MapPlayer = () => {
     }
   }, []);
 
+
+  const [played, setPlayed] = useState(0);
+  const [seeking, setSeeking] = useState(false);
+
+  const handleProgress = (state) => {
+    if (!seeking)
+    {
+      setPlayed(state.played);
+    }
+  };
+
+  const handleSeekMouseDown = () => {
+    // Remove this line:
+    // setSeeking(true);
+  };
+
+  const handleSeekChange = (e) => {
+    const seekTime = parseFloat(e.target.value);
+    setPlayed(seekTime);
+  };
+
+  const handleSeekMouseUp = () => {
+    setSeeking(false);
+  };
   return (
     <div className="map-player-wrapper container margin-bottom">
       <div className="player-wrapper">
@@ -183,10 +207,24 @@ export const MapPlayer = () => {
             onEnded={ handleAutoPlayNext }
             loop={ isLooped }
             volume={ volume }
+            onProgress={ handleProgress }
+            played={ played }
+            onSeek={ (e) => handleSeekChange(e) }
           />
           <h3 className="current-name text-l">
             { currentName }
           </h3>
+          <div className="timeline">
+            <input
+              type="range"
+              min={ 0 }
+              max={ 1 }
+              step="any"
+              value={ played }
+              onMouseDown={ handleSeekMouseDown }
+              onMouseUp={ handleSeekMouseUp }
+            />
+          </div>
           <Player
             isLightTheme={ isLightTheme }
             isPlaying={ isPlaying }
