@@ -1,6 +1,7 @@
 .heroWrapper {
   display: grid;
   grid-column: 1/1;
+
   justify-content: center;
   text-align: center;
 
@@ -31,7 +32,6 @@
     margin-bottom: 48px;
   }
 }
-
 .hero-margin {
   margin-bottom: 32px;
   margin-top: 56px;

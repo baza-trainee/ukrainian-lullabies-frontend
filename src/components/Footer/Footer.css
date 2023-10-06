@@ -208,15 +208,34 @@ ul {
   margin-top: 8px;
 }
 
-.footer-socials-icons svg {
+/* .footer-socials-icons svg {
   width: 24px;
   height: 24px;
+} */
+
+/* swap social logos logic */
+.footer-socials-icons a:hover .footer-socials-icon-normal {
+  display: none;
 }
 
-.footer-partners-error {
-  color: var(--red-700);
+.footer-socials-icons a:hover .footer-socials-icon-hover {
+  display: block;
 }
 
+.footer-socials-icons a:active .footer-socials-icon-pressed {
+  display: block;
+}
+
+.footer-socials-icons a:active .footer-socials-icon-hover {
+  display: none;
+}
+
+.footer-socials-icon-hover,
+.footer-socials-icon-pressed {
+  display: none;
+}
+
+/* author rights */
 .footer-author-rights {
   position: absolute;
   bottom: -35px;

@@ -13,7 +13,7 @@ import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
 import './MapPlayer.css';
 import { useRef } from "react";
 import { SoundWaveIcon } from "../../icons/SelectionsIcons/SoundWaveIcon";
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 const songsData = [
   {
     id: 0,
@@ -160,6 +160,16 @@ export const MapPlayer = () => {
   }, [])
 
   const reactPlayerRef = useRef(null);
+
+  // autoscroll to #mapTabsId ONLY when the song turned
+  const location = useLocation();
+  useEffect(() => {
+    if (location.search.slice(0, 5) === "?name") {
+      const target = document.querySelector("#mapTabsId");
+      target.scrollIntoView({ block: "start" });
+    }
+  }, []);
+  
   return (
     <div className="map-player-wrapper container margin-bottom">
       <div className="player-wrapper">
@@ -200,9 +210,9 @@ export const MapPlayer = () => {
           <p className="text-base">{ currentLyrics } </p>
         </div>
       </div>
-      <div className="map-player_playlist">
+      <div className="map-player_playlist playlist-scroll">
         <p className="text-l text-margin">{ t('lullabiesMuseum') }</p>
-        <ul className=" player_playlist">
+        <ul className="player_playlist">
           {
             data.map(({ name, url, duration }, index) => (
               <li

@@ -30,12 +30,12 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
   const handleBurgerClick = () => {
     if (!isSideMenuOpen) {
       setIsSideMenuOpen(true);
-      body.classList.add("no-scroll");
+      body.style.overflow = "hidden";
     } else {
       setIsSideMenuOpen(false);
       setIsResponsiveDropdownMenuOpen(false);
       setIsResponsiveLanguageMenuOpen(false);
-      body.classList.remove("no-scroll");
+      body.style.overflow = "auto";
     }
   };
 
@@ -65,8 +65,9 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
 
   // responsive search bar
   const responsiveSearchBarRef = useRef();
+
   return (
-    <div className="header-responsive-sidebar text-2xl">
+    <>
       <button className="header-burgerIcon" onClick={handleBurgerClick}>
         <svg width="30" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -108,7 +109,7 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
         onClick={handleBurgerClick}
       ></div>
       <div
-        className={classNames("text-2xl-mobile", {
+        className={classNames("text-2xl", {
           "header-responsive-menu": isSideMenuOpen,
           hidden: !isSideMenuOpen,
           "header-responsive-menu-light": isLightTheme,
@@ -265,6 +266,6 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };

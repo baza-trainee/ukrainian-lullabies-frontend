@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import Popup from "reactjs-popup";
 import { useTranslation } from "react-i18next";
+import { Loader } from "../Loader/Loader";
 
 import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
@@ -86,12 +87,8 @@ const HeaderTechnicalWorksElement = ({ isLightTheme }) => {
   const SvgDesk = isLightTheme ? TechDeskSvg : TechDeskSvgLight;
   const { t } = useTranslation();
   return (
-    <div style={{ flexDirection: "column" }} className="tech-wrap">
-      <div className="loader">
-        <img className="svg-tech-mob" width="88px" height="80px" src={SvgMob} alt="loader" />
-        <img className="svg-tech-desk" width="216px" height="100px" src={SvgDesk} alt="loader" />
-      </div>
-
+    <div style={{ flexDirection: "column" }} className="tech-wrap">      
+      <Loader />
       <div className="tech-container">
         <div className="right">
           <OrnamentsLeftIcon />
