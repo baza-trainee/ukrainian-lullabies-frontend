@@ -36,11 +36,11 @@ const FormFeedBack = () => {
   const formikRef = useRef();
 
   const handleFormSubmit = async (values, { resetForm }) => {
-    console.log(values);
-    const result = await dispatch(fetchSendForm());
-    console.log("Результат від сервера:", result);
+    const result = await dispatch(fetchSendForm(values));
+    // console.log("Результат від сервера:", result);
     setShowSuccessMessage(true);
     resetForm();
+    return result;
   };
 
   const handleShowPopUp = () => {

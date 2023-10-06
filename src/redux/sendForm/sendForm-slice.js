@@ -2,10 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { fetchSendForm } from "./sendForm-operations";
 
 const initialState = {
-  name: "",
-  email: "",
-  theme: "",
-  message: "",
+  items: [],
   isLoading: false,
   error: null,
 };
@@ -20,10 +17,7 @@ const sendFormSlice = createSlice({
       })
       .addCase(fetchSendForm.fulfilled, (store, { payload }) => {
         store.isLoading = false;
-        store.name = payload.name;
-        store.email = payload.email;
-        store.theme = payload.theme;
-        store.message = payload.message;
+        store.items.push(payload);
       })
       .addCase(fetchSendForm.rejected, (store, { payload }) => {
         store.isLoading = false;

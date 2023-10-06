@@ -5,8 +5,10 @@ const instance = axios.create({
 });
 
 export const sendForm = async (data) => {
-  const { data: result } = await instance.post("/email/", data);
-  console.log(result);
-  return result;
+  const response = await instance.post("/email/", data, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+  return response;
 };
+
 export default instance;

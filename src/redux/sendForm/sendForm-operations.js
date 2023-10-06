@@ -3,11 +3,10 @@ import * as api from "../../shared/services/email";
 
 export const fetchSendForm = createAsyncThunk(
   "form/sendForm",
-  async (formData, thunkAPI) => {
+  async (data, thunkAPI) => {
     try {
-      const data = await api.sendForm(formData);
-      console.log(data);
-      return data;
+      const result = await api.sendForm(data);
+      return result.data;
     } catch ({ response }) {
       return thunkAPI.rejectWithValue(response.data);
     }
