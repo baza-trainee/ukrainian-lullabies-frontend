@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
@@ -12,6 +12,7 @@ import { Formik, Form, Field } from "formik";
 
 import { getLightTheme } from "../../redux/theme/themeSelectors";
 import schema from "./schema";
+import { fetchSendForm } from "../../redux/sendForm/sendForm-operations";
 
 import ButtonForm from "./ButtonForm/ButtonForm";
 import FormError from "./FormError/FormError";
@@ -28,15 +29,18 @@ const initialValues = {
 
 const FormFeedBack = () => {
   const isLightTheme = useSelector(getLightTheme);
+  const dispatch = useDispatch();
   const { t } = useTranslation();
 
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const formikRef = useRef();
 
-  const handleFormSubmit = (values, { resetForm }) => {
-    console.log(values);
+  const handleFormSubmit = async (values, { resetForm }) => {
+    const result = await dispatch(fetchSendForm(values));
+    // console.log("Результат від сервера:", result);
     setShowSuccessMessage(true);
     resetForm();
+    return result;
   };
 
   const handleShowPopUp = () => {

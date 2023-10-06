@@ -197,6 +197,7 @@ export const Selections = () => {
         url={currentSong}
         playing={isPlaying}
         onEnded={() => (isPlaylistLooped ? handleNextSong() : setIsPlaying(false))}
+
         loop={isLooped}
         volume={volume}
       />
@@ -224,6 +225,7 @@ export const Selections = () => {
                     onClick={() => playPauseSong(item.url)}
                   >
                     <span className="selections-playlist-item-number">
+
                       {isPlaying && item.url === currentSong ? <SoundWaveIcon /> : index + 1}
                     </span>
                     <div className="selection-playlist-playBtn-name-group">
@@ -245,6 +247,7 @@ export const Selections = () => {
                         className={classNames("selections-playlist-item-repeat-button", "selection-playlist-button", {
                           "selections-playlist-item-repeat-button-light": isLightTheme,
                         })}
+
                         onClick={(e) => {
                           e.stopPropagation();
                           handleLoop();
@@ -309,6 +312,7 @@ export const Selections = () => {
           ) : (
             <div className="selections-playlist-error text-l">Error: {playlistError}</div>
           )}
+
 
           <SelectionsPlayer
             isLightTheme={isLightTheme}
