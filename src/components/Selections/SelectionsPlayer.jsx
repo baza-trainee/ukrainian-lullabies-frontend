@@ -68,9 +68,11 @@ export const SelectionsPlayer = ({
   };
 
   const handleShare = async () => {
+    const location = window.location.href;
     if (!shareClicked) {
-      const urlToCopy = "https://ukrainian-lullabies-frontend-git-dev-baza-trainee.vercel.app/";
-      await navigator.clipboard.writeText(urlToCopy);
+      // const urlToCopy = "https://ukrainian-lullabies-frontend-git-dev-baza-trainee.vercel.app/";
+      // await navigator.clipboard.writeText(urlToCopy);
+      await navigator.clipboard.writeText(location);
       setShareClicked(true);
     }
 
