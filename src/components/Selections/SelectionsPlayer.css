@@ -162,16 +162,33 @@
   content: "Поділитись";
 }
 
+.selections-player-share-button-en:after {
+  content: "Share";
+}
+
 .selections-player-share-clicked::after {
   content: "Посилання скопійовано";
+}
+
+.selections-player-share-clicked-en::after {
+  content: "Link copied";
 }
 
 .selections-player-shuffle-button:after {
   content: "Перемішати";
 }
 
+.selections-player-shuffle-button-en:after {
+  content: "Shuffle";
+}
+
 .selections-player-refresh-button:after {
   content: "Слухати по колу";
+  text-wrap: nowrap;
+}
+
+.selections-player-refresh-button-en:after {
+  content: "Loop playlist";
   text-wrap: nowrap;
 }
 
