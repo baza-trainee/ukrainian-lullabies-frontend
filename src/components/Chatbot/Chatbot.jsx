@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useInView } from 'react-intersection-observer';
 import { useSelector } from "react-redux";
 import classNames from "classnames";
 import "./Chatbot.css";
@@ -18,8 +19,8 @@ const Chatbot = () => {
   ];
 
   const chatRules = rules.map((rule, index) => (
-    <li key={index + 1} className="text-base chat_text">
-      {rule}
+    <li key={ index + 1 } className="text-base chat_text">
+      { rule }
     </li>
   ));
 
@@ -34,40 +35,44 @@ const Chatbot = () => {
       transition: { ease: "easeOut", duration: 2, delay: custom * 0.3 },
     }),
   };
-
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+  });
   return (
     <motion.div
       initial="hidden"
-      whileInView="visible"
+      animate={ inView ? "visible" : "hidden" }
+      variants={ animationElement }
+      ref={ ref }
       className="container chat_wrapper"
     >
       <div className="chat_info">
-        <motion.p custom={1} variants={animationElement} className="text-3xl">
-          {t("chatBot")}
+        <motion.p custom={ 1 } variants={ animationElement } className="text-3xl">
+          { t("chatBot") }
         </motion.p>
         <motion.ul
-          custom={2}
-          variants={animationElement}
+          custom={ 2 }
+          variants={ animationElement }
           className="chat_rule_list"
         >
-          {chatRules}
+          { chatRules }
         </motion.ul>
       </div>
-      <motion.div custom={3} variants={animationElement} className="button chat_button">
+      <motion.div custom={ 3 } variants={ animationElement } className="button chat_button">
         <Link href="#" className="text-base-semibold">
-          {t("play")}
+          { t("play") }
         </Link>
       </motion.div>
       <motion.div
-        custom={3}
-        variants={animationElement}
+        custom={ 3 }
+        variants={ animationElement }
         className="chat_picture"
       >
         <Link
           href="#"
-          className={classNames("chat_image_dark", {
+          className={ classNames("chat_image_dark", {
             chat_image_white: isLightTheme,
-          })}
+          }) }
         ></Link>
       </motion.div>
     </motion.div>
