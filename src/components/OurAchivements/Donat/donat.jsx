@@ -44,7 +44,7 @@ export const Donat = () => {
           <Link href="#">
             <CoffeeLogo />
           </Link>
-          <Link href="#">
+            <Link href="#">
             <PatreonLogo />
           </Link>
         </motion.div>
