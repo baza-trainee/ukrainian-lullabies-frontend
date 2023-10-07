@@ -4,6 +4,7 @@ import "./lullabies-animation.css";
 import { useTranslation } from 'react-i18next';
 import classNames from "classnames";
 import { useSelector } from "react-redux";
+import { Player } from "./Player";
 
 export const LullabiesInAnimation = () => {
 
@@ -59,14 +60,49 @@ export const LullabiesInAnimation = () => {
       vievs: '25',
     },
   ]);
+  const [currentVideoUrl, setCuerrentVideoUrl] = useState(playlist[0].url)
+
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
-  const handleVideoChange = (index) => {
-
+  const [isPlaylistLooped, setIsPlaylistLooped] = useState(false);
+  const [isPlaylistShuffled, setIsPlaylistShuffled] = useState(false);
+  const [cirrentname, setCurrentName] = useState(playlist[0].name)
+  const handleVideoChange = (index, url) => {
+    setCuerrentVideoUrl(url);
     setCurrentVideoIndex(index);
   };
+
   const [playerSize, setPlayerSize] = useState({ width: 672, height: 404 });
 
+  const handleLoopPlaylist = () => {
+    setIsPlaylistLooped(!isPlaylistLooped);
+  };
+
+  const handleNextSong = () => {
+    // its own function, we have similar in SelectionsPlayer
+    if (isPlaylistShuffled)
+    {
+      playRandomSong();
+    } else
+    {
+      const nextSongIndex = (currentVideoIndex + 1) % playlist.length;
+      setCuerrentVideoUrl(playlist[nextSongIndex].url);
+      setCurrentVideoIndex(nextSongIndex);
+    }
+  };
+  const playRandomSong = () => {
+    const min = 0;
+    const max = playlist.length - 1;
+
+    let newIndex;
+    do
+    {
+      newIndex = Math.floor(Math.random() * (max - min + 1)) + min;
+    } while (newIndex === currentVideoIndex);
+
+    setCuerrentVideoUrl(playlist[newIndex].url);
+    setCurrentVideoIndex(newIndex);
+  };
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
@@ -105,26 +141,46 @@ export const LullabiesInAnimation = () => {
             height={ playerSize.height }
             controls={ true }
             onEnded={ () => {
-              if (currentVideoIndex < playlist.length - 1)
+              if (isPlaylistLooped)
               {
-                setCurrentVideoIndex(currentVideoIndex + 1);
+                handleNextSong();
+              }
+              else
+              {
+                if (currentVideoIndex < playlist.length - 1)
+                {
+                  setCurrentVideoIndex(currentVideoIndex + 1);
+                }
               }
             } }
-          /></div>
+          />
+          <div className="lullabies-player">
+            <Player
+              isLightTheme={ isLightTheme }
+              setCurrentVideoUrl={ currentVideoUrl }
+              playlist={ playlist }
+              currentSongIndex={ currentVideoIndex }
+              setCurrentVideoIndex={ setCurrentVideoIndex }
+              isPlaylistLooped={ isPlaylistLooped }
+              handleLoopPlaylist={ handleLoopPlaylist }
+              setIsLoopedPlaylist={ setIsPlaylistLooped }
+              isPlaylistShuffled={ isPlaylistShuffled }
+              setIsPlaylistShuffled={ setIsPlaylistShuffled }
+              playRandomSong={ playRandomSong }
+              name={ playlist[currentVideoIndex].title }
+            />
+          </div>
 
-        <div className="info">
-          <p className="text-base">{ playlist[currentVideoIndex].title }</p>
         </div>
-
       </div>
- 
+
       <ul className="playlist-anima playlist-scroll">
- 
+
         { playlist.map((video, index) => (
           <li
             key={ index }
             className={ classNames('playlist-card', { 'current-card': index === currentVideoIndex, 'playlist-card-light': isLightTheme, 'playlist-card-dark': !isLightTheme }) }
-            onClick={ () => handleVideoChange(index) }
+            onClick={ () => handleVideoChange(index, video.url) }
           >
             <img src={ video.thumbnail } alt={ `Мініатюра відео ${index + 1}` } className="card-img" />
             <div className="card-text">
