@@ -158,21 +158,22 @@ border-radius: 8px;
 /* Стилізуємо смугу прокрутки */
 input[type="range"] {
   width: 100%;
-  height: 4px;
+  height: 5px;
   appearance: none;
  border-radius: 2px;
 background: rgba(255, 255, 255, 0.30);
   outline: none;
   margin-bottom: 32px;
+  
 }
 
 /* Стилізуємо смугу, яка відображає вибрану позицію */
 input[type="range"]::-webkit-slider-thumb {
   appearance: none;
-  width: 16px;
-  height: 16px;
- background: var(--red-700, #C60F18);
-border: 4px solid #FFF;
+  width: 10px;
+  height: 10px;
+  background: var(--red-700, #C60F18);
+  border: 3px solid #FFF;
   border-radius: 50%;
 }
 
