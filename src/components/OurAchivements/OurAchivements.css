@@ -33,7 +33,7 @@
 
   @media screen and (min-width: 1440px) {
     grid-column: 1/13;
-    padding: 48px 101px;
+    padding: 48px;
     margin-bottom: 80px;
   }
 }
