@@ -1,6 +1,6 @@
 .chat_wrapper {
   display: grid;
-  grid-column: 1/1;
+  grid-column: 1/2;
   grid-template-rows: auto auto auto;
   margin-bottom: 80px;
   gap: 0;
@@ -14,7 +14,7 @@
 
 .chat_info {
   display: grid;
-  grid-column: 1/1;
+  grid-column: 1/2;
   grid-row: 1/2;
   text-align: left;
   @media screen and (min-width: 1440px) {
@@ -50,7 +50,7 @@
 }
 
 .chat_picture {
-  grid-column: 1/1;
+  grid-column: 1/2;
   display: grid;
   grid-row: 2/3;
   justify-self: end;
@@ -67,7 +67,7 @@
 }
 
 .chat_image_dark {
-  /* cursor: pointer; */
+  cursor: default;
   background: url("../../img/motanka/motanka-black.png");
   width: inherit;
   height: inherit;
