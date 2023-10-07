@@ -117,6 +117,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: 1439px) {
+    margin-bottom: 32px;
+  }
 }
 .error-message {
   position: relative;

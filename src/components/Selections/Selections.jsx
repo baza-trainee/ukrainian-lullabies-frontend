@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import ReactPlayer from "react-player";
 import { motion } from "framer-motion";
-import { useInView } from 'react-intersection-observer';
+import { useInView } from "react-intersection-observer";
 import "./Selections.css";
 import { SelectionsPlayer } from "./SelectionsPlayer";
 import favoriteSongFirst from "../../assets/images/favorite-song-1.png";
@@ -96,19 +96,15 @@ export const Selections = () => {
   // ----+++---+---
 
   const playPauseSong = (url) => {
-    if (!isPlaying && currentSong === url)
-    {
+    if (!isPlaying && currentSong === url) {
       setIsPlaying(true);
-    } else if (!isPlaying)
-    {
+    } else if (!isPlaying) {
       setCurrentSong(url);
       setIsPlaying(true);
       setIsLooped(false);
-    } else if (isPlaying && currentSong == url)
-    {
+    } else if (isPlaying && currentSong == url) {
       setIsPlaying(false);
-    } else
-    {
+    } else {
       setCurrentSong(url);
       setIsLooped(false);
     }
@@ -126,11 +122,9 @@ export const Selections = () => {
 
   const handleNextSong = () => {
     // its own function, we have similar in SelectionsPlayer
-    if (isPlaylistShuffled)
-    {
+    if (isPlaylistShuffled) {
       playRandomSong();
-    } else
-    {
+    } else {
       const nextSongIndex = (currentSongIndex + 1) % playlist.length;
       setCurrentSong(playlist[nextSongIndex].url);
       setCurrentSongIndex(nextSongIndex);
@@ -142,8 +136,7 @@ export const Selections = () => {
     const max = playlist.length - 1;
 
     let newIndex;
-    do
-    {
+    do {
       newIndex = Math.floor(Math.random() * (max - min + 1)) + min;
     } while (newIndex === currentSongIndex);
 
@@ -213,105 +206,107 @@ export const Selections = () => {
   return (
     <motion.div
       initial="hidden"
-      animate={ inView ? "visible" : "hidden" }
-      variants={ animationElement }
-      ref={ ref }
+      animate={inView ? "visible" : "hidden"}
+      variants={animationElement}
+      ref={ref}
       className="selections margin-bottom"
-      id="selections">
-      <motion.div custom={ 1 } variants={ animationElement } >
+      id="selections"
+    >
+      <motion.div custom={1} variants={animationElement}>
         <ReactPlayer
           width="0px"
           height="0px"
-          ref={ reactPlayerRef }
-          url={ currentSong }
-          playing={ isPlaying }
-          onEnded={ () =>
+          ref={reactPlayerRef}
+          url={currentSong}
+          playing={isPlaying}
+          onEnded={() =>
             isPlaylistLooped ? handleNextSong() : setIsPlaying(false)
           }
-          loop={ isLooped }
-          volume={ volume }
+          loop={isLooped}
+          volume={volume}
         />
       </motion.div>
 
-      <h2 className="selections-title text-4xl">{ t("selection") }</h2>
+      <h2 className="selections-title text-4xl">{t("selection")}</h2>
       <motion.div
-        custom={ 1 }
-        variants={ animationElement }
-        className="selections-wrapper container margin-bottom">
+        custom={1}
+        variants={animationElement}
+        className="selections-wrapper container margin-bottom"
+      >
         <div className="selections-image">
-          <img src={ favoriteSongFirst } alt="song covering" />
+          <img src={favoriteSongFirst} alt="song covering" />
         </div>
         <div className="selections-info">
           <div className="selections-info-about">
             <h4 className="selections-info-title text-2xl">
-              { t("ukrainianLullabies") }
+              {t("ukrainianLullabies")}
             </h4>
-            <p className="selections-info-text text-base">{ t("lullabySong") }</p>
+            <p className="selections-info-text text-base">{t("lullabySong")}</p>
           </div>
-          { !playlistError ? (
+          {!playlistError ? (
             <ul className="selections-playlist-list">
-              { playlist &&
+              {playlist &&
                 playlist.map((item, index) => (
                   <li
-                    className={ classNames("selections-playlist-list-item", {
+                    className={classNames("selections-playlist-list-item", {
                       "selections-playlist-list-item-light": isLightTheme,
                       "selections-playlist-list-item-active":
                         item.url === currentSong,
                       "selections-playlist-list-item-active-light":
                         isLightTheme && item.url === currentSong,
-                    }) }
-                    key={ index }
-                    onClick={ () => playPauseSong(item.url) }
+                    })}
+                    key={index}
+                    onClick={() => playPauseSong(item.url)}
                   >
                     <span className="selections-playlist-item-number">
-                      { isPlaying && item.url === currentSong ? (
+                      {isPlaying && item.url === currentSong ? (
                         <SoundWaveIcon />
                       ) : (
                         index + 1
-                      ) }
+                      )}
                     </span>
                     <div className="selection-playlist-playBtn-name-group">
                       <button
-                        className={ classNames(
+                        className={classNames(
                           "selections-playlist-item-play-pause-button",
                           "selection-playlist-button",
                           {
                             "selections-playlist-item-play-pause-button-light":
                               isLightTheme,
                           }
-                        ) }
-                        onClick={ () => playPauseSong(item.url) }
+                        )}
+                        onClick={() => playPauseSong(item.url)}
                       >
-                        { isPlaying && item.url === currentSong ? (
+                        {isPlaying && item.url === currentSong ? (
                           <PauseCircleIconDark />
                         ) : (
                           <PlayCircleIconDark />
-                        ) }
+                        )}
                       </button>
 
                       <span className="selections-playlist-item-name">
-                        { item.name.toUpperCase().slice(0, 50) }
+                        {item.name.toUpperCase().slice(0, 50)}
                       </span>
                     </div>
-                    {/* selections with dropdown for mobile */ }
+                    {/* selections with dropdown for mobile */}
                     <div className="selections-playlist-item-group">
                       <span className="selections-playlist-item-duration text-xs-bold">
-                        { item.duration }
+                        {item.duration}
                       </span>
                       <button
-                        className={ classNames(
+                        className={classNames(
                           "selections-playlist-item-repeat-button",
                           "selection-playlist-button",
                           {
                             "selections-playlist-item-repeat-button-light":
                               isLightTheme,
                           }
-                        ) }
-                        onClick={ (e) => {
+                        )}
+                        onClick={(e) => {
                           e.stopPropagation();
                           handleLoop();
-                        } }
-                        disabled={ currentSong !== item.url }
+                        }}
+                        disabled={currentSong !== item.url}
                       >
                         <BsRepeat
                           style={
@@ -373,30 +368,30 @@ export const Selections = () => {
                   </button>
                 </div> */}
                   </li>
-                )) }
+                ))}
             </ul>
           ) : (
             <div className="selections-playlist-error text-l">
-              Error: { playlistError }
+              Error: {playlistError}
             </div>
-          ) }
+          )}
           <SelectionsPlayer
-            isLightTheme={ isLightTheme }
-            isPlaying={ isPlaying }
-            setIsPlaying={ setIsPlaying }
-            setCurrentSong={ setCurrentSong }
-            playlist={ playlist }
-            currentSongIndex={ currentSongIndex }
-            setCurrentSongIndex={ setCurrentSongIndex }
-            isPlaylistLooped={ isPlaylistLooped }
-            handleLoopPlaylist={ handleLoopPlaylist }
-            isPlaylistShuffled={ isPlaylistShuffled }
-            setIsPlaylistShuffled={ setIsPlaylistShuffled }
-            playRandomSong={ playRandomSong }
-            volume={ volume }
-            setVolume={ setVolume }
-            previousVolume={ previousVolume }
-            setPreviousVolume={ setPreviousVolume }
+            isLightTheme={isLightTheme}
+            isPlaying={isPlaying}
+            setIsPlaying={setIsPlaying}
+            setCurrentSong={setCurrentSong}
+            playlist={playlist}
+            currentSongIndex={currentSongIndex}
+            setCurrentSongIndex={setCurrentSongIndex}
+            isPlaylistLooped={isPlaylistLooped}
+            handleLoopPlaylist={handleLoopPlaylist}
+            isPlaylistShuffled={isPlaylistShuffled}
+            setIsPlaylistShuffled={setIsPlaylistShuffled}
+            playRandomSong={playRandomSong}
+            volume={volume}
+            setVolume={setVolume}
+            previousVolume={previousVolume}
+            setPreviousVolume={setPreviousVolume}
           />
         </div>
       </motion.div>
