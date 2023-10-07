@@ -215,11 +215,9 @@ export const MapCatalogue = () => {
 
   const handleRegionHover = (pattern) => {
     const hoverPattern = document.getElementById(pattern);
-    if (hoverPattern)
-    {
+    if (hoverPattern) {
       const imageElement = hoverPattern.querySelector("image");
-      if (imageElement)
-      {
+      if (imageElement) {
         imageElement.classList.add('map-opacity_visible');
       }
     }
@@ -227,11 +225,9 @@ export const MapCatalogue = () => {
 
   const handleRegionOut = (pattern) => {
     const hoverPattern = document.getElementById(pattern);
-    if (hoverPattern)
-    {
+    if (hoverPattern) {
       const imageElement = hoverPattern.querySelector("image");
-      if (imageElement)
-      {
+      if (imageElement) {
         imageElement.classList.remove('map-opacity_visible');
       }
     }
@@ -270,38 +266,38 @@ export const MapCatalogue = () => {
   }, [currentPatternIndex]);
 
   const mapRegion = catalogue.map((item) => (
-    <React.Fragment key={ item.id }>
+    <React.Fragment key={item.id}>
       <defs >
-        <pattern id={ item.pattern } x="0" y="0" width="100%" height="100%">
-          <image href={ item.photo } className="map-opacity_hide" />
+        <pattern id={item.pattern} x="0" y="0" width="100%" height="100%">
+          <image href={item.photo} className="map-opacity_hide" />
         </pattern>
       </defs>
 
-      <NavLink onClick={ () => { handleRegionHover(item.pattern); setOnButtonClick(true) } } className="nav" to="/playlist">
+      <NavLink onClick={() => { handleRegionHover(item.pattern); setOnButtonClick(true) }} className="nav" to="/playlist">
         <path className="path-map"
-          id={ item.id }
-          onMouseOver={ () => handleRegionHover(item.pattern) }
-          onMouseOut={ () => onButtonClick ? null : handleRegionOut(item.pattern) }
-          d={ item.region }
-          style={ { fill: `url(#${item.pattern})`, objectFit: "cover" } }
+          id={item.id}
+          onMouseOver={() => handleRegionHover(item.pattern)}
+          onMouseOut={() => onButtonClick ? null : handleRegionOut(item.pattern)}
+          d={item.region}
+          style={{ fill: `url(#${item.pattern})`, objectFit: "cover" }}
         />
       </NavLink>
     </React.Fragment>))
 
   return <motion.section initial="hidden"
-    animate={ inView ? "visible" : "hidden" }
-    variants={ animationElement }
-    custom={ 1 }
-    ref={ ref }
+    animate={inView ? "visible" : "hidden"}
+    variants={animationElement}
+    custom={1}
+    ref={ref}
     id="map"
     className="map-catalogue"
   >
-    <motion.div custom={ 3 }
-      variants={ animationElement } className="map">
+    <motion.div custom={1}
+      variants={animationElement} className="map">
       <svg className="svg-map" viewBox="0 0 990 655">
-        { mapRegion }
+        {mapRegion}
       </svg>
-      <img className="img-map" src={ map } alt="Map" />
+      <img className="img-map" src={map} alt="Map" />
     </motion.div>
     <Outlet />
   </motion.section>
