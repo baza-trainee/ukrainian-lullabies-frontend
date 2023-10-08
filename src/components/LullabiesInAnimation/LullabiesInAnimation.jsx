@@ -65,9 +65,11 @@ export const LullabiesInAnimation = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
   const [isPlaylistLooped, setIsPlaylistLooped] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+
   const [isLooped, setIsLooped] = useState(false);
   const [isPlaylistShuffled, setIsPlaylistShuffled] = useState(false);
-  const [cirrentname, setCurrentName] = useState(playlist[0].name)
+  const [cгrrentname, setCurrentName] = useState(playlist[0].name)
   const handleVideoChange = (index, url) => {
     setCuerrentVideoUrl(url);
     setCurrentVideoIndex(index);
@@ -127,7 +129,13 @@ export const LullabiesInAnimation = () => {
   }, [window.innerWidth]);
 
   console.log(window.innerWidth);
+  const handlePlay = () => {
+    setIsPlaying(true);
+  };
 
+  const handlePause = () => {
+    setIsPlaying(false);
+  };
   return (
     <section id="anima" className="lullabies-animation text-sm margin-bottom">
       <div className="player-container">
@@ -137,7 +145,10 @@ export const LullabiesInAnimation = () => {
             url={ playlist[currentVideoIndex].url }
             width={ playerSize.width }
             height={ playerSize.height }
-            playing={ true }
+            playing={ isPlaying }
+            onPlay={ handlePlay }
+            onPause={ handlePause }
+
             controls={ true }
             isLooped={ isLooped }
             onEnded={ () => {
@@ -167,6 +178,9 @@ export const LullabiesInAnimation = () => {
               setIsPlaylistShuffled={ setIsPlaylistShuffled }
               playRandomSong={ playRandomSong }
               name={ playlist[currentVideoIndex].title }
+              setIsPlaying={ setIsPlaying }
+              isPlaying={ isPlaying }
+
             />
           </div>
 
