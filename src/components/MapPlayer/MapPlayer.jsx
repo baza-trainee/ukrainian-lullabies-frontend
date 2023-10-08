@@ -191,8 +191,6 @@ export const MapPlayer = () => {
   const handleSeekMouseUp = () => {
     setSeeking(false);
   };
-
-
   // preventing players from playing alltogether
   const currentPlayer = useSelector((state) => state.currentPlayer.currentPlayer);
   useEffect(() => {
@@ -238,10 +236,11 @@ export const MapPlayer = () => {
               type="range"
               min={ 0 }
               max={ 1 }
-              step="any"
+              step={ 0.01 }
               value={ played }
-              onMouseDown={ handleSeekMouseDown }
-              onMouseUp={ handleSeekMouseUp }
+              onChange={ (e) => handleSeekChange(e) }
+              onMouseDown={ () => handleSeekMouseDown() }
+              onMouseUp={ () => handleSeekMouseUp() }
             />
           </div>
           <Player
