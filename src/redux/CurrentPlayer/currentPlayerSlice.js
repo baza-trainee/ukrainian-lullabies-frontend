@@ -4,7 +4,7 @@ const initialState = {
   currentPlayer: "",
 };
 
-const currentPlayerSlice = createSlice({
+const CurrentPlayerSlice = createSlice({
   name: "currentPlayer",
   initialState,
   reducers: {
@@ -15,5 +15,5 @@ const currentPlayerSlice = createSlice({
   },
 });
 
-export default currentPlayerSlice.reducer;
-export const { playerChanged } = currentPlayerSlice.actions;
+export default CurrentPlayerSlice.reducer;
+export const { playerChanged } = CurrentPlayerSlice.actions;
