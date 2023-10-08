@@ -73,7 +73,6 @@ export const LullabiesInAnimation = () => {
   const [isPlaylistLooped, setIsPlaylistLooped] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const [isLooped, setIsLooped] = useState(false);
   const [isPlaylistShuffled, setIsPlaylistShuffled] = useState(false);
 
   useEffect(() => {
