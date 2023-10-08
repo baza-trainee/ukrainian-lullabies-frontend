@@ -8,6 +8,7 @@ import { selectData, selectLoading } from "../../redux/Lullabies/traditionalSong
 import { fetchData } from "../../redux/Lullabies/lullabiesWithUrl";
 import { BsRepeat } from "react-icons/bs";
 import { setCurrentUrl, setCurrentLyrics, setCurrentName } from "../../redux/currentSong/currentSongSlice";
+import { playerChanged } from "../../redux/CurrentPlayer/currentPlayerSlice";
 import { PauseCircleIconDark } from "../../icons/SelectionsIcons/PauseCircleIcon";
 import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
 import { Loader } from '../Loader/Loader'
@@ -191,6 +192,20 @@ export const MapPlayer = () => {
     setSeeking(false);
   };
 
+  // preventing players from playing alltogether
+  const currentPlayer = useSelector((state) => state.currentPlayer.currentPlayer);
+  useEffect(() => {
+    if (isPlaying) {
+      dispatch(playerChanged("map"));
+    }
+  }, [isPlaying]);
+
+  useEffect(() => {
+    if (currentPlayer !== "map") {
+      setIsPlaying(false);
+    }
+  }, [currentPlayer]);
+  
   if (loading)
   {
     return <Loader />
