@@ -76,9 +76,10 @@ export const Selections = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
   // get songs
-  // const playlist = useSelector((state) => state.selectionSongs.data);
-  // const playlistError = useSelector((state) => state.selectionSongs.error);
-  const playlistError = false;
+  const playlist = useSelector((state) => state.selectionSongs.data);
+  const playlistError = useSelector((state) => state.selectionSongs.error);
+  // const playlist = songsData;
+  // const playlistError = false;
 
   // player variables
   const [isPlaying, setIsPlaying] = useState(false);
@@ -87,7 +88,6 @@ export const Selections = () => {
   const [isPlaylistShuffled, setIsPlaylistShuffled] = useState(false);
   const [volume, setVolume] = useState(0.5);
   const [previousVolume, setPreviousVolume] = useState(0);
-  const playlist = songsData;
   const [currentSong, setCurrentSong] = useState(playlist[0].url);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
 

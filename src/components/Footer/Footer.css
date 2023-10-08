@@ -23,7 +23,7 @@ ul {
 .footer-scroll-up-button {
   display: flex;
   position: absolute;
-  top: -40px;
+  top: -16px;
   right: 0;
   padding: 8px;
   color: var(--gray0);

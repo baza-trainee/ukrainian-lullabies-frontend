@@ -234,7 +234,7 @@ export const Footer = () => {
             <p className="text-sm-semibold">{t("ourPartners")}:</p>
             <div className="footer-partners-icons">
               {!partnersError ? (
-                partners.map((partner, index) => (
+                partners.slice(0, 3).map((partner, index) => (
                   <a href={partner.website} target="_blank" rel="noopener nofollow noreferrer" title={partner.name} key={index}>
                     <img src={isLightTheme ? partner.classic_logo : partner.dark_logo} alt={partner.name} height="40" />
                   </a>
