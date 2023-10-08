@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../../redux/Lullabies/lullabiesWithUrl";
-import { selectData } from "../../redux/Lullabies/traditionalSongsSlice";
+import { selectData, selectLoading } from "../../redux/Lullabies/traditionalSongsSlice";
 import './MapPlaylist.css';
 import classNames from "classnames";
 import { setCurrentUrl, setCurrentLyrics, setCurrentName } from "../../redux/currentSong/currentSongSlice";
