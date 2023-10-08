@@ -7,12 +7,12 @@ export const fetchData = () => async (dispatch) => {
   try {
     dispatch(fetchDataStart());
     const response = await axios.get(`${API_URL}lullabies/?source-format=video`);
-      const formatedData = {
+      const formatedData = await response.data.map((item)=>({
       id: item.id,
       name: item.name,
       url: item.source.video,
       duration: item.duration,
-    };
+    }));
       dispatch(fetchDataSuccess(formatedData));
   } catch (error) {
     dispatch(fetchDataFailure(error.message));

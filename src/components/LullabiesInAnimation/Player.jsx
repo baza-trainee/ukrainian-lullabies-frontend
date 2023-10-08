@@ -17,12 +17,16 @@ export const Player = ({
   isPlaylistShuffled,
   setIsPlaylistShuffled,
   playRandomSong,
+  isPlaying,
+  setIsPlaying,
 }) => {
   const isEnglishLanguage = localStorage.getItem("selectedLanguage") === "en";
   const nextSongIndex = (currentSongIndex + 1) % playlist.length;
   const previousSongIndex = currentSongIndex > 0 ? (currentSongIndex - 1) % playlist.length : playlist.length - 1;
 
-
+  const playStopToggle = () => {
+    setIsPlaying(!isPlaying);
+  };
   const handleNextSong = () => {
     if (isPlaylistShuffled)
     {
@@ -78,7 +82,14 @@ export const Player = ({
           >
             <BsFillSkipStartFill />
           </button>
-
+          <button
+            className={ classNames("map-player-play-pause-button", {
+              "map-player-play-pause-button-light": isLightTheme,
+            }) }
+            onClick={ playStopToggle }
+          >
+            { !isPlaying ? <BsPlayFill /> : <BsPauseFill style={ { fill: "var(--red-700)" } } /> }
+          </button>
           <button
             className={ classNames("selections-player-next-button", {
               "selections-player-next-button-light": isLightTheme,
