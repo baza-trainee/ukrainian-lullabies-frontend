@@ -144,10 +144,6 @@ export const LullabiesInAnimation = () => {
   const handlePlay = () => {
     setIsPlaying(true);
   };
-  const handlePause = () => {
-    setIsPlaying(false);
-  };
-
 
   const handlePause = () => {
     setIsPlaying(false);
