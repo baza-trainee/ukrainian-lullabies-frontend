@@ -35,18 +35,22 @@ export const SelectionsPlayer = ({
   };
 
   const handleNextSong = () => {
-    if (isPlaylistShuffled) {
+    if (isPlaylistShuffled)
+    {
       playRandomSong();
-    } else {
+    } else
+    {
       setCurrentSong(playlist[nextSongIndex].url);
       setCurrentSongIndex(nextSongIndex);
     }
   };
 
   const handlePreviousSong = () => {
-    if (isPlaylistShuffled) {
+    if (isPlaylistShuffled)
+    {
       playRandomSong();
-    } else {
+    } else
+    {
       setCurrentSong(playlist[previousSongIndex].url);
       setCurrentSongIndex(previousSongIndex);
     }
@@ -58,10 +62,12 @@ export const SelectionsPlayer = ({
   };
 
   const handleMute = () => {
-    if (volume > 0) {
+    if (volume > 0)
+    {
       setPreviousVolume(volume);
       setVolume(0);
-    } else {
+    } else
+    {
       setVolume(previousVolume);
       setPreviousVolume(0);
     }
@@ -69,9 +75,9 @@ export const SelectionsPlayer = ({
 
   const handleShare = async () => {
     const location = window.location.href;
-    if (!shareClicked) {
-      // const urlToCopy = "https://ukrainian-lullabies-frontend-git-dev-baza-trainee.vercel.app/";
-      // await navigator.clipboard.writeText(urlToCopy);
+    if (!shareClicked)
+    {
+
       await navigator.clipboard.writeText(location);
       setShareClicked(true);
     }
@@ -86,80 +92,80 @@ export const SelectionsPlayer = ({
   return (
     <div className="selections-player">
       <div
-        className={classNames("selections-player-navigation-wrapper", {
+        className={ classNames("selections-player-navigation-wrapper", {
           "selections-player-navigation-wrapper-light": isLightTheme,
-        })}
+        }) }
       >
         <div className="selections-player-secondary-buttons-left">
           <button
-            className={classNames("selections-player-share-button", {
+            className={ classNames("selections-player-share-button", {
               "selections-player-share-button-light": isLightTheme,
               "selections-player-share-button-en": isEnglishLanguage,
               "selections-player-share-clicked": shareClicked,
               "selections-player-share-clicked-en": shareClicked && isEnglishLanguage,
-            })}
-            onClick={handleShare}
+            }) }
+            onClick={ handleShare }
           >
-            {shareClicked ? <FiCheck /> : <FiShare2 />}
+            { shareClicked ? <FiCheck /> : <FiShare2 /> }
           </button>
           <button
-            className={classNames("selections-player-shuffle-button", {
+            className={ classNames("selections-player-shuffle-button", {
               "selections-player-shuffle-button-light": isLightTheme,
               "selections-player-shuffle-button-en": isEnglishLanguage,
-            })}
-            onClick={handleShuffle}
+            }) }
+            onClick={ handleShuffle }
           >
-            <FiShuffle style={isPlaylistShuffled && { color: "var(--red-700)" }} />
+            <FiShuffle style={ isPlaylistShuffled && { color: "var(--red-700)" } } />
           </button>
         </div>
         <div className="selections-player-primary-buttons-group">
           <button
-            className={classNames("selections-player-previous-button", {
+            className={ classNames("selections-player-previous-button", {
               "selections-player-previous-button-light": isLightTheme,
-            })}
-            onClick={handlePreviousSong}
+            }) }
+            onClick={ handlePreviousSong }
           >
             <BsFillSkipStartFill />
           </button>
           <button
-            className={classNames("selections-player-play-pause-button", {
+            className={ classNames("selections-player-play-pause-button", {
               "selections-player-play-pause-button-light": isLightTheme,
-            })}
-            onClick={playStopToggle}
+            }) }
+            onClick={ playStopToggle }
           >
-            {!isPlaying ? <BsPlayFill /> : <BsPauseFill style={{ fill: "var(--red-700)" }} />}
+            { !isPlaying ? <BsPlayFill /> : <BsPauseFill style={ { fill: "var(--red-700)" } } /> }
           </button>
           <button
-            className={classNames("selections-player-next-button", {
+            className={ classNames("selections-player-next-button", {
               "selections-player-next-button-light": isLightTheme,
-            })}
-            onClick={handleNextSong}
+            }) }
+            onClick={ handleNextSong }
           >
             <BsFillSkipEndFill />
           </button>
         </div>
         <div className="selections-player-secondary-buttons-right">
           <button
-            className={classNames("selections-player-refresh-button", {
+            className={ classNames("selections-player-refresh-button", {
               "selections-player-refresh-button-light": isLightTheme,
               "selections-player-refresh-button-en": isEnglishLanguage,
-            })}
-            onClick={handleLoopPlaylist}
+            }) }
+            onClick={ handleLoopPlaylist }
           >
-            <FiRefreshCw style={isPlaylistLooped && { color: "var(--red-700)" }} />
+            <FiRefreshCw style={ isPlaylistLooped && { color: "var(--red-700)" } } />
           </button>
           <div className="selections-player-volume-wrapper">
             <button className="selections-player-volume-button">
-              {volume > 0 ? <HiVolumeUp onClick={handleMute} /> : <HiVolumeOff onClick={handleMute} />}
+              { volume > 0 ? <HiVolumeUp onClick={ handleMute } /> : <HiVolumeOff onClick={ handleMute } /> }
             </button>
             <input
               type="range"
               id="selectionsVolumeInputId"
-              min={0}
-              max={1}
-              step={0.01}
-              value={volume}
-              onChange={handleVolumeChange}
+              min={ 0 }
+              max={ 1 }
+              step={ 0.01 }
+              value={ volume }
+              onChange={ handleVolumeChange }
             />
           </div>
         </div>
