@@ -192,6 +192,7 @@ export const MapPlayer = () => {
     setSeeking(false);
   };
 
+
   // preventing players from playing alltogether
   const currentPlayer = useSelector((state) => state.currentPlayer.currentPlayer);
   useEffect(() => {
@@ -205,7 +206,7 @@ export const MapPlayer = () => {
       setIsPlaying(false);
     }
   }, [currentPlayer]);
-  
+
   if (loading)
   {
     return <Loader />

@@ -196,7 +196,6 @@ input[type="range"] {
   background: rgba(255, 255, 255, 0.30);
   outline: none;
   margin-bottom: 32px;
-
 }
 
 /* Стилізуємо смугу, яка відображає вибрану позицію */
@@ -206,7 +205,6 @@ input[type="range"]::-webkit-slider-thumb {
   height: 10px;
   background: var(--red-700, #C60F18);
   border: 2px solid #FFF;
-
   border-radius: 50%;
 }
 
