@@ -16,6 +16,9 @@ import { Ornaments } from '../Ornaments/Ornaments';
 export function PopularSongs() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentSong, setCurrentSong] = useState(null);
+  const [leftClick, setLeftClick] = useState(false);
+  const [centerClick, setCenterClick] = useState(false);
+  const [rightClick, setRightClick] = useState(false);
 
   const buttonPopular = isPlaying ? pauseButton : playButton;
 
@@ -47,6 +50,9 @@ export function PopularSongs() {
 
   useEffect(() => {
     setCurrentSong(songs[1]);
+    setLeftClick(false);
+    setCenterClick(false);
+    setRightClick(false);
   }, [songs[1]]);
 
   const handleLeftClick = () => {
@@ -54,6 +60,8 @@ export function PopularSongs() {
     const [leftTitle, centerTitle, rightTitle] = title;
     const [leftSong, centerSong, rightSong] = songs;
     setIsPlaying(true);
+    setLeftClick(true);
+    setCenterClick(true);
     setImages([center, left, right]);
     setTitle([centerTitle, leftTitle, rightTitle]);
     setSongs([centerSong, leftSong, rightSong]);
@@ -68,6 +76,8 @@ export function PopularSongs() {
     const [leftTitle, centerTitle, rightTitle] = title;
     const [leftSong, centerSong, rightSong] = songs;
     setIsPlaying(true);
+    setRightClick(true);
+    setCenterClick(true);
     setImages([left, right, center]);
     setTitle([leftTitle, rightTitle, centerTitle]);
     setSongs([leftSong, rightSong, centerSong]);
@@ -114,7 +124,10 @@ export function PopularSongs() {
             </div>
             <div className="small-image-container">
               <img onClick={() => handleLeftClick()} className='play-icon' src={playButton} alt="Play" />
-              <img className='img-popular' src={images[0]} alt="Left" />
+              {leftClick && (<motion.img style={{ filter: "blur(10px)" }} className='img-popular' src={images[0]} alt="Left" />)}
+              {!leftClick && (<motion.img initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2 }} className='img-popular' src={images[0]} alt="Left" />)}
             </div>
           </div>
           <div className='large-div'>
@@ -123,7 +136,11 @@ export function PopularSongs() {
             </div>
             <div className="large-image-container">
               <img onClick={handleCenterClick} className='play-icon' src={buttonPopular} alt="Play" />
-              <img className='img-popular' src={images[1]} alt="Center" />
+              {centerClick && (<motion.img style={{ filter: "blur(10px)" }} className='img-popular' src={images[1]} alt="Center" />)}
+              {!centerClick && (<motion.img
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2 }} className='img-popular' src={images[1]} alt="Center" />)}
               <ReactPlayer
                 url={currentSong}
                 playing={isPlaying}
@@ -139,7 +156,10 @@ export function PopularSongs() {
             </div>
             <div className="small-image-container">
               <img onClick={() => handleRightClick()} className='play-icon' src={playButton} alt="Play" />
-              <img className='img-popular' src={images[2]} alt="Right" />
+              {rightClick && (<motion.img style={{ filter: "blur(10px)" }} className='img-popular' src={images[0]} alt="Left" />)}
+              {!rightClick && (<motion.img initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2 }} className='img-popular' src={images[2]} alt="Right" />)}
             </div>
           </div>
         </div>
@@ -150,7 +170,11 @@ export function PopularSongs() {
             </div>
             <div className="large-image-container">
               <img onClick={handleCenterClick} className='play-icon' src={buttonPopular} alt="Play" />
-              <img className='img-popular' src={images[1]} alt="Center" />
+              {centerClick && (<motion.img style={{ filter: "blur(10px)" }} className='img-popular' src={images[1]} alt="Center" />)}
+              {!centerClick && (<motion.img
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2 }} className='img-popular' src={images[1]} alt="Center" />)}
               <ReactPlayer
                 url={currentSong}
                 playing={isPlaying}
@@ -167,7 +191,10 @@ export function PopularSongs() {
               </div>
               <div className="small-image-container">
                 <img onClick={() => handleLeftClick()} className='play-icon' src={playButton} alt="Play" />
-                <img className='img-popular' src={images[0]} alt="Left" />
+                {leftClick && (<motion.img style={{ filter: "blur(10px)" }} className='img-popular' src={images[0]} alt="Left" />)}
+                {!leftClick && (<motion.img initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 2 }} className='img-popular' src={images[0]} alt="Left" />)}
               </div>
             </div>
             <div >
@@ -176,7 +203,10 @@ export function PopularSongs() {
               </div>
               <div className="small-image-container">
                 <img onClick={() => handleRightClick()} className='play-icon' src={playButton} alt="Play" />
-                <img className='img-popular' src={images[2]} alt="Right" />
+                {rightClick && (<motion.img style={{ filter: "blur(10px)" }} className='img-popular' src={images[0]} alt="Left" />)}
+                {!rightClick && (<motion.img initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 2 }} className='img-popular' src={images[2]} alt="Right" />)}
               </div>
             </div>
           </div>
