@@ -8,6 +8,7 @@ import { selectData } from "../../redux/DataSlice";
 import { fetchData } from "../../redux/Lullabies/fetchLullabies";
 import { BsRepeat } from "react-icons/bs";
 import { setCurrentUrl, setCurrentLyrics, setCurrentName } from "../../redux/currentSong/currentSongSlice";
+import { playerChanged } from "../../redux/CurrentPlayer/CurrentPlayerSlice";
 import { PauseCircleIconDark } from "../../icons/SelectionsIcons/PauseCircleIcon";
 import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
 import './MapPlayer.css';
@@ -193,6 +194,23 @@ export const MapPlayer = () => {
   const handleSeekMouseUp = () => {
     setSeeking(false);
   };
+
+ 
+  // preventing players from playing alltogether
+  const currentPlayer = useSelector((state) => state.currentPlayer.currentPlayer);
+  useEffect(() => {
+    if (isPlaying) {
+      dispatch(playerChanged("map"));
+    }
+  }, [isPlaying]);
+
+  useEffect(() => {
+    if (currentPlayer !== "map") {
+      setIsPlaying(false);
+    }
+  }, [currentPlayer]);
+  
+
   return (
     <div className="map-player-wrapper container margin-bottom">
       <div className="player-wrapper">
