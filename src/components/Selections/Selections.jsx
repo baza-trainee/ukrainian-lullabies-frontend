@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../../redux/SelectionSongs/selectionSongsSlice";
-import { playerChanged } from "../../redux/CurrentPlayer/CurrentPlayerSlice";
+import { playerChanged } from "../../redux/CurrentPlayer/currentPlayerSlice";
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import ReactPlayer from "react-player";

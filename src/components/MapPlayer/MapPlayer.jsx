@@ -8,7 +8,7 @@ import { selectData } from "../../redux/DataSlice";
 import { fetchData } from "../../redux/Lullabies/fetchLullabies";
 import { BsRepeat } from "react-icons/bs";
 import { setCurrentUrl, setCurrentLyrics, setCurrentName } from "../../redux/currentSong/currentSongSlice";
-import { playerChanged } from "../../redux/CurrentPlayer/CurrentPlayerSlice";
+import { playerChanged } from "../../redux/CurrentPlayer/currentPlayerSlice";
 import { PauseCircleIconDark } from "../../icons/SelectionsIcons/PauseCircleIcon";
 import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
 import './MapPlayer.css';

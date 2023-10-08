@@ -7,7 +7,7 @@ import selectionSongsReducer from "./SelectionSongs/selectionSongsSlice";
 import contactsSlice from "./Contacts/contactsSlice";
 import partnersSlice from "./Partners/partnersSlice";
 import sendFormSlice from "./sendForm/sendForm-slice";
-import CurrentPlayerReducer from "./CurrentPlayer/CurrentPlayerSlice";
+import currentPlayerReducer from "./CurrentPlayer/currentPlayerSlice";
 
 const store = configureStore({
   reducer: {
@@ -19,7 +19,7 @@ const store = configureStore({
     contacts: contactsSlice,
     partners: partnersSlice,
     sendForm: sendFormSlice.reducer,
-    currentPlayer: CurrentPlayerReducer,
+    currentPlayer: currentPlayerReducer,
   },
 });
 

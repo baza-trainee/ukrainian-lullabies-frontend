@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
-import { playerChanged } from '../../redux/CurrentPlayer/CurrentPlayerSlice';
+import { playerChanged } from '../../redux/CurrentPlayer/currentPlayerSlice';
 
 import playButton from "../../assets/images/play-popular.png";
 import pauseButton from "../../assets/images/pause-popular.png"
