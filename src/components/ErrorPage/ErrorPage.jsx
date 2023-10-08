@@ -41,33 +41,36 @@ export const ErrorPage = () => {
       variants={ animationElement }
       custom={ 1 }
       ref={ ref }
-      className='errorPage'
+      className='technikal'
     >
-      <div className="errorPage__border">
-        <div className="errorPage__element container">
-          <motion.h2 custom={ 1 }
-            variants={ animationElement } className="errorPage__title text-4xl">
-            Page not found
-          </motion.h2>
-          <motion.div
-            custom={ 2 }
-            variants={ animationElement } className="errorPage__svg404">
-            <NumberFour />
-            <NumberNull />
-            <NumberFour />
-          </motion.div>
+      <div className="technical_content">
+        <div className="technikal__border ">
+          <div className="technikal__container tech-margin container">
+            <motion.h2 custom={ 1 }
+              variants={ animationElement } className="errorPage__title text-4xl">
+              Page not found
+            </motion.h2>
+            <motion.div
+              custom={ 2 }
+              variants={ animationElement } className="errorPage__svg404">
+              <NumberFour />
+              <NumberNull />
+              <NumberFour />
+            </motion.div>
+          </div>
         </div>
       </div>
+
       <motion.div custom={ 3 }
         variants={ animationElement }
         className="errorPage__block container">
-        <div className="element-right">
+        <div className="element-right-error">
           <OrnamentsLeftIcon />
         </div>
-        <p className="element-center text-base">
+        <p className="element-center-error text-base">
           It may have been moved or deleted.
         </p>
-        <div className="element-left">
+        <div className="element-left-error">
           <OrnamentsRightIcon />
         </div>
       </motion.div>
