@@ -1,8 +1,18 @@
 .achievements-patreon_dark:hover rect,
 .achievements-patreon_light:hover rect {
   fill: #ff424e;
-  stroke: #ff424e;
-  stroke-width: 6px;
+  /* stroke: #ff424e;
+  stroke-width: 3px; */
+}
+
+.achievements-patreon_dark:hover,
+.achievements-patreon_light:hover {
+  transform: scale(1.12);
+}
+
+.achievements-patreon_dark:active,
+.achievements-patreon_light:active {
+  transform: scale(1);
 }
 
 .achievements-patreon_dark:hover path,
