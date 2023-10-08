@@ -66,6 +66,7 @@ export const LullabiesInAnimation = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
   const [isPlaylistLooped, setIsPlaylistLooped] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+
   const [isLooped, setIsLooped] = useState(false);
   const [isPlaylistShuffled, setIsPlaylistShuffled] = useState(false);
   const [cгrrentname, setCurrentName] = useState(playlist[0].name)
@@ -147,6 +148,7 @@ export const LullabiesInAnimation = () => {
             playing={ isPlaying }
             onPlay={ handlePlay }
             onPause={ handlePause }
+
             controls={ true }
             isLooped={ isLooped }
             onEnded={ () => {
