@@ -3,6 +3,8 @@ import ReactPlayer from 'react-player';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useTranslation } from 'react-i18next';
+import { useSelector, useDispatch } from 'react-redux';
+import { playerChanged } from '../../redux/CurrentPlayer/currentPlayerSlice';
 
 import playButton from "../../assets/images/play-popular.png";
 import pauseButton from "../../assets/images/pause-popular.png"
@@ -23,6 +25,7 @@ export function PopularSongs() {
   const buttonPopular = isPlaying ? pauseButton : playButton;
 
   const { t } = useTranslation();
+  const dispatch = useDispatch();
 
 
 
@@ -95,6 +98,21 @@ export function PopularSongs() {
       transition: { ease: "easeOut", duration: 2, delay: custom * 0.3 },
     }),
   }
+
+  // preventing players from playing alltogether
+  const currentPlayer = useSelector((state) => state.currentPlayer.currentPlayer);
+  useEffect(() => {
+    if (isPlaying) {
+      dispatch(playerChanged("popular"));
+    }
+  }, [isPlaying]);
+
+  useEffect(() => {
+    if (currentPlayer !== "popular") {
+      setIsPlaying(false);
+    }
+  }, [currentPlayer]);
+
 
   const { ref, inView } = useInView({
     triggerOnce: true,

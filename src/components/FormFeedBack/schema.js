@@ -9,7 +9,7 @@ const schema = (translations) => {
   return object({
     name: string()
       .matches(
-        /^[A-Za-z'ʼ-\u04FF\u0400-\u04FF\s-]+$/,
+        /^[^\s][A-Za-z'ʼ-\u04FF\u0400-\u04FF\s-]+$/,
         currentTranslations.schema.nameInvalidName
       )
       .notOneOf(
@@ -28,10 +28,12 @@ const schema = (translations) => {
       .max(320, currentTranslations.schema.emailMaxLengthMessage)
       .required(currentTranslations.schema.requiredMessage),
     theme: string()
+      .matches(/^\S.*$/, currentTranslations.schema.themeNotAllowedMessage)
       .min(6, currentTranslations.schema.themeMinLengthMessage)
       .max(100, currentTranslations.schema.themeMaxLengthMessage)
       .required(currentTranslations.schema.requiredMessage),
     message: string()
+      .matches(/^\S.*$/, currentTranslations.schema.messageNotAllowedMessage)
       .max(600, currentTranslations.schema.messageMaxLengthMessage)
       .required(currentTranslations.schema.requiredMessage),
   });

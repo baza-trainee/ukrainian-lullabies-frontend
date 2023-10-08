@@ -1,5 +1,5 @@
 .achievements-support-div {
-  grid-column: 1/1;
+  grid-column: 1/2;
 
   @media screen and (min-width: 1440px) {
     grid-column: 1/13;
@@ -10,7 +10,7 @@
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto auto;
-  grid-column: 1/1;
+  grid-column: 1/2;
   justify-content: start;
   align-items: center;
   margin-bottom: 32px;
@@ -27,7 +27,7 @@
 .donats {
   margin-top: 16px;
   text-align: start;
-
+ 
   @media screen and (min-width: 1440px) {
     margin-left: 16px;
   }

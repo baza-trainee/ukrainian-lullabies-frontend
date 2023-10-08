@@ -1,5 +1,5 @@
 .ourAchivements {
-  grid-column: 1/1;
+  grid-column: 1/2;
   grid-row-gap: 0;
 
   @media screen and (min-width: 1440px) {
@@ -10,7 +10,7 @@
 
 .achievements-title {
   display: grid;
-  grid-column: 1/1;
+  grid-column: 1/2;
   justify-content: start;
   margin-bottom: 24px;
 
@@ -22,8 +22,8 @@
 
 .achivements {
   display: grid;
-  grid-column: 1/1;
-  justify-content: space-between;
+  grid-column: 1/2;
+  justify-content: space-around;
   align-items: center;
   border: 2px solid var(--red-700);
   border-radius: 56px;
@@ -33,7 +33,7 @@
 
   @media screen and (min-width: 1440px) {
     grid-column: 1/13;
-    padding: 48px 101px;
+    padding: 48px;
     margin-bottom: 80px;
   }
 }
