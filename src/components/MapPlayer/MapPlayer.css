@@ -1,11 +1,12 @@
 .map-player-wrapper{
   display: flex;
   flex-direction: column;
-   text-align: left;
-   justify-content: center;
-   align-items: center;
-   margin-top: 15px;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
    @media screen and (min-width: 768px) {
+
   }
     @media screen and (min-width: 1440px) {
       margin-top: 62px;
@@ -17,18 +18,20 @@
 .player-wrapper{
   display: flex;
   flex-direction: column;
+  height: 380px;
    @media screen and (min-width: 768px) {
     flex-direction: row;
     gap: 16px;
+    height: 672px;
+
   }
     @media screen and (min-width: 1440px) {
-      height: 530px;
       gap: 24px;
+      height: 530px;
   }
   
 }
 .map-player_container{
-  /* background: #0a0a0a; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -36,16 +39,43 @@
   border-radius: 36px;
 }
 
+.lyrics {
+  width: 268px;
+  height: 300px; 
+  overflow-x: hidden;
+  @media screen and (min-width: 768px) {
+
+    height: 650px;
+  }
+  @media screen and (min-width: 1440px) {
+    height: 490px;
+    }
+
+}
+
 .map-player_info{
   width: 240px;
-  grid-column: 5/8;
-  overflow-x: hidden;
+  grid-column: 1/1;
+  margin: 32px auto;
+  
+  @media screen and (min-width: 768px) {
+     margin: 0;
+     grid-column: 5/8;
+  }
+  @media screen and (min-width: 1440px) {
+    
+    margin-right: 10px;
+    }
 }
 
 .map-player_playlist{
   overflow-y: auto; 
   height: 380px;
   width: 100%;
+  @media screen and (min-width: 768px) {
+
+    height: 672px;
+  }
   @media screen and (min-width: 1440px) {
     grid-column: 8/13;
     height: 530px;
@@ -158,10 +188,13 @@ border-radius: 8px;
 /* Стилізуємо смугу прокрутки */
 input[type="range"] {
   width: 100%;
-  height: 4px;
+
+
+  height: 5px;
+
   appearance: none;
- border-radius: 2px;
-background: rgba(255, 255, 255, 0.30);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.30);
   outline: none;
   margin-bottom: 32px;
 }
@@ -169,10 +202,11 @@ background: rgba(255, 255, 255, 0.30);
 /* Стилізуємо смугу, яка відображає вибрану позицію */
 input[type="range"]::-webkit-slider-thumb {
   appearance: none;
-  width: 16px;
-  height: 16px;
- background: var(--red-700, #C60F18);
-border: 4px solid #FFF;
+  width: 10px;
+  height: 10px;
+  background: var(--red-700, #C60F18);
+  border: 2px solid #FFF;
+
   border-radius: 50%;
 }
 
@@ -180,10 +214,10 @@ input[type="range"]::-moz-range-thumb {
   width: 16px;
   height: 16px;
  background: var(--red-700, #C60F18);
-
   border-radius: 50%;
 }
-/* .map-player_playlis::-webkit-scrollbar-thumb { 
+
+.map-player_playlis::-webkit-scrollbar-thumb { 
   background-color: #FFF;  
   border-radius: 2px;  
 }
@@ -199,4 +233,4 @@ input[type="range"]::-moz-range-thumb {
 
 .map-player_playlis::-webkit-scrollbar-vertical {
   display: block;
-} */
+}
