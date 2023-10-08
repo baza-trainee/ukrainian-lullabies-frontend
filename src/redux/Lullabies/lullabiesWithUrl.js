@@ -16,7 +16,7 @@ export const fetchData = () => async (dispatch) => {
           name: item.name,
           url: userResponse.data.source.audio,
           duration: item.source.duration,
-           lyrics: item.lyrics,
+          lyrics: item.lyrics,
         };
       })
     );
