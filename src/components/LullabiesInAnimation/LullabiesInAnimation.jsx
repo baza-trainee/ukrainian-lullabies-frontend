@@ -79,6 +79,7 @@ export const LullabiesInAnimation = () => {
     dispatch(fetchData());
   }, []);
 
+
   const handleVideoChange = (index, url) => {
     setCuerrentVideoUrl(url);
     setCurrentVideoIndex(index);
@@ -143,11 +144,14 @@ export const LullabiesInAnimation = () => {
   const handlePlay = () => {
     setIsPlaying(true);
   };
-
   const handlePause = () => {
     setIsPlaying(false);
   };
 
+
+  const handlePause = () => {
+    setIsPlaying(false);
+  };
   return (
     <section id="anima" className="lullabies-animation text-sm margin-bottom">
       <div className="player-container">
@@ -190,6 +194,7 @@ export const LullabiesInAnimation = () => {
               setIsPlaylistShuffled={ setIsPlaylistShuffled }
               playRandomSong={ playRandomSong }
               name={ playlist[currentVideoIndex].name }
+
               setIsPlaying={ setIsPlaying }
               isPlaying={ isPlaying }
 

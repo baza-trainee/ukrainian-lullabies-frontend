@@ -20,6 +20,7 @@ export const fetchData = () => async (dispatch) => {
         };
       })
     );
+
       dispatch(fetchDataSuccess(formatedData));
   } catch (error) {
     dispatch(fetchDataFailure(error.message));
