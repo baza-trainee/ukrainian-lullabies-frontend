@@ -7,13 +7,19 @@ export const fetchData = () => async (dispatch) => {
   try {
     dispatch(fetchDataStart());
     const response = await axios.get(`${API_URL}lullabies/?source-format=audio`);
-    const formatedData = await response.data.map((item) => ({
-      id: item.id,
-      name: item.name,
-      url: item.source.audio,
-      lyrics: item.lyrics,
-      duration: item.source.duration,
-    }));
+    const formatedData = await Promise.all(
+      response.data.map(async (item) => {
+        const userResponse = await axios.get(`${API_URL}lullabies/${item.id}`);
+        
+        return {
+          id: item.id,
+          name: item.name,
+          url: userResponse.data.source.audio,
+          duration: item.source.duration,
+           lyrics: item.lyrics,
+        };
+      })
+    );
     dispatch(fetchDataSuccess(formatedData));
   } catch (error) {
     dispatch(fetchDataFailure(error.message));

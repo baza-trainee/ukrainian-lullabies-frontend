@@ -72,15 +72,17 @@ export const Player = ({
   const [shareClicked, setShareClicked] = useState(false);
 
   const handleShare = async () => {
+    const location = window.location.href;
     if (!shareClicked)
     {
-      const urlToCopy = `https://kolyskova-sound-git-dev-baza-trainee-ukraine.vercel.app/#/player/?name=${name}`;
-      await navigator.clipboard.writeText(urlToCopy);
+
+      await navigator.clipboard.writeText(location);
       setShareClicked(true);
     }
 
     setTimeout(() => setShareClicked(false), 2000);
   };
+
   const handleMute = () => {
     setVolume(0);
   };

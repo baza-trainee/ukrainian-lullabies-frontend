@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData } from "../../redux/Lullabies/fetchLullabies";
-import { selectData } from "../../redux/DataSlice";
+import { fetchData } from "../../redux/Lullabies/lullabiesWithUrl";
+import { selectData } from "../../redux/Lullabies/traditionalSongsSlice";
 import './MapPlaylist.css';
 import classNames from "classnames";
 import { setCurrentUrl, setCurrentLyrics, setCurrentName } from "../../redux/currentSong/currentSongSlice";
@@ -9,6 +9,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
 import MapSvg from '../../images/map-playlist.png'
+import { Loader } from "../Loader/Loader";
 
 const songsData = [
   {
@@ -50,14 +51,15 @@ const songsData = [
 
 export const MapPlaylist = () => {
   const dispatch = useDispatch();
-  // const data = useSelector(selectData);
-  const data = songsData;
+  const data = useSelector(selectData);
+  // const data = songsData;
 
+  const loading = useSelector(selectLoading);
   const { t } = useTranslation();
 
   useEffect(() => {
     dispatch(fetchData());
-  }, [dispatch]);
+  }, []);
 
   const [serchParams, setSerchParams] = useSearchParams();
 
@@ -82,7 +84,13 @@ export const MapPlaylist = () => {
     }
   }, [])
 
+  if (loading)
+  {
+    return <Loader />
+  }
+
   return (
+    !loading && data &&
     <section id="anima" className="map-playlist  margin-bottom">
       <div className="playlist-map">
         <div >
