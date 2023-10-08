@@ -65,6 +65,7 @@ export const LullabiesInAnimation = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
   const [isPlaylistLooped, setIsPlaylistLooped] = useState(false);
+  const [isLooped, setIsLooped] = useState(false);
   const [isPlaylistShuffled, setIsPlaylistShuffled] = useState(false);
   const [cirrentname, setCurrentName] = useState(playlist[0].name)
   const handleVideoChange = (index, url) => {
@@ -74,9 +75,6 @@ export const LullabiesInAnimation = () => {
 
   const [playerSize, setPlayerSize] = useState({ width: 672, height: 404 });
 
-  const handleLoopPlaylist = () => {
-    setIsPlaylistLooped(!isPlaylistLooped);
-  };
 
   const handleNextSong = () => {
     // its own function, we have similar in SelectionsPlayer
@@ -139,7 +137,9 @@ export const LullabiesInAnimation = () => {
             url={ playlist[currentVideoIndex].url }
             width={ playerSize.width }
             height={ playerSize.height }
+            playing={ true }
             controls={ true }
+            isLooped={ isLooped }
             onEnded={ () => {
               if (isPlaylistLooped)
               {
@@ -162,8 +162,7 @@ export const LullabiesInAnimation = () => {
               currentSongIndex={ currentVideoIndex }
               setCurrentVideoIndex={ setCurrentVideoIndex }
               isPlaylistLooped={ isPlaylistLooped }
-              handleLoopPlaylist={ handleLoopPlaylist }
-              setIsLoopedPlaylist={ setIsPlaylistLooped }
+              setIsPlaylistLooped={ setIsPlaylistLooped }
               isPlaylistShuffled={ isPlaylistShuffled }
               setIsPlaylistShuffled={ setIsPlaylistShuffled }
               playRandomSong={ playRandomSong }

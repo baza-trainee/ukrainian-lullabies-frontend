@@ -9,16 +9,14 @@ import { useState } from "react";
 
 export const Player = ({
   isLightTheme,
-  setCurrentVideoUrl,
   playlist,
   currentSongIndex,
   setCurrentVideoIndex,
-  isLoopedPlaylist,
-  handleLoopPlaylist,
+  isPlaylistLooped,
+  setIsPlaylistLooped,
   isPlaylistShuffled,
   setIsPlaylistShuffled,
   playRandomSong,
-  name,
 }) => {
   const isEnglishLanguage = localStorage.getItem("selectedLanguage") === "en";
   const nextSongIndex = (currentSongIndex + 1) % playlist.length;
@@ -47,6 +45,9 @@ export const Player = ({
 
   const handleShuffle = () => {
     setIsPlaylistShuffled(!isPlaylistShuffled);
+  };
+  const handleLoopPlaylist = () => {
+    setIsPlaylistLooped(!isPlaylistLooped);
   };
 
   return (
@@ -77,9 +78,7 @@ export const Player = ({
           >
             <BsFillSkipStartFill />
           </button>
-          <div>
-            { `${name}` }
-          </div>
+
           <button
             className={ classNames("selections-player-next-button", {
               "selections-player-next-button-light": isLightTheme,
@@ -97,7 +96,7 @@ export const Player = ({
             }) }
             onClick={ handleLoopPlaylist }
           >
-            <FiRefreshCw style={ isLoopedPlaylist && { color: "var(--red-700)" } } />
+            <FiRefreshCw style={ isPlaylistLooped && { color: "var(--red-700)" } } />
           </button>
 
         </div>
