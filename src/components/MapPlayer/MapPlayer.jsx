@@ -4,12 +4,13 @@ import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import ReactPlayer from "react-player";
 import { Player } from "./Player";
-import { selectData } from "../../redux/DataSlice";
-import { fetchData } from "../../redux/Lullabies/fetchLullabies";
+import { selectData, selectLoading } from "../../redux/Lullabies/traditionalSongsSlice";
+import { fetchData } from "../../redux/Lullabies/lullabiesWithUrl";
 import { BsRepeat } from "react-icons/bs";
 import { setCurrentUrl, setCurrentLyrics, setCurrentName } from "../../redux/currentSong/currentSongSlice";
 import { PauseCircleIconDark } from "../../icons/SelectionsIcons/PauseCircleIcon";
 import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
+import { Loader } from '../Loader/Loader'
 import './MapPlayer.css';
 import { useRef } from "react";
 import { SoundWaveIcon } from "../../icons/SelectionsIcons/SoundWaveIcon";
@@ -58,14 +59,16 @@ export const MapPlayer = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  // const data = useSelector(selectData);
-  const data = songsData;
+  const data = useSelector(selectData);
+  const loading = useSelector(selectLoading);
+  // const error = useSelector(selectError);
+  // const data = songsData;
   const currentUrl = useSelector((state) => state.currentSong.currentUrl);
   const currentName = useSelector((state) => state.currentSong.currentName);
   const currentLyrics = useSelector((state) => state.currentSong.currentLyrics);
 
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
-
+  console.log(currentUrl);
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
   const [isPlaying, setIsPlaying] = useState(currentUrl ? true : false);
@@ -76,13 +79,7 @@ export const MapPlayer = () => {
 
   useEffect(() => {
     dispatch(fetchData());
-    const name = serchParams.get('name');
-    const { url, index, lyrics } = data.find((song) => song.name === name);
-    dispatch(setCurrentUrl(url));
-    dispatch(setCurrentLyrics(lyrics));
-    setCurrentSongIndex(index);
-    dispatch(setCurrentName(name));
-  }, [dispatch]);
+  }, []);
 
   const playPauseSong = (url) => {
 
@@ -193,8 +190,14 @@ export const MapPlayer = () => {
   const handleSeekMouseUp = () => {
     setSeeking(false);
   };
+
+  if (loading)
+  {
+    return <Loader />
+  }
+
   return (
-    <div className="map-player-wrapper container margin-bottom">
+    !loading && data && <div className="map-player-wrapper container margin-bottom">
       <div className="player-wrapper">
         <div className="map-player_container">
           <div className="player-photo"></div>
@@ -241,14 +244,22 @@ export const MapPlayer = () => {
             setVolume={ setVolume }
           />
         </div>
-
         <div className="map-player_info">
-          <p className="text-l text-margin">{ t('lyrics') }</p>
-          <p className="text-base">{ currentLyrics } </p>
+          <p className="text-l text-margin ">
+            { t('lyrics') }
+          </p>
+          <div className="lyrics playlist-scroll">
+            <p className="text-base">
+              { currentLyrics }
+            </p>
+          </div>
+
         </div>
       </div>
-      <div className="map-player_playlist playlist-scroll">
-        <p className="text-l text-margin">{ t('lullabiesMuseum') }</p>
+      <div className="map-player_playlist  ">
+        <p className="text-l text-margin">
+          { t('lullabiesMuseum') }
+        </p>
         <ul className="player_playlist">
           {
             data.map(({ name, url, duration }, index) => (
@@ -297,5 +308,6 @@ export const MapPlayer = () => {
           } </ul>
       </div>
     </div>
+
   );
 };
