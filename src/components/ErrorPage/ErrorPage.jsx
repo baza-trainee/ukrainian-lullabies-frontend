@@ -41,7 +41,7 @@ export const ErrorPage = () => {
       variants={ animationElement }
       custom={ 1 }
       ref={ ref }
-      className='technikal'
+      className='technikal margin-bottom'
     >
       <div className="technical_content">
         <div className="technikal__border ">
