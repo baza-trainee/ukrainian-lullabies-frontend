@@ -18,13 +18,16 @@
 .player-wrapper{
   display: flex;
   flex-direction: column;
-  height: 380px;
    @media screen and (min-width: 768px) {
     flex-direction: row;
     gap: 16px;
-    height: 672px;
-
+    height: 533px;
   }
+
+    @media screen and (min-width: 768px) {
+    margin-bottom: 24px;
+
+    }
     @media screen and (min-width: 1440px) {
       gap: 24px;
       height: 530px;
@@ -40,17 +43,20 @@
 }
 
 .lyrics {
+  overflow-y: auto; 
+
+  white-space: pre-wrap;
   width: 268px;
-  height: 300px; 
+  max-height: 300px;
+  height: 100%; 
   overflow-x: hidden;
   @media screen and (min-width: 768px) {
-
+    max-height: 100%;
     height: 650px;
   }
   @media screen and (min-width: 1440px) {
     height: 490px;
     }
-
 }
 
 .map-player_info{
@@ -69,16 +75,27 @@
 }
 
 .map-player_playlist{
-  overflow-y: auto; 
   height: 380px;
   width: 100%;
   @media screen and (min-width: 768px) {
 
-    height: 672px;
+    height: 533px;
   }
   @media screen and (min-width: 1440px) {
     grid-column: 8/13;
     height: 530px;
+  }
+}
+.player_playlist{
+  overflow-y: auto;
+  height: 300px;
+  @media screen and (min-width: 768px) {
+
+    height: 650px;
+  }
+  @media screen and (min-width: 1440px) {
+    grid-column: 8/13;
+    height: 490px;
   }
 }
 
@@ -161,12 +178,6 @@
 .text-margin{
   margin-bottom: 24px;
 }
-
-.map-player_playlis::-webkit-scrollbar {
-  width: 4px;  
-  height: 191.538px;  
-}
-
 .player-photo{
 background-image: url("../../images/Baby_photo.png");
 background-repeat: no-repeat;
@@ -214,20 +225,3 @@ border-radius: 8px;
   border-radius: 50%;
 }
 
-.map-player_playlis::-webkit-scrollbar-thumb { 
-  background-color: #FFF;  
-  border-radius: 2px;  
-}
-
-.map-player_playlis::-webkit-scrollbar-track {
-
-  background-color: var(--gray-black-800, #454545);  
-}
-
-.map-player_playlis::-webkit-scrollbar-horizontal {
-  display: none;
-}
-
-.map-player_playlis::-webkit-scrollbar-vertical {
-  display: block;
-}
