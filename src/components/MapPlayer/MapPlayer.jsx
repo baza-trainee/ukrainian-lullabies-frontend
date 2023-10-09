@@ -56,14 +56,13 @@ const songsData = [
 
 export const MapPlayer = () => {
   const [serchParams, setSerchParams] = useSearchParams()
-
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const data = useSelector(selectData);
+  // const data = useSelector(selectData);
   const loading = useSelector(selectLoading);
   // const error = useSelector(selectError);
-  // const data = songsData;
+  const data = songsData;
   const currentUrl = useSelector((state) => state.currentSong.currentUrl);
   const currentName = useSelector((state) => state.currentSong.currentName);
   const currentLyrics = useSelector((state) => state.currentSong.currentLyrics);
@@ -167,7 +166,6 @@ export const MapPlayer = () => {
     }
   }, []);
 
-
   const [played, setPlayed] = useState(0);
   const [seeking, setSeeking] = useState(false);
 
@@ -178,29 +176,24 @@ export const MapPlayer = () => {
     }
   };
 
-  const handleSeekMouseDown = () => {
-    // Remove this line:
-    // setSeeking(true);
-  };
-
   const handleSeekChange = (e) => {
     const seekTime = parseFloat(e.target.value);
     setPlayed(seekTime);
   };
 
-  const handleSeekMouseUp = () => {
-    setSeeking(false);
-  };
   // preventing players from playing alltogether
   const currentPlayer = useSelector((state) => state.currentPlayer.currentPlayer);
+
   useEffect(() => {
-    if (isPlaying) {
+    if (isPlaying)
+    {
       dispatch(playerChanged("map"));
     }
   }, [isPlaying]);
 
   useEffect(() => {
-    if (currentPlayer !== "map") {
+    if (currentPlayer !== "map")
+    {
       setIsPlaying(false);
     }
   }, [currentPlayer]);
@@ -233,14 +226,13 @@ export const MapPlayer = () => {
           </h3>
           <div className="timeline">
             <input
+              id='timeline'
               type="range"
               min={ 0 }
               max={ 1 }
               step={ 0.01 }
               value={ played }
               onChange={ (e) => handleSeekChange(e) }
-              onMouseDown={ () => handleSeekMouseDown() }
-              onMouseUp={ () => handleSeekMouseUp() }
             />
           </div>
           <Player
@@ -306,7 +298,9 @@ export const MapPlayer = () => {
                   </span>
                 </div>
                 <div className="card-buttons">
-                  <span className="item-duration text-xs-bold">{ duration }</span>
+                  <span className="item-duration text-xs-bold">
+                    { duration }
+                  </span>
                   <button
                     className="selections-playlist-item-repeat-button selection-playlist-button"
                     onClick={ (e) => {

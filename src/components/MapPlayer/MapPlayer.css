@@ -186,12 +186,9 @@ border-radius: 8px;
 }
 
 /* Стилізуємо смугу прокрутки */
-input[type="range"] {
+#timeline {
   width: 100%;
-
-
   height: 5px;
-
   appearance: none;
   border-radius: 2px;
   background: rgba(255, 255, 255, 0.30);
@@ -200,7 +197,7 @@ input[type="range"] {
 }
 
 /* Стилізуємо смугу, яка відображає вибрану позицію */
-input[type="range"]::-webkit-slider-thumb {
+#timeline::-webkit-slider-thumb {
   appearance: none;
   width: 10px;
   height: 10px;
@@ -210,7 +207,7 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 50%;
 }
 
-input[type="range"]::-moz-range-thumb {
+#timeline::-moz-range-thumb {
   width: 16px;
   height: 16px;
  background: var(--red-700, #C60F18);
