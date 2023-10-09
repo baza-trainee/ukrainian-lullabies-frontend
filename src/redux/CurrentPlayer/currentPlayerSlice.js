@@ -10,7 +10,6 @@ const currentPlayerSlice = createSlice({
   reducers: {
     playerChanged: (state, action) => {
       state.currentPlayer = action.payload;
-      console.log("currentPlayer: ", state.currentPlayer);
     },
   },
 });

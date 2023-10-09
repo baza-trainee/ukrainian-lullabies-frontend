@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../../redux/SelectionSongs/selectionSongsSlice";
 import { playerChanged } from "../../redux/CurrentPlayer/currentPlayerSlice";
 import classNames from "classnames";
+import axios from "axios";
 import { useTranslation } from "react-i18next";
 import ReactPlayer from "react-player";
 import { motion } from "framer-motion";
@@ -77,10 +78,10 @@ export const Selections = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
   // get songs
-  // const playlist = useSelector((state) => state.selectionSongs.data);
-  // const playlistError = useSelector((state) => state.selectionSongs.error);
-  const playlist = songsData;
-  const playlistError = false;
+  const playlist = useSelector((state) => state.selectionSongs.data);
+  const playlistError = useSelector((state) => state.selectionSongs.error);
+  // const playlist = songsData;
+  // const playlistError = false;
 
   // player variables
   const [isPlaying, setIsPlaying] = useState(false);
@@ -107,6 +108,17 @@ export const Selections = () => {
       setIsPlaying(false);
     }
   }, [currentPlayer]);
+
+  // sending GET request to increment views
+  useEffect(() => {
+    const currentSongId = playlist[currentSongIndex].songId;
+    const currentTime = reactPlayerRef.current.getCurrentTime();
+
+    if (isPlaying && currentSong !== "#" && currentTime < 0.3) {
+      axios.get(`http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/${currentSongId}/increment_views/`);
+    }
+  }, [isPlaying, currentSong]);
+
   // ------------+----+-----+----
   // ----+++---+---
 
