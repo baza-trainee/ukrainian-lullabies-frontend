@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../../redux/SelectionSongs/selectionSongsSlice";
+import { playerChanged } from "../../redux/CurrentPlayer/currentPlayerSlice";
 import classNames from "classnames";
+import axios from "axios";
 import { useTranslation } from "react-i18next";
 import ReactPlayer from "react-player";
 import { motion } from "framer-motion";
@@ -78,6 +80,7 @@ export const Selections = () => {
   // get songs
   // const playlist = useSelector((state) => state.selectionSongs.data);
   // const playlistError = useSelector((state) => state.selectionSongs.error);
+  const playlist = songsData;
   const playlistError = false;
 
   // player variables
@@ -87,11 +90,37 @@ export const Selections = () => {
   const [isPlaylistShuffled, setIsPlaylistShuffled] = useState(false);
   const [volume, setVolume] = useState(0.5);
   const [previousVolume, setPreviousVolume] = useState(0);
-  const playlist = songsData;
   const [currentSong, setCurrentSong] = useState(playlist[0].url);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
 
   const reactPlayerRef = useRef(null);
+
+  // preventing players from playing alltogether
+  const currentPlayer = useSelector(
+    (state) => state.currentPlayer.currentPlayer
+  );
+  useEffect(() => {
+    if (isPlaying) {
+      dispatch(playerChanged("selections"));
+    }
+  }, [isPlaying]);
+
+  useEffect(() => {
+    if (currentPlayer !== "selections") {
+      setIsPlaying(false);
+    }
+  }, [currentPlayer]);
+
+  // sending GET request to increment views
+  useEffect(() => {
+    const currentSongId = playlist[currentSongIndex].songId;
+    const currentTime = reactPlayerRef.current.getCurrentTime();
+
+    if (isPlaying && currentSong !== "#" && currentTime < 0.3) {
+      axios.get(`http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/${currentSongId}/increment_views/`);
+    }
+  }, [isPlaying, currentSong]);
+
   // ------------+----+-----+----
   // ----+++---+---
 
@@ -121,7 +150,7 @@ export const Selections = () => {
   };
 
   const handleNextSong = () => {
-    // its own function, we have similar in SelectionsPlayer
+    // its own function; we have similar in SelectionsPlayer
     if (isPlaylistShuffled) {
       playRandomSong();
     } else {

@@ -4,12 +4,14 @@ import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import ReactPlayer from "react-player";
 import { Player } from "./Player";
-import { selectData } from "../../redux/DataSlice";
-import { fetchData } from "../../redux/Lullabies/fetchLullabies";
+import { selectData, selectLoading } from "../../redux/Lullabies/traditionalSongsSlice";
+import { fetchData } from "../../redux/Lullabies/lullabiesWithUrl";
 import { BsRepeat } from "react-icons/bs";
 import { setCurrentUrl, setCurrentLyrics, setCurrentName } from "../../redux/currentSong/currentSongSlice";
+import { playerChanged } from "../../redux/CurrentPlayer/currentPlayerSlice";
 import { PauseCircleIconDark } from "../../icons/SelectionsIcons/PauseCircleIcon";
 import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
+import { Loader } from '../Loader/Loader'
 import './MapPlayer.css';
 import { useRef } from "react";
 import { SoundWaveIcon } from "../../icons/SelectionsIcons/SoundWaveIcon";
@@ -26,7 +28,7 @@ const songsData = [
     id: 1,
     url: "https://deti.e-papa.com.ua/mpf/17146805.mp3",
     name: "Ходить сон бiля вiкон",
-    lyrics: "Ой ходить сон коло вікон, \n А дрімота — коло плота.\nПитається сон дрімоти:\n — А де будем ночувати? \n \n\n \nДе хатонька теплесенька,\nДе дитина малесенька,—Там ми будем ночувати,Дитиночку колихати.\nОй на кота та воркота,На дитину та й дрімота,Котик буде воркотати,\n\n  Дитинонька буде спати.",
+    lyrics: "Ой ходить сон коло вікон, \n А дрімота — коло плота.\nПитається сон дрімоти:\n — А де будем ночувати? \n \n\n \nДе хатонька теплесенька,\nДе дитина малесенька,—Там ми будем ночувати,Дитиночку колихати.\nОй на кота та воркота,На дитину та й дрімота,Котик буде воркотати,\n\n  Дитинонька буде спати. Ой ходить сон коло вікон, \n А дрімота — коло плота.\nПитається сон дрімоти:\n — А де будем ночувати? \n \n\n \nДе хатонька теплесенька,\nДе дитина малесенька,—Там ми будем ночувати,Дитиночку колихати.\nОй на кота та воркота,На дитину та й дрімота,Котик буде воркотати,\n\n  Дитинонька буде спати.",
     duration: '00:59',
   },
   {
@@ -54,18 +56,19 @@ const songsData = [
 
 export const MapPlayer = () => {
   const [serchParams, setSerchParams] = useSearchParams()
-
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
   // const data = useSelector(selectData);
+  const loading = useSelector(selectLoading);
+  // const error = useSelector(selectError);
   const data = songsData;
   const currentUrl = useSelector((state) => state.currentSong.currentUrl);
   const currentName = useSelector((state) => state.currentSong.currentName);
   const currentLyrics = useSelector((state) => state.currentSong.currentLyrics);
 
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
-
+  console.log(currentUrl);
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
   const [isPlaying, setIsPlaying] = useState(currentUrl ? true : false);
@@ -76,13 +79,7 @@ export const MapPlayer = () => {
 
   useEffect(() => {
     dispatch(fetchData());
-    const name = serchParams.get('name');
-    const { url, index, lyrics } = data.find((song) => song.name === name);
-    dispatch(setCurrentUrl(url));
-    dispatch(setCurrentLyrics(lyrics));
-    setCurrentSongIndex(index);
-    dispatch(setCurrentName(name));
-  }, [dispatch]);
+  }, []);
 
   const playPauseSong = (url) => {
 
@@ -169,7 +166,6 @@ export const MapPlayer = () => {
     }
   }, []);
 
-
   const [played, setPlayed] = useState(0);
   const [seeking, setSeeking] = useState(false);
 
@@ -180,21 +176,23 @@ export const MapPlayer = () => {
     }
   };
 
-  const handleSeekMouseDown = () => {
-    // Remove this line:
-    // setSeeking(true);
-  };
+  // preventing players from playing alltogether
+  const currentPlayer = useSelector((state) => state.currentPlayer.currentPlayer);
 
-  const handleSeekChange = (e) => {
-    const seekTime = parseFloat(e.target.value);
-    setPlayed(seekTime);
-  };
+  useEffect(() => {
+    if (currentPlayer !== "map")
+    {
+      setIsPlaying(false);
+    }
+  }, [currentPlayer]);
 
-  const handleSeekMouseUp = () => {
-    setSeeking(false);
-  };
+  if (loading)
+  {
+    return <Loader />
+  }
+
   return (
-    <div className="map-player-wrapper container margin-bottom">
+    !loading && data && <div className="map-player-wrapper container margin-bottom">
       <div className="player-wrapper">
         <div className="map-player_container">
           <div className="player-photo"></div>
@@ -209,20 +207,18 @@ export const MapPlayer = () => {
             volume={ volume }
             onProgress={ handleProgress }
             played={ played }
-            onSeek={ (e) => handleSeekChange(e) }
           />
           <h3 className="current-name text-l">
             { currentName }
           </h3>
           <div className="timeline">
             <input
+              id='timeline'
               type="range"
               min={ 0 }
               max={ 1 }
-              step="any"
+              step={ 0.01 }
               value={ played }
-              onMouseDown={ handleSeekMouseDown }
-              onMouseUp={ handleSeekMouseUp }
             />
           </div>
           <Player
@@ -241,61 +237,74 @@ export const MapPlayer = () => {
             setVolume={ setVolume }
           />
         </div>
-
         <div className="map-player_info">
-          <p className="text-l text-margin">{ t('lyrics') }</p>
-          <p className="text-base">{ currentLyrics } </p>
+          <p className="text-l text-margin ">
+            { t('lyrics') }
+          </p>
+          <div className="lyrics playlist-scroll">
+            <p className="text-base">
+              { currentLyrics }
+            </p>
+          </div>
         </div>
       </div>
-      <div className="map-player_playlist playlist-scroll">
-        <p className="text-l text-margin">{ t('lullabiesMuseum') }</p>
-        <ul className="player_playlist">
-          {
-            data.map(({ name, url, duration }, index) => (
-              <li
-                key={ index }
-                className={ classNames("map-player_card", {
-                  'map-player_card-dark': !isLightTheme,
-                  'map-player_card-light': isLightTheme, 'active-map-card': (url === currentUrl && !isLightTheme), 'active-map-card-light': (isLightTheme && url === currentUrl)
-                }) }
-                onClick={ () => { handleVideoChange(name); playPauseSong(url) } }
-              >
-                <div className="card-buttons">
-                  <span className="item-number">
-                    { isPlaying && url === currentUrl ? <SoundWaveIcon /> : index + 1 }
-                  </span>
-                  <div className="playlist-item ">
+      <div className="map-player_playlist">
+        <p className="text-l text-margin">
+          { t('lullabiesMuseum') }
+        </p>
+        <div className="player_playlist playlist-scroll">
+          <ul >
+            {
+              data.map(({ name, url, duration }, index) => (
+                <li
+                  key={ index }
+                  className={ classNames("map-player_card", {
+                    'map-player_card-dark': !isLightTheme,
+                    'map-player_card-light': isLightTheme, 'active-map-card': (url === currentUrl && !isLightTheme), 'active-map-card-light': (isLightTheme && url === currentUrl)
+                  }) }
+                  onClick={ () => { handleVideoChange(name); playPauseSong(url) } }
+                >
+                  <div className="card-buttons">
+                    <span className="item-number">
+                      { isPlaying && url === currentUrl ? <SoundWaveIcon /> : index + 1 }
+                    </span>
+                    <div className="playlist-item ">
+                      <button
+                        className={ classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
+                          "selections-playlist-item-play-pause-button-light": isLightTheme,
+                        }) }
+                        onClick={ () => playPauseSong(url) }
+                      >
+                        { isPlaying && url === currentUrl ? <PauseCircleIconDark /> : <PlayCircleIconDark /> }
+                      </button>
+                    </div>
+
+                    <span className="selections-playlist-item-name">
+                      { name.toUpperCase() }
+                    </span>
+                  </div>
+                  <div className="card-buttons">
+                    <span className="item-duration text-xs-bold">
+                      { duration }
+                    </span>
                     <button
-                      className={ classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
-                        "selections-playlist-item-play-pause-button-light": isLightTheme,
-                      }) }
-                      onClick={ () => playPauseSong(url) }
+                      className="selections-playlist-item-repeat-button selection-playlist-button"
+                      onClick={ (e) => {
+                        e.stopPropagation();
+                        handleLoop();
+                      } }
+                      disabled={ currentUrl !== url }
                     >
-                      { isPlaying && url === currentUrl ? <PauseCircleIconDark /> : <PlayCircleIconDark /> }
+                      <BsRepeat style={ isLooped && currentUrl === url && { fill: "var(--red-700)" } } />
                     </button>
                   </div>
+                </li>
+              ))
+            } </ul>
+        </div>
 
-                  <span className="selections-playlist-item-name">
-                    { name.toUpperCase() }
-                  </span>
-                </div>
-                <div className="card-buttons">
-                  <span className="item-duration text-xs-bold">{ duration }</span>
-                  <button
-                    className="selections-playlist-item-repeat-button selection-playlist-button"
-                    onClick={ (e) => {
-                      e.stopPropagation();
-                      handleLoop();
-                    } }
-                    disabled={ currentUrl !== url }
-                  >
-                    <BsRepeat style={ isLooped && currentUrl === url && { fill: "var(--red-700)" } } />
-                  </button>
-                </div>
-              </li>
-            ))
-          } </ul>
       </div>
     </div>
+
   );
 };

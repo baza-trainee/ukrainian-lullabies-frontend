@@ -15,7 +15,13 @@
         margin-bottom: 48px;
         flex-direction: row;
         grid-column: 1/13;
+  height: 590px;
+
     }
+}
+
+.lullabies-player{
+  margin-top: 20px;
 }
 
 .peviev {
@@ -32,11 +38,13 @@
 
  }
     @media screen and (min-width: 1440px) {
-       grid-column: 1/9;}
+       grid-column: 1/9;
+      }
  }
  .video-player-container {
   border-radius: 10px;
-  overflow: hidden;  
+  overflow: hidden;
+  margin-bottom: 24px;
 }
 .wrap-animation {
   grid-column: 9/13;
@@ -46,7 +54,8 @@
 
 .playlist-anima{
   overflow-y: auto;
-  max-height: 530px;
+  height: 590px;
+ 
 }
 
 .skroll-disabled {
@@ -61,7 +70,7 @@
  }
     @media screen and (min-width: 1440px) {
       width: 700px;
-      height: 487px;
+      height: 590px;
     }
 
 }
@@ -76,7 +85,7 @@
   flex-direction: column;
   gap: 0;
   margin: 0 auto;
-  height: 680px;
+  height: 490px;
 overflow-x: hidden;
   @media screen and (min-width: 768px) {
     flex-wrap: wrap;
@@ -89,7 +98,7 @@ overflow-x: hidden;
      flex-direction: column;
      flex-wrap: nowrap;
      width: 300px;
-     height: 487px;
+     height: 590px;
      overflow-x: hidden;
     }
 }
@@ -123,7 +132,6 @@ background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.
   @media screen and (min-width: 1440px) {
     margin-right: 0;
   }
- 
 }
 
 .current-card{
@@ -143,7 +151,6 @@ background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.
 }
 .vievs::before{
   background-image: url(../../images/Group.svg);
-
 }
 
 .heart::before,
@@ -159,7 +166,8 @@ background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.
 }
 
 .card-text{
-text-align: left;
+  display: flex;
+  align-items: center;
 }
 
 .card-info{
@@ -167,7 +175,6 @@ text-align: left;
 }
 
 /* Стилізація смуги прокрутки */
- 
  
 .playlist-scroll::-webkit-scrollbar {
   width: 5px;

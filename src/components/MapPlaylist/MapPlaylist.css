@@ -16,7 +16,7 @@ height: auto;
   }
 }
 
-.map-playlist {
+.map-playlist-wrapper {
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -31,7 +31,17 @@ height: auto;
     margin-top: 62px;
   }
 }
-
+.map-playlist{
+  overflow-y: auto; 
+  height: 380px;
+  @media screen and (min-width: 768px) {
+    height: 672px;
+  }
+  @media screen and (min-width: 1440px) {
+    grid-column: 8/13;
+    height: 530px;
+  }
+}
 .alert {
   margin-left: 50px;
   width: 80%;

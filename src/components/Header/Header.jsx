@@ -46,7 +46,7 @@ export const Header = () => {
 
   useEffect(() => {
     const closeDropdown = (e) => {
-      if (!e.target.parentElement.classList.contains("header-dropdown-button"))
+      if (!e.target.parentElement?.classList.contains("header-dropdown-button"))
       {
         setIsDropdownOpen(false);
         dropdownWrapperRef.current.style.borderColor = "transparent";
@@ -79,7 +79,7 @@ export const Header = () => {
 
   useEffect(() => {
     const closeLanguageMenu = (e) => {
-      if (!e.target.parentElement.classList.contains("header-languages-button"))
+      if (!e.target.parentElement?.classList.contains("header-languages-button"))
       {
         setIsLanguageMenuOpen(false);
       }

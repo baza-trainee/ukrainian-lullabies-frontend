@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setCurrentLyrics, setCurrentName, setCurrentUrl } from "../../redux/currentSong/currentSongSlice";
 import "./Player.css";
@@ -7,7 +7,6 @@ import classNames from "classnames";
 import { FiShare2, FiShuffle, FiRefreshCw, FiCheck } from "react-icons/fi";
 import { BsFillSkipEndFill, BsFillSkipStartFill, BsPlayFill, BsPauseFill } from "react-icons/bs";
 import { HiVolumeUp, HiVolumeOff } from "react-icons/hi";
-import { useSearchParams } from "react-router-dom";
 
 export const Player = ({
   isLightTheme,
@@ -31,9 +30,6 @@ export const Player = ({
   const dispatch = useDispatch();
   const nextSongIndex = (currentSongIndex + 1) % playlist.length;
   const previousSongIndex = (currentSongIndex - 1) % playlist.length;
-
-  const [serchParams] = useSearchParams()
-  const name = serchParams.get('name');
 
   const handleNextSong = () => {
     dispatch(setCurrentUrl(playlist[nextSongIndex].url));
@@ -72,15 +68,17 @@ export const Player = ({
   const [shareClicked, setShareClicked] = useState(false);
 
   const handleShare = async () => {
+    const location = window.location.href;
     if (!shareClicked)
     {
-      const urlToCopy = `https://kolyskova-sound-git-dev-baza-trainee-ukraine.vercel.app/#/player/?name=${name}`;
-      await navigator.clipboard.writeText(urlToCopy);
+
+      await navigator.clipboard.writeText(location);
       setShareClicked(true);
     }
 
     setTimeout(() => setShareClicked(false), 2000);
   };
+
   const handleMute = () => {
     setVolume(0);
   };
