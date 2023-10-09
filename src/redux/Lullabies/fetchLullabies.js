@@ -12,7 +12,7 @@ export const fetchData = () => async (dispatch) => {
       name: item.name,
       url: item.source.audio,
       lyrics: item.lyrics,
-      duration: item.source.duration,
+      duration: item.source.duration.slice(3, 8),
     }));
     dispatch(fetchDataSuccess(formatedData));
   } catch (error) {

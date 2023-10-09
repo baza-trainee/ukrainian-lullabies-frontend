@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData } from "../../redux/Lullabies/lullabiesWithUrl";
+import { fetchData } from "../../redux/Lullabies/fetchLullabies";
 import { selectData, selectLoading } from "../../redux/Lullabies/traditionalSongsSlice";
 import './MapPlaylist.css';
 import classNames from "classnames";
@@ -177,25 +177,6 @@ export const MapPlaylist = () => {
 
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
-  useEffect(() => {
-    const buttonMap = document.getElementById("map-tab");
-    if (buttonMap)
-    {
-      buttonMap.classList.add("active-btn");
-
-      return () => {
-        buttonMap.classList.remove("active-btn");
-      };
-    }
-  }, [])
-
-  useEffect(() => {
-    if (data)
-    {
-      dispatch(playerChanged("map"));
-    }
-  }, [data]);
-
   if (loading)
   {
     return <Loader />
@@ -211,16 +192,20 @@ export const MapPlaylist = () => {
         <p className="text-2xl alert"> { t('alertText') } </p>
       </div>
       <div className="playlist-wrap">
+
+        <p className="text-l text-margin">{ t('collection') }</p>
         <div className='map-playlist playlist-scroll'>
-          <p className="text-l text-margin">{ t('collection') }</p>
-          <ul>
+          <ul  >
             { data.map(({ name, url, lyrics, duration }, index) => (
               <li
                 key={ index }
               >
                 <Link
                   to={ `/player/?name=${name}` }
-                  className={ classNames("map-player_card", { "map-player_card-light": isLightTheme }) }
+                  className={ classNames("map-player_card", {
+                    'map-player_card-dark': !isLightTheme,
+                    'map-player_card-light': isLightTheme,
+                  }) }
                   onClick={ () => handleAudioChange(url, lyrics, name) }
 
                 >
