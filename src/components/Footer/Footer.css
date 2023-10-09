@@ -133,6 +133,7 @@ ul {
   }
 }
 
+/* docs */
 .footer-docs-wrapper {
   grid-column: 4 / 6;
   display: grid;
@@ -142,10 +143,15 @@ ul {
   padding-left: 16px;
 
   @media screen and (min-width: 820px) {
-    gap: 36px;
+    gap: 15px;    
     margin-bottom: 0;
     padding-left: 0;
+    height: 128px;    
   }
+}
+
+.footer-docs-wrapper li {
+  height: 32px;
 }
 
 .footer-docs-wrapper li a:hover {
@@ -163,6 +169,7 @@ ul {
   }
 }
 
+/* contacts */
 .footer-contacts-wrapper {
   grid-column: 6 / 9;
   display: grid;
