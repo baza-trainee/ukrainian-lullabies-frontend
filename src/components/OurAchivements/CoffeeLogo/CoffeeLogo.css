@@ -2,6 +2,14 @@
     margin-right: 27px;
 }
 
+.achievements-bmc:hover {
+    transform: scale(1.12);
+}
+
+.achievements-bmc:active {
+    transform: scale(1);
+}
+
 .achievements-bmc:hover rect{
     fill: var(--red-700);
 }
