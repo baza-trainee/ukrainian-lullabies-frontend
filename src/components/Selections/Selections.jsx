@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../../redux/SelectionSongs/selectionSongsSlice";
 import { playerChanged } from "../../redux/CurrentPlayer/currentPlayerSlice";
 import classNames from "classnames";
+import axios from "axios";
 import { useTranslation } from "react-i18next";
 import ReactPlayer from "react-player";
 import { motion } from "framer-motion";
@@ -107,6 +108,17 @@ export const Selections = () => {
       setIsPlaying(false);
     }
   }, [currentPlayer]);
+
+  // sending GET request to increment views
+  useEffect(() => {
+    const currentSongId = playlist[currentSongIndex].songId;
+    const currentTime = reactPlayerRef.current.getCurrentTime();
+
+    if (isPlaying && currentSong !== "#" && currentTime < 0.3) {
+      axios.get(`http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/${currentSongId}/increment_views/`);
+    }
+  }, [isPlaying, currentSong]);
+
   // ------------+----+-----+----
   // ----+++---+---
 
@@ -136,7 +148,7 @@ export const Selections = () => {
   };
 
   const handleNextSong = () => {
-    // its own function, we have similar in SelectionsPlayer
+    // its own function; we have similar in SelectionsPlayer
     if (isPlaylistShuffled) {
       playRandomSong();
     } else {
