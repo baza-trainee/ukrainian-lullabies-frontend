@@ -1,6 +1,6 @@
 import i18n from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-import LocalStorageBackend from 'i18next-localstorage-backend';
+import LocalStorageBackend from "i18next-localstorage-backend";
 import { initReactI18next } from "react-i18next";
 
 i18n
@@ -95,12 +95,34 @@ i18n
           technikalWorsk2: "We apologize for the temporary inconvenience.",
           lyrics: "Lyrics",
           collection: "Museum collection",
-          alertText: 'We are working on updating the site and soon you will be able to listen to lullabies from the selected region using the map.',
+          alertText:
+            "We are working on updating the site and soon you will be able to listen to lullabies from the selected region using the map.",
+          schema: {
+            nameInvalidName: "Please enter a valid name",
+            nameNotAllowedMessage: "Please enter a valid name",
+            nameMinLengthMessage: "The number of characters must be at least 2",
+            nameMaxLengthMessage: "The number of characters must not exceed 30",
+            requiredMessage: "This field is mandatory",
+            emailNotAllowedMessage: "Please enter a valid email",
+            emailMinLengthMessage:
+              "The number of characters must be at least 2",
+            emailMaxLengthMessage:
+              "The number of characters must not exceed 30",
+            themeNotAllowedMessage: "Please enter the subject of the message",
+            themeMinLengthMessage:
+              "The number of characters must be at least 6",
+            themeMaxLengthMessage:
+              "The number of characters must not exceed 100",
+            messageNotAllowedMessage: "Please enter the text of the message",
+            messageMaxLengthMessage:
+              "The number of characters must not exceed 600",
+          },
         },
       },
       ua: {
         translations: {
-          alertText: 'Ми працюємо над поліпшенням сайту і невдовзі Ви зможете за допомогою карти прослухати колискові з обраного регіону.',
+          alertText:
+            "Ми працюємо над поліпшенням сайту і невдовзі Ви зможете за допомогою карти прослухати колискові з обраного регіону.",
           collection: "Колекція музею",
           lyrics: "Текст",
           chatBot: "Чат-бот",
@@ -184,6 +206,22 @@ i18n
           popupText: "Ваше повідомлення надіслано!",
           underTextArea:
             "Введіть, будь ласка, текст повідомлення. Максимальна кількість символів 600.",
+          schema: {
+            nameInvalidName: "Введіть, будь ласка, коректне ім’я",
+            nameNotAllowedMessage: "Введіть, будь ласка, коректне ім’я",
+            nameMinLengthMessage: "Кількість символів має бути не менше 2",
+            nameMaxLengthMessage: "Кількість символів має бути не більше 30",
+            requiredMessage: "Це поле обов'язкове для заповнення",
+            emailNotAllowedMessage: "Введіть, будь ласка, коректний email",
+            emailMinLengthMessage: "Кількість символів має бути не менше 6",
+            emailMaxLengthMessage: "Кількість символів має бути не більше 30",
+            themeNotAllowedMessage: "Введіть, будь ласка, тему повідомлення",
+            themeMinLengthMessage: "Кількість символів має бути не менше 6",
+            themeMaxLengthMessage: "Кількість символів має бути не більше 100",
+            messageNotAllowedMessage: "Введіть, будь ласка, текст повідомлення",
+            messageMaxLengthMessage:
+              "Кількість символів має бути не більше 600",
+          },
         },
       },
     },
@@ -198,17 +236,17 @@ i18n
       escapeValue: false,
     },
     backend: {
-      prefix: 'appLanguage',  
+      prefix: "appLanguage",
     },
   });
 
-i18n.on('languageChanged', (lng) => {
+i18n.on("languageChanged", (lng) => {
   if (lng) {
-    localStorage.setItem('selectedLanguage', lng);
+    localStorage.setItem("selectedLanguage", lng);
   }
 });
 
-const savedLanguage = localStorage.getItem('selectedLanguage');
-i18n.changeLanguage(savedLanguage || 'en');
+const savedLanguage = localStorage.getItem("selectedLanguage");
+i18n.changeLanguage(savedLanguage || "en");
 
 export default i18n;
