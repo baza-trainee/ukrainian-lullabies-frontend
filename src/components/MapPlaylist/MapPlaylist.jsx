@@ -10,8 +10,113 @@ import { useTranslation } from "react-i18next";
 import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
 import MapSvg from '../../images/map-playlist.png'
 import { Loader } from "../Loader/Loader";
-
+import { playerChanged } from "../../redux/CurrentPlayer/currentPlayerSlice";
 const songsData = [
+  {
+    id: 0,
+    url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
+    name: "Колискова для мами",
+    lyrics: 'колискова для мами слова',
+    duration: '00:59',
+  },
+  {
+    id: 0,
+    url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
+    name: "Колискова для мами",
+    lyrics: 'колискова для мами слова',
+    duration: '00:59',
+  },
+  {
+    id: 0,
+    url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
+    name: "Колискова для мами",
+    lyrics: 'колискова для мами слова',
+    duration: '00:59',
+  },
+  {
+    id: 0,
+    url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
+    name: "Колискова для мами",
+    lyrics: 'колискова для мами слова',
+    duration: '00:59',
+  },
+  {
+    id: 0,
+    url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
+    name: "Колискова для мами",
+    lyrics: 'колискова для мами слова',
+    duration: '00:59',
+  },
+  {
+    id: 0,
+    url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
+    name: "Колискова для мами",
+    lyrics: 'колискова для мами слова',
+    duration: '00:59',
+  },
+  {
+    id: 0,
+    url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
+    name: "Колискова для мами",
+    lyrics: 'колискова для мами слова',
+    duration: '00:59',
+  },
+  {
+    id: 0,
+    url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
+    name: "Колискова для мами",
+    lyrics: 'колискова для мами слова',
+    duration: '00:59',
+  },
+  {
+    id: 0,
+    url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
+    name: "Колискова для мами",
+    lyrics: 'колискова для мами слова',
+    duration: '00:59',
+  },
+  {
+    id: 0,
+    url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
+    name: "Колискова для мами",
+    lyrics: 'колискова для мами слова',
+    duration: '00:59',
+  },
+  {
+    id: 0,
+    url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
+    name: "Колискова для мами",
+    lyrics: 'колискова для мами слова',
+    duration: '00:59',
+  },
+  {
+    id: 0,
+    url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
+    name: "Колискова для мами",
+    lyrics: 'колискова для мами слова',
+    duration: '00:59',
+  },
+  {
+    id: 0,
+    url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
+    name: "Колискова для мами",
+    lyrics: 'колискова для мами слова',
+    duration: '00:59',
+  },
+  {
+    id: 0,
+    url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
+    name: "Колискова для мами",
+    lyrics: 'колискова для мами слова',
+    duration: '00:59',
+  },
+  {
+    id: 0,
+    url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
+    name: "Колискова для мами",
+    lyrics: 'колискова для мами слова',
+    duration: '00:59',
+  },
   {
     id: 0,
     url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
@@ -51,8 +156,8 @@ const songsData = [
 
 export const MapPlaylist = () => {
   const dispatch = useDispatch();
-  const data = useSelector(selectData);
-  // const data = songsData;
+  // const data = useSelector(selectData);
+  const data = songsData;
 
   const loading = useSelector(selectLoading);
   const { t } = useTranslation();
@@ -84,6 +189,13 @@ export const MapPlaylist = () => {
     }
   }, [])
 
+  useEffect(() => {
+    if (data)
+    {
+      dispatch(playerChanged("map"));
+    }
+  }, [data]);
+
   if (loading)
   {
     return <Loader />
@@ -91,16 +203,15 @@ export const MapPlaylist = () => {
 
   return (
     !loading && data &&
-    <section id="anima" className="map-playlist  margin-bottom">
+    <section id="anima" className="map-playlist-wrapper  margin-bottom">
       <div className="playlist-map">
         <div >
           <img className="map-playlist-png" src={ MapSvg } alt="map" />
         </div>
         <p className="text-2xl alert"> { t('alertText') } </p>
       </div>
-
       <div className="playlist-wrap">
-        <div className='map-player_playlist playlist-scroll'>
+        <div className='map-playlist playlist-scroll'>
           <p className="text-l text-margin">{ t('collection') }</p>
           <ul>
             { data.map(({ name, url, lyrics, duration }, index) => (
