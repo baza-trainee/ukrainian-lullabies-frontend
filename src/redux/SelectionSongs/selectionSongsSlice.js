@@ -6,6 +6,7 @@ const initialState = {
   data: [
     {
       id: 0,
+      songId: null,
       name: "---- ----",
       url: "#",
       duration: "00.00",

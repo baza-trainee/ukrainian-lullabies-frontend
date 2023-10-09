@@ -78,10 +78,10 @@ export const Selections = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
   // get songs
-  const playlist = useSelector((state) => state.selectionSongs.data);
-  const playlistError = useSelector((state) => state.selectionSongs.error);
-  // const playlist = songsData;
-  // const playlistError = false;
+  // const playlist = useSelector((state) => state.selectionSongs.data);
+  // const playlistError = useSelector((state) => state.selectionSongs.error);
+  const playlist = songsData;
+  const playlistError = false;
 
   // player variables
   const [isPlaying, setIsPlaying] = useState(false);
@@ -148,7 +148,7 @@ export const Selections = () => {
   };
 
   const handleNextSong = () => {
-    // its own function, we have similar in SelectionsPlayer
+    // its own function; we have similar in SelectionsPlayer
     if (isPlaylistShuffled) {
       playRandomSong();
     } else {
