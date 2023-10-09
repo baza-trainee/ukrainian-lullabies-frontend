@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import ReactPlayer from "react-player";
+import axios from "axios";
 import { Player } from "./Player";
-import { selectData, selectLoading } from "../../redux/Lullabies/traditionalSongsSlice";
-import { fetchData } from "../../redux/Lullabies/lullabiesWithUrl";
+import { selectData, selectError, selectLoading } from "../../redux/Lullabies/traditionalSongsSlice";
+import { fetchData } from "../../redux/Lullabies/fetchLullabies";
 import { BsRepeat } from "react-icons/bs";
 import { setCurrentUrl, setCurrentLyrics, setCurrentName } from "../../redux/currentSong/currentSongSlice";
 import { playerChanged } from "../../redux/CurrentPlayer/currentPlayerSlice";
@@ -61,14 +62,14 @@ export const MapPlayer = () => {
 
   // const data = useSelector(selectData);
   const loading = useSelector(selectLoading);
-  // const error = useSelector(selectError);
+  const error = useSelector(selectError);
   const data = songsData;
   const currentUrl = useSelector((state) => state.currentSong.currentUrl);
+
   const currentName = useSelector((state) => state.currentSong.currentName);
   const currentLyrics = useSelector((state) => state.currentSong.currentLyrics);
 
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
-  console.log(currentUrl);
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
   const [isPlaying, setIsPlaying] = useState(currentUrl ? true : false);
@@ -180,15 +181,42 @@ export const MapPlayer = () => {
   const currentPlayer = useSelector((state) => state.currentPlayer.currentPlayer);
 
   useEffect(() => {
+    if (isPlaying)
+    {
+      dispatch(playerChanged("map"));
+    }
+  }, [isPlaying]);
+
+  useEffect(() => {
     if (currentPlayer !== "map")
     {
       setIsPlaying(false);
+    } else
+    {
+      setIsPlaying(true);
     }
+
   }, [currentPlayer]);
+
+  useEffect(() => {
+    const currentSongId = data[currentSongIndex].id;
+    const currentTime = reactPlayerRef.current.getCurrentTime();
+
+    if (isPlaying && currentUrl !== "#" && currentTime < 0.3)
+    {
+      axios.get(`http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/${currentSongId}/increment_views/`);
+    }
+  }, [isPlaying, currentUrl]);
 
   if (loading)
   {
     return <Loader />
+  }
+  if (error)
+  {
+    return <p className="text-error text-5x">
+      Somesing went wrong
+    </p>
   }
 
   return (
@@ -208,18 +236,27 @@ export const MapPlayer = () => {
             onProgress={ handleProgress }
             played={ played }
           />
+
           <h3 className="current-name text-l">
             { currentName }
           </h3>
-          <div className="timeline">
+          <div >
             <input
               id='timeline'
+              className={ classNames("timeline", {
+                'timeline-dark': !isLightTheme,
+                'timeline-light': isLightTheme
+              }) }
               type="range"
               min={ 0 }
               max={ 1 }
               step={ 0.01 }
               value={ played }
             />
+          </div>
+          <div className="duration text-sm">
+            <p className="current-duration"> 00:00</p>
+            <p className="item-duration">{ data[currentSongIndex].duration }</p>
           </div>
           <Player
             isLightTheme={ isLightTheme }

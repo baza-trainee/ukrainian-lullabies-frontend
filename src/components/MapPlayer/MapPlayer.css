@@ -197,31 +197,37 @@ border-radius: 8px;
 }
 
 /* Стилізуємо смугу прокрутки */
-#timeline {
+.timeline-dark {
+ background: var(--gray-black-800);
+}
+.timeline-light {
+  background: var(--gray-black-200);
+}
+.timeline {
   width: 100%;
   height: 5px;
   appearance: none;
   border-radius: 2px;
-  background: rgba(255, 255, 255, 0.30);
   outline: none;
-  margin-bottom: 32px;
 }
 
 /* Стилізуємо смугу, яка відображає вибрану позицію */
-#timeline::-webkit-slider-thumb {
+.timeline::-webkit-slider-thumb {
   appearance: none;
   width: 10px;
   height: 10px;
   background: var(--red-700, #C60F18);
   border: 2px solid #FFF;
-
   border-radius: 50%;
 }
 
-#timeline::-moz-range-thumb {
-  width: 16px;
-  height: 16px;
- background: var(--red-700, #C60F18);
-  border-radius: 50%;
+.timeline::-moz-range-thumb {
+  background: var(--red-700, #C60F18);
 }
 
+.duration{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  color: var(--gray-black-400);
+}

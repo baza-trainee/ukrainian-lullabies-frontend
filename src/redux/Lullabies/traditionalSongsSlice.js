@@ -25,5 +25,6 @@ const dataSlice = createSlice({
 });
 export const selectData = (state) => state.traditionalSongs.data;
 export const selectLoading = (state) => state.loading;
+export const selectError = (state) => state.error;
 export const { fetchDataStart, fetchDataSuccess, fetchDataFailure } = dataSlice.actions;
 export default dataSlice.reducer;
