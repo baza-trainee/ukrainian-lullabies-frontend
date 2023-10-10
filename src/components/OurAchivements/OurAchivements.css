@@ -20,6 +20,10 @@
   }
 }
 
+.achivement-text{
+ text-transform: capitalize;
+}
+
 .achivements {
   display: grid;
   grid-column: 1/2;
