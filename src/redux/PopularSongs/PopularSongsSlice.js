@@ -7,23 +7,15 @@ const initialState = {
 
 export const getPopularSongs = createAsyncThunk(
   "popularSongs/getPopularSongs",
-  async (_, { rejectWithValue, dispatch }) => {
+  async (_, { rejectWithValue }) => {
     try {
-      const apiKey = "AIzaSyDQAPHCSSZBfNmiqsHR_HvxxX5DL_PAjQo";
-      const playlistId = "PL7E436F1EC114B001";
-      const maxResults = 3;
-
       const result = await axios.get(
-        `https://www.googleapis.com/youtube/v3/playlistItems?key=${apiKey}&playlistId=${playlistId}&maxResults=${maxResults}`
+        "http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/?ordering=-views&source-format=audio"
       );
 
-      // console.log(result);
-      const list = result.data.items.map((item) => item.id);
-
-      dispatch(setPopularSongs(list));
-      return list;
+      return result.data;
     } catch (error) {
-      // console.error("Error:", error);
+      console.error("Error fetching popular songs:", error);
       return rejectWithValue(error.message);
     }
   }
@@ -32,14 +24,13 @@ export const getPopularSongs = createAsyncThunk(
 export const popularSongsSlice = createSlice({
   name: "popularSongs",
   initialState,
-  reducers: {
-    setPopularSongs: (state, action) => {
-      state.popularSongs = action.payload;
-      // console.log(state.popularSongs);
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getPopularSongs.fulfilled, (state, action) => {
+        state.popularSongs = action.payload;
+      });
   },
 });
-
-export const { setPopularSongs } = popularSongsSlice.actions;
 
 export default popularSongsSlice.reducer;

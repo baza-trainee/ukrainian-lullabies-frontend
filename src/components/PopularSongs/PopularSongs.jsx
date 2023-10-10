@@ -5,6 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 import { playerChanged } from '../../redux/CurrentPlayer/currentPlayerSlice';
+import { getPopularSongs } from '../../redux/PopularSongs/PopularSongsSlice';
 
 import playButton from "../../assets/images/play-popular.png";
 import pauseButton from "../../assets/images/pause-popular.png"
@@ -22,17 +23,43 @@ export function PopularSongs() {
   const [centerClick, setCenterClick] = useState(false);
   const [rightClick, setRightClick] = useState(false);
 
+  // const songsPopularPlayer = useSelector((state) => state.popularSongs.popularSongs);
+
   const buttonPopular = isPlaying ? pauseButton : playButton;
 
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
+  // const songsAudio = [];
+  // const songsTitle = [];
 
+  // songsPopularPlayer.map((item) => {
+  //   songsTitle.push(item.name);
+  //   songsAudio.push(item.source.audio);
+  // });
+  // const [title, setTitle] = useState([
+  //   `“${songsTitle[0]}”`,
+  //   `“${songsTitle[1]}”`,
+  //   `“${songsTitle[1]}”`
+  // ]);
+
+  // const [songs, setSongs] = useState([
+  //   songsAudio[0],
+  //   songsAudio[1],
+  //   songsAudio[1],
+  // ]);
 
   const [songs, setSongs] = useState([
-    "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
+    "https://deti.e-papa.com.ua/mpf/17146860.mp3",
     "https://deti.e-papa.com.ua/mpf/17146805.mp3",
-    "https://deti.e-papa.com.ua/mpf/9211811816.mp3",
+    "https://deti.e-papa.com.ua/mpf/17146898.mp3",
+  ]);
+
+
+  const [title, setTitle] = useState([
+    `“Сонце сідає”`,
+    `“Ой, ходить сон коло вікон”`,
+    `“Повішу я колисочку”`
   ]);
 
   const [images, setImages] = useState([
@@ -41,11 +68,9 @@ export function PopularSongs() {
     favoriteSongThird
   ]);
 
-  const [title, setTitle] = useState([
-    `“Сонце сідає”`,
-    `“Ой, ходить сон коло вікон”`,
-    `“Повішу я колисочку”`
-  ]);
+  useEffect(() => {
+    dispatch(getPopularSongs());
+  }, [dispatch])
 
   useEffect(() => {
     setCurrentSong(songs[1]);
@@ -101,6 +126,7 @@ export function PopularSongs() {
 
   // preventing players from playing alltogether
   const currentPlayer = useSelector((state) => state.currentPlayer.currentPlayer);
+
   useEffect(() => {
     if (isPlaying) {
       dispatch(playerChanged("popular"));
