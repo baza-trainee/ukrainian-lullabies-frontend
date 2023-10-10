@@ -92,7 +92,7 @@ overflow-x: hidden;
     width: 660px;
     height: 236px;
     flex-direction: row;
-    overflow-x: auto;
+    overflow-y: auto;
   }
     @media screen and (min-width: 1440px) {
      flex-direction: column;
@@ -175,7 +175,6 @@ background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.
 }
 
 /* Стилізація смуги прокрутки */
- 
 .playlist-scroll::-webkit-scrollbar {
   width: 5px;
   height: 5px;  
