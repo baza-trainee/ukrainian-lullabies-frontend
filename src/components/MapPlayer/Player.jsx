@@ -22,7 +22,7 @@ export const Player = ({
   volume,
   setVolume,
 }) => {
-
+  const isEnglishLanguage = localStorage.getItem("selectedLanguage") === "en";
   const playStopToggle = () => {
     setIsPlaying(!isPlaying);
   };
@@ -61,10 +61,10 @@ export const Player = ({
     setCurrentSongIndex(newIndex);
   };
 
-  const handleVolumeChange = (event) => {
-    const newVolume = parseFloat(event.target.value);
-    setVolume(newVolume);
-  };
+  // const handleVolumeChange = (event) => {
+  //   const newVolume = parseFloat(event.target.value);
+  //   setVolume(newVolume);
+  // };
   const [shareClicked, setShareClicked] = useState(false);
 
   const handleShare = async () => {
@@ -100,14 +100,19 @@ export const Player = ({
           <button
             className={ classNames("selections-player-share-button", {
               "selections-player-share-button-light": isLightTheme,
+              "selections-player-share-button-en": isEnglishLanguage,
               "selections-player-share-clicked": shareClicked,
+              "selections-player-share-clicked-en": shareClicked && isEnglishLanguage,
             }) }
             onClick={ handleShare }
           >
             { shareClicked ? <FiCheck /> : <FiShare2 /> }
           </button>
           <button
-            className={ classNames("selections-player-shuffle-button", { "selections-player-shuffle-button-light": isLightTheme }) }
+            className={ classNames("selections-player-shuffle-button", {
+              "selections-player-shuffle-button-light": isLightTheme,
+              "selections-player-shuffle-button-en": isEnglishLanguage,
+            }) }
             onClick={ hendleRandom }
           >
             <FiShuffle
@@ -142,18 +147,23 @@ export const Player = ({
           </button>
         </div>
         <div className="map-player-secondary-buttons-right">
-          <FiRefreshCw
-            className="map-player-refresh-button"
+          <button
+            className={ classNames("selections-player-refresh-button", {
+              "selections-player-refresh-button-light": isLightTheme,
+              "selections-player-refresh-button-en": isEnglishLanguage,
+            }) }
             onClick={ () => setIsLoopedPlaylist(!isLoopedPlaylist) }
-            style={ isLoopedPlaylist && { color: "var(--red-700)" } }
-          />
+
+          >
+            <FiRefreshCw style={ isLoopedPlaylist && { color: "var(--red-700)" } } />
+          </button>
           <div className="map-player-volume-wrapper">
             { volume > 0 ? (
               <HiVolumeUp className="map-player-volume-button" onClick={ handleMute } />
             ) : (
               <HiVolumeOff className="map-player-volume-button" onClick={ handleUnMute } />
             ) }
-            <input
+            {/* <input
               type="range"
               id="mapVolumeInputId"
               min={ 0 }
@@ -161,7 +171,7 @@ export const Player = ({
               step={ 0.01 }
               value={ volume }
               onChange={ handleVolumeChange }
-            />
+            /> */}
           </div>
         </div>
       </div>
