@@ -80,7 +80,7 @@ i18n
           popupText: "Your message has been sent!",
           underTextArea:
             "Please enter the text of the message. The maximum number of characters is 600.",
-          share: "To share",
+          share: "Share",
           shareLink: "The link has been copied",
           searchUnavailable: "Search is temporarily unavailable",
           chatBot: "Chat-bot",
