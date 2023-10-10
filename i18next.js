@@ -68,13 +68,13 @@ i18n
           ourPartners: "Our partners",
           feedbackForm: "Feedback form",
           contactUs:
-            "If you have any questions/suggestions/wishes - we look forward to hearing from you.",
+            "If you have any questions/suggestions/wishes - we are waiting for your messages.",
           name: "Name",
           taras: "Taras",
           messageSubject: "Message subject",
           enterSubject: "Enter the subject of the message",
           messageText: "Message text",
-          enterTextMessage: "Enter the text of the message",
+          enterTextMessage: "Enter the message text",
           sendMessage: "Send a message",
           popUpThank: "Thank you,",
           popupText: "Your message has been sent!",
@@ -108,12 +108,12 @@ i18n
               "The number of characters must be at least 2",
             emailMaxLengthMessage:
               "The number of characters must not exceed 30",
-            themeNotAllowedMessage: "Please enter the subject of the message",
+            themeNotAllowedMessage: "Enter the subject of the message",
             themeMinLengthMessage:
               "The number of characters must be at least 6",
             themeMaxLengthMessage:
               "The number of characters must not exceed 100",
-            messageNotAllowedMessage: "Please enter the text of the message",
+            messageNotAllowedMessage: "Enter the message text",
             messageMaxLengthMessage:
               "The number of characters must not exceed 600",
           },
