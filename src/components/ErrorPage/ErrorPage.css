@@ -1,42 +1,17 @@
-.errorPage{
-  display: grid;
-  grid-column: 1/1;
-  background-image: url("../../images/frame-about.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  justify-content: center;
-  text-align: center;
-
-  @media screen and (min-width:475px) {
-    background-size: contain;
-  }
-
-  @media screen and (min-width:892px) {
-    background-size: cover;
-  }
-
-  @media screen and (min-width:1440px) {
-    text-align: center;
-    grid-column: 1/13;
-    background-size: contain;
-  }
-}
-
 .errorPage__title{
   grid-column: 1/1;
- 
   text-align: center;
-
+  margin: 32px 0;
  @media screen and (min-width: 768px) {
   grid-column:1/13;
-  margin-bottom: 20px;
-}
+  margin: 84px 0;
+  }
 }
 
 .errorPage__svg404 {
    display: flex; 
    justify-content: center;
-  align-items: center;
+   align-items: center;
    grid-column: 1/1;
    @media screen and (min-width: 768px) {
     grid-column: 4/10;
@@ -46,24 +21,24 @@
 .errorPage__numbers{
   width: 77px;
   height: 80px;
-   @media screen and (min-width: 768px) {
-  width: 153px;
-  height: 182px;
-        
+  @media screen and (min-width: 768px) {
+    width: 153px;
+    height: 182px;
+    margin: 0 12px;
+  }}
 
-  margin: 83px 12px;}
-
-}
 
 
 .errorPage__block{
   grid-column: 1/1;
   align-items: center;
   justify-content: center;
+  margin: 26px 0 32px;
   @media screen and (min-width: 1440px) {
   grid-column: 1/13;
 
-  padding: 0 60px;}
+  padding: 0 60px;
+}
 }
 
 .element-right-error{
@@ -93,8 +68,13 @@
 }
 
 .errorPage-button {
-  grid-column: 5/9;
-  margin: 57px 47px 0;
+  justify-content: center;
+  margin: 0 auto;
+  @media screen and (min-width:1440px) {
+     grid-column: 5/9;
+    margin: 57px 47px 0;
+  }
+ 
 }
 
 .fill-for-dark{
