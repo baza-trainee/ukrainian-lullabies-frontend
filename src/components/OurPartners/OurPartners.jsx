@@ -39,7 +39,7 @@ export const OurPartners = () => {
       variants={ animationElement }
       ref={ ref }
       className='margin-bottom'>
-      <h2 className='text-4xl ourPartners'>{ t('aboutUs') }</h2>
+      <h2 className='text-4xl ourPartners'>{ t('ourPartners') }</h2>
       <motion.div
         custom={ 1 }
         variants={ animationElement }

@@ -55,32 +55,32 @@ i18n
             "Developed by Baza Trainee Ukraine 2023 © All rights reserved",
           projectPurpose: "The purpose of our project",
           projectDescription:
-            "The purpose of our project is to create a media platform where you can explore lullabies from all regions of Ukraine (Ukrainians and national minorities), learn the songs to sing to your child, or create your own lullaby playlist for playback.",
+            "The purpose of our project - creating a media platform, where you can meet with lullabies from all Ukrainian regions (Ukrainians and national minorities), learn the songs in order to sing them to your child, or create your own playlist with lullabies for playing it.",
           projectDescription2:
-            'For the implementation of the "Ukrainian Lullabies" project, scientists from the Research Laboratory of Ethnomusicology of the National Academy of Music of Ukraine and IT volunteers from the "Baza Trainee Ukraine" platform have joined forces. They presented the project at Hatathon 4.0: Ukraine Heritage Edition, where it became one of the best in the field of preserving intangible cultural heritage. They established the public organization "Lullaby Museum" and are working together to create a media resource with lullaby songs for mothers, children, and families in Ukraine and abroad.',
+            'For the implementation of the "Ukrainian Lullabies" project, scientists from the Research Laboratory of Ethnomusicology of the National Academy of Music of Ukraine and IT volunteers joined together and presented the project in Hatathon 4.0: Ukraine Heritage Edition, where it became one of the best in the field of preservation of intangible cultural heritage, created the public organization “Lullaby museum”, and are working together on creating a media resource with lullabies songs for mothers and children, for families in Ukraine and abroad.',
           supportUs: "You can support us",
           supportDescription:
-            'You can support the development of the "Ukrainian Lullabies" project and stay up to date with the latest news. Get nice bonuses by subscribing to the project on Patreon or Buy Me a Coffee.',
+            'You can support the development of the "Ukrainian Lullabies" project and stay up to date with the latest news, get nice bonuses by subscribing to the project on Patreon or Buy me a Coffee.',
           supportDescription2:
-            'Your donations will be used to cover the costs of an AWS server for storing unique recordings of Ukrainian authenticity, hosting for the platform, scientific and technical support, legal support for the "Ukrainian Lullabies" project, as well as funding new expeditions and recordings.',
+            'The donations will be used to replenish the collection of lullabies and support the platform\'s operations: to pay for a server on AWS to save unique records of Ukrainian authenticity, to pay for hosting for the platform, to provide scientific and technical support, legal support for the "Ukrainian Lullabies" project, and for new expeditions and records!',
           supportDescription3:
-            'With respect, the "Ukrainian Lullabies" project team.',
+            'Sincerely, the team of the "Ukrainian Lullabies" project.',
           ourPartners: "Our partners",
           feedbackForm: "Feedback form",
           contactUs:
-            "If you have any questions/suggestions/wishes - we look forward to hearing from you.",
+            "If you have any questions/suggestions/wishes - we are waiting for your messages.",
           name: "Name",
           taras: "Taras",
           messageSubject: "Message subject",
           enterSubject: "Enter the subject of the message",
           messageText: "Message text",
-          enterTextMessage: "Enter the text of the message",
+          enterTextMessage: "Enter the message text",
           sendMessage: "Send a message",
           popUpThank: "Thank you,",
           popupText: "Your message has been sent!",
           underTextArea:
             "Please enter the text of the message. The maximum number of characters is 600.",
-          share: "To share",
+          share: "Share",
           shareLink: "The link has been copied",
           searchUnavailable: "Search is temporarily unavailable",
           chatBot: "Chat-bot",
@@ -108,12 +108,12 @@ i18n
               "The number of characters must be at least 2",
             emailMaxLengthMessage:
               "The number of characters must not exceed 30",
-            themeNotAllowedMessage: "Please enter the subject of the message",
+            themeNotAllowedMessage: "Enter the subject of the message",
             themeMinLengthMessage:
               "The number of characters must be at least 6",
             themeMaxLengthMessage:
               "The number of characters must not exceed 100",
-            messageNotAllowedMessage: "Please enter the text of the message",
+            messageNotAllowedMessage: "Enter the message text",
             messageMaxLengthMessage:
               "The number of characters must not exceed 600",
           },

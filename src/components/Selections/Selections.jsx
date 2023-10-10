@@ -117,7 +117,9 @@ export const Selections = () => {
     const currentTime = reactPlayerRef.current.getCurrentTime();
 
     if (isPlaying && currentSong !== "#" && currentTime < 0.3) {
-      axios.get(`http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/${currentSongId}/increment_views/`);
+      axios.get(
+        `http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/${currentSongId}/increment_views/`
+      );
     }
   }, [isPlaying, currentSong]);
 
