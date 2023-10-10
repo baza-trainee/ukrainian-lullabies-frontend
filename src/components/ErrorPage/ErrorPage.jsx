@@ -47,7 +47,7 @@ export const ErrorPage = () => {
     >
       <div className="technical_content">
         <div className="technikal__border ">
-          <div className="technikal__container tech-margin container">
+          <div className=" tech-margin container">
             <motion.h2 custom={ 1 }
               variants={ animationElement } className="errorPage__title text-4xl">
               Page not found
