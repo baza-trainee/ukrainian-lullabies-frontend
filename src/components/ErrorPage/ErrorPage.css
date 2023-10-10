@@ -1,4 +1,3 @@
-
 .errorPage__title{
   grid-column: 1/1;
   text-align: center;
@@ -27,6 +26,7 @@
     height: 182px;
     margin: 0 12px;
   }}
+
 
 
 .errorPage__block{
