@@ -78,13 +78,13 @@ export const MapPlayer = () => {
   const [isLoopedPlaylist, setIsLoopedPlaylist] = useState(false);
   const [volume, setVolume] = useState(0.5);
   const [currentSongState, setCurrentSongState] = useState(data[currentSongIndex]);
-
+  const [currentTime, setCurrentTime] = useState(0);
   const onPlaying = () => {
     const durationMs = reactPlayerRef.current.getDuration();
     const ct = reactPlayerRef.current.getCurrentTime();
-
+    setCurrentTime(ct);
     setCurrentSongState({ ...currentSongState, progress: (ct / durationMs) * 100, length: durationMs });
-    console.log(currentSongState);
+    console.log(ct);
   };
   const progressRef = useRef();
 
@@ -227,6 +227,16 @@ export const MapPlayer = () => {
     </p>
   }
 
+  let time = Math.floor(currentTime);
+  let minutes = Math.floor(time / 60);
+  let seconds = time % 60;
+
+  let formattedMinutes = (minutes < 10) ? `0${minutes}` : `${minutes}`;
+  let formattedSeconds = (seconds < 10) ? `0${seconds}` : `${seconds}`;
+
+  let formattedCurrentTime = `${formattedMinutes}:${formattedSeconds}`;
+
+
   return (
     !loading && data && <div className="map-player-wrapper container margin-bottom">
       <div className="player-wrapper">
@@ -253,7 +263,7 @@ export const MapPlayer = () => {
             <div className="progress-line" style={ { width: `${currentSongState.progress}%` } }></div>
           </div>
           <div className="duration text-sm">
-            <p className="current-duration"> 00:00</p>
+            <p className="current-duration">{ formattedCurrentTime }</p>
             <p className="item-duration">{ data[currentSongIndex].duration }</p>
           </div>
           <Player
