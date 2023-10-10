@@ -220,3 +220,22 @@
     accent-color: var(--gray-black-800);
   }
 }
+
+/* PROGRESS BAR TEST */
+
+.progress-bar {
+  width: 50%;
+  height: 6px;
+  margin: 0 auto;
+  background: green;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.progress-line {
+  height: 6px;
+  background: red;
+  border-radius: 12px;
+}
+
+/* ------------------- */
