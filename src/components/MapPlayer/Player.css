@@ -4,9 +4,7 @@
   column-gap: 40px;
   padding: 8px 30px;
   border-radius: 36px;
-  background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.1) 0.88%, rgba(255, 255, 255, 0) 99.96%));
-
-   
+  background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.1) 0.88%, rgba(255, 255, 255, 0) 99.96%));  
 }
 
 .map-player-navigation-wrapper-light {
@@ -121,8 +119,26 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  
 }
 
 #mapVolumeInputId {
+    background: transparent;
+    cursor: pointer;
+    width: 50px;
+    height: 3px;
+    border-radius: 20px;
+    background: var(--white-0);
+    accent-color: var(--gray-black-800);
+}
+
+/* Приховати інпут за замовчуванням */
+.player-volume-input {
   display: none;
+
+}
+
+/* Відобразити інпут при наведенні на кнопку */
+.player-volume-button:hover + .player-volume-input {
+  display: block;
 }

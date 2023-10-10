@@ -77,6 +77,24 @@ export const MapPlayer = () => {
   const [isLooped, setIsLooped] = useState(false);
   const [isLoopedPlaylist, setIsLoopedPlaylist] = useState(false);
   const [volume, setVolume] = useState(0.5);
+  const [currentSongState, setCurrentSongState] = useState(data[currentSongIndex]);
+
+  const onPlaying = () => {
+    const durationMs = reactPlayerRef.current.getDuration();
+    const ct = reactPlayerRef.current.getCurrentTime();
+
+    setCurrentSongState({ ...currentSongState, progress: (ct / durationMs) * 100, length: durationMs });
+    console.log(currentSongState);
+  };
+  const progressRef = useRef();
+
+  const checkWidth = (e) => {
+    let width = progressRef.current.clientWidth;
+    const offset = e.nativeEvent.offsetX;
+
+    const divProgress = (offset / width) * 100;
+    reactPlayerRef.current.seekTo((divProgress / 100) * currentSongState.length);
+  };
 
   useEffect(() => {
     dispatch(fetchData());
@@ -167,16 +185,6 @@ export const MapPlayer = () => {
     }
   }, []);
 
-  const [played, setPlayed] = useState(0);
-  const [seeking, setSeeking] = useState(false);
-
-  const handleProgress = (state) => {
-    if (!seeking)
-    {
-      setPlayed(state.played);
-    }
-  };
-
   // preventing players from playing alltogether
   const currentPlayer = useSelector((state) => state.currentPlayer.currentPlayer);
 
@@ -233,26 +241,16 @@ export const MapPlayer = () => {
             onEnded={ handleAutoPlayNext }
             loop={ isLooped }
             volume={ volume }
-            onProgress={ handleProgress }
-            played={ played }
+            onProgress={ onPlaying }
           />
-
           <h3 className="current-name text-l">
             { currentName }
           </h3>
-          <div >
-            <input
-              id='timeline'
-              className={ classNames("timeline", {
-                'timeline-dark': !isLightTheme,
-                'timeline-light': isLightTheme
-              }) }
-              type="range"
-              min={ 0 }
-              max={ 1 }
-              step={ 0.01 }
-              value={ played }
-            />
+          <div className={ classNames('progress-bar', {
+            'progress-bar-light': isLightTheme,
+            'progress-bar-dark': !isLightTheme,
+          }) } onClick={ checkWidth } ref={ progressRef }>
+            <div className="progress-line" style={ { width: `${currentSongState.progress}%` } }></div>
           </div>
           <div className="duration text-sm">
             <p className="current-duration"> 00:00</p>

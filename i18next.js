@@ -12,7 +12,7 @@ i18n
       en: {
         translations: {
           aboutUs: "About us",
-          lullabiesMuseum: "Lullabies museum",
+          lullabiesMuseum: "Lullaby museum",
           traditionalLullabies: "Traditional lullabies",
           singingTogether: "Singing together",
           animatedLullabies: "Animated lullabies",
@@ -77,26 +77,28 @@ i18n
           enterTextMessage: "Enter the message text",
           sendMessage: "Send a message",
           popUpThank: "Thank you,",
-          popupText: "Your message has been sent!",
+          popupText: "your message has been sent!",
           underTextArea:
             "Please enter the text of the message. The maximum number of characters is 600.",
           share: "Share",
           shareLink: "The link has been copied",
           searchUnavailable: "Search is temporarily unavailable",
           chatBot: "Chat-bot",
-
           cookies:
             'By clicking "Accept All Cookies", you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts.',
           acceptAllCookies: "Accept All Cookies",
           cookieSettings: "Cookie Settings",
           toTheMain: "To the main page",
           technikalWorsk:
-            "We are currently working on improving the functionality of the site. ",
-          technikalWorsk2: "We apologize for the temporary inconvenience.",
+            "We are currently working on improving the functionality of the site.",
+          technikalWorsk2: "We apologize for any inconvenience.",
           lyrics: "Lyrics",
           collection: "Museum collection",
           alertText:
             "We are working on updating the site and soon you will be able to listen to lullabies from the selected region using the map.",
+          footerText1: "2023 © NGO “LULLABY MUSEUM” operates with the aims to preserve and promote the intangible cultural heritage of Ukraine. While providing content, we do not grant rights to its use, except for reading, listening, and studying, and we do not transfer any proprietary rights of the owners.",
+          footerText2: " All rights to the materials used are protected in accordance with the current legislation of Ukraine and applicable international agreements and cannot be used without the consent of NGO “LULLABY MUSEUM”.",
+          footerText3: "For more details, please refer to our “Terms and Conditions”.",
           schema: {
             nameInvalidName: "Please enter a valid name",
             nameNotAllowedMessage: "Please enter a valid name",
@@ -134,9 +136,9 @@ i18n
           acceptAllCookies: " Прийняти всі cookies",
           cookies:
             "Натискаючи «Прийняти всі файли cookie», ви погоджуєтеся на збереження файлів cookie на вашому пристрої для покращення навігації сайтом, аналізу використання сайту та допомоги в наших маркетингових зусиллях.",
-          shareLink: "Посилання скопійоване",
+          shareLink: "Посилання скопійовано",
           searchUnavailable: "Пошук тимчасово недоступний",
-          share: "Поділитися",
+          share: "Поділитись",
           aboutUs: "Про нас",
           lullabiesMuseum: "Музей колискової",
           traditionalLullabies: "Традиційні колискові",
@@ -153,7 +155,7 @@ i18n
           lullabies: "Колискових",
           locations: "Локацій",
           performers: "Виконавців",
-          helpWith: "Допоможи розвитку проєкту:",
+          helpWith: "Допоможіть розвитку проєкту:",
           donateHere: "Задонатити можна тут:",
           selection: "Підбірка колискових",
           ukrainianLullabies: "Українські колискові",
@@ -206,6 +208,9 @@ i18n
           popupText: "Ваше повідомлення надіслано!",
           underTextArea:
             "Введіть, будь ласка, текст повідомлення. Максимальна кількість символів 600.",
+          footerText1: " 2023 © ГО “МУЗЕЙ КОЛИСКОВОЇ” веде діяльність, метою якої є збереження та популяризація нематеріальної культурної спадщини України. Надаючи контент, ми не надаємо прав на його використання, окрім ознайомлення, прослуховування та вивчення, не передаємо будь-яких майнових прав власників.",
+          footerText2: " Усі права на використані матеріали охороняються у відповідності до чинного законодавства України та діючих міжнародних угод і не можуть бути використані без узгодження з ГО “МУЗЕЙ КОЛИСКОВОЇ”.",
+          footerText3: "Детальніше в “Правилах та умовах”.",
           schema: {
             nameInvalidName: "Введіть, будь ласка, коректне ім’я",
             nameNotAllowedMessage: "Введіть, будь ласка, коректне ім’я",
