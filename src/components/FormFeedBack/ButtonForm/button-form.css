@@ -12,11 +12,8 @@
   background-color: inherit;
   color: var(--red-700);
 }
-.button-submit:hover {
+
+.btn-form-hover {
   background: var(--red-700);
   color: var(--gray-black-950);
-}
-.button-submit:active {
-  border: 2px solid var(--red-900);
-  background: var(--red-900);
 }
