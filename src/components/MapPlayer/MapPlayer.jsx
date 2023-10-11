@@ -295,7 +295,7 @@ export const MapPlayer = () => {
       </div>
       <div className="map-player_playlist">
         <p className="text-l text-margin">
-          { t('lullabiesMuseum') }
+          { t('collection') }
         </p>
         <div className="player_playlist playlist-scroll">
           <ul >

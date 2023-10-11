@@ -126,12 +126,14 @@
   height: 22px;
 }
 
-.selections-player-share-button:hover,
-.selections-player-shuffle-button:hover,
-.selections-player-refresh-button:hover {
-  color: var(--red-700);
-}
 
+@media screen and (min-width: 1440px) {
+  .selections-player-share-button:hover,
+  .selections-player-shuffle-button:hover,
+  .selections-player-refresh-button:hover {
+    color: var(--red-700);
+  }
+}
 /* activated buttons */
 .selections-player-button-active {
   color: var(--red-700);
