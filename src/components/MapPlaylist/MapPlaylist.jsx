@@ -174,7 +174,17 @@ export const MapPlaylist = () => {
     dispatch(setCurrentName(name));
     setSerchParams(`?name=${name}`)
   };
+  useEffect(() => {
+    const buttonMap = document.getElementById("map-tab");
+    if (buttonMap)
+    {
+      buttonMap.classList.add("active-btn");
 
+      return () => {
+        buttonMap.classList.remove("active-btn");
+      };
+    }
+  }, [])
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
   if (loading)
