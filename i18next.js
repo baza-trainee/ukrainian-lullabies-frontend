@@ -30,7 +30,7 @@ i18n
           helpWith: "Help with project development:",
           donateHere: "You can donate here:",
           selection: "Lullabies selection",
-          ukrainianLullabies: "Ukrainian lullabies",
+          ukrainianLullabies: "Ukrainian Lullabies",
           lullabySong:
             "Lullaby song is the first poetic connection between mother and child. It is a tight genetic chain that unites a lot of generations. Child’s national consciousness, their language and worldview, arises from a lullaby.",
           listenToEntireSelection: "Listen to the entire selection",
@@ -57,14 +57,14 @@ i18n
           projectDescription:
             "The purpose of our project - creating a media platform, where you can meet with lullabies from all Ukrainian regions (Ukrainians and national minorities), learn the songs in order to sing them to your child, or create your own playlist with lullabies for playing it.",
           projectDescription2:
-            'For the implementation of the "Ukrainian Lullabies" project, scientists from the Research Laboratory of Ethnomusicology of the National Academy of Music of Ukraine and IT volunteers joined together and presented the project in Hatathon 4.0: Ukraine Heritage Edition, where it became one of the best in the field of preservation of intangible cultural heritage, created the public organization “Lullaby museum”, and are working together on creating a media resource with lullabies songs for mothers and children, for families in Ukraine and abroad.',
+            'For the implementation of the “Ukrainian Lullabies” project, scientists from the Research Laboratory of Ethnomusicology of the National Academy of Music of Ukraine and IT volunteers joined together and presented the project in Hatathon 4.0: Ukraine Heritage Edition, where it became one of the best in the field of preservation of intangible cultural heritage, created the public organization “Lullaby museum”, and are working together on creating a media resource with lullabies songs for mothers and children, for families in Ukraine and abroad.',
           supportUs: "You can support us",
           supportDescription:
-            'You can support the development of the "Ukrainian Lullabies" project and stay up to date with the latest news, get nice bonuses by subscribing to the project on Patreon or Buy me a Coffee.',
+            'You can support the development of the “Ukrainian Lullabies” project and stay up to date with the latest news, get nice bonuses by subscribing to the project on Patreon or Buy me a Coffee.',
           supportDescription2:
-            'The donations will be used to replenish the collection of lullabies and support the platform\'s operations: to pay for a server on AWS to save unique records of Ukrainian authenticity, to pay for hosting for the platform, to provide scientific and technical support, legal support for the "Ukrainian Lullabies" project, and for new expeditions and records!',
+            'The donations will be used to replenish the collection of lullabies and support the platform\'s operations: to pay for a server on AWS to save unique records of Ukrainian authenticity, to pay for hosting for the platform, to provide scientific and technical support, legal support for the “Ukrainian Lullabies” project, and for new expeditions and records!',
           supportDescription3:
-            'Sincerely, the team of the "Ukrainian Lullabies" project.',
+            'Sincerely, the team of the “Ukrainian Lullabies” project.',
           ourPartners: "Our partners",
           feedbackForm: "Feedback form",
           contactUs:
@@ -90,7 +90,7 @@ i18n
           cookieSettings: "Cookie Settings",
           toTheMain: "To the main page",
           technikalWorsk:
-            "We are currently working on improving the functionality of the site.",
+            "We are currently working on improving the functionality of the site. ",
           technikalWorsk2: "We apologize for any inconvenience.",
           lyrics: "Lyrics",
           collection: "Museum collection",
@@ -185,14 +185,14 @@ i18n
           projectDescription:
             "Мета нашого проєкту - створення медіаплатформи, на якій Ви зможете ознайомитися з колисковими піснями з усіх регіонів України (українців та національних меншин), вивчити пісні, щоб співати своїй дитині або створити власний play-лист з колисковими, щоб програвати його.",
           projectDescription2:
-            'Для реалізації проєкту "Українські колискові" науковці з Науково-дослідної лабораторії етномузикології Національної музичної академії України та IT-волонтери з платформи "Baza Trainee Ukraine" об\'єднались в команду і представили проєкт на Hatathon 4.0: Ukraine Heritage Edition, де він став одним з найкращих в галузі збереження нематеріальної культурної спадщини, створили громадську організацію "Музей колискової" та разом працюють над створенням медіаресурсу з колисковими піснями для мам і дітей, для родин в Україні і за кордоном.',
+            'Для реалізації проєкту “Українські колискові”  науковці з Науково-дослідної лабораторії етномузикології Національної музичної академії України та IT-волонтери з платформи “Baza Trainee Ukraine” об\'єднались в команду і представили проєкт на Hatathon 4.0: Ukraine Heritage Edition, де він став одним з найкращих в галузі збереження нематеріальної культурної спадщини, створили громадську організацію “Музей колискової” та разом працюють над створенням медіаресурсу з колисковими піснями для мам і дітей, для родин в Україні і за кордоном.',
           supportUs: "Ви можете підтримати нас",
           supportDescription:
-            'Ви можете підтримати розвиток проєкту "Українські колискові" і бути в курсі перших новин, отримати приємні бонуси, оформивши підписку на проєкт на Patreon або Buy me a Coffee.',
+            'Ви можете підтримати розвиток проєкту “Українські колискові” і бути в курсі перших новин, отримати приємні бонуси, оформивши підписку на проєкт на Patreon або Buy me a Coffee.',
           supportDescription2:
             " Донати підуть на поповнення колекції колискових та забезпечення діяльності платформи: на оплату сервера на AWS для збереження унікальних записів української автентики, на оплату хостингу для платформи, на забезпечення наукового та технічного супроводу, юридичної підтримки проєкту і – на нові експедиції та записи!",
           supportDescription3:
-            ' З повагою, команда проєкту "Українські колискові".',
+            ' З повагою, команда проєкту “Українські колискові”.',
           ourPartners: "Наші партнери",
           feedbackForm: "Форма зворотнього звʼязку",
           contactUs:
