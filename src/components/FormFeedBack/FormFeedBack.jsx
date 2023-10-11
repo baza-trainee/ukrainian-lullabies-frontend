@@ -35,6 +35,23 @@ const FormFeedBack = () => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const formikRef = useRef();
 
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [areFieldsFilled, setAreFieldsFilled] = useState(false);
+
+  const checkFormState = () => {
+    // Перевірка чи всі поля заповнені
+    const allFieldsFilled = Object.keys(formikRef.current.values).every(
+      (key) => !!formikRef.current.values[key]
+    );
+
+    // Перевірка чи форма валідна
+    formikRef.current.validateForm().then((errors) => {
+      const formIsValid = Object.keys(errors).length === 0;
+      setIsFormValid(formIsValid);
+      setAreFieldsFilled(allFieldsFilled);
+    });
+  };
+
   const handleFormSubmit = async (values, { resetForm }) => {
     const result = await dispatch(fetchSendForm(values));
     // console.log("Результат від сервера:", result);
@@ -229,6 +246,9 @@ const FormFeedBack = () => {
                         })}
                         type="submit"
                         onClick={handleShowPopUp}
+                        isFormValid={isFormValid}
+                        areFieldsFilled={areFieldsFilled}
+                        checkFormState={checkFormState}
                       />
                       {showSuccessMessage && (
                         <PopUpFeedBack
