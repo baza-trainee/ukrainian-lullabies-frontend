@@ -100,13 +100,6 @@
   color: var(--gray-black-400);
 }
 
-.selections-playlist-list-item:hover {
-  background-color: var(--gray-black-600);
-}
-
-.selections-playlist-list-item-light:hover {
-  background-color: var(--gray-black-200);
-}
 
 .selections-playlist-list-item-active {
   background: var(--gray-black-850);
@@ -246,8 +239,18 @@
   margin: 0 0 0 auto;
 }
 
-.selections-playlist-item-repeat-button:hover {
-  color: var(--red-700);
+@media screen and (min-width: 1440px) {
+  .selections-playlist-item-repeat-button:hover {
+    color: var(--red-700);
+  }
+  
+.selections-playlist-list-item:hover {
+  background-color: var(--gray-black-600);
+}
+
+.selections-playlist-list-item-light:hover {
+  background-color: var(--gray-black-200);
+}
 }
 
 /* popup effects on hover */
