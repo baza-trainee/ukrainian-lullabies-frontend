@@ -148,6 +148,7 @@ export const LullabiesInAnimation = () => {
   const handlePause = () => {
     setIsPlaying(false);
   };
+
   return (
     <section id="anima" className="lullabies-animation text-sm margin-bottom">
       <div className="player-container">
