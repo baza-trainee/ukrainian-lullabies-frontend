@@ -171,10 +171,14 @@
 
 .selections-player-share-clicked::after {
   content: "Посилання скопійовано";
+  text-wrap: nowrap;
+  right: -300%;
 }
 
 .selections-player-share-clicked-en::after {
-  content: "Link copied";
+  content: "The link has been copied";
+  text-wrap: nowrap;
+  right: -300%;
 }
 
 .selections-player-shuffle-button:after {
@@ -198,6 +202,22 @@
 .selections-player-share-button-light:after,
 .selections-player-shuffle-button-light:after,
 .selections-player-refresh-button-light:after {
+  background: var(--gray-black-100);
+  color: var(--red-700);
+}
+
+.selections-player-share-popup {
+  background: var(--gray-black-800);
+  color: var(--white-0);
+  padding: 4px 8px;
+  border-radius: 10px;
+
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
+}
+
+.selections-player-share-popup-light {
   background: var(--gray-black-100);
   color: var(--red-700);
 }
