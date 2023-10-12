@@ -8,6 +8,7 @@ import contactsSlice from "./Contacts/contactsSlice";
 import partnersSlice from "./Partners/partnersSlice";
 import sendFormSlice from "./sendForm/sendForm-slice";
 import currentPlayerReducer from "./CurrentPlayer/currentPlayerSlice";
+import currentLanguageReducer from "./currentLanguage/currentLanguageSlice";
 
 const store = configureStore({
   reducer: {
@@ -21,6 +22,7 @@ const store = configureStore({
     partners: partnersSlice,
     sendForm: sendFormSlice.reducer,
     currentPlayer: currentPlayerReducer,
+    currentLanguage: currentLanguageReducer,
   },
 });
 
