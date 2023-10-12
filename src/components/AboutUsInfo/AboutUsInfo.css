@@ -110,7 +110,6 @@
 }
 
 .support-img {
-
   @media screen and (min-width: 768px) {
     grid-column: 4/7;
     grid-row: 1/2;
@@ -183,7 +182,6 @@
   }
 }
 
-
 .target-info p:nth-child(2) {
   margin-bottom: 16px;
 }
@@ -211,7 +209,6 @@
     margin-right: 24px;
   }
 }
-
 
 .donat-imgs {
   display: flex;
@@ -243,11 +240,15 @@
 }
 
 .buy-me-a-caffee:hover {
-  background: url("../../img/aboutUs/bmc-hover.svg");
+  @media screen and (min-width: 1024px) {
+    background: url("../../img/aboutUs/bmc-hover.svg");
+  }
 }
 
 .buy-me-a-caffee:active {
-  background: url("../../img/aboutUs/bmc-active.svg");
+  @media screen and (min-width: 1024px) {
+    background: url("../../img/aboutUs/bmc-active.svg");
+  }
 }
 
 .donat-patreon {
@@ -258,23 +259,31 @@
 
 .patreon_dark:hover rect,
 .patreon_light:hover rect {
-  fill: #ff424e;
-  stroke: #ff424e;
-  stroke-width: 6px;
+  @media screen and (min-width: 1024px) {
+    fill: #ff424e;
+    stroke: #ff424e;
+    stroke-width: 6px;
+  }
 }
 
 .patreon_dark:hover path,
 .patreon_light:hover path {
-  fill: var(--white-0);
+  @media screen and (min-width: 1024px) {
+    fill: var(--white-0);
+  }
 }
 
 .patreon_dark:active rect {
-  fill: #141518;
-  stroke-width: 0px;
+  @media screen and (min-width: 1024px) {
+    fill: #141518;
+    stroke-width: 0px;
+  }
 }
 
 .patreon_dark:active path {
-  fill: var(--white-0);
+  @media screen and (min-width: 1024px) {
+    fill: var(--white-0);
+  }
 }
 
 .patreon_light rect {
@@ -286,11 +295,15 @@
 }
 
 .patreon_light:active rect {
-  fill: var(--white-0);
+  @media screen and (min-width: 1024px) {
+    fill: var(--white-0);
+  }
 }
 
 .patreon_light:active path {
-  fill: #141518;
+  @media screen and (min-width: 1024px) {
+    fill: #141518;
+  }
 }
 
 .about-us {

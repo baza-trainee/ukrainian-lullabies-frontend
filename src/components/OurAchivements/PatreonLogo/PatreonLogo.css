@@ -1,46 +1,61 @@
 .achievements-patreon_dark:hover rect,
 .achievements-patreon_light:hover rect {
-  fill: #ff424e;
-  /* stroke: #ff424e;
+  @media screen and (min-width: 1024px) {
+    fill: #ff424e;
+    /* stroke: #ff424e;
   stroke-width: 3px; */
+  }
 }
 
 .achievements-patreon_dark:hover,
 .achievements-patreon_light:hover {
-  transform: scale(1.12);
+  @media screen and (min-width: 1024px) {
+    transform: scale(1.12);
+  }
 }
 
 .achievements-patreon_dark:active,
 .achievements-patreon_light:active {
-  transform: scale(1);
+  @media screen and (min-width: 1024px) {
+    transform: scale(1);
+  }
 }
-
 .achievements-patreon_dark:hover path,
 .achievements-patreon_light:hover path {
-  fill: var(--white-0);
+  @media screen and (min-width: 1024px) {
+    fill: var(--white-0);
+  }
 }
 
 .achievements-patreon_dark:active rect {
+  @media screen and (min-width: 1024px) {
     fill: #141518;
     stroke-width: 0px;
   }
-  
-  .achievements-patreon_dark:active path {
+}
+
+.achievements-patreon_dark:active path {
+  @media screen and (min-width: 1024px) {
     fill: var(--white-0);
   }
-  
-  .achievements-patreon_light rect {
+}
+
+.achievements-patreon_light rect {
+  fill: #141518;
+}
+
+.achievements-patreon_light path {
+  fill: var(--white-0);
+}
+
+.achievements-patreon_light:active rect {
+  @media screen and (min-width: 1024px) {
+    fill: var(--white-0);
+  }
+}
+
+.achievements-patreon_light:active path {
+  @media screen and (min-width: 1024px) {
     fill: #141518;
   }
-  
-  .achievements-patreon_light path {
-    fill: var(--white-0);
-  }
-  
-  .achievements-patreon_light:active rect {
-    fill: var(--white-0);
-  }
-  
-  .achievements-patreon_light:active path {
-    fill: #141518;
-  }
+}
