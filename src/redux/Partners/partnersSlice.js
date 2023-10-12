@@ -8,8 +8,8 @@ const initialState = {
 };
 
 export const fetchPartners = createAsyncThunk("contacts/fetchPartners", async () => {
-  const response = await axios.get("http://lullabies.eu-north-1.elasticbeanstalk.com/api/partners/");
-  return response.data;
+  const response = await axios.get("http://lullabies.eu-north-1.elasticbeanstalk.com/api/partners/");  
+  return response.data.results;
 });
 
 const partnersSlice = createSlice({
