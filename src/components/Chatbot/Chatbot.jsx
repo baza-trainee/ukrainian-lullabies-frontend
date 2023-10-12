@@ -10,20 +10,6 @@ import "./Chatbot.css";
 const Chatbot = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
   const { t } = useTranslation();
-
-  const rules = [
-    t("playEducationalGameWithChatbot"),
-    t("youCanGuessWhichRegion"),
-    t("youCanLearnAboutThePlots"),
-    t("letsPlay"),
-  ];
-
-  const chatRules = rules.map((rule, index) => (
-    <li key={ index + 1 } className="text-base chat_text">
-      { rule }
-    </li>
-  ));
-
   const animationElement = {
     hidden: {
       y: -50,
@@ -38,6 +24,7 @@ const Chatbot = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
   });
+  
   return (
     <motion.div
       initial="hidden"
@@ -55,7 +42,10 @@ const Chatbot = () => {
           variants={ animationElement }
           className="chat_rule_list"
         >
-          { chatRules }
+          <li className="text-base chat_text">{ t("playEducationalGameWithChatbot") }</li>
+          <li className="text-base chat_text">{ t("youCanGuessWhichRegion") }</li>
+          <li className="text-base chat_text">{ t("youCanLearnAboutThePlots") }</li>
+          <li className="text-base chat_text">{ t("letsPlay") }</li>
         </motion.ul>
       </div>
       <motion.div custom={ 3 } variants={ animationElement } className="button chat_button">
