@@ -9,6 +9,7 @@ import "./Chatbot.css";
 
 const Chatbot = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
+  const isEnglishLanguage = localStorage.getItem("selectedLanguage") === "en";
   const { t } = useTranslation();
   const animationElement = {
     hidden: {
@@ -25,6 +26,7 @@ const Chatbot = () => {
     triggerOnce: true,
   });
   
+
   return (
     <motion.div
       initial="hidden"
@@ -60,8 +62,16 @@ const Chatbot = () => {
       >
         <Link
           href="#"
-          className={ classNames("chat_image_dark", {
-            chat_image_white: isLightTheme,
+          className={ classNames("chat_image_dark_ua", {
+            chat_image_white_ua: isLightTheme,
+            ua: !isEnglishLanguage,
+          }) }
+        ></Link>
+        <Link
+          href="#"
+          className={ classNames("chat_image_dark_en", {
+            chat_image_white_en: isLightTheme,
+            en: isEnglishLanguage,
           }) }
         ></Link>
       </motion.div>

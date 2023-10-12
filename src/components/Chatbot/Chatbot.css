@@ -69,7 +69,8 @@
   }
 }
 
-.chat_image_dark {
+.chat_image_dark_ua {
+  display: none;
   cursor: default;
   background-image: url("../../img/motanka/motanka-black.png");
   width: inherit;
@@ -78,27 +79,67 @@
   background-size: contain;
 }
 
-.chat_image_dark:hover {
+.chat_image_dark_ua:hover {
   background: url("../../img/motanka/motanka-black-hover.png");
   background-size: contain;
 }
 
-.chat_image_dark:active {
+.chat_image_dark_ua:active {
   background: url("../../img/motanka/motanka-black-active.png");
   background-size: contain;
 }
 
-.chat_image_white {
+.chat_image_white_ua {
   background: url("../../img/motanka/motanka-white.png");
   background-size: contain;
 }
 
-.chat_image_white:hover {
+.chat_image_white_ua:hover {
   background: url("../../img/motanka/motanka-white-hover.png");
   background-size: contain;
 }
 
-.chat_image_white:active {
+.chat_image_white_ua:active {
   background: url("../../img/motanka/motanka-white-active.png");
   background-size: contain;
+}
+
+.chat_image_dark_en {
+  display: none;
+  cursor: default;
+  background-image: url("../../img/motanka/motanka-black-en.png");
+  width: inherit;
+  height: inherit;
+  object-fit: contain;
+  background-size: contain;
+}
+
+.chat_image_dark_en:hover {
+  background: url("../../img/motanka/motanka-black-hover-en.png");
+  background-size: contain;
+}
+
+.chat_image_dark_en:active {
+  background: url("../../img/motanka/motanka-black-active-en.png");
+  background-size: contain;
+}
+
+.chat_image_white_en {
+  background: url("../../img/motanka/motanka-white-en.png");
+  background-size: contain;
+}
+
+.chat_image_white_en:hover {
+  background: url("../../img/motanka/motanka-white-hover-en.png");
+  background-size: contain;
+}
+
+.chat_image_white_en:active {
+  background: url("../../img/motanka/motanka-white-active-en.png");
+  background-size: contain;
+}
+
+.ua,
+.en {
+  display: block;
 }
