@@ -126,7 +126,6 @@
   height: 22px;
 }
 
-
 @media screen and (min-width: 1440px) {
   .selections-player-share-button:hover,
   .selections-player-shuffle-button:hover,
@@ -140,10 +139,12 @@
 }
 
 /* popup effects on hover */
-.selections-player-share-button:hover:after,
-.selections-player-shuffle-button:hover:after,
-.selections-player-refresh-button:hover:after {
-  display: block;
+@media screen and (min-width: 1440px) {
+  .selections-player-share-button:hover:after,
+  .selections-player-shuffle-button:hover:after,
+  .selections-player-refresh-button:hover:after {
+    display: block;
+  }
 }
 
 .selections-player-share-button:after,

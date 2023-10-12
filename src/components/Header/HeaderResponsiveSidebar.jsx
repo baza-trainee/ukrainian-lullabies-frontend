@@ -83,6 +83,11 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
 
   // responsive search bar
   const responsiveSearchBarRef = useRef();
+  const [isSidebarSearchPopupOpen, setIsSidebarSearchPopupOpen] = useState(false);
+  const hideSidebarSearchBarPopup = () => {
+    setIsSidebarSearchPopupOpen(true);
+    setTimeout(() => setIsSidebarSearchPopupOpen(false), 2000);
+  };
 
   return (
     <>
@@ -243,7 +248,7 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
                   className={classNames("header-responsive-search-bar", { "header-responsive-search-bar-light": isLightTheme })}
                   ref={responsiveSearchBarRef}
                 >
-                  <input type="text" placeholder={t("search")} className="text-2xl" id="headerSearchInput" disabled />
+                  <input type="text" placeholder={t("search")} className="text-2xl" id="headerSearchInput" />
                   <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M4 22L8.35 17.65M6 12C6 16.4183 9.58172 20 14 20C18.4183 20 22 16.4183 22 12C22 7.58172 18.4183 4 14 4C9.58172 4 6 7.58172 6 12Z"
@@ -257,9 +262,9 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
                 </div>
               }
               position="top center"
-              on={["click", "hover", "focus"]}
               arrowStyle={isLightTheme ? { color: "#e7e7e7" } : { color: "#454545" }}
-              mouseLeaveDelay="1000"
+              open={isSidebarSearchPopupOpen}
+              onOpen={hideSidebarSearchBarPopup}
             >
               <div
                 className={classNames("header-responsive-search-popup-unavailable", {

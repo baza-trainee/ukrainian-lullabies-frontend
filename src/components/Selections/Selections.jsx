@@ -10,9 +10,8 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import "./Selections.css";
 import { SelectionsPlayer } from "./SelectionsPlayer";
-import favoriteSongFirst from "../../assets/images/favorite-song-1.png";
-// import favoriteSongSecond from "../../assets/images/favorite-song-2.png";
-// import favoriteSongThird from "../../assets/images/favorite-song-3.png";
+
+import selectionsImage from "../../assets/images/selections_image.png"
 
 // import endSectionOrnamentDesktop from "../../assets/images/ornamentsMapTabsSection.svg";
 // import endSectionOrnamentMobile from "../../assets/images/OrnamentsMapTabs.svg";
@@ -265,7 +264,7 @@ export const Selections = () => {
         className="selections-wrapper container margin-bottom"
       >
         <div className="selections-image">
-          <img src={favoriteSongFirst} alt="song covering" />
+          <img src={selectionsImage} alt="song covering" />
         </div>
         <div className="selections-info">
           <div className="selections-info-about">
