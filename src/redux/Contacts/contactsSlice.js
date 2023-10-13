@@ -9,7 +9,7 @@ const initialState = {
 
 export const fetchContacts = createAsyncThunk("contacts/fetchContacts", async () => {
   const response = await axios.get("http://lullabies.eu-north-1.elasticbeanstalk.com/api/contacts/");
-  return response.data;
+  return response.data.results;
 });
 
 const contactsSlice = createSlice({
