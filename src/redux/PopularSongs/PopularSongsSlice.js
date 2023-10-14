@@ -7,11 +7,12 @@ const initialState = {
 
 export const getPopularSongs = createAsyncThunk(
   "popularSongs/getPopularSongs",
-  async (_, { rejectWithValue }) => {
+  async (language, { rejectWithValue }) => {
     try {
       const result = await axios.get(
-        "http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/?ordering=-views&limit=3&source-format=audio"
-      );
+        "http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/?ordering=-views&limit=3&source-format=audio", {
+        headers: { "Accept-Language": language },
+      });
 
       return result.data;
     } catch (error) {

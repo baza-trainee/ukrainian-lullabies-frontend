@@ -23,33 +23,50 @@ export function PopularSongs() {
   const [centerClick, setCenterClick] = useState(false);
   const [rightClick, setRightClick] = useState(false);
 
+  const languagePopular = useSelector((state) => state.currentLanguage.currentLanguage);
   // const songsPopularPlayer = useSelector((state) => state.popularSongs.popularSongs.results);
+
+  const language = languagePopular === "ua" ? "uk" : "eng";
+  // const currentLanguage = useSelector((state) => state.currentLanguage.currentLanguage);
+
+  // console.log("language", language);
 
   const buttonPopular = isPlaying ? pauseButton : playButton;
 
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  // const songsAudio = [];
-  // const songsTitle = [];
+  // const [songsAudio, setSongsAudio] = useState([]);
+  // const [songsTitle, setSongsTitle] = useState([]);
+  // const [title, setTitle] = useState([]);
+  // const [songs, setSongs] = useState([]);
 
-  // songsPopularPlayer?.map((item) => {
-  //   console.log("item", item);
-  //   songsTitle.push(item.name);
-  //   songsAudio.push(item.source.audio);
-  // });
+  // useEffect(() => {
+  //   if (songsPopularPlayer) {
+  //     const audioList = songsPopularPlayer?.map(item => item.source.audio);
+  //     const titleList = songsPopularPlayer?.map(item => item.name);
 
-  // const [title, setTitle] = useState([
-  //   `“${songsTitle[0]}”`,
-  //   `“${songsTitle[1]}”`,
-  //   `“${songsTitle[1]}”`
-  // ]);
+  //     setSongsAudio(audioList);
+  //     setSongsTitle(titleList);
 
-  // const [songs, setSongs] = useState([
-  //   songsAudio[0],
-  //   songsAudio[1],
-  //   songsAudio[1],
-  // ]);
+  //     console.log("songsAudio", audioList);
+  //     console.log("titleList", titleList);
+
+  //     setTitle([
+  //       `“${songsTitle[0]}”`,
+  //       `“${songsTitle[1]}”`,
+  //       `“${songsTitle[1]}”`
+  //     ]);
+  //     console.log("songsTitle", songsTitle);
+
+  //     setSongs([
+  //       songsAudio[0],
+  //       songsAudio[1],
+  //       songsAudio[1],
+  //     ])
+  //   }
+  // }, [songsPopularPlayer, currentLanguage]);
+
 
   const [songs, setSongs] = useState([
     "https://deti.e-papa.com.ua/mpf/17146860.mp3",
@@ -71,8 +88,8 @@ export function PopularSongs() {
   ]);
 
   useEffect(() => {
-    dispatch(getPopularSongs());
-  }, [dispatch])
+    dispatch(getPopularSongs(language));
+  }, [dispatch, languagePopular]);
 
   useEffect(() => {
     setCurrentSong(songs[1]);
