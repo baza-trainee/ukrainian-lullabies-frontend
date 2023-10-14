@@ -10,9 +10,9 @@ import { getPopularSongs } from '../../redux/PopularSongs/PopularSongsSlice';
 import playButton from "../../assets/images/play-popular.png";
 import pauseButton from "../../assets/images/pause-popular.png"
 
-import favoriteSongFirst from '../../assets/images/favorite-song-1.png';
-import favoriteSongSecond from '../../assets/images/favorite-song-2.png';
-import favoriteSongThird from '../../assets/images/favorite-song-3.png';
+import favoriteSongFirst from '../../assets/images/favorite-song-1.jpg';
+import favoriteSongSecond from '../../assets/images/favorite-song-2.jpg';
+import favoriteSongThird from '../../assets/images/favorite-song-3.jpg';
 import './PopularSongs.css';
 import { Ornaments } from '../Ornaments/Ornaments';
 
@@ -23,7 +23,7 @@ export function PopularSongs() {
   const [centerClick, setCenterClick] = useState(false);
   const [rightClick, setRightClick] = useState(false);
 
-  // const songsPopularPlayer = useSelector((state) => state.popularSongs.popularSongs);
+  // const songsPopularPlayer = useSelector((state) => state.popularSongs.popularSongs.results);
 
   const buttonPopular = isPlaying ? pauseButton : playButton;
 
@@ -33,10 +33,12 @@ export function PopularSongs() {
   // const songsAudio = [];
   // const songsTitle = [];
 
-  // songsPopularPlayer.map((item) => {
+  // songsPopularPlayer?.map((item) => {
+  //   console.log("item", item);
   //   songsTitle.push(item.name);
   //   songsAudio.push(item.source.audio);
   // });
+
   // const [title, setTitle] = useState([
   //   `“${songsTitle[0]}”`,
   //   `“${songsTitle[1]}”`,

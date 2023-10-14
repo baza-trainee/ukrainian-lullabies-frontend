@@ -10,7 +10,7 @@ export const getPopularSongs = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const result = await axios.get(
-        "http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/?ordering=-views&source-format=audio"
+        "http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/?ordering=-views&limit=3&source-format=audio"
       );
 
       return result.data;

@@ -7,8 +7,8 @@ import { NavLink, Outlet } from "react-router-dom";
 import "./map-catalogue.css"
 
 
-import mapLight from "../../assets/images/mapLight.svg";
-import mapDark from "../../assets/images/mapDark.svg";
+import mapLight from "../../assets/images/mapLight.png";
+import mapDark from "../../assets/images/mapDark.png";
 import photo1 from "../../assets/images/Karpaty.svg";
 import photo2 from "../../assets/images/ZahPod.svg";
 import photo3 from "../../assets/images/Volyn.svg";
