@@ -207,7 +207,12 @@ const pattern = [
 
 export const MapCatalogue = () => {
   const isLightTheme = useSelector(getLightTheme);
+  const isEng = useSelector((state) => state.currentLanguage.currentLanguage);
+
   const map = isLightTheme ? mapLight : mapDark;
+  const mapEng = isLightTheme ? mapDark : mapLight;
+
+  const mapPng = isEng === "en" ? mapEng : map;
   const [onButtonClick, setOnButtonClick] = useState(false);
 
 
@@ -297,7 +302,7 @@ export const MapCatalogue = () => {
       <svg className="svg-map" viewBox="0 0 990 655">
         {mapRegion}
       </svg>
-      <img className="img-map" src={map} alt="Map" />
+      <img className="img-map" src={mapPng} alt="Map" />
     </motion.div>
     <Outlet />
   </motion.section>
