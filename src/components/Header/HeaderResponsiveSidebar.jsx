@@ -279,10 +279,10 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
         <div className="header-responsive-support">
           <span>{t("helpWith")}</span>
           <div className="header-responsive-support-icons">
-            <a href="#" target="_blank" rel="noopener nofollow noreferrer">
+            <a href="https://www.patreon.com/KolyskovaMuseum" target="_blank" rel="noopener nofollow noreferrer">
               <img src={!isLightTheme ? patreonLogoWhite : patreonLogoBlack} alt="patreon" />
             </a>
-            <a href="#" target="_blank" rel="noopener nofollow noreferrer">
+            <a href="https://www.buymeacoffee.com/kolyskova" target="_blank" rel="noopener nofollow noreferrer">
               <img src={bmcLogo} alt="buy me a coffee" />
             </a>
           </div>
