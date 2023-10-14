@@ -92,6 +92,7 @@ export const Selections = () => {
   const [previousVolume, setPreviousVolume] = useState(0);
   const [currentSong, setCurrentSong] = useState(playlist[0].url);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
+  const [previousSongs, setPreviousSongs] = useState([currentSong]);
 
   const reactPlayerRef = useRef(null);
 
@@ -389,6 +390,8 @@ export const Selections = () => {
             setVolume={setVolume}
             previousVolume={previousVolume}
             setPreviousVolume={setPreviousVolume}
+            previousSongs={previousSongs}
+            setPreviousSongs={setPreviousSongs}
           />
         </div>
       </motion.div>

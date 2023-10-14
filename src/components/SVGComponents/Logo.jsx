@@ -65,7 +65,7 @@ export const LogoLight = ({ width, height }) => {
           stroke="url(#paint0_linear_1598_20952)"
         />
         <defs>
-          <pattern id="patternLogoLightId" patternContentUnits="userSpaceOnUse" width="0.45" height="0.45">
+          <pattern id="patternLogoLightId" patternContentUnits="userSpaceOnUse" width="1" height="1">
             <linearGradient
               id="paint0_linear_1598_20952"
               x1="28"
