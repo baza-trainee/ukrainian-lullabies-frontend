@@ -9,6 +9,8 @@ import "./map-catalogue.css"
 
 import mapLight from "../../assets/images/mapLight.png";
 import mapDark from "../../assets/images/mapDark.png";
+import mapLightEn from "../../assets/images/mapLightEn.png";
+import mapDarkEn from "../../assets/images/mapDarkEn.png";
 import photo1 from "../../assets/images/Karpaty.svg";
 import photo2 from "../../assets/images/ZahPod.svg";
 import photo3 from "../../assets/images/Volyn.svg";
@@ -210,7 +212,7 @@ export const MapCatalogue = () => {
   const isEng = useSelector((state) => state.currentLanguage.currentLanguage);
 
   const map = isLightTheme ? mapLight : mapDark;
-  const mapEng = isLightTheme ? mapDark : mapLight;
+  const mapEng = isLightTheme ? mapLightEn : mapDarkEn;
 
   const mapPng = isEng === "en" ? mapEng : map;
   const [onButtonClick, setOnButtonClick] = useState(false);
