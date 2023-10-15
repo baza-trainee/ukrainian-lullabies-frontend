@@ -10,9 +10,9 @@ import { getPopularSongs } from '../../redux/PopularSongs/PopularSongsSlice';
 import playButton from "../../assets/images/play-popular.png";
 import pauseButton from "../../assets/images/pause-popular.png"
 
-import favoriteSongFirst from '../../assets/images/favorite-song-1.png';
-import favoriteSongSecond from '../../assets/images/favorite-song-2.png';
-import favoriteSongThird from '../../assets/images/favorite-song-3.png';
+import favoriteSongFirst from '../../assets/images/favorite-song-1.jpg';
+import favoriteSongSecond from '../../assets/images/favorite-song-2.jpg';
+import favoriteSongThird from '../../assets/images/favorite-song-3.jpg';
 import './PopularSongs.css';
 import { Ornaments } from '../Ornaments/Ornaments';
 
@@ -23,31 +23,50 @@ export function PopularSongs() {
   const [centerClick, setCenterClick] = useState(false);
   const [rightClick, setRightClick] = useState(false);
 
-  // const songsPopularPlayer = useSelector((state) => state.popularSongs.popularSongs);
+  const languagePopular = useSelector((state) => state.currentLanguage.currentLanguage);
+  // const songsPopularPlayer = useSelector((state) => state.popularSongs.popularSongs.results);
+
+  const language = languagePopular === "ua" ? "uk" : "eng";
+  // const currentLanguage = useSelector((state) => state.currentLanguage.currentLanguage);
+
+  // console.log("language", language);
 
   const buttonPopular = isPlaying ? pauseButton : playButton;
 
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  // const songsAudio = [];
-  // const songsTitle = [];
+  // const [songsAudio, setSongsAudio] = useState([]);
+  // const [songsTitle, setSongsTitle] = useState([]);
+  // const [title, setTitle] = useState([]);
+  // const [songs, setSongs] = useState([]);
 
-  // songsPopularPlayer.map((item) => {
-  //   songsTitle.push(item.name);
-  //   songsAudio.push(item.source.audio);
-  // });
-  // const [title, setTitle] = useState([
-  //   `“${songsTitle[0]}”`,
-  //   `“${songsTitle[1]}”`,
-  //   `“${songsTitle[1]}”`
-  // ]);
+  // useEffect(() => {
+  //   if (songsPopularPlayer) {
+  //     const audioList = songsPopularPlayer?.map(item => item.source.audio);
+  //     const titleList = songsPopularPlayer?.map(item => item.name);
 
-  // const [songs, setSongs] = useState([
-  //   songsAudio[0],
-  //   songsAudio[1],
-  //   songsAudio[1],
-  // ]);
+  //     setSongsAudio(audioList);
+  //     setSongsTitle(titleList);
+
+  //     console.log("songsAudio", audioList);
+  //     console.log("titleList", titleList);
+
+  //     setTitle([
+  //       `“${songsTitle[0]}”`,
+  //       `“${songsTitle[1]}”`,
+  //       `“${songsTitle[1]}”`
+  //     ]);
+  //     console.log("songsTitle", songsTitle);
+
+  //     setSongs([
+  //       songsAudio[0],
+  //       songsAudio[1],
+  //       songsAudio[1],
+  //     ])
+  //   }
+  // }, [songsPopularPlayer, currentLanguage]);
+
 
   const [songs, setSongs] = useState([
     "https://deti.e-papa.com.ua/mpf/17146860.mp3",
@@ -69,8 +88,8 @@ export function PopularSongs() {
   ]);
 
   useEffect(() => {
-    dispatch(getPopularSongs());
-  }, [dispatch])
+    dispatch(getPopularSongs(language));
+  }, [dispatch, languagePopular]);
 
   useEffect(() => {
     setCurrentSong(songs[1]);

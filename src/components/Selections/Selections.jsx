@@ -11,7 +11,7 @@ import { useInView } from "react-intersection-observer";
 import "./Selections.css";
 import { SelectionsPlayer } from "./SelectionsPlayer";
 
-import selectionsImage from "../../assets/images/selections_image.png";
+import selectionsImage from "../../assets/images/selections_image.jpg";
 
 // import endSectionOrnamentDesktop from "../../assets/images/ornamentsMapTabsSection.svg";
 // import endSectionOrnamentMobile from "../../assets/images/OrnamentsMapTabs.svg";
