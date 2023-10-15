@@ -27,6 +27,7 @@
   display: grid;
   justify-content: center;
   grid-row: 3/4;
+  grid-column: 1/2;
   @media screen and (min-width: 1440px) {
     display: grid;
     grid-column: 1/8;
@@ -160,3 +161,4 @@
 .en {
   display: block;
 }
+
