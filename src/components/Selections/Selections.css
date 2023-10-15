@@ -27,7 +27,7 @@
 
 .selections-image {
   width: 100%;
-  max-width: 400px;
+  max-width: 429px;
   align-self: center;
   @media screen and (min-width: 1440px) {
     position: relative;
@@ -69,6 +69,12 @@
   margin-bottom: 16px;
 }
 
+.selections-info-text {
+  @media screen and (min-width: 1440px) {
+    width: 588px;
+  }
+}
+
 /* Playlist styles */
 .selections-playlist-list {
   padding-top: 15px;
@@ -99,7 +105,6 @@
 .selections-playlist-list-item-light {
   color: var(--gray-black-400);
 }
-
 
 .selections-playlist-list-item-active {
   background: var(--gray-black-850);
@@ -243,14 +248,14 @@
   .selections-playlist-item-repeat-button:hover {
     color: var(--red-700);
   }
-  
-.selections-playlist-list-item:hover {
-  background-color: var(--gray-black-600);
-}
 
-.selections-playlist-list-item-light:hover {
-  background-color: var(--gray-black-200);
-}
+  .selections-playlist-list-item:hover {
+    background-color: var(--gray-black-600);
+  }
+
+  .selections-playlist-list-item-light:hover {
+    background-color: var(--gray-black-200);
+  }
 }
 
 /* popup effects on hover */
@@ -295,7 +300,6 @@
   background: var(--gray-black-300);
   border-radius: 10px;
 }
-
 
 /* end section ornament */
 .selections-ornament-desktop {

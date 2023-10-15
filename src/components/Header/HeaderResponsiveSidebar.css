@@ -167,6 +167,11 @@
   color: inherit;
 }
 
+.header-responsive-search-bar input::placeholder {
+  color: inherit;
+  opacity: 1; /* Firefox */
+}
+
 .header-responsive-search-bar input:focus {
   outline: none;
 }
@@ -206,11 +211,13 @@
 
 .header-responsive-support-icons {
   display: flex;
-  gap: 4px;
+  gap: 24px;
+  margin-left: 12px;
 }
 
 .header-responsive-support-icons a {
-  width: 30px;
+  display: block;
+  width: 24px;
 }
 
 /* responsive follow us */
@@ -225,16 +232,6 @@
   gap: 18px;
 }
 
-@keyframes growToRight {
-  0% {
-    transform: translateX(-500px);
-  }
-
-  100% {
-    transform: translateX(0);
-  }
-}
-
 /* swap social logos logic */
 .header-responsive-follow-icons a:active .sidebar-socials-icon-normal {
   display: none;
@@ -246,4 +243,14 @@
 
 .sidebar-socials-icon-pressed {
   display: none;
+}
+
+@keyframes growToRight {
+  0% {
+    transform: translateX(-500px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }

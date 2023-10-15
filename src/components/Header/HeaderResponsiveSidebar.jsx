@@ -248,7 +248,12 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
                   className={classNames("header-responsive-search-bar", { "header-responsive-search-bar-light": isLightTheme })}
                   ref={responsiveSearchBarRef}
                 >
-                  <input type="text" placeholder={t("search")} className="text-2xl" id="headerSearchInput" />
+                  <input
+                    type="text"
+                    placeholder={t("search")}
+                    className="header-responsive-search-input text-2xl"
+                    id="headerSearchInput"
+                  />
                   <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M4 22L8.35 17.65M6 12C6 16.4183 9.58172 20 14 20C18.4183 20 22 16.4183 22 12C22 7.58172 18.4183 4 14 4C9.58172 4 6 7.58172 6 12Z"
@@ -279,16 +284,16 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
         <div className="header-responsive-support">
           <span>{t("helpWith")}</span>
           <div className="header-responsive-support-icons">
-            <a href="#" target="_blank" rel="noopener nofollow noreferrer">
+            <a href="https://www.patreon.com/KolyskovaMuseum" target="_blank" rel="noopener nofollow noreferrer">
               <img src={!isLightTheme ? patreonLogoWhite : patreonLogoBlack} alt="patreon" />
             </a>
-            <a href="#" target="_blank" rel="noopener nofollow noreferrer">
+            <a href="https://www.buymeacoffee.com/kolyskova" target="_blank" rel="noopener nofollow noreferrer">
               <img src={bmcLogo} alt="buy me a coffee" />
             </a>
           </div>
         </div>
         <div className="header-responsive-follow">
-          <p>{t("followUsHere")}</p>
+          <p>{t("followUsHere")}:</p>
           <div className="header-responsive-follow-icons">
             <a href="https://www.youtube.com/@Kolyskovamuseum" target="_blank" rel="noopener nofollow noreferrer">
               <img

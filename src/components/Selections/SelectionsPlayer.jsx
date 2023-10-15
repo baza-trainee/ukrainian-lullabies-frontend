@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useEffect } from "react";
 import "./SelectionsPlayer.css";
 import classNames from "classnames";
 import { FiShare2, FiShuffle, FiRefreshCw, FiCheck } from "react-icons/fi";
@@ -26,6 +26,8 @@ export const SelectionsPlayer = ({
   setVolume,
   previousVolume,
   setPreviousVolume,
+  previousSongs,
+  setPreviousSongs,
 }) => {
   const isEnglishLanguage = localStorage.getItem("selectedLanguage") === "en";
   const [shareClicked, setShareClicked] = useState(false);
@@ -38,6 +40,7 @@ export const SelectionsPlayer = ({
 
   const handleNextSong = () => {
     if (isPlaylistShuffled) {
+      setPreviousSongs([...previousSongs, playlist[currentSongIndex].url]);
       playRandomSong();
     } else {
       setCurrentSong(playlist[nextSongIndex].url);
@@ -46,12 +49,21 @@ export const SelectionsPlayer = ({
   };
 
   const handlePreviousSong = () => {
-    if (isPlaylistShuffled) {
-      playRandomSong();
+    if (isPlaylistShuffled && previousSongs.length > 0) {
+      setCurrentSong(previousSongs[previousSongs.length - 1]);
+      setCurrentSongIndex(playlist.findIndex((song) => song.url === previousSongs[previousSongs.length - 1]));
+      handlePop();
     } else {
       setCurrentSong(playlist[previousSongIndex].url);
       setCurrentSongIndex(previousSongIndex);
     }
+  };
+
+  // handlePop() solely for shuffled songs
+  const handlePop = () => {
+    const newArray = [...previousSongs];
+    newArray.pop();
+    setPreviousSongs(newArray);
   };
 
   const handleVolumeChange = (event) => {
