@@ -6,7 +6,6 @@
   align-items: center;
   margin-top: 15px;
    @media screen and (min-width: 768px) {
-
   }
     @media screen and (min-width: 1440px) {
       margin-top: 62px;
@@ -26,11 +25,11 @@
 
     @media screen and (min-width: 768px) {
     margin-bottom: 24px;
-
     }
     @media screen and (min-width: 1440px) {
       gap: 24px;
       height: 530px;
+      margin: 0;
   }
   
 }
@@ -78,11 +77,11 @@
   height: 380px;
   width: 100%;
   @media screen and (min-width: 768px) {
-
+    grid-column: 8/13;
     height: 533px;
   }
   @media screen and (min-width: 1440px) {
-    grid-column: 8/13;
+    
     height: 530px;
   }
 }
@@ -90,11 +89,11 @@
   overflow-y: auto;
   height: 300px;
   @media screen and (min-width: 768px) {
-
+    grid-column: 8/13;
     height: 650px;
   }
   @media screen and (min-width: 1440px) {
-    grid-column: 8/13;
+   
     height: 490px;
   }
 }
@@ -123,10 +122,11 @@
   gap: 20px;
 }
 
+@media screen and (min-width: 1440px) {
 .map-player_card-dark:hover {
   background: var(--gray-black-600, #5D5D5D);
 }
-
+}
 .map-player_card{
   display: flex;
   justify-content: space-between;
@@ -252,5 +252,3 @@ border-radius: 8px;
   background-position: right;
   border-radius: 12px;
 }
-
-/* ------------------- */

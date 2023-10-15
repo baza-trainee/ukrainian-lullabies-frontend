@@ -11,10 +11,10 @@ a {
   overflow: hidden;
 }
 
-.active {
+/* .active {
   border-bottom: solid 2px var(--red-700);
   margin-bottom: -2px;
-}
+} */
 
 .header-with-search-bar-open {
   display: grid;

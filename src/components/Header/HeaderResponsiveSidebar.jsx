@@ -21,6 +21,24 @@ import { BsFacebook } from "react-icons/bs";
 import { FaTiktok, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FiX } from "react-icons/fi";
 
+// social icons logos
+import youtubeLogoWhite from "../../icons/Socials/youtube-logo-white.svg";
+import youtubeLogoBlack from "../../icons/Socials/youtube-logo-black.svg";
+import youtubeLogoPressed from "../../icons/Socials/youtube-logo-pressed.svg";
+
+import instagramLogoWhite from "../../icons/Socials/instagram-logo-white.svg";
+import instagramLogoBlack from "../../icons/Socials/instagram-logo-black.svg";
+import instagramLogoPressed from "../../icons/Socials/instagram-logo-pressed.svg";
+
+import facebookLogoWhite from "../../icons/Socials/facebook-logo-white.svg";
+import facebookLogoBlack from "../../icons/Socials/facebook-logo-black.svg";
+import facebookLogoPressed from "../../icons/Socials/facebook-logo-pressed.svg";
+
+import tiktokLogoWhite from "../../icons/Socials/tiktok-logo-white.svg";
+import tiktokLogoBlack from "../../icons/Socials/tiktok-logo-black.svg";
+import tiktokLogoPressed from "../../icons/Socials/tiktok-logo-pressed.svg";
+import Popup from "reactjs-popup";
+
 export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentLanguage, scrollToTarget }) => {
   const { t, i18n } = useTranslation();
 
@@ -65,6 +83,11 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
 
   // responsive search bar
   const responsiveSearchBarRef = useRef();
+  const [isSidebarSearchPopupOpen, setIsSidebarSearchPopupOpen] = useState(false);
+  const hideSidebarSearchBarPopup = () => {
+    setIsSidebarSearchPopupOpen(true);
+    setTimeout(() => setIsSidebarSearchPopupOpen(false), 2000);
+  };
 
   return (
     <>
@@ -131,7 +154,7 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
         </Link>
         <ul className="header-responsive-options">
           <li>
-            <Link to="/about" onClick={handleBurgerClick} className="header-responsive-about text-4xl">
+            <Link to="/about" onClick={handleBurgerClick} className="header-responsive-about">
               {t("aboutUs")}
             </Link>
           </li>
@@ -219,49 +242,98 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
           </li>
           <li>
             {/* responsive search bar */}
-            <div
-              className={classNames("header-responsive-search-bar", { "header-responsive-search-bar-light": isLightTheme })}
-              ref={responsiveSearchBarRef}
+            <Popup
+              trigger={
+                <div
+                  className={classNames("header-responsive-search-bar", { "header-responsive-search-bar-light": isLightTheme })}
+                  ref={responsiveSearchBarRef}
+                >
+                  <input
+                    type="text"
+                    placeholder={t("search")}
+                    className="header-responsive-search-input text-2xl"
+                    id="headerSearchInput"
+                  />
+                  <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M4 22L8.35 17.65M6 12C6 16.4183 9.58172 20 14 20C18.4183 20 22 16.4183 22 12C22 7.58172 18.4183 4 14 4C9.58172 4 6 7.58172 6 12Z"
+                      stroke="white"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      pointerEvents="none"
+                    />
+                  </svg>
+                </div>
+              }
+              position="top center"
+              arrowStyle={isLightTheme ? { color: "#e7e7e7" } : { color: "#454545" }}
+              open={isSidebarSearchPopupOpen}
+              onOpen={hideSidebarSearchBarPopup}
             >
-              <input type="text" placeholder={t("searchUnavailable")} className="text-2xl-mobile" id="headerSearchInput" />
-              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M4 22L8.35 17.65M6 12C6 16.4183 9.58172 20 14 20C18.4183 20 22 16.4183 22 12C22 7.58172 18.4183 4 14 4C9.58172 4 6 7.58172 6 12Z"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  pointerEvents="none"
-                />
-              </svg>
-            </div>
+              <div
+                className={classNames("header-responsive-search-popup-unavailable", {
+                  "header-responsive-search-popup-unavailable-light": isLightTheme,
+                })}
+              >
+                {t("searchUnavailable")}
+              </div>
+            </Popup>
           </li>
         </ul>
         <div className="header-responsive-support">
           <span>{t("helpWith")}</span>
           <div className="header-responsive-support-icons">
-            <a href="#" target="_blank" rel="noopener nofollow noreferrer">
+            <a href="https://www.patreon.com/KolyskovaMuseum" target="_blank" rel="noopener nofollow noreferrer">
               <img src={!isLightTheme ? patreonLogoWhite : patreonLogoBlack} alt="patreon" />
             </a>
-            <a href="#" target="_blank" rel="noopener nofollow noreferrer">
+            <a href="https://www.buymeacoffee.com/kolyskova" target="_blank" rel="noopener nofollow noreferrer">
               <img src={bmcLogo} alt="buy me a coffee" />
             </a>
           </div>
         </div>
         <div className="header-responsive-follow">
-          <p>{t("followUsHere")}</p>
+          <p>{t("followUsHere")}:</p>
           <div className="header-responsive-follow-icons">
             <a href="https://www.youtube.com/@Kolyskovamuseum" target="_blank" rel="noopener nofollow noreferrer">
-              <FaYoutube style={{ width: "34px", height: "24px" }} />
+              <img
+                src={!isLightTheme ? youtubeLogoWhite : youtubeLogoBlack}
+                alt="youtube"
+                width="24"
+                height="24"
+                className="sidebar-socials-icon-normal"
+              />
+              <img src={youtubeLogoPressed} alt="youtube" width="24" height="24" className="sidebar-socials-icon-pressed" />
             </a>
             <a href="https://www.instagram.com/kolyskova.museum/" target="_blank" rel="noopener nofollow noreferrer">
-              <FaInstagram style={{ width: "24px", height: "24px" }} />
+              <img
+                src={!isLightTheme ? instagramLogoWhite : instagramLogoBlack}
+                alt="instagram"
+                width="24"
+                height="24"
+                className="sidebar-socials-icon-normal"
+              />
+              <img src={instagramLogoPressed} alt="instagram" width="24" height="24" className="sidebar-socials-icon-pressed" />
             </a>
             <a href="https://www.facebook.com/" target="_blank" rel="noopener nofollow noreferrer">
-              <BsFacebook style={{ width: "24px", height: "24px" }} />
+              <img
+                src={!isLightTheme ? facebookLogoWhite : facebookLogoBlack}
+                alt="facebook"
+                width="24"
+                height="24"
+                className="sidebar-socials-icon-normal"
+              />
+              <img src={facebookLogoPressed} alt="facebook" width="24" height="24" className="sidebar-socials-icon-pressed" />
             </a>
             <a href="https://www.tiktok.com/@kolyskovamuseum" target="_blank" rel="noopener nofollow noreferrer">
-              <FaTiktok style={{ width: "24px", height: "24px" }} />
+              <img
+                src={!isLightTheme ? tiktokLogoWhite : tiktokLogoBlack}
+                alt="tiktok"
+                width="24"
+                height="24"
+                className="sidebar-socials-icon-normal"
+              />
+              <img src={tiktokLogoPressed} alt="tiktok" width="24" height="24" className="sidebar-socials-icon-pressed" />
             </a>
           </div>
         </div>

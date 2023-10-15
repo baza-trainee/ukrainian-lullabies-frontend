@@ -1,11 +1,23 @@
 .achievements-bmc {
-    margin-right: 27px;
+  margin-right: 27px;
 }
 
-.achievements-bmc:hover rect{
+.achievements-bmc:hover {
+  transform: scale(1.12);
+}
+
+.achievements-bmc:active {
+  transform: scale(1);
+}
+
+.achievements-bmc:hover rect {
+  @media screen and (min-width: 1024px) {
     fill: var(--red-700);
+  }
 }
 
-.achievements-bmc:active rect{
+.achievements-bmc:active rect {
+  @media screen and (min-width: 1024px) {
     fill: var(--red-900);
+  }
 }

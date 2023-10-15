@@ -7,22 +7,24 @@ import { NavLink, Outlet } from "react-router-dom";
 import "./map-catalogue.css"
 
 
-import mapLight from "../../assets/images/mapLight.svg";
-import mapDark from "../../assets/images/mapDark.svg";
-import photo1 from "../../assets/images/Karpaty.svg";
-import photo2 from "../../assets/images/ZahPod.svg";
-import photo3 from "../../assets/images/Volyn.svg";
-import photo4 from "../../assets/images/ZahPol.svg";
-import photo5 from "../../assets/images/ShidPol.svg";
-import photo6 from "../../assets/images/SeredPol.svg";
-import photo7 from "../../assets/images/ShidPod.svg";
-import photo8 from "../../assets/images/SeredNad.svg";
-import photo9 from "../../assets/images/Slobidshyna.svg";
-import photo10 from "../../assets/images/Donshyna.svg";
-import photo11 from "../../assets/images/Tavria.svg";
-import photo12 from "../../assets/images/NyjPod.svg";
-import photo13 from "../../assets/images/NyjPob.svg";
-import photo14 from "../../assets/images/Krym.svg";
+import mapLight from "../../assets/images/mapLight.png";
+import mapDark from "../../assets/images/mapDark.png";
+import mapLightEn from "../../assets/images/mapLightEn.png";
+import mapDarkEn from "../../assets/images/mapDarkEn.png";
+import photo1 from "../../assets/images/Karpaty.png";
+import photo2 from "../../assets/images/ZahPod.png";
+import photo3 from "../../assets/images/Volyn.png";
+import photo4 from "../../assets/images/ZahPol.png";
+import photo5 from "../../assets/images/ShidPol.png";
+import photo6 from "../../assets/images/SeredPol.png";
+import photo7 from "../../assets/images/ShidPod.png";
+import photo8 from "../../assets/images/SeredNad.png";
+import photo9 from "../../assets/images/Slobidshyna.png";
+import photo10 from "../../assets/images/Donshyna.png";
+import photo11 from "../../assets/images/Tavria.png";
+import photo12 from "../../assets/images/NyjPod.png";
+import photo13 from "../../assets/images/NyjPob.png";
+import photo14 from "../../assets/images/Krym.png";
 
 const catalogue = [
   {
@@ -207,7 +209,12 @@ const pattern = [
 
 export const MapCatalogue = () => {
   const isLightTheme = useSelector(getLightTheme);
+  const isEng = useSelector((state) => state.currentLanguage.currentLanguage);
+
   const map = isLightTheme ? mapLight : mapDark;
+  const mapEng = isLightTheme ? mapLightEn : mapDarkEn;
+
+  const mapPng = isEng === "en" ? mapEng : map;
   const [onButtonClick, setOnButtonClick] = useState(false);
 
 
@@ -297,7 +304,7 @@ export const MapCatalogue = () => {
       <svg className="svg-map" viewBox="0 0 990 655">
         {mapRegion}
       </svg>
-      <img className="img-map" src={map} alt="Map" />
+      <img className="img-map" src={mapPng} alt="Map" />
     </motion.div>
     <Outlet />
   </motion.section>

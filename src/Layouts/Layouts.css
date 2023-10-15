@@ -109,12 +109,13 @@
   @media screen and (min-width: 1440px) {
     width: 250px;
     height: 56px;
-  }
-}
+  }}
 
-.button:hover {
-  background: var(--red-700);
-  color: var(--gray-black-950);
+@media screen and (min-width: 1440px) {
+  .button:hover {
+    background: var(--red-700);
+    color: var(--gray-black-950);
+  }
 }
 
 .button:active {

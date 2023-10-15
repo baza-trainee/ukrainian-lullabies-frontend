@@ -103,11 +103,14 @@
   cursor: pointer;
 }
 
-.map-player-share-button:hover,
-.map-player-shuffle-button:hover,
-.map-player-refresh-button:hover {
-  color: var(--red-700);
+@media screen and (min-width: 1440px) {
+  .map-player-share-button:hover,
+  .map-player-shuffle-button:hover,
+  .map-player-refresh-button:hover {
+    color: var(--red-700);
+  }
 }
+
 
 /* activated buttons */
 .map-player-button-active {

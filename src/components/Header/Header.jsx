@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
 import "./Header.css";
+import { languageChanged } from "../../redux/currentLanguage/currentLanguageSlice";
 
 // import components
 import { HeaderSearch } from "./HeaderSearch";
@@ -74,6 +75,7 @@ export const Header = () => {
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
+    dispatch(languageChanged(lng))
   };
   const currentLanguage = i18n.language;
 

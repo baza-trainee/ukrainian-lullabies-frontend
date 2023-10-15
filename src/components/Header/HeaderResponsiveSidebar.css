@@ -31,8 +31,9 @@
   display: flex;
   flex-direction: column;
   width: 294px;
-  height: 200vh;
+  height: 100%;
   padding: 16px 12px;
+  overflow-y: auto;
   position: fixed;
   top: 0;
   left: 0;
@@ -166,6 +167,11 @@
   color: inherit;
 }
 
+.header-responsive-search-bar input::placeholder {
+  color: inherit;
+  opacity: 1; /* Firefox */
+}
+
 .header-responsive-search-bar input:focus {
   outline: none;
 }
@@ -176,6 +182,20 @@
 
 .header-responsive-search-bar-light svg path {
   stroke: var(--gray-black-950);
+}
+
+.header-responsive-search-popup-unavailable {
+  background: var(--gray-black-800);
+  color: var(--white-0);
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.header-responsive-search-popup-unavailable-light {
+  background: var(--gray-black-100);
+  color: var(--red-700);
 }
 
 /* responsive support */
@@ -191,11 +211,13 @@
 
 .header-responsive-support-icons {
   display: flex;
-  gap: 4px;
+  gap: 24px;
+  margin-left: 12px;
 }
 
 .header-responsive-support-icons a {
-  width: 30px;
+  display: block;
+  width: 24px;
 }
 
 /* responsive follow us */
@@ -208,6 +230,19 @@
   align-items: center;
   justify-content: center;
   gap: 18px;
+}
+
+/* swap social logos logic */
+.header-responsive-follow-icons a:active .sidebar-socials-icon-normal {
+  display: none;
+}
+
+.header-responsive-follow-icons a:active .sidebar-socials-icon-pressed {
+  display: block;
+}
+
+.sidebar-socials-icon-pressed {
+  display: none;
 }
 
 @keyframes growToRight {
