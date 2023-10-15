@@ -93,10 +93,10 @@ const AboutUsInfo = () => {
         </div>
         <div className='donat-imgs'>
           <div className='donat-bmc donat_margin-right'>
-            <Link href='#' className="buy-me-a-caffee"></Link>
+            <Link to='https://www.buymeacoffee.com/kolyskova' className="buy-me-a-caffee" target="_blank"></Link>
           </div>
           <div className='donat-patreon'>
-            <Link href='#'><Patreon /></Link>
+            <Link to='https://www.patreon.com/KolyskovaMuseum' target="_blank"><Patreon /></Link>
           </div>
         </div>
         <div className='img-container support-img'>
