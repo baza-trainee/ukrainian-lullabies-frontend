@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 import { playerChanged } from '../../redux/CurrentPlayer/currentPlayerSlice';
-import { getPopularSongs } from '../../redux/PopularSongs/PopularSongsSlice';
+// import { getPopularSongs } from '../../redux/PopularSongs/PopularSongsSlice';
 
 import playButton from "../../assets/images/play-popular.png";
 import pauseButton from "../../assets/images/pause-popular.png"
@@ -23,10 +23,10 @@ export function PopularSongs() {
   const [centerClick, setCenterClick] = useState(false);
   const [rightClick, setRightClick] = useState(false);
 
-  const languagePopular = useSelector((state) => state.currentLanguage.currentLanguage);
+  // const languagePopular = useSelector((state) => state.currentLanguage.currentLanguage);
   // const songsPopularPlayer = useSelector((state) => state.popularSongs.popularSongs.results);
 
-  const language = languagePopular === "ua" ? "uk" : "eng";
+  // const language = languagePopular === "ua" ? "uk" : "eng";
   // const currentLanguage = useSelector((state) => state.currentLanguage.currentLanguage);
 
   // console.log("language", language);
@@ -87,9 +87,9 @@ export function PopularSongs() {
     favoriteSongThird
   ]);
 
-  useEffect(() => {
-    dispatch(getPopularSongs(language));
-  }, [dispatch, languagePopular]);
+  // useEffect(() => {
+  //   dispatch(getPopularSongs(language));
+  // }, [dispatch, languagePopular]);
 
   useEffect(() => {
     setCurrentSong(songs[1]);

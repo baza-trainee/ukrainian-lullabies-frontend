@@ -105,7 +105,7 @@ export const SelectionsPlayer = ({
         <div className="selections-player-secondary-buttons-left">
           <Popup
             trigger={
-              <button
+              <button type="button"
                 className={classNames("selections-player-share-button", {
                   "selections-player-share-button-light": isLightTheme,
                   "selections-player-share-button-en": isEnglishLanguage,
@@ -126,7 +126,7 @@ export const SelectionsPlayer = ({
             </div>
           </Popup>
 
-          <button
+          <button type="button"
             className={classNames("selections-player-shuffle-button", {
               "selections-player-shuffle-button-light": isLightTheme,
               "selections-player-shuffle-button-en": isEnglishLanguage,
@@ -137,7 +137,7 @@ export const SelectionsPlayer = ({
           </button>
         </div>
         <div className="selections-player-primary-buttons-group">
-          <button
+          <button type="button"
             className={classNames("selections-player-previous-button", {
               "selections-player-previous-button-light": isLightTheme,
             })}
@@ -145,7 +145,7 @@ export const SelectionsPlayer = ({
           >
             <BsFillSkipStartFill />
           </button>
-          <button
+          <button type="button"
             className={classNames("selections-player-play-pause-button", {
               "selections-player-play-pause-button-light": isLightTheme,
             })}
@@ -153,7 +153,7 @@ export const SelectionsPlayer = ({
           >
             {!isPlaying ? <BsPlayFill /> : <BsPauseFill style={{ fill: "var(--red-700)" }} />}
           </button>
-          <button
+          <button type="button"
             className={classNames("selections-player-next-button", {
               "selections-player-next-button-light": isLightTheme,
             })}
@@ -163,7 +163,7 @@ export const SelectionsPlayer = ({
           </button>
         </div>
         <div className="selections-player-secondary-buttons-right">
-          <button
+          <button type="button"
             className={classNames("selections-player-refresh-button", {
               "selections-player-refresh-button-light": isLightTheme,
               "selections-player-refresh-button-en": isEnglishLanguage,
@@ -173,7 +173,7 @@ export const SelectionsPlayer = ({
             <FiRefreshCw style={isPlaylistLooped && { color: "var(--red-700)" }} />
           </button>
           <div className="selections-player-volume-wrapper">
-            <button className="selections-player-volume-button">
+            <button type="button" className="selections-player-volume-button">
               {volume > 0 ? <HiVolumeUp onClick={handleMute} /> : <HiVolumeOff onClick={handleMute} />}
             </button>
             <input
