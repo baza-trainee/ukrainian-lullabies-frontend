@@ -164,6 +164,7 @@ export function PopularSongs() {
         variants={animationElement}
       >
         <ReactPlayer
+          style={{ display: "none" }}
           width={0}
           height={0}
           url={currentSong}
