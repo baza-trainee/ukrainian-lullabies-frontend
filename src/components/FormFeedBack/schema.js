@@ -9,14 +9,14 @@ const schema = (translations) => {
   return object({
     name: string()
       .matches(
-        /^[^\s][A-Za-z'ʼ-\u04FF\u0400-\u04FF\s-]+$/,
+        /^[A-Za-z'ʼ-\u04FF\u0400-\u04FF\s-]*[A-Za-z'ʼ-\u04FF\u0400-\u04FF][A-Za-z'ʼ-\u04FF\u0400-\u04FF\s-]*$/,
         currentTranslations.schema.nameInvalidName
       )
       .notOneOf(
         ["%", "^", "*", "|", "~", "{", "}", ";", "<", ">", ".", ","],
         currentTranslations.schema.nameNotAllowedMessage
       )
-      .min(2, currentTranslations.schema.nameMinLengthMessage)
+      .min(1, currentTranslations.schema.nameMinLengthMessage)
       .max(30, currentTranslations.schema.nameMaxLengthMessage)
       .required(currentTranslations.schema.requiredMessage),
     email: string()

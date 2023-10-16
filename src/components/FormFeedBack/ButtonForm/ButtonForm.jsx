@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
-import { useRef } from "react";
+import { useState } from "react";
 
 import "./button-form.css";
 
@@ -12,31 +11,26 @@ const ButtonForm = ({
   isFormValid,
   areFieldsFilled,
 }) => {
-  const buttonRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
+    setIsHovered(true);
     // Викликаємо checkFormState при наведенні мишкою
     checkFormState();
-    if (isFormValid && areFieldsFilled) {
-      // Застосовуємо стилі при наведенні мишкою на кнопку
-      buttonRef.current.classList.add("btn-form-hover");
-    }
   };
 
   const handleMouseLeave = () => {
-    // Скидаємо стилі при знятті мишки
-    buttonRef.current.classList.remove("btn-form-hover");
+    setIsHovered(false);
   };
 
-  const buttonClass = classNames("button-submit", {
-    "btn-form-hover": isFormValid && areFieldsFilled,
-  });
+  const buttonClass = `text-base-semibold button-submit ${
+    isHovered && isFormValid && areFieldsFilled ? "btn-form-hover" : ""
+  }`;
 
   return (
     <div className="text-base-semibold">
       <button
         className={buttonClass}
-        ref={buttonRef}
         type="submit"
         onClick={onClick}
         onMouseEnter={handleMouseEnter}
@@ -47,6 +41,7 @@ const ButtonForm = ({
     </div>
   );
 };
+
 export default ButtonForm;
 
 ButtonForm.propTypes = {
