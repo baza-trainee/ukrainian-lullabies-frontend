@@ -41,10 +41,10 @@ export const Donat = () => {
           custom={ 3 }
           variants={ animationElement }
           className="donats">
-          <Link href="#">
+          <Link to="https://www.buymeacoffee.com/kolyskova" target="_blank">
             <CoffeeLogo />
           </Link>
-            <Link href="#">
+            <Link to="https://www.patreon.com/KolyskovaMuseum" target="_blank">
             <PatreonLogo />
           </Link>
         </motion.div>

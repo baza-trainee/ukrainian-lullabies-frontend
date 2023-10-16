@@ -57,14 +57,14 @@ i18n
           projectDescription:
             "The purpose of our project - creating a media platform, where you can meet with lullabies from all Ukrainian regions (Ukrainians and national minorities), learn the songs in order to sing them to your child, or create your own playlist with lullabies for playing it.",
           projectDescription2:
-            'For the implementation of the “Ukrainian Lullabies” project, scientists from the Research Laboratory of Ethnomusicology of the National Academy of Music of Ukraine and IT volunteers joined together and presented the project in Hatathon 4.0: Ukraine Heritage Edition, where it became one of the best in the field of preservation of intangible cultural heritage, created the public organization “Lullaby museum”, and are working together on creating a media resource with lullabies songs for mothers and children, for families in Ukraine and abroad.',
+            "For the implementation of the “Ukrainian Lullabies” project, scientists from the Research Laboratory of Ethnomusicology of the National Academy of Music of Ukraine and IT volunteers joined together and presented the project in Hatathon 4.0: Ukraine Heritage Edition, where it became one of the best in the field of preservation of intangible cultural heritage, created the public organization “Lullaby museum”, and are working together on creating a media resource with lullabies songs for mothers and children, for families in Ukraine and abroad.",
           supportUs: "You can support us",
           supportDescription:
-            'You can support the development of the “Ukrainian Lullabies” project and stay up to date with the latest news, get nice bonuses by subscribing to the project on Patreon or Buy me a Coffee.',
+            "You can support the development of the “Ukrainian Lullabies” project and stay up to date with the latest news, get nice bonuses by subscribing to the project on Patreon or Buy me a Coffee.",
           supportDescription2:
-            'The donations will be used to replenish the collection of lullabies and support the platform\'s operations: to pay for a server on AWS to save unique records of Ukrainian authenticity, to pay for hosting for the platform, to provide scientific and technical support, legal support for the “Ukrainian Lullabies” project, and for new expeditions and records!',
+            "The donations will be used to replenish the collection of lullabies and support the platform's operations: to pay for a server on AWS to save unique records of Ukrainian authenticity, to pay for hosting for the platform, to provide scientific and technical support, legal support for the “Ukrainian Lullabies” project, and for new expeditions and records!",
           supportDescription3:
-            'Sincerely, the team of the “Ukrainian Lullabies” project.',
+            "Sincerely, the team of the “Ukrainian Lullabies” project.",
           ourPartners: "Our partners",
           feedbackForm: "Feedback form",
           contactUs:
@@ -96,13 +96,16 @@ i18n
           collection: "Museum collection",
           alertText:
             "We are working on updating the site and soon you will be able to listen to lullabies from the selected region using the map.",
-          footerText1: "2023 © NGO “LULLABY MUSEUM” operates with the aims to preserve and promote the intangible cultural heritage of Ukraine. While providing content, we do not grant rights to its use, except for reading, listening, and studying, and we do not transfer any proprietary rights of the owners.",
-          footerText2: " All rights to the materials used are protected in accordance with the current legislation of Ukraine and applicable international agreements and cannot be used without the consent of NGO “LULLABY MUSEUM”.",
-          footerText3: "For more details, please refer to our “Terms and Conditions”.",
+          footerText1:
+            "2023 © NGO “LULLABY MUSEUM” operates with the aims to preserve and promote the intangible cultural heritage of Ukraine. While providing content, we do not grant rights to its use, except for reading, listening, and studying, and we do not transfer any proprietary rights of the owners.",
+          footerText2:
+            " All rights to the materials used are protected in accordance with the current legislation of Ukraine and applicable international agreements and cannot be used without the consent of NGO “LULLABY MUSEUM”.",
+          footerText3:
+            "For more details, please refer to our “Terms and Conditions”.",
           schema: {
             nameInvalidName: "Please enter a valid name",
             nameNotAllowedMessage: "Please enter a valid name",
-            nameMinLengthMessage: "The number of characters must be at least 2",
+            nameMinLengthMessage: "The number of characters must be at least 1",
             nameMaxLengthMessage: "The number of characters must not exceed 30",
             requiredMessage: "This field is mandatory",
             emailNotAllowedMessage: "Please enter a valid email",
@@ -185,14 +188,14 @@ i18n
           projectDescription:
             "Мета нашого проєкту - створення медіаплатформи, на якій Ви зможете ознайомитися з колисковими піснями з усіх регіонів України (українців та національних меншин), вивчити пісні, щоб співати своїй дитині або створити власний play-лист з колисковими, щоб програвати його.",
           projectDescription2:
-            'Для реалізації проєкту “Українські колискові”  науковці з Науково-дослідної лабораторії етномузикології Національної музичної академії України та IT-волонтери з платформи “Baza Trainee Ukraine” об\'єднались в команду і представили проєкт на Hatathon 4.0: Ukraine Heritage Edition, де він став одним з найкращих в галузі збереження нематеріальної культурної спадщини, створили громадську організацію “Музей колискової” та разом працюють над створенням медіаресурсу з колисковими піснями для мам і дітей, для родин в Україні і за кордоном.',
+            "Для реалізації проєкту “Українські колискові”  науковці з Науково-дослідної лабораторії етномузикології Національної музичної академії України та IT-волонтери з платформи “Baza Trainee Ukraine” об'єднались в команду і представили проєкт на Hatathon 4.0: Ukraine Heritage Edition, де він став одним з найкращих в галузі збереження нематеріальної культурної спадщини, створили громадську організацію “Музей колискової” та разом працюють над створенням медіаресурсу з колисковими піснями для мам і дітей, для родин в Україні і за кордоном.",
           supportUs: "Ви можете підтримати нас",
           supportDescription:
-            'Ви можете підтримати розвиток проєкту “Українські колискові” і бути в курсі перших новин, отримати приємні бонуси, оформивши підписку на проєкт на Patreon або Buy me a Coffee.',
+            "Ви можете підтримати розвиток проєкту “Українські колискові” і бути в курсі перших новин, отримати приємні бонуси, оформивши підписку на проєкт на Patreon або Buy me a Coffee.",
           supportDescription2:
             " Донати підуть на поповнення колекції колискових та забезпечення діяльності платформи: на оплату сервера на AWS для збереження унікальних записів української автентики, на оплату хостингу для платформи, на забезпечення наукового та технічного супроводу, юридичної підтримки проєкту і – на нові експедиції та записи!",
           supportDescription3:
-            ' З повагою, команда проєкту “Українські колискові”.',
+            " З повагою, команда проєкту “Українські колискові”.",
           ourPartners: "Наші партнери",
           feedbackForm: "Форма зворотнього звʼязку",
           contactUs:
@@ -208,13 +211,15 @@ i18n
           popupText: "Ваше повідомлення надіслано!",
           underTextArea:
             "Введіть, будь ласка, текст повідомлення. Максимальна кількість символів 600.",
-          footerText1: " 2023 © ГО “МУЗЕЙ КОЛИСКОВОЇ” веде діяльність, метою якої є збереження та популяризація нематеріальної культурної спадщини України. Надаючи контент, ми не надаємо прав на його використання, окрім ознайомлення, прослуховування та вивчення, не передаємо будь-яких майнових прав власників.",
-          footerText2: " Усі права на використані матеріали охороняються у відповідності до чинного законодавства України та діючих міжнародних угод і не можуть бути використані без узгодження з ГО “МУЗЕЙ КОЛИСКОВОЇ”.",
+          footerText1:
+            " 2023 © ГО “МУЗЕЙ КОЛИСКОВОЇ” веде діяльність, метою якої є збереження та популяризація нематеріальної культурної спадщини України. Надаючи контент, ми не надаємо прав на його використання, окрім ознайомлення, прослуховування та вивчення, не передаємо будь-яких майнових прав власників.",
+          footerText2:
+            " Усі права на використані матеріали охороняються у відповідності до чинного законодавства України та діючих міжнародних угод і не можуть бути використані без узгодження з ГО “МУЗЕЙ КОЛИСКОВОЇ”.",
           footerText3: "Детальніше в “Правилах та умовах”.",
           schema: {
             nameInvalidName: "Введіть, будь ласка, коректне ім’я",
             nameNotAllowedMessage: "Введіть, будь ласка, коректне ім’я",
-            nameMinLengthMessage: "Кількість символів має бути не менше 2",
+            nameMinLengthMessage: "Кількість символів має бути не менше 1",
             nameMaxLengthMessage: "Кількість символів має бути не більше 30",
             requiredMessage: "Це поле обов'язкове для заповнення",
             emailNotAllowedMessage: "Введіть, будь ласка, коректний email",

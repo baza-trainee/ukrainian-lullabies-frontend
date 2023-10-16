@@ -3,7 +3,7 @@ const translations = {
     schema: {
       nameInvalidName: "Please enter a valid name",
       nameNotAllowedMessage: "Please enter a valid name",
-      nameMinLengthMessage: "The number of characters must be at least 2",
+      nameMinLengthMessage: "The number of characters must be at least 1",
       nameMaxLengthMessage: "The number of characters must not exceed 30",
       requiredMessage: "This field is mandatory",
       emailNotAllowedMessage: "Please enter a valid email",
@@ -20,7 +20,7 @@ const translations = {
     schema: {
       nameInvalidName: "Введіть, будь ласка, коректне ім’я",
       nameNotAllowedMessage: "Введіть, будь ласка, коректне ім’я",
-      nameMinLengthMessage: "Кількість символів має бути не менше 2",
+      nameMinLengthMessage: "Кількість символів має бути не менше 1",
       nameMaxLengthMessage: "Кількість символів має бути не більше 30",
       requiredMessage: "Це поле обов'язкове для заповнення",
       emailNotAllowedMessage: "Введіть, будь ласка, коректний email",
