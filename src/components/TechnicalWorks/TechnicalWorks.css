@@ -43,6 +43,9 @@
 }
 
 .tech-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: row;
 }
@@ -75,6 +78,9 @@
 }
 
 .technikal__block {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
@@ -90,13 +96,19 @@
 }
 
 .tech-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
 
   @media screen and (min-width:1440px) {
-    display: flex;
+    display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
     flex-direction: column;
   }
 }
