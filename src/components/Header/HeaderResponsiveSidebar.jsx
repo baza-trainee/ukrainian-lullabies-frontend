@@ -140,7 +140,7 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
       >
         <div className="header-responsive-theme-and-close">
           <HeaderThemeToggle isLightTheme={isLightTheme} />
-          <FiX style={{ width: "24px", height: "24px", cursor: "pointer" }} onClick={handleBurgerClick} />
+          <FiX style={{ width: "48px", height: "48px", padding: "12px", cursor: "pointer" }} onClick={handleBurgerClick} />
         </div>
         <Link to="/" onClick={handleBurgerClick}>
           <div className="header-responsive-logo text-5xl">

@@ -27,7 +27,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 7px 16px 7px 4px;
+  padding: 7px 4px 7px 4px;
   border: 2px solid transparent;
   border-image: linear-gradient(to bottom, #cf121b, #cf121b00);
   border-image-slice: 1;

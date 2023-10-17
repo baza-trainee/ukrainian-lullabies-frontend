@@ -64,7 +64,7 @@ ul {
   grid-column: 1 / 13;
   width: 100%;
   margin: 0 auto 24px auto;
-  padding: 16px 25px 30px 25px;
+  padding: 12px 25px 0 25px;
   border: 1px solid transparent;
   border-image: linear-gradient(270deg, rgba(198, 15, 24, 0) 2.76%, #c60f18 12.36%, #c60f18 86.67%, rgba(198, 15, 24, 0) 97.79%);
   border-image-slice: 1;
@@ -75,6 +75,7 @@ ul {
     border-width: 2px;
     border-image-width: 2px;
     margin: 0;
+    padding: 24px 25px 35px 25px;
   }
 }
 
@@ -143,10 +144,10 @@ ul {
   padding-left: 16px;
 
   @media screen and (min-width: 820px) {
-    gap: 15px;    
+    gap: 15px;
     margin-bottom: 0;
     padding-left: 0;
-    height: 128px;    
+    height: 128px;
   }
 }
 
@@ -210,7 +211,6 @@ ul {
 .footer-socials-icons,
 .footer-partners-icons {
   display: flex;
-  gap: 16px;
   align-items: center;
   margin-top: 8px;
 }
@@ -219,6 +219,24 @@ ul {
   width: 24px;
   height: 24px;
 } */
+.footer-socials-icons {
+  gap: 12px;
+  @media screen and (min-width: 820px) {
+    gap: 16px;
+  }
+}
+
+.footer-socials-icons a {
+  display: block;
+  padding: 12px;
+  @media screen and (min-width: 820px) {
+    padding: 0;
+  }
+}
+
+.footer-partners-icons {
+  gap: 16px;
+}
 
 /* swap social logos logic */
 .footer-socials-icons a:hover .footer-socials-icon-normal {
