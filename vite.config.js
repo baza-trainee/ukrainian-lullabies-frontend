@@ -15,14 +15,14 @@ export default defineConfig({
       ViteImagemin({
       jpeg: {
         quality: 80,
-        maxFileSize: 500 * 1024,
+        maxFileSize: 200 * 1024,
       },
       png: {
         optimizationLevel: 5,
-        maxFileSize: 500 * 1024,
+        maxFileSize: 200 * 1024,
       },
       svg: {
-        maxFileSize: 500 * 1024,
+        maxFileSize: 200 * 1024,
       },
     }),
   ],
