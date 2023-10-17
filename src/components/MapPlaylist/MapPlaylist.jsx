@@ -202,7 +202,6 @@ export const MapPlaylist = () => {
         <p className="text-2xl alert"> { t('alertText') } </p>
       </div>
       <div className="playlist-wrap">
-
         <p className="text-l text-margin">{ t('collection') }</p>
         <div className='map-playlist playlist-scroll'>
           <ul  >
@@ -212,7 +211,7 @@ export const MapPlaylist = () => {
               >
                 <Link
                   to={ `/player/?name=${name}` }
-                  className={ classNames("map-player_card", {
+                  className={ classNames("map-playlist_card", {
                     'map-player_card-dark': !isLightTheme,
                     'map-player_card-light': isLightTheme,
                   }) }
