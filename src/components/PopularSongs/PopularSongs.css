@@ -3,11 +3,17 @@
 }
 
 .images-div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: row;
 }
 
 .carousel-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   justify-content: space-around;
   align-items: end;
@@ -78,6 +84,9 @@
 }
 
 .mobile {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -92,7 +101,10 @@
   display: none;
 
   @media screen and (min-width: 1024px) {
-    display: flex;
+    display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: end;
@@ -100,6 +112,9 @@
 }
 
 .mobile-div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: row;
   justify-content: center;

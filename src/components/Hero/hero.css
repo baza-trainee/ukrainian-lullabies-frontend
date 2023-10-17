@@ -10,7 +10,10 @@
   background-size: contain;
 
   @media screen and (min-width: 768px) {
-    display: flex;
+    display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
     grid-column: 1/13;
     background-size: 100%;
   }
@@ -68,6 +71,9 @@
 }
 .ornamentWrap {
   /* grid-column: 1/13; */
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,6 +93,9 @@
 }
 
 .hero-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -100,7 +109,10 @@
   line-height: 24px;
 
   @media screen and (min-width: 768px) {
-    display: flex;
+    display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
     flex-direction: inherit;
     justify-content: center;
     align-items: center;

@@ -17,6 +17,9 @@ height: auto;
 }
 
 .map-playlist-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -59,6 +62,9 @@ height: auto;
 .alert::before {
   content: "";
   background-image: url("../../images/alert-circle.png");
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
   width: 24px;
