@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 import { playerChanged } from '../../redux/CurrentPlayer/currentPlayerSlice';
-// import { getPopularSongs } from '../../redux/PopularSongs/PopularSongsSlice';
+import { getPopularSongs } from '../../redux/PopularSongs/PopularSongsSlice';
 
 import playButton from "../../assets/images/play-popular.png";
 import pauseButton from "../../assets/images/pause-popular.png"
@@ -23,21 +23,16 @@ export function PopularSongs() {
   const [centerClick, setCenterClick] = useState(false);
   const [rightClick, setRightClick] = useState(false);
 
-  // const languagePopular = useSelector((state) => state.currentLanguage.currentLanguage);
+  const languagePopular = useSelector((state) => state.currentLanguage.currentLanguage);
   // const songsPopularPlayer = useSelector((state) => state.popularSongs.popularSongs.results);
 
-  // const language = languagePopular === "ua" ? "uk" : "eng";
-  // const currentLanguage = useSelector((state) => state.currentLanguage.currentLanguage);
-
-  // console.log("language", language);
+  const language = languagePopular === "ua" ? "uk" : "eng";
 
   const buttonPopular = isPlaying ? pauseButton : playButton;
 
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  // const [songsAudio, setSongsAudio] = useState([]);
-  // const [songsTitle, setSongsTitle] = useState([]);
   // const [title, setTitle] = useState([]);
   // const [songs, setSongs] = useState([]);
 
@@ -46,26 +41,19 @@ export function PopularSongs() {
   //     const audioList = songsPopularPlayer?.map(item => item.source.audio);
   //     const titleList = songsPopularPlayer?.map(item => item.name);
 
-  //     setSongsAudio(audioList);
-  //     setSongsTitle(titleList);
-
-  //     console.log("songsAudio", audioList);
-  //     console.log("titleList", titleList);
-
   //     setTitle([
-  //       `“${songsTitle[0]}”`,
-  //       `“${songsTitle[1]}”`,
-  //       `“${songsTitle[1]}”`
+  //       `“${titleList[0]}”`,
+  //       `“${titleList[1]}”`,
+  //       `“${titleList[1]}”`
   //     ]);
-  //     console.log("songsTitle", songsTitle);
 
   //     setSongs([
-  //       songsAudio[0],
-  //       songsAudio[1],
-  //       songsAudio[1],
+  //       audioList[0],
+  //       audioList[1],
+  //       audioList[1],
   //     ])
   //   }
-  // }, [songsPopularPlayer, currentLanguage]);
+  // }, [songsPopularPlayer]);
 
 
   const [songs, setSongs] = useState([
@@ -87,13 +75,9 @@ export function PopularSongs() {
     favoriteSongThird
   ]);
 
-  // useEffect(() => {
-  //   dispatch(getPopularSongs(language));
-  // }, [dispatch, languagePopular]);
-
   useEffect(() => {
-    setCurrentSong(songs[1]);
-  }, []);
+    dispatch(getPopularSongs(language));
+  }, [dispatch, languagePopular]);
 
   useEffect(() => {
     setCurrentSong(songs[1]);
@@ -158,7 +142,6 @@ export function PopularSongs() {
     }
   }, [currentPlayer]);
 
-
   const { ref, inView } = useInView({
     triggerOnce: true,
   });
@@ -180,6 +163,16 @@ export function PopularSongs() {
         custom={2}
         variants={animationElement}
       >
+        <ReactPlayer
+          style={{ display: "none" }}
+          width={0}
+          height={0}
+          url={currentSong}
+          playing={isPlaying}
+          controls
+          volume={0.5}
+          onEnded={() => setIsPlaying(false)}
+        />
         <div className="carousel-container desktop">
           <div className='small-div'>
             <div className='title-container small-div'>
@@ -204,13 +197,6 @@ export function PopularSongs() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 2 }} className='img-popular' src={images[1]} alt="Center" />)}
-              <ReactPlayer
-                url={currentSong}
-                playing={isPlaying}
-                controls
-                volume={0.5}
-                onEnded={() => setIsPlaying(false)}
-              />
             </div>
           </div>
           <div className='small-div'>
@@ -238,13 +224,6 @@ export function PopularSongs() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 2 }} className='img-popular' src={images[1]} alt="Center" />)}
-              <ReactPlayer
-                url={currentSong}
-                playing={isPlaying}
-                controls
-                volume={0.5}
-                onEnded={() => setIsPlaying(false)}
-              />
             </div>
           </div>
           <div className='mobile-div'>

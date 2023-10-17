@@ -1,5 +1,5 @@
 .header-burgerIcon {
-  padding: 0;
+  padding: 12px;
   background-color: transparent;
   border: none;
 
@@ -46,6 +46,10 @@
   }
 }
 
+.header-responsive-menu::-webkit-scrollbar {
+  width: 0.01px;
+}
+
 .header-responsive-menu-light {
   background: var(--white-0);
 }
@@ -54,7 +58,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px;
+  padding: 16px 0px 0px 16px;
   margin-bottom: 24px;
 }
 
@@ -200,37 +204,41 @@
 
 /* responsive support */
 .header-responsive-support {
-  padding: 24px 16px;
+  padding: 24px 0 24px 16px;
   display: flex;
   align-items: center;
-  justify-content: start;
-  gap: 2px;
+  justify-content: space-between;
   text-align: left;
   margin-bottom: 50px;
 }
 
 .header-responsive-support-icons {
   display: flex;
-  gap: 24px;
-  margin-left: 12px;
+  /* margin-left: 12px; */
 }
 
 .header-responsive-support-icons a {
   display: block;
-  width: 24px;
+  width: 48px;  
+  padding: 12px;
 }
 
 /* responsive follow us */
 .header-responsive-follow p {
-  margin-bottom: 28px;
+  margin-bottom: 16px;
 }
 
 .header-responsive-follow-icons {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px;
 }
+
+.header-responsive-follow-icons a {
+  display: block;
+  padding: 12px;
+}
+
 
 /* swap social logos logic */
 .header-responsive-follow-icons a:active .sidebar-socials-icon-normal {
