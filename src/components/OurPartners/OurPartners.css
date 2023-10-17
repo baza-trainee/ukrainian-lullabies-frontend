@@ -6,6 +6,9 @@
 
 .swiper-wrapper {
   max-width: 970px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-transition-timing-function: linear !important;
   transition-timing-function: linear !important;
@@ -57,12 +60,18 @@
   display: none;
 
   @media screen and (min-width: 1440px) {
-    display: flex;
+    display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
     justify-content: center;
   }
 }
 
 .ornament-double {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   justify-content: center;
 
@@ -72,6 +81,9 @@
 }
 
 .partners-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: row;
   justify-content: space-around;

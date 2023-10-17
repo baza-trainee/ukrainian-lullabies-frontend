@@ -1,11 +1,17 @@
 .loader-container {
-    display: flex;
+    display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .loader {
-    display: flex;
+    display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
     justify-content: space-between;
     align-items: center;
     width: 88px;

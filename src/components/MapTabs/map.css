@@ -79,6 +79,9 @@
 }
 
 .info-tech-div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   justify-content: center;
   align-items: center;

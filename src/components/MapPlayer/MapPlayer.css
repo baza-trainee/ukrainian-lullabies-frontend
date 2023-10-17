@@ -1,4 +1,7 @@
 .map-player-wrapper{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -15,6 +18,9 @@
 }
 
 .player-wrapper{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: column;
    @media screen and (min-width: 768px) {
@@ -34,6 +40,9 @@
   
 }
 .map-player_container{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -99,6 +108,9 @@
 }
 
 .playlist-item{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,6 +128,9 @@
 }
 
 .card-buttons{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -128,6 +143,9 @@
 }
 }
 .map-player_card{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   justify-content: space-between;
   cursor: pointer;
@@ -168,16 +186,23 @@
 }
 
 .item-group{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
 }
 
 .current-name{
-  margin: 30px 0;
+  margin-top: 16px;
 }
-
+.region{
+  color: var(--gray-black-400);
+  margin: 6px 0 12px ;
+}
 .text-margin{
   margin-bottom: 24px;
 }
+
 .player-photo{
 background-image: url("../../images/Baby_photo.png");
 background-repeat: no-repeat;
@@ -226,6 +251,9 @@ border-radius: 8px;
 }
 
 .duration{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   justify-content: space-between;
   margin-bottom: 32px;
@@ -251,4 +279,7 @@ border-radius: 8px;
   background-size: contain;
   background-position: right;
   border-radius: 12px;
+}
+.text-error{
+  color: var(--red-700);
 }
