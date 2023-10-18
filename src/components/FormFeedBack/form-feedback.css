@@ -70,6 +70,7 @@
   align-items: center;
   border-radius: 36px;
   border: 1px solid var(--gray-black-800);
+  outline: none;
 }
 
 .fieldWrap__input:not(:last-child) {
