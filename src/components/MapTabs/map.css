@@ -24,7 +24,7 @@
   grid-column: 1;
 
   @media screen and (min-width: 1440px) {
-    grid-column: 1/4;
+    grid-column: 1/5;
   }
 
 }
@@ -33,7 +33,7 @@
   grid-column: 2;
 
   @media screen and (min-width: 1440px) {
-    grid-column: 5/8;
+    grid-column: 5/9;
   }
 }
 
@@ -41,7 +41,7 @@
   grid-column: 3;
 
   @media screen and (min-width: 1440px) {
-    grid-column: 9/12;
+    grid-column: 9/13;
   }
 }
 
