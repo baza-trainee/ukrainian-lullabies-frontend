@@ -138,6 +138,7 @@
   display: -ms-flexbox;
   display: flex;
   justify-content: flex-start;
+  text-align: start;
   color: var(--red-400-error);
   margin: 0;
 }
