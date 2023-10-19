@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useTranslation } from "react-i18next";
@@ -13,6 +13,7 @@ import { Formik, Form, Field } from "formik";
 import { getLightTheme } from "../../redux/theme/themeSelectors";
 import schema from "./schema";
 import { fetchSendForm } from "../../redux/sendForm/sendForm-operations";
+import { getCurrentLanguage } from "../../redux/currentLanguage/currentLanguageSelector";
 
 import ButtonForm from "./ButtonForm/ButtonForm";
 import FormError from "./FormError/FormError";
@@ -29,6 +30,8 @@ const initialValues = {
 
 const FormFeedBack = () => {
   const isLightTheme = useSelector(getLightTheme);
+  const currentLanguage = useSelector(getCurrentLanguage);
+
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -37,6 +40,11 @@ const FormFeedBack = () => {
 
   const [isFormValid, setIsFormValid] = useState(false);
   const [areFieldsFilled, setAreFieldsFilled] = useState(false);
+
+  useEffect(() => {
+    // Очистити форму при зміні мови
+    formikRef.current.resetForm();
+  }, [currentLanguage]);
 
   const checkFormState = () => {
     // Перевірка чи всі поля заповнені
