@@ -16,7 +16,7 @@ const schema = (translations) => {
         ["%", "^", "*", "|", "~", "{", "}", ";", "<", ">", ".", ","],
         currentTranslations.schema.nameNotAllowedMessage
       )
-      .min(1, currentTranslations.schema.nameMinLengthMessage)
+      // .min(1, currentTranslations.schema.nameMinLengthMessage)
       .max(30, currentTranslations.schema.nameMaxLengthMessage)
       .required(currentTranslations.schema.requiredMessage),
     email: string()

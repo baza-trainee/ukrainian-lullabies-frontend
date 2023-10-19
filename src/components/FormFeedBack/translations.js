@@ -2,13 +2,13 @@ const translations = {
   en: {
     schema: {
       nameInvalidName:
-        "The field contains 1-30 characters consisting of letters, apostrophe, dash, or space, not at the beginning",
+        "The field must contain 1-30 characters consisting of letters, apostrophe, dash or space, not at the beginning",
       nameNotAllowedMessage:
-        "The field contains 1-30 characters consisting of letters, apostrophe, dash, or space, not at the beginning",
+        "The field must contain 1-30 characters consisting of letters, apostrophe, dash or space, not at the beginning",
       nameMinLengthMessage:
-        "The field contains 1-30 characters consisting of letters, apostrophe, dash, or space, not at the beginning",
+        "The field must contain 1-30 characters consisting of letters, apostrophe, dash or space, not at the beginning",
       nameMaxLengthMessage:
-        "The field contains 1-30 characters consisting of letters, apostrophe, dash, or space, not at the beginning",
+        "The field must contain 1-30 characters consisting of letters, apostrophe, dash or space, not at the beginning",
       requiredMessage: "This field is mandatory",
       emailNotAllowedMessage: "Please enter a valid Email",
       emailMinLengthMessage: "Please enter a valid Email",
@@ -25,13 +25,13 @@ const translations = {
   ua: {
     schema: {
       nameInvalidName:
-        "Поле містить 1-30 символів із літер, апострофу, тире або пробілу, не на початку",
+        "Поле має містити 1-30 символів із літер, апострофу, тире або пробілу, не на початку",
       nameNotAllowedMessage:
-        "Поле містить 1-30 символів із літер, апострофу, тире або пробілу, не на початку",
+        "Поле має містити 1-30 символів із літер, апострофу, тире або пробілу, не на початку",
       nameMinLengthMessage:
-        "Поле містить 1-30 символів із літер, апострофу, тире або пробілу, не на початку",
+        "Поле має містити 1-30 символів із літер, апострофу, тире або пробілу, не на початку",
       nameMaxLengthMessage:
-        "Поле містить 1-30 символів із літер, апострофу, тире або пробілу, не на початку",
+        "Поле має містити 1-30 символів із літер, апострофу, тире або пробілу, не на початку",
       requiredMessage: "Це поле обов'язкове для заповнення",
       emailNotAllowedMessage: "Введіть, будь ласка, коректний Email",
       emailMinLengthMessage: "Введіть, будь ласка, коректний Email",
