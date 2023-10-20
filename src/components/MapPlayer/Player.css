@@ -45,7 +45,7 @@
   -webkit-border-radius: 36px;
   border-radius: 36px;
   border: none;
-  background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.1) 0.88%, rgba(255, 255, 255, 0) 99.96%);
+  background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.1) 0.88%, rgba(255, 255, 255, 0) 99.96%))
 }
 
 .map-player-previous-button svg,
