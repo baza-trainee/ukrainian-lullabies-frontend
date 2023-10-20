@@ -1,10 +1,12 @@
 .map-player-navigation-wrapper {
+  display: -webkit-grid;
   display: grid;
   grid-template: 1fr 1fr / 1fr 1fr;
+  -webkit-column-gap: 40px;
   column-gap: 40px;
   padding: 8px 30px;
   border-radius: 36px;
-  background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.1) 0.88%, rgba(255, 255, 255, 0) 99.96%));  
+  background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.1) 0.88%, rgba(255, 255, 255, 0) 99.96%));
 }
 
 .map-player-navigation-wrapper-light {
@@ -22,11 +24,12 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
   align-items: center;
+  -webkit-justify-content: center;
   justify-content: center;
   gap: 16px;
 }
-
 .map-player-previous-button,
 .map-player-play-pause-button,
 .map-player-next-button {
@@ -34,12 +37,15 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
   align-items: center;
+  -webkit-justify-content: center;
   justify-content: center;
   padding: 8px;
-  border: none;
+  -webkit-border-radius: 36px;
   border-radius: 36px;
-  background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.1) 0.88%, rgba(255, 255, 255, 0) 99.96%));
+  border: none;
+  background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.1) 0.88%, rgba(255, 255, 255, 0) 99.96%);
 }
 
 .map-player-previous-button svg,
@@ -53,6 +59,7 @@
 .map-player-play-pause-button svg {
   width: 40px;
   height: 40px;
+  -webkit-border-radius: 72px;
   border-radius: 72px;
 }
 
@@ -82,24 +89,26 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
   align-items: center;
+  -webkit-gap: 40px;
   gap: 40px;
 
   @media screen and (min-width: 1440px) {
+    -webkit-gap: 54px;
     gap: 54px;
   }
 }
-
 .map-player-secondary-buttons-left {
   grid-column: 1 / 2;
+  -webkit-justify-self: end;
   justify-self: end;
 }
 
 .map-player-secondary-buttons-right {
   grid-column: 2 / 3;
+  -webkit-justify-self: start;
   justify-self: start;
-
-   
 }
 
 .map-player-share-button,
@@ -120,7 +129,6 @@
   }
 }
 
-
 /* activated buttons */
 .map-player-button-active {
   color: var(--red-700);
@@ -132,9 +140,9 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
   align-items: center;
   gap: 10px;
-  
 }
 
 #mapVolumeInputId {
@@ -142,15 +150,16 @@
     cursor: pointer;
     width: 50px;
     height: 3px;
+    -webkit-border-radius: 20px;
     border-radius: 20px;
     background: var(--white-0);
+    -webkit-accent-color: var(--gray-black-800);
     accent-color: var(--gray-black-800);
 }
 
 /* Приховати інпут за замовчуванням */
 .player-volume-input {
   display: none;
-
 }
 
 /* Відобразити інпут при наведенні на кнопку */

@@ -1,33 +1,48 @@
 .map-playlist-png {
-min-height: 209px;
-height: auto;
+  min-height: 209px;
+  min-height: 209px;
+  -webkit-height: auto;
+  height: auto;
+  -webkit-min-width: 300px;
   min-width: 300px;
+  -webkit-width: 90%;
   width: 90%;
+  -webkit-margin: 0 auto;
   margin: 0 auto;
 
   @media screen and (min-width: 768px) {
+    -webkit-width: 688px;
     width: 688px;
+    -webkit-height: 461px;
     height: 461px;
   }
 
   @media screen and (min-width: 1440px) {
+    -webkit-width: 611px;
     width: 611px;
+    -webkit-height: 404px;
     height: 404px;
   }
 }
 
-.playlist-wrap{
-@media screen and (min-width: 1440px) {
+
+.playlist-wrap {
+  @media screen and (min-width: 1440px) {
     min-width: 429px;
+    -webkit-min-width: 429px;
+    -moz-min-width: 429px;
   }
 }
-.map-playlist_card{
+.map-playlist_card {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
   justify-content: space-between;
   cursor: pointer;
+  -webkit-border-radius: 36px;
   border-radius: 36px;
   min-width: 280px;
   width: 100%;
@@ -46,41 +61,41 @@ height: auto;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: column;
   flex-direction: column;
   text-align: left;
   margin: 0 auto;
   margin-top: 15px;
   gap: 24px;
-  
-  @media screen and (min-width: 768px) {}
 
   @media screen and (min-width: 1440px) {
+    -webkit-flex-direction: row;
     flex-direction: row;
     margin-top: 62px;
   }
 }
-.map-playlist{
-  overflow-y: auto; 
-  overflow-x: hidden; 
+.map-playlist {
+  overflow-y: auto;
+  overflow-x: hidden;
   height: 380px;
+
   @media screen and (min-width: 768px) {
     height: 336px;
   }
+
   @media screen and (min-width: 1440px) {
+    -ms-grid-column: 8;
     grid-column: 8/13;
     height: 460px;
   }
 }
+
 .alert {
   margin-left: 50px;
   width: 80%;
-  @media screen and (min-width: 768px) {
-    
-  }
 
   @media screen and (min-width: 1440px) {
-  width: 565px;
-
+    width: 565px;
   }
 }
 
