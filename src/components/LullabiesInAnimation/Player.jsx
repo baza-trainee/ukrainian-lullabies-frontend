@@ -57,7 +57,7 @@ export const Player = ({
   };
 
   return (
-    <div className="selections-player">
+    <div className="player-map-buttons">
       <div
         className={ classNames("selections-player-navigation-wrapper", {
           "selections-player-navigation-wrapper-light": isLightTheme,
