@@ -39,6 +39,7 @@
   }
   
 }
+
 .map-player_container{
   display: -webkit-box;
   display: -webkit-flex;
@@ -48,6 +49,10 @@
   justify-content: space-between;
   grid-column: 1/5;
   border-radius: 36px;
+  width: 276px;
+  @media screen and (min-width: 1440px) {
+      width: 323px;
+  }
 }
 
 .lyrics {
@@ -220,11 +225,11 @@
     width: 328px;
     height: 270px;
   }
+
   @media screen and (min-width: 1440px) {
     width: 339px;
   }
 }
-
 
 /* Стилізуємо смугу прокрутки */
 .progress-bar-dark {

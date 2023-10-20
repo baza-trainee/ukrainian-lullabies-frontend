@@ -140,7 +140,6 @@ export const LullabiesInAnimation = () => {
     };
   }, [window.innerWidth]);
 
-  console.log(window.innerWidth);
   const handlePlay = () => {
     setIsPlaying(true);
   };
@@ -202,7 +201,6 @@ export const LullabiesInAnimation = () => {
       </div>
 
       <ul className="playlist-anima playlist-scroll">
-
         { playlist.map(({ cover, name, duration, url }, index) => (
           <li
             key={ index }
