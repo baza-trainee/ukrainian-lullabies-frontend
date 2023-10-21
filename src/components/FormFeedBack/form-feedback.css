@@ -92,8 +92,9 @@
   display: grid;
 }
 .text-area {
-  height: 200px;
+  min-height: 200px;
   resize: none;
+  overflow-y: hidden;
 }
 .text-area::placeholder {
   font-family: Montserrat Alternates;
