@@ -78,10 +78,10 @@ export const Selections = () => {
   const currentLanguage = useSelector((state) => state.currentLanguage.currentLanguage);
 
   // get songs
-  // const playlist = useSelector((state) => state.selectionSongs.data);
-  // const playlistError = useSelector((state) => state.selectionSongs.error);
-  const playlist = songsData;
-  const playlistError = false;
+  const playlist = useSelector((state) => state.selectionSongs.data);
+  const playlistError = useSelector((state) => state.selectionSongs.error);
+  // const playlist = songsData;
+  // const playlistError = false;
 
   // player variables
   const [isPlaying, setIsPlaying] = useState(false);

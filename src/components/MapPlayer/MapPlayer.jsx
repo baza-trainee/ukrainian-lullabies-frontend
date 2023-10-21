@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import ReactPlayer from "react-player";
 import axios from "axios";
 import { Player } from "./Player";
-import { selectData, selectError, selectLoading } from "../../redux/Lullabies/traditionalSongsSlice";
+import { selectData, selectError, selectLoading } from "../../redux/Lullabies/fetchLullabies";
 import { fetchData } from "../../redux/Lullabies/fetchLullabies";
 import { BsRepeat } from "react-icons/bs";
 import { setCurrentUrl, setCurrentLyrics, setCurrentName } from "../../redux/currentSong/currentSongSlice";
@@ -62,13 +62,13 @@ const songsData = [
 
 export const MapPlayer = () => {
   const [serchParams, setSerchParams] = useSearchParams()
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
 
-  // const data = useSelector(selectData);
+  const data = useSelector((state) => state.traditionalSongs.data);
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
-  const data = songsData;
+  // const data = songsData;
   const currentUrl = useSelector((state) => state.currentSong.currentUrl);
 
   const currentName = useSelector((state) => state.currentSong.currentName);
@@ -89,7 +89,6 @@ export const MapPlayer = () => {
     const ct = reactPlayerRef.current.getCurrentTime();
     setCurrentTime(ct);
     setCurrentSongState({ ...currentSongState, progress: (ct / durationMs) * 100, length: durationMs });
-    console.log(ct);
   };
   const progressRef = useRef();
 
@@ -101,12 +100,7 @@ export const MapPlayer = () => {
     reactPlayerRef.current.seekTo((divProgress / 100) * currentSongState.length);
   };
 
-  useEffect(() => {
-    dispatch(fetchData());
-  }, []);
-
-  const playPauseSong = (url) => {
-
+   const playPauseSong = (url) => {
     if (!isPlaying && currentUrl === url)
     {
       setIsPlaying(true);
@@ -158,14 +152,32 @@ export const MapPlayer = () => {
   };
 
   const handleVideoChange = (name) => {
-    const { url, index, lyrics } = data.find((song) => song.name === name);
+    const { url, index, lyrics, id } = data.find((song) => song.name === name);
     dispatch(setCurrentUrl(url));
     dispatch(setCurrentLyrics(lyrics));
     setCurrentSongIndex(index);
     dispatch(setCurrentName(name));
-    setSerchParams(`?name=${name}`)
+    setSerchParams(`?id=${id}`)
   };
 
+  const currentLanguage = i18n.language;
+  useEffect(() => {
+    if (currentLanguage === "en")
+    {
+      dispatch(fetchData("eng"));
+    } else
+    {
+      dispatch(fetchData("uk"));
+    }
+  }, [dispatch, currentLanguage]);
+
+  useEffect(() => {
+    dispatch(setCurrentUrl(data[currentSongIndex].url));
+    dispatch(setCurrentLyrics(data[currentSongIndex].lyrics));
+    setCurrentSongIndex(data[currentSongIndex].index);
+    dispatch(setCurrentName(data[currentSongIndex].name));
+  }, [i18n])
+console.log(currentName);
   useEffect(() => {
     const buttonMap = document.getElementById("map-tab");
     if (buttonMap)
@@ -183,7 +195,7 @@ export const MapPlayer = () => {
   // autoscroll to #mapTabsId ONLY when the song turned
   const location = useLocation();
   useEffect(() => {
-    if (location.search.slice(0, 5) === "?name")
+    if (location.search.slice(0, 5) === "?id")
     {
       const target = document.querySelector("#mapTabsId");
       target.scrollIntoView({ block: "start" });

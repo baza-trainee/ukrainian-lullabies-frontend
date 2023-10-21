@@ -15,8 +15,8 @@ export const Player = ({
   isPlaying,
   setIsPlaying,
   playlist,
-  currentSongIndex,
-  setCurrentSongIndex,
+  currentIndex,
+  setCurrentIndex,
   isLoopedPlaylist,
   setIsLoopedPlaylist,
   isRandom,
@@ -24,25 +24,26 @@ export const Player = ({
   volume,
   setVolume,
 }) => {
+
   const isEnglishLanguage = localStorage.getItem("selectedLanguage") === "en";
   const playStopToggle = () => {
     setIsPlaying(!isPlaying);
   };
 
   const dispatch = useDispatch();
-  const nextSongIndex = (currentSongIndex + 1) % playlist.length;
-  const previousSongIndex = (currentSongIndex - 1) % playlist.length;
+  const nextSongIndex = (currentIndex + 1) % playlist.length;
+  const previousSongIndex = (currentIndex - 1) % playlist.length;
 
   const handleNextSong = () => {
     dispatch(setCurrentUrl(playlist[nextSongIndex].url));
     dispatch(setCurrentLyrics(playlist[nextSongIndex].lyrics));
     dispatch(setCurrentName(playlist[nextSongIndex].name));
-    setCurrentSongIndex(nextSongIndex);
+    dispatch(setCurrentIndex(nextSongIndex));
   };
 
   const handlePreviousSong = () => {
     dispatch(setCurrentUrl(playlist[previousSongIndex].url));
-    setCurrentSongIndex(previousSongIndex);
+    dispatch(setCurrentIndex(previousSongIndex));
     dispatch(setCurrentLyrics(playlist[previousSongIndex].lyrics));
     dispatch(setCurrentName(playlist[previousSongIndex].name));
   };
@@ -54,12 +55,12 @@ export const Player = ({
     let newIndex;
     do {
       newIndex = Math.floor(Math.random() * (max - min + 1)) + min;
-    } while (newIndex === currentSongIndex);
+    } while (newIndex === currentIndex);
 
     dispatch(setCurrentUrl(playlist[newIndex].url));
     dispatch(setCurrentLyrics(playlist[newIndex].lyrics));
     dispatch(setCurrentName(playlist[newIndex].name));
-    setCurrentSongIndex(newIndex);
+    dispatch(setCurrentIndex(newIndex));
   };
 
   // const handleVolumeChange = (event) => {

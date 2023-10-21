@@ -116,9 +116,10 @@
 .map-player-refresh-button,
 .map-player-volume-button {
   grid-row: 2 / 4;
-  width: 22px;
-  height: 22px;
+  width: 16px;
+  height: 16px;
   cursor: pointer;
+  
 }
 
 @media screen and (min-width: 1440px) {

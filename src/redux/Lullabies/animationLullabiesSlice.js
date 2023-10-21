@@ -1,28 +1,64 @@
+/* eslint-disable no-useless-catch */
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { fetchDataStart, fetchDataSuccess, fetchDataFailure } from "./traditionalSongsSlice";
 
-const API_URL = "http://lullabies.eu-north-1.elasticbeanstalk.com/api/";
+const initialState = {
+  loading: false,
+  data: [
+    {
+      id: 0,
+      songId: null,
+      name: "---- ----",
+      url: "#",
+      duration: "00.00",
+    },
+  ],
+  error: "",
+};
 
-export const fetchData = () => async (dispatch) => {
+export const fetchData = createAsyncThunk("selectionSongs/fetchData", async (lang) => {
   try {
-    dispatch(fetchDataStart());
-    const response = await axios.get(`${API_URL}lullabies/?source-format=video`);
-      const formatedData = await Promise.all(
-      response.data.map(async (item) => {
-        const userResponse = await axios.get(`${API_URL}lullabies/${item.id}`);
-        
-        return {
-          id: item.id,
+    const response = await axios.get("http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/?source-format=audio", {
+      headers: {
+        "Accept-Language": lang,
+      },
+    });
+    const formatedData = await response.data.results.map((item, ) => ({
+        id: item.id,
           name: item.name,
-          url: userResponse.data.source.video,
+          url: item.source.video,
           duration: item.source.duration,
           cover: item.source.cover,
-        };
-      })
-    );
 
-      dispatch(fetchDataSuccess(formatedData));
-  } catch (error) {
-    dispatch(fetchDataFailure(error.message));
+    }));
+    return formatedData;
+  } catch (err) {
+    throw err;
   }
-};
+});
+
+const animationsSlice = createSlice({
+  name: "animationSongs",
+  initialState,
+ reducers: {
+    fetchDataStart: (state) => {
+      state.loading = true;
+      state.error = null;
+    },
+    fetchDataSuccess: (state, action) => {
+      state.loading = false;
+      state.data = action.payload;
+    },
+    fetchDataFailure: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+  },
+});
+
+export default animationsSlice.reducer;
+export const { fetchDataStart, fetchDataSuccess, fetchDataFailure } = animationsSlice.actions;
+
+export const selectData = (state) => state.animationSongs.data;
+export const selectLoading = (state) => state.loading;
+export const selectError = (state) => state.error;

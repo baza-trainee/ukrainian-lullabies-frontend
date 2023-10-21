@@ -16,12 +16,7 @@
       height: 530px;
   }
 }
-.player-map-buttons{
- width: 276px;
-  @media screen and (min-width: 1440px) {
-      width: 323px;
-  }
-}
+
 .player-wrapper{
   display: -webkit-box;
   display: -webkit-flex;
@@ -54,8 +49,9 @@
   justify-content: space-between;
   grid-column: 1/5;
   border-radius: 36px;
-  width: 276px;
-  @media screen and (min-width: 1440px) {
+  min-width: 276px;
+  margin: 0 auto;
+  @media screen and (min-width:768px) {
       width: 323px;
   }
 }

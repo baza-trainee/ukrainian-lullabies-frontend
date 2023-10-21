@@ -4,7 +4,7 @@ const initialState = {
   currentUrl: '',
   currentName: '',
   currentLyrics: '',
-  currentId: 0,
+  currentIndex: 0,
 };
 
 const currentSongSlice = createSlice({
@@ -20,11 +20,11 @@ const currentSongSlice = createSlice({
     setCurrentLyrics: (state, action) => {
       state.currentLyrics = action.payload;
     },
-    setCurrentId: (state, action) => {
-      state.currentId = action.payload;
+    setCurrentIndex: (state, action) => {
+      state.currentIndex = action.payload;
     },
   },
 });
 
-export const { setCurrentUrl, setCurrentLyrics, setCurrentId, setCurrentName } = currentSongSlice.actions;
+export const { setCurrentUrl, setCurrentLyrics, setCurrentIndex, setCurrentName } = currentSongSlice.actions;
 export default currentSongSlice.reducer;
