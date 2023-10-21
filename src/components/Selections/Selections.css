@@ -284,9 +284,9 @@
   color: var(--red-700);
 }
 
-/* scrollbar */
+/* scrollbar (remove this if all work)*/
 
-.selections-playlist-list::-webkit-scrollbar {
+/* .selections-playlist-list::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
@@ -299,7 +299,7 @@
 .selections-playlist-list::-webkit-scrollbar-thumb {
   background: var(--gray-black-300);
   border-radius: 10px;
-}
+} */
 
 /* end section ornament */
 .selections-ornament-desktop {
@@ -321,4 +321,68 @@
 .selections-endSectionOrnament svg {
   width: 400px;
   height: 400px;
+}
+
+/* styles for scrollbar */
+.selections-playlist-list::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.selections-playlist-list::-moz-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.selections-playlist-list::-ms-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.selections-playlist-list::-o-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.selections-playlist-list::scrollbar {
+  width: 5px;
+  height: 5px;
+}
+/* ---- */
+.selections-playlist-list::-webkit-scrollbar-track {
+  background: var(--gray-black-800);
+  border-radius: 10px;
+}
+.selections-playlist-list::-moz-scrollbar-track {
+  background: var(--gray-black-800);
+  border-radius: 10px;
+}
+.selections-playlist-list::-ms-scrollbar-track {
+  background: var(--gray-black-800);
+  border-radius: 10px;
+}
+.selections-playlist-list::-o-scrollbar-track {
+  background: var(--gray-black-800);
+  border-radius: 10px;
+}
+.selections-playlist-list::scrollbar-track {
+  background: var(--gray-black-800);
+  border-radius: 10px;
+}
+/* ----- */
+.selections-playlist-list::-webkit-scrollbar-thumb {
+  background: var(--gray-black-300);
+  border-radius: 10px;
+}
+.selections-playlist-list::-moz-scrollbar-thumb {
+  background: var(--gray-black-300);
+  border-radius: 10px;
+}
+.selections-playlist-list::-ms-scrollbar-thumb {
+  background: var(--gray-black-300);
+  border-radius: 10px;
+}
+.selections-playlist-list::-o-scrollbar-thumb {
+  background: var(--gray-black-300);
+  border-radius: 10px;
+}
+.selections-playlist-list::scrollbar-thumb {
+  background: var(--gray-black-300);
+  border-radius: 10px;
 }
