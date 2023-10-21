@@ -5,8 +5,7 @@ import "./lullabies-animation.css";
 import { useTranslation } from 'react-i18next';
 import classNames from "classnames";
 import { Player } from "./Player";
-import { selectData } from "../../redux/Lullabies/traditionalSongsSlice";
-import { fetchData } from "../../redux/Lullabies/animationLullabiesSlice";
+import { fetchData, selectData } from "../../redux/Lullabies/animationLullabiesSlice";
 
 export const LullabiesInAnimation = () => {
   const dispatch = useDispatch();
