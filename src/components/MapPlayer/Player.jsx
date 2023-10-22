@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Popup from "reactjs-popup";
 import { t } from "i18next";
-import { setCurrentLyrics, setCurrentName, setCurrentUrl, setCurrentIndex } from "../../redux/currentSong/currentSongSlice";
+import { setCurrentUrl, setCurrentIndex } from "../../redux/currentSong/currentSongSlice";
 import "./Player.css";
 import classNames from "classnames";
 import { FiShare2, FiShuffle, FiRefreshCw, FiCheck } from "react-icons/fi";
@@ -110,45 +110,11 @@ export const Player = ({
   };
 
   return (
-    <div className="map-player">
-      <div
-        className={ classNames("map-player-navigation-wrapper", {
+ 
+      <div className={ classNames("map-player-navigation-wrapper", {
           "map-player-navigation-wrapper-light": isLightTheme,
         }) }
       >
-        <div className="map-player-secondary-buttons-left">
-          <Popup
-            trigger={
-              <button
-                className={ classNames("selections-player-share-button", {
-                  "selections-player-share-button-light": isLightTheme,
-                  "selections-player-share-button-en": isEnglishLanguage,
-                  "selections-player-share-clicked": shareClicked,
-                  "selections-player-share-clicked-en": shareClicked && isEnglishLanguage,
-                }) }
-              >
-                { shareClicked ? <FiCheck /> : <FiShare2 /> }
-              </button>
-            }
-            position="top left"
-            arrow={ false }
-            open={ shareClicked }
-            onOpen={ handleShare }
-          >
-            <div className={ classNames("selections-player-share-popup", { "selections-player-share-popup-light": isLightTheme }) }>
-              { t("shareLink") }
-            </div>
-          </Popup>
-          <button
-            className={ classNames("selections-player-shuffle-button", {
-              "selections-player-shuffle-button-light": isLightTheme,
-              "selections-player-shuffle-button-en": isEnglishLanguage,
-            }) }
-            onClick={ hendleRandom }
-          >
-            <FiShuffle className="map-player-shuffle-button" style={ isRandom && { color: "var(--red-700)" } } />
-          </button>
-        </div>
         <div className="map-player-primary-buttons-group">
           <button
             className={ classNames("map-player-previous-button", {
@@ -175,25 +141,56 @@ export const Player = ({
             <BsFillSkipEndFill />
           </button>
         </div>
-        <div className="map-player-secondary-buttons-right">
+      <div className="map-player-sec-buttons">
+          <Popup
+            trigger={
+              <button
+                className={ classNames("map-player-share-button", {
+                  "map-player-share-button-light": isLightTheme,
+                  "map-player-share-button-en": isEnglishLanguage,
+                  "map-player-share-clicked": shareClicked,
+                  "map-player-share-clicked-en": shareClicked && isEnglishLanguage,
+                }) }
+              >
+                { shareClicked ? <FiCheck /> : <FiShare2 /> }
+              </button>
+            }
+            position="top left"
+            arrow={ false }
+            open={ shareClicked }
+            onOpen={ handleShare }
+          >
+            <div className={ classNames("map-player-share-popup", { "map-player-share-popup-light": isLightTheme }) }>
+              { t("shareLink") }
+            </div>
+          </Popup>
           <button
-            className={ classNames("selections-player-refresh-button", {
-              "selections-player-refresh-button-light": isLightTheme,
-              "selections-player-refresh-button-en": isEnglishLanguage,
+            className={ classNames("map-player-shuffle-button", {
+              "map-player-shuffle-button-light": isLightTheme,
+              "map-player-shuffle-button-en": isEnglishLanguage,
+            }) }
+            onClick={ hendleRandom }
+          >
+            <FiShuffle style={ isRandom && { color: "var(--red-700)" } } />
+          </button>
+          <button
+            className={ classNames("map-player-refresh-button", {
+              "map-player-refresh-button-light": isLightTheme,
+              "map-player-refresh-button-en": isEnglishLanguage,
             }) }
             onClick={ () => setIsLoopedPlaylist(!isLoopedPlaylist) }
           >
             <FiRefreshCw style={ isLoopedPlaylist && { color: "var(--red-700)" } } />
           </button>
-          <div className="map-player-volume-wrapper">
+        <div className="map-player-volume-button">
             { volume > 0 ? (
-              <HiVolumeUp className="map-player-volume-button" onClick={ handleMute } />
+              <HiVolumeUp onClick={ handleMute } />
             ) : (
-              <HiVolumeOff className="map-player-volume-button" onClick={ handleUnMute } />
+              <HiVolumeOff onClick={ handleUnMute } />
             ) }
           </div>
         </div>
       </div>
-    </div>
+ 
   );
 };
