@@ -113,17 +113,27 @@ export const MapPlayer = () => {
     }
   };
 
+
   const playPauseSong = (url, id, index) => {
-    if (!isPlaying)
+    if ((!isPlaying && index === currentIndex))
     {
+      setIsPlaying(true);
+    } else if (!isPlaying)
+    {
+      dispatch(setCurrentIndex(index));
       dispatch(setCurrentIndex(index));
       setIsPlaying(true);
       setIsLooped(false);
-    } else if (index !== currentIndex)
+    } else if (isPlaying && index === currentIndex)
     {
+      setIsPlaying(false);
+    } else
+    {
+      dispatch(setCurrentIndex(index));
       dispatch(setCurrentIndex(index));
       setIsLooped(false);
     }
+
     const newIndex = data.findIndex((song) => song.url === url);
     dispatch(setCurrentIndex(newIndex));
     localStorage.setItem('currentSongId', id);
