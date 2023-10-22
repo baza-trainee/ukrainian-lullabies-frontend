@@ -16,33 +16,27 @@
       height: 530px;
   }
 }
-.player-map-buttons{
- width: 276px;
-  @media screen and (min-width: 1440px) {
-      width: 323px;
-  }
-}
+
 .player-wrapper{
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   flex-direction: column;
-   @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     flex-direction: row;
     gap: 16px;
     height: 533px;
   }
 
-    @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     margin-bottom: 24px;
-    }
-    @media screen and (min-width: 1440px) {
-      gap: 24px;
-      height: 530px;
-      margin: 0;
   }
-  
+  @media screen and (min-width: 1440px) {
+    gap: 24px;
+    height: 530px;
+    margin: 0;
+  }
 }
 
 .map-player_container{
@@ -54,14 +48,19 @@
   justify-content: space-between;
   grid-column: 1/5;
   border-radius: 36px;
- 
-      width: 323px;
+  min-width: 309px;
+
+  @media screen and (min-width: 768px) {
+      width: 328px;
+  } 
+    @media screen and (min-width: 1440px) {
+      width: 339px;
+  } 
  
 }
 
 .lyrics {
   overflow-y: auto; 
-
   white-space: pre-wrap;
   width: 268px;
   max-height: 300px;
