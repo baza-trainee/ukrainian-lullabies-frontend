@@ -145,29 +145,6 @@ export const MapPlayer = () => {
     localStorage.setItem('currentSongId', id);
   };
 
-  const handleAutoPlayNext = () => {
-    const index = data.findIndex((song) => song.index === currentIndex);
-    const min = 0;
-    const max = data.length - 1;
-
-    const newIndex = !isRandom ? (index + 1) : Math.floor(Math.random() * (max - min + 1)) + min;
-
-    if (newIndex < data.length)
-    {
-      dispatch(setCurrentIndex(newIndex));
-      dispatch(setCurrentIndex(newIndex));
-      dispatch(setCurrentUrl(data[newIndex].url));
-    } else if (isLoopedPlaylist)
-    {
-      dispatch(setCurrentIndex(0));
-      dispatch(setCurrentIndex(0));
-      dispatch(setCurrentUrl(data[0].url));
-    } else
-    {
-      setIsPlaying(false);
-    }
-  };
-
   const handleLoop = () => {
     setIsLooped(!isLooped);
   };
@@ -178,7 +155,6 @@ export const MapPlayer = () => {
     localStorage.setItem('currentSongId', id);
   };
  
-
     const handleAutoPlayNext = () => {
       const index = data.findIndex((song) => song.index === currentIndex);
       const min = 0;
