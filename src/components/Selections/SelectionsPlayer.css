@@ -1,11 +1,12 @@
 .selections-player-navigation-wrapper {
   display: grid;
   grid-template: 1fr 1fr / 1fr 1fr;
-  column-gap: 40px;
-  padding: 8px 30px;
+  column-gap: 12px;
+  /* padding: 8px 30px; */
+  padding: 8px 0px;
   border-radius: 36px;
   background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.1) 0.88%, rgba(255, 255, 255, 0) 99.96%));
-
+  
   @media screen and (min-width: 1440px) {
     display: -webkit-box;
   display: -webkit-flex;
@@ -46,7 +47,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
+  padding: 9px;
   border: none;
   border-radius: 36px;
   background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.1) 0.88%, rgba(255, 255, 255, 0) 99.96%));
@@ -93,7 +94,7 @@
   display: -ms-flexbox;
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 12px;
 
   @media screen and (min-width: 1440px) {
     gap: 54px;
@@ -128,6 +129,11 @@
   border: none;
   color: inherit;
   position: relative;
+  padding: 11px 13px;
+  
+  @media screen and (min-width: 1440px) {
+    padding: 1px 6px;
+  }
 }
 
 .selections-player-share-button svg,
@@ -253,6 +259,7 @@
     cursor: pointer;
     width: 50px;
     height: 3px;
+    margin-top: -3px;
     border-radius: 20px;
     background: var(--white-0);
     accent-color: var(--gray-black-800);

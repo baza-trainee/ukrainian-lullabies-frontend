@@ -5,8 +5,7 @@ import "./lullabies-animation.css";
 import { useTranslation } from 'react-i18next';
 import classNames from "classnames";
 import { Player } from "./Player";
-import { selectData } from "../../redux/Lullabies/traditionalSongsSlice";
-import { fetchData } from "../../redux/Lullabies/animationLullabiesSlice";
+import { fetchData, selectData } from "../../redux/Lullabies/animationLullabiesSlice";
 
 export const LullabiesInAnimation = () => {
   const dispatch = useDispatch();
@@ -140,7 +139,6 @@ export const LullabiesInAnimation = () => {
     };
   }, [window.innerWidth]);
 
-  console.log(window.innerWidth);
   const handlePlay = () => {
     setIsPlaying(true);
   };
@@ -202,7 +200,6 @@ export const LullabiesInAnimation = () => {
       </div>
 
       <ul className="playlist-anima playlist-scroll">
-
         { playlist.map(({ cover, name, duration, url }, index) => (
           <li
             key={ index }

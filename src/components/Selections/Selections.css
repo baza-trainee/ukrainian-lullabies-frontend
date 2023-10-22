@@ -88,8 +88,10 @@
   grid-template-rows: 1fr;
   align-items: center;
   justify-content: start;
-  gap: 16px;
-  padding: 8px 12px 8px 12px;
+  /* gap: 16px; */
+  gap: 8px;
+  /* padding: 8px 12px 8px 12px; */
+  padding: 0 12px;
   border-radius: 45px;
   width: 98%;
   position: relative;
@@ -119,7 +121,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4px;
+  /* padding: 4px; */
   font-family: inherit;
   color: inherit;
   background-color: transparent;
@@ -168,9 +170,11 @@
 }
 
 .selections-playlist-item-play-pause-button {
-  margin-right: 20px;
+  /* margin-right: 20px; */
+  padding: 12px;
   @media screen and (min-width: 1440px) {
     margin-right: 32px;
+    padding: 1px 6px;
   }
 }
 
@@ -186,7 +190,7 @@
   /* grid-column: 6 / 8; */
   grid-column: 3 / 4;
   display: flex;
-  gap: 18px;
+  /* gap: 18px; */
   justify-content: right;
   align-items: center;
 
@@ -197,6 +201,11 @@
 
 .selections-playlist-item-repeat-button {
   position: relative;
+  padding: 16px;
+
+  @media screen and (min-width: 1440px) {
+    padding: 1px 6px;
+  }
 }
 
 /* .selections-playlist-item-group-menuIcon-mobile {
@@ -284,9 +293,9 @@
   color: var(--red-700);
 }
 
-/* scrollbar */
+/* scrollbar (remove this if all work)*/
 
-.selections-playlist-list::-webkit-scrollbar {
+/* .selections-playlist-list::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
@@ -299,7 +308,7 @@
 .selections-playlist-list::-webkit-scrollbar-thumb {
   background: var(--gray-black-300);
   border-radius: 10px;
-}
+} */
 
 /* end section ornament */
 .selections-ornament-desktop {
@@ -321,4 +330,68 @@
 .selections-endSectionOrnament svg {
   width: 400px;
   height: 400px;
+}
+
+/* styles for scrollbar */
+.selections-playlist-list::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.selections-playlist-list::-moz-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.selections-playlist-list::-ms-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.selections-playlist-list::-o-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.selections-playlist-list::scrollbar {
+  width: 5px;
+  height: 5px;
+}
+/* ---- */
+.selections-playlist-list::-webkit-scrollbar-track {
+  background: var(--gray-black-800);
+  border-radius: 10px;
+}
+.selections-playlist-list::-moz-scrollbar-track {
+  background: var(--gray-black-800);
+  border-radius: 10px;
+}
+.selections-playlist-list::-ms-scrollbar-track {
+  background: var(--gray-black-800);
+  border-radius: 10px;
+}
+.selections-playlist-list::-o-scrollbar-track {
+  background: var(--gray-black-800);
+  border-radius: 10px;
+}
+.selections-playlist-list::scrollbar-track {
+  background: var(--gray-black-800);
+  border-radius: 10px;
+}
+/* ----- */
+.selections-playlist-list::-webkit-scrollbar-thumb {
+  background: var(--gray-black-300);
+  border-radius: 10px;
+}
+.selections-playlist-list::-moz-scrollbar-thumb {
+  background: var(--gray-black-300);
+  border-radius: 10px;
+}
+.selections-playlist-list::-ms-scrollbar-thumb {
+  background: var(--gray-black-300);
+  border-radius: 10px;
+}
+.selections-playlist-list::-o-scrollbar-thumb {
+  background: var(--gray-black-300);
+  border-radius: 10px;
+}
+.selections-playlist-list::scrollbar-thumb {
+  background: var(--gray-black-300);
+  border-radius: 10px;
 }

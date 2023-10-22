@@ -5,10 +5,10 @@ import { useTranslation } from "react-i18next";
 import ReactPlayer from "react-player";
 import axios from "axios";
 import { Player } from "./Player";
-import { selectData, selectError, selectLoading } from "../../redux/Lullabies/traditionalSongsSlice";
+import { selectData, selectError, selectLoading } from "../../redux/Lullabies/fetchLullabies";
 import { fetchData } from "../../redux/Lullabies/fetchLullabies";
 import { BsRepeat } from "react-icons/bs";
-import { setCurrentUrl, setCurrentLyrics, setCurrentName } from "../../redux/currentSong/currentSongSlice";
+import { setCurrentUrl, setCurrentName, setCurrentIndex } from "../../redux/currentSong/currentSongSlice";
 import { playerChanged } from "../../redux/CurrentPlayer/currentPlayerSlice";
 import { PauseCircleIconDark } from "../../icons/SelectionsIcons/PauseCircleIcon";
 import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
@@ -19,6 +19,7 @@ import { SoundWaveIcon } from "../../icons/SelectionsIcons/SoundWaveIcon";
 import { useLocation, useSearchParams } from 'react-router-dom';
 const songsData = [
   {
+    index: 0,
     id: 0,
     url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
     name: "Колискова для мами",
@@ -27,6 +28,7 @@ const songsData = [
     region: 'Полісся',
   },
   {
+    index: 1,
     id: 1,
     url: "https://deti.e-papa.com.ua/mpf/17146805.mp3",
     name: "Ходить сон бiля вiкон",
@@ -35,6 +37,7 @@ const songsData = [
     region: 'Карпати',
   },
   {
+    index: 2,
     id: 2,
     url: "https://deti.e-papa.com.ua/mpf/9211811816.mp3",
     name: "Котику сіренький",
@@ -43,6 +46,7 @@ const songsData = [
     region: 'Полісся',
   },
   {
+    index: 3,
     id: 3,
     url: "https://deti.e-papa.com.ua/mpf/921180978.mp3",
     name: "Колискова",
@@ -51,6 +55,7 @@ const songsData = [
     region: 'Карпати',
   },
   {
+    index: 4,
     id: 4,
     url: "https://soundbible.com/mp3/Radio%20Tune-SoundBible.com-1525681700.mp3",
     name: "Radio tune",
@@ -61,20 +66,18 @@ const songsData = [
 ];
 
 export const MapPlayer = () => {
-  const [serchParams, setSerchParams] = useSearchParams()
-  const { t } = useTranslation();
+  const [searchParams, setSearchParams] = useSearchParams()
+  const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
 
-  // const data = useSelector(selectData);
+  // const data = useSelector((state) => state.traditionalSongs.data);
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
   const data = songsData;
   const currentUrl = useSelector((state) => state.currentSong.currentUrl);
 
-  const currentName = useSelector((state) => state.currentSong.currentName);
-  const currentLyrics = useSelector((state) => state.currentSong.currentLyrics);
+  const currentIndex = useSelector((state) => state.currentSong.currentIndex);
 
-  const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
   const [isPlaying, setIsPlaying] = useState(currentUrl ? true : false);
@@ -82,15 +85,9 @@ export const MapPlayer = () => {
   const [isLooped, setIsLooped] = useState(false);
   const [isLoopedPlaylist, setIsLoopedPlaylist] = useState(false);
   const [volume, setVolume] = useState(0.5);
-  const [currentSongState, setCurrentSongState] = useState(data[currentSongIndex]);
+  const [currentSongState, setCurrentSongState] = useState(data[currentIndex]);
   const [currentTime, setCurrentTime] = useState(0);
-  const onPlaying = () => {
-    const durationMs = reactPlayerRef.current.getDuration();
-    const ct = reactPlayerRef.current.getCurrentTime();
-    setCurrentTime(ct);
-    setCurrentSongState({ ...currentSongState, progress: (ct / durationMs) * 100, length: durationMs });
-    console.log(ct);
-  };
+
   const progressRef = useRef();
 
   const checkWidth = (e) => {
@@ -101,35 +98,42 @@ export const MapPlayer = () => {
     reactPlayerRef.current.seekTo((divProgress / 100) * currentSongState.length);
   };
 
-  useEffect(() => {
-    dispatch(fetchData());
-  }, []);
+  const onPlaying = () => {
+    if (reactPlayerRef.current && !loading && data)
+    {
+      const durationMs = reactPlayerRef.current.getDuration();
+      const ct = reactPlayerRef.current.getCurrentTime();
+      setCurrentTime(ct);
+      setCurrentSongState({ ...currentSongState, progress: (ct / durationMs) * 100, length: durationMs });
+    }
+  };
 
-  const playPauseSong = (url) => {
-
-    if (!isPlaying && currentUrl === url)
+  const playPauseSong = (url, id, index) => {
+    if ((!isPlaying && index === currentIndex))
     {
       setIsPlaying(true);
     } else if (!isPlaying)
     {
-      dispatch(setCurrentUrl(url));
+      dispatch(setCurrentIndex(index));
       setIsPlaying(true);
       setIsLooped(false);
-    } else if (isPlaying && currentUrl === url)
+    } else if (isPlaying && index === currentIndex)
     {
       setIsPlaying(false);
     } else
     {
-      dispatch(setCurrentUrl(url));
+      dispatch(setCurrentIndex(index));
       setIsLooped(false);
     }
 
     const newIndex = data.findIndex((song) => song.url === url);
-    setCurrentSongIndex(newIndex);
+    dispatch(setCurrentIndex(newIndex));
+
+    localStorage.setItem('currentSongId', id);
   };
 
   const handleAutoPlayNext = () => {
-    const index = data.findIndex((song) => song.url === currentUrl);
+    const index = data.findIndex((song) => song.index === currentIndex);
     const min = 0;
     const max = data.length - 1;
 
@@ -137,15 +141,11 @@ export const MapPlayer = () => {
 
     if (newIndex < data.length)
     {
-      setCurrentSongIndex(newIndex);
-      dispatch(setCurrentName(data[newIndex].name));
-      dispatch(setCurrentLyrics(data[newIndex].lyrics));
+      dispatch(setCurrentIndex(newIndex));
       dispatch(setCurrentUrl(data[newIndex].url));
     } else if (isLoopedPlaylist)
     {
-      setCurrentSongIndex(0);
-      dispatch(setCurrentName(data[0].name));
-      dispatch(setCurrentLyrics(data[0].lyrics));
+      dispatch(setCurrentIndex(0));
       dispatch(setCurrentUrl(data[0].url));
     } else
     {
@@ -157,14 +157,53 @@ export const MapPlayer = () => {
     setIsLooped(!isLooped);
   };
 
-  const handleVideoChange = (name) => {
-    const { url, index, lyrics } = data.find((song) => song.name === name);
+  const handleSongChange = (name) => {
+    const { url, index, id } = data.find((song) => song.name === name);
     dispatch(setCurrentUrl(url));
-    dispatch(setCurrentLyrics(lyrics));
-    setCurrentSongIndex(index);
+    dispatch(setCurrentIndex(index));
     dispatch(setCurrentName(name));
-    setSerchParams(`?name=${name}`)
+    setSearchParams(`?id=${id}`)
   };
+
+  const currentLanguage = i18n.language;
+  useEffect(() => {
+    if (currentLanguage === "en")
+    {
+      dispatch(fetchData("eng"));
+    } else
+    {
+      dispatch(fetchData("uk"));
+    }
+  }, [dispatch, currentLanguage]);
+
+  useEffect(() => {
+    const savedId = localStorage.getItem('currentSongId');
+
+    if (savedId)
+    {
+      const song = data.find((song) => song.id === savedId);
+
+      if (song)
+      {
+        dispatch(setCurrentUrl(song.url));
+        dispatch(setCurrentIndex(song.id));
+      }
+    }
+    const params = new URLSearchParams(window.location.search);
+    const songId = params.get('id');
+
+    if (songId)
+    {
+      const song = data.find((song) => song.id === songId);
+      {
+        console.log(song);
+
+        if (song)
+          dispatch(setCurrentUrl(song.url));
+        dispatch(setCurrentIndex(song.index));
+      }
+    }
+  }, [data]);
 
   useEffect(() => {
     const buttonMap = document.getElementById("map-tab");
@@ -178,12 +217,11 @@ export const MapPlayer = () => {
     }
   }, [])
 
-  const reactPlayerRef = useRef(null);
 
   // autoscroll to #mapTabsId ONLY when the song turned
   const location = useLocation();
   useEffect(() => {
-    if (location.search.slice(0, 5) === "?name")
+    if (location.search.slice(0, 3) === "?id")
     {
       const target = document.querySelector("#mapTabsId");
       target.scrollIntoView({ block: "start" });
@@ -212,7 +250,7 @@ export const MapPlayer = () => {
   }, [currentPlayer]);
 
   useEffect(() => {
-    const currentSongId = data[currentSongIndex].id;
+    const currentSongId = data[currentIndex].id;
     const currentTime = reactPlayerRef.current.getCurrentTime();
 
     if (isPlaying && currentUrl !== "#" && currentTime < 0.3)
@@ -220,6 +258,19 @@ export const MapPlayer = () => {
       axios.get(`http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/${currentSongId}/increment_views/`);
     }
   }, [isPlaying, currentUrl]);
+
+
+
+  let time = Math.floor(currentTime);
+  let minutes = Math.floor(time / 60);
+  let seconds = time % 60;
+
+  let formattedMinutes = (minutes < 10) ? `0${minutes}` : `${minutes}`;
+  let formattedSeconds = (seconds < 10) ? `0${seconds}` : `${seconds}`;
+
+  let formattedCurrentTime = `${formattedMinutes}:${formattedSeconds}`;
+
+  const reactPlayerRef = useRef(null);
 
   if (loading)
   {
@@ -231,17 +282,7 @@ export const MapPlayer = () => {
       Somesing went wrong
     </p>
   }
-
-  let time = Math.floor(currentTime);
-  let minutes = Math.floor(time / 60);
-  let seconds = time % 60;
-
-  let formattedMinutes = (minutes < 10) ? `0${minutes}` : `${minutes}`;
-  let formattedSeconds = (seconds < 10) ? `0${seconds}` : `${seconds}`;
-
-  let formattedCurrentTime = `${formattedMinutes}:${formattedSeconds}`;
-
-
+  
   return (
     !loading && data && <div className="map-player-wrapper container margin-bottom">
       <div className="player-wrapper">
@@ -251,7 +292,7 @@ export const MapPlayer = () => {
             width="0px"
             height="0px"
             ref={ reactPlayerRef }
-            url={ currentUrl }
+            url={ data[currentIndex].url }
             playing={ isPlaying }
             onEnded={ handleAutoPlayNext }
             loop={ isLooped }
@@ -259,9 +300,9 @@ export const MapPlayer = () => {
             onProgress={ onPlaying }
           />
           <h3 className="current-name text-l">
-            { currentName }
+            { data[currentIndex].name }
           </h3>
-          <p className="region text-base">{ data[currentSongIndex].region }</p>
+          <p className="region text-base">{ data[currentIndex].region }</p>
           <div className={ classNames('progress-bar', {
             'progress-bar-light': isLightTheme,
             'progress-bar-dark': !isLightTheme,
@@ -270,7 +311,7 @@ export const MapPlayer = () => {
           </div>
           <div className="duration text-sm">
             <p className="current-duration">{ formattedCurrentTime }</p>
-            <p className="item-duration">{ data[currentSongIndex].duration }</p>
+            <p className="item-duration">{ data[currentIndex].duration }</p>
           </div>
           <Player
             isLightTheme={ isLightTheme }
@@ -278,14 +319,14 @@ export const MapPlayer = () => {
             setIsPlaying={ setIsPlaying }
             setCurrentSong={ currentUrl }
             playlist={ data }
-            currentSongIndex={ currentSongIndex }
-            setCurrentSongIndex={ setCurrentSongIndex }
             isLoopedPlaylist={ isLoopedPlaylist }
             setIsLoopedPlaylist={ setIsLoopedPlaylist }
             isRandom={ isRandom }
             setIsRandom={ setIsRandom }
             volume={ volume }
             setVolume={ setVolume }
+            setSearchParams={ setSearchParams }
+
           />
         </div>
         <div className="map-player_info">
@@ -294,7 +335,7 @@ export const MapPlayer = () => {
           </p>
           <div className="lyrics playlist-scroll">
             <p className="text-base">
-              { currentLyrics }
+              { data[currentIndex].lyrics }
             </p>
           </div>
         </div>
@@ -306,27 +347,27 @@ export const MapPlayer = () => {
         <div className="player_playlist playlist-scroll">
           <ul >
             {
-              data.map(({ name, url, duration }, index) => (
+              data.map(({ name, url, duration, index, id }) => (
                 <li
                   key={ index }
                   className={ classNames("map-player_card", {
                     'map-player_card-dark': !isLightTheme,
-                    'map-player_card-light': isLightTheme, 'active-map-card': (url === currentUrl && !isLightTheme), 'active-map-card-light': (isLightTheme && url === currentUrl)
+                    'map-player_card-light': isLightTheme, 'active-map-card': (index === currentIndex && !isLightTheme), 'active-map-card-light': (isLightTheme && index === currentIndex)
                   }) }
-                  onClick={ () => { handleVideoChange(name); playPauseSong(url) } }
+                  onClick={ () => { handleSongChange(name); playPauseSong(url, id, index) } }
                 >
                   <div className="card-buttons">
                     <span className="item-number">
-                      { isPlaying && url === currentUrl ? <SoundWaveIcon /> : index + 1 }
+                      { isPlaying && index === currentIndex ? <SoundWaveIcon /> : index + 1 }
                     </span>
                     <div className="playlist-item ">
                       <button
                         className={ classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
                           "selections-playlist-item-play-pause-button-light": isLightTheme,
                         }) }
-                        onClick={ () => playPauseSong(url) }
+                        onClick={ () => playPauseSong(url, id, index) }
                       >
-                        { isPlaying && url === currentUrl ? <PauseCircleIconDark /> : <PlayCircleIconDark /> }
+                        { isPlaying && index === currentIndex ? <PauseCircleIconDark /> : <PlayCircleIconDark /> }
                       </button>
                     </div>
 
@@ -344,9 +385,9 @@ export const MapPlayer = () => {
                         e.stopPropagation();
                         handleLoop();
                       } }
-                      disabled={ currentUrl !== url }
+                      disabled={ currentIndex !== index }
                     >
-                      <BsRepeat style={ isLooped && currentUrl === url && { fill: "var(--red-700)" } } />
+                      <BsRepeat style={ isLooped && index === currentIndex && { fill: "var(--red-700)" } } />
                     </button>
                   </div>
                 </li>

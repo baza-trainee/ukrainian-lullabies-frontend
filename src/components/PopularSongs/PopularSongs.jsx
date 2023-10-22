@@ -180,10 +180,11 @@ export function PopularSongs() {
             </div>
             <div className="small-image-container">
               <img onClick={() => handleLeftClick()} className='play-icon' src={playButton} alt="Play" />
-              {leftClick && (<motion.img style={{ filter: "blur(10px)" }} className='img-popular' src={images[0]} alt="Left" />)}
-              {!leftClick && (<motion.img initial={{ opacity: 0 }}
+              {leftClick && (<motion.div style={{ filter: "blur(10px)",backgroundImage: `url(${images[0]})` }} className='img-popular'/>)}
+              {!leftClick && (<motion.div initial={{ opacity: 0 }}
+                style={{backgroundImage: `url(${images[0]})`}}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 2 }} className='img-popular' src={images[0]} alt="Left" />)}
+                transition={{ duration: 2 }} className='img-popular' />)}
             </div>
           </div>
           <div className='large-div'>
@@ -192,11 +193,12 @@ export function PopularSongs() {
             </div>
             <div className="large-image-container">
               <img onClick={handleCenterClick} className='play-icon' src={buttonPopular} alt="Play" />
-              {centerClick && (<motion.img style={{ filter: "blur(10px)" }} className='img-popular' src={images[1]} alt="Center" />)}
-              {!centerClick && (<motion.img
+              {centerClick && (<motion.div style={{ filter: "blur(10px)", backgroundImage: `url(${images[1]})` }} className='img-popular'/>)}
+              {!centerClick && (<motion.div
+                style={{backgroundImage: `url(${images[1]})`}}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 2 }} className='img-popular' src={images[1]} alt="Center" />)}
+                transition={{ duration: 2 }} className='img-popular'/>)}
             </div>
           </div>
           <div className='small-div'>
@@ -205,10 +207,11 @@ export function PopularSongs() {
             </div>
             <div className="small-image-container">
               <img onClick={() => handleRightClick()} className='play-icon' src={playButton} alt="Play" />
-              {rightClick && (<motion.img style={{ filter: "blur(10px)" }} className='img-popular' src={images[0]} alt="Left" />)}
-              {!rightClick && (<motion.img initial={{ opacity: 0 }}
+              {rightClick && (<motion.div style={{ filter: "blur(10px)", backgroundImage: `url(${images[2]})` }} className='img-popular'/>)}
+              {!rightClick && (<motion.div initial={{ opacity: 0 }}
+                style={{backgroundImage: `url(${images[2]})`}}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 2 }} className='img-popular' src={images[2]} alt="Right" />)}
+                transition={{ duration: 2 }} className='img-popular'/>)}
             </div>
           </div>
         </div>
@@ -219,11 +222,12 @@ export function PopularSongs() {
             </div>
             <div className="large-image-container">
               <img onClick={handleCenterClick} className='play-icon' src={buttonPopular} alt="Play" />
-              {centerClick && (<motion.img style={{ filter: "blur(10px)" }} className='img-popular' src={images[1]} alt="Center" />)}
-              {!centerClick && (<motion.img
+              {centerClick && (<motion.div style={{ filter: "blur(10px)", backgroundImage: `url(${images[1]})` }} className='img-popular' />)}
+              {!centerClick && (<motion.div
+                style={{backgroundImage: `url(${images[1]})`}}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 2 }} className='img-popular' src={images[1]} alt="Center" />)}
+                transition={{ duration: 2 }} className='img-popular'/>)}
             </div>
           </div>
           <div className='mobile-div'>
@@ -233,10 +237,11 @@ export function PopularSongs() {
               </div>
               <div className="small-image-container">
                 <img onClick={() => handleLeftClick()} className='play-icon' src={playButton} alt="Play" />
-                {leftClick && (<motion.img style={{ filter: "blur(10px)" }} className='img-popular' src={images[0]} alt="Left" />)}
-                {!leftClick && (<motion.img initial={{ opacity: 0 }}
+                {leftClick && (<motion.div style={{ filter: "blur(10px)", backgroundImage: `url(${images[0]})` }} className='img-popular' />)}
+                {!leftClick && (<motion.div initial={{ opacity: 0 }}
+                  style={{backgroundImage: `url(${images[0]})`}}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 2 }} className='img-popular' src={images[0]} alt="Left" />)}
+                  transition={{ duration: 2 }} className='img-popular' />)}
               </div>
             </div>
             <div >
@@ -245,10 +250,11 @@ export function PopularSongs() {
               </div>
               <div className="small-image-container">
                 <img onClick={() => handleRightClick()} className='play-icon' src={playButton} alt="Play" />
-                {rightClick && (<motion.img style={{ filter: "blur(10px)" }} className='img-popular' src={images[0]} alt="Left" />)}
-                {!rightClick && (<motion.img initial={{ opacity: 0 }}
+                {rightClick && (<motion.div style={{ filter: "blur(10px)", backgroundImage: `url(${images[2]})` }} className='img-popular' />)}
+                {!rightClick && (<motion.div initial={{ opacity: 0 }}
+                  style={{backgroundImage: `url(${images[2]})`}}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 2 }} className='img-popular' src={images[2]} alt="Right" />)}
+                  transition={{ duration: 2 }} className='img-popular'/>)}
               </div>
             </div>
           </div>
