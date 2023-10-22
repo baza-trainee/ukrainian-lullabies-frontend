@@ -8,7 +8,7 @@ import { Player } from "./Player";
 import { selectData, selectError, selectLoading } from "../../redux/Lullabies/fetchLullabies";
 import { fetchData } from "../../redux/Lullabies/fetchLullabies";
 import { BsRepeat } from "react-icons/bs";
-import { setCurrentUrl, setCurrentName, setCurrentIndex } from "../../redux/currentSong/currentSongSlice";
+import { setCurrentUrl, setCurrentIndex } from "../../redux/currentSong/currentSongSlice";
 import { playerChanged } from "../../redux/CurrentPlayer/currentPlayerSlice";
 import { PauseCircleIconDark } from "../../icons/SelectionsIcons/PauseCircleIcon";
 import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
@@ -20,7 +20,6 @@ import { useLocation, useSearchParams } from 'react-router-dom';
 const songsData = [
   {
     index: 0,
-    index: 0,
     id: 0,
     url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
     name: "Колискова для мами",
@@ -29,7 +28,6 @@ const songsData = [
     region: 'Полісся',
   },
   {
-    index: 1,
     index: 1,
     id: 1,
     url: "https://deti.e-papa.com.ua/mpf/17146805.mp3",
@@ -40,7 +38,6 @@ const songsData = [
   },
   {
     index: 2,
-    index: 2,
     id: 2,
     url: "https://deti.e-papa.com.ua/mpf/9211811816.mp3",
     name: "Котику сіренький",
@@ -50,7 +47,6 @@ const songsData = [
   },
   {
     index: 3,
-    index: 3,
     id: 3,
     url: "https://deti.e-papa.com.ua/mpf/921180978.mp3",
     name: "Колискова",
@@ -59,7 +55,6 @@ const songsData = [
     region: 'Карпати',
   },
   {
-    index: 4,
     index: 4,
     id: 4,
     url: "https://soundbible.com/mp3/Radio%20Tune-SoundBible.com-1525681700.mp3",
@@ -98,13 +93,13 @@ export const MapPlayer = () => {
 
 
   const progressRef = useRef();
+  const reactPlayerRef = useRef();
 
   const checkWidth = (e) => {
-    let width = progressRef.current.clientWidth;
+    const width = progressRef.current.clientWidth;
     const offset = e.nativeEvent.offsetX;
-
     const divProgress = (offset / width) * 100;
-    reactPlayerRef.current.seekTo((divProgress / 100) * currentSongState.length);
+    reactPlayerRef.current.seekTo((divProgress / 100) * currentSongState.duration);
   };
 
  
@@ -114,9 +109,10 @@ export const MapPlayer = () => {
       const durationMs = reactPlayerRef.current.getDuration();
       const ct = reactPlayerRef.current.getCurrentTime();
       setCurrentTime(ct);
-      setCurrentSongState({ ...currentSongState, progress: (ct / durationMs) * 100, length: durationMs });
+      setCurrentSongState({ ...currentSongState, progress: (ct / durationMs) * 100, duration: durationMs });
     }
   };
+
 
   const playPauseSong = (url, id, index) => {
     if ((!isPlaying && index === currentIndex))
@@ -124,6 +120,7 @@ export const MapPlayer = () => {
       setIsPlaying(true);
     } else if (!isPlaying)
     {
+      dispatch(setCurrentIndex(index));
       dispatch(setCurrentIndex(index));
       setIsPlaying(true);
       setIsLooped(false);
@@ -133,15 +130,12 @@ export const MapPlayer = () => {
     } else
     {
       dispatch(setCurrentIndex(index));
+      dispatch(setCurrentIndex(index));
       setIsLooped(false);
     }
 
     const newIndex = data.findIndex((song) => song.url === url);
     dispatch(setCurrentIndex(newIndex));
-
-    localStorage.setItem('currentSongId', id);
-    dispatch(setCurrentIndex(newIndex));
-
     localStorage.setItem('currentSongId', id);
   };
 
@@ -149,17 +143,14 @@ export const MapPlayer = () => {
     const index = data.findIndex((song) => song.index === currentIndex);
     const min = 0;
     const max = data.length - 1;
-
     const newIndex = !isRandom ? (index + 1) : Math.floor(Math.random() * (max - min + 1)) + min;
 
     if (newIndex < data.length)
     {
       dispatch(setCurrentIndex(newIndex));
-      dispatch(setCurrentIndex(newIndex));
       dispatch(setCurrentUrl(data[newIndex].url));
     } else if (isLoopedPlaylist)
     {
-      dispatch(setCurrentIndex(0));
       dispatch(setCurrentIndex(0));
       dispatch(setCurrentUrl(data[0].url));
     } else
@@ -174,16 +165,21 @@ export const MapPlayer = () => {
 
   const handleSongChange = (index, id) => {
     dispatch(setCurrentIndex(index));
-    setSearchParams(`?id=${id}`)
+    setSearchParams(`?id=${id}`);
     localStorage.setItem('currentSongId', id);
   };
- 
-
-    const handleAutoPlayNext = () => {
-      const index = data.findIndex((song) => song.index === currentIndex);
-      const min = 0;
-      const max = data.length - 1;
-
+  
+  const currentLanguage = i18n.language;
+  useEffect(() => {
+    if (currentLanguage === "en")
+    {
+      dispatch(fetchData("eng"));
+    } else
+    {
+      dispatch(fetchData("uk"));
+    }
+  }, [dispatch, currentLanguage]);
+    
   useEffect(() => {
     const savedId = localStorage.getItem('currentSongId');
     if (savedId)
@@ -197,88 +193,68 @@ export const MapPlayer = () => {
     }
 
     const songId = searchParams.get('id');
-
     if (songId)
     {
-      const song = data.find((song) => song.id === songId);
+      const song = data.find((song) => song.id === parseInt(songId));
       if (song)
       {
         dispatch(setCurrentUrl(song.url));
         dispatch(setCurrentIndex(song.index));
- 
       }
-      const params = new URLSearchParams(window.location.search);
-      const songId = params.get('id');
+    }
+  }, [data, searchParams, dispatch]);
 
-      if (songId)
-      {
-        const song = data.find((song) => song.id === songId);
-        {
-          console.log(song);
+  useEffect(() => {
+    const buttonMap = document.getElementById("map-tab");
+    if (buttonMap)
+    {
+      buttonMap.classList.add("active-btn");
+      return () => {
+        buttonMap.classList.remove("active-btn");
+      };
+    }
+  }, []);
 
-          if (song)
-            dispatch(setCurrentUrl(song.url));
-          dispatch(setCurrentIndex(song.index));
-        }
-      }
-    }, [data]);
-
-    useEffect(() => {
-      const buttonMap = document.getElementById("map-tab");
-      if (buttonMap)
-      {
-        buttonMap.classList.add("active-btn");
-
-  // autoscroll to #mapTabsId ONLY when the song turned
+  // Autoscroll to #mapTabsId ONLY when the song turned
   const location = useLocation();
   useEffect(() => {
-    if (location.search.slice(0, 3) === "?id")
-      if (location.search.slice(0, 3) === "?id")
+    if (location.search.startsWith("?id"))
+    {
+      const target = document.querySelector("#mapTabsId");
+      if (target)
       {
-        const target = document.querySelector("#mapTabsId");
         target.scrollIntoView({ block: "start" });
       }
-  }, []);
- 
+    }
+  }, [location]);
 
-    // autoscroll to #mapTabsId ONLY when the song turned
-    const location = useLocation();
-    useEffect(() => {
-      if (location.search.slice(0, 3) === "?id")
-        if (location.search.slice(0, 3) === "?id")
-        {
-          const target = document.querySelector("#mapTabsId");
-          target.scrollIntoView({ block: "start" });
-        }
-    }, []);
+  const currentPlayer = useSelector((state) => state.currentPlayer.currentPlayer);
+  useEffect(() => {
+    if (isPlaying)
+    {
+      dispatch(playerChanged("map"));
+    }
+  }, [isPlaying, dispatch]);
 
-    // preventing players from playing alltogether
-    const currentPlayer = useSelector((state) => state.currentPlayer.currentPlayer);
+  useEffect(() => {
+    if (currentPlayer !== "map")
+    {
+      setIsPlaying(false);
+    } else
+    {
+      setIsPlaying(true);
+    }
+  }, [currentPlayer]);
 
-    useEffect(() => {
-      if (isPlaying)
-      {
-        dispatch(playerChanged("map"));
-      }
-    }, [isPlaying]);
 
-    useEffect(() => {
-      if (currentPlayer !== "map")
-      {
-        setIsPlaying(false);
-      } else
-      {
-        setIsPlaying(true);
-      }
-
-    }, [currentPlayer]);
-
+  useEffect(() => {
+    const currentSongId = data[currentIndex].id;
+    const currentTime = reactPlayerRef.current.getCurrentTime();
     if (isPlaying && currentTime < 0.3)
     {
       axios.get(`http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/${currentSongId}/increment_views/`);
     }
-  }, [isPlaying, currentIndex]);
-
+  }, [isPlaying, currentIndex, data]);
 
     let time = Math.floor(currentTime);
     let minutes = Math.floor(time / 60);
@@ -301,7 +277,7 @@ export const MapPlayer = () => {
   }
 
   return (
-    !loading && data && <div className="map-player-wrapper container margin-bottom">
+    <div className="map-player-wrapper container margin-bottom">
       <div className="player-wrapper">
         <div className="map-player_container">
           <div className="player-photo"></div>
@@ -346,19 +322,13 @@ export const MapPlayer = () => {
           />
         </div>
         <div className="map-player_info">
-          <p className="text-l text-margin ">
+          <p className="text-l text-margin">
             { t('lyrics') }
           </p>
           <div className="lyrics playlist-scroll">
             <p className="text-base">
               { data[currentIndex].lyrics }
- 
             </p>
-            <div className="lyrics playlist-scroll">
-              <p className="text-base">
-                { data[currentIndex].lyrics }
-              </p>
-            </div>
           </div>
         </div>
       </div>
@@ -367,46 +337,59 @@ export const MapPlayer = () => {
           { t('collection') }
         </p>
         <div className="player_playlist playlist-scroll">
-          <ul >
-            {
-              data.map(({ name, url, duration, index, id }) => (
-                <li
-                  key={ index }
-                  className={ classNames("map-player_card", {
-                    'map-player_card-dark': !isLightTheme,
-                    'map-player_card-light': isLightTheme, 'active-map-card': (index === currentIndex && !isLightTheme), 'active-map-card-light': (isLightTheme && index === currentIndex)
-                  }) }
-                  onClick={ () => {
-                    handleSongChange(index, id);
-                    playPauseSong(url, id, index);
-                  } }
-                >
-                  <div className="card-buttons">
-                    <span className="item-number">
-                      { isPlaying && index === currentIndex ? <SoundWaveIcon /> : index + 1 }
-                    </span>
-                    <div className="playlist-item ">
- 
-                      <button
-                        className="selections-playlist-item-repeat-button selection-playlist-button"
-                        onClick={ (e) => {
-                          e.stopPropagation();
-                          handleLoop();
-                        } }
-                        disabled={ currentIndex !== index }
-                      >
-                        { isPlaying && index === currentIndex ? <PauseCircleIconDark /> : <PlayCircleIconDark /> }
- 
-                      </button>
-                    </div>
-                  </li>
-                ))
-              } </ul>
-          </div>
-
+          <ul>
+            { data.map(({ name, url, duration, index, id }) => (
+              <li
+                key={ index }
+                className={ classNames("map-player_card", {
+                  'map-player_card-dark': !isLightTheme,
+                  'map-player_card-light': isLightTheme,
+                  'active-map-card': (index === currentIndex && !isLightTheme),
+                  'active-map-card-light': (isLightTheme && index === currentIndex)
+                }) }
+                onClick={ () => {
+                  handleSongChange(index, id);
+                  playPauseSong(url, id, index);
+                } }
+              >
+                <div className="card-buttons">
+                  <span className="item-number">
+                    { isPlaying && index === currentIndex ? <SoundWaveIcon /> : index + 1 }
+                  </span>
+                  <div className="playlist-item">
+                    <button
+                      className={ classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
+                        "selections-playlist-item-play-pause-button-light": isLightTheme,
+                      }) }
+                      onClick={ () => playPauseSong(url, id, index) }
+                    >
+                      { isPlaying && index === currentIndex ? <PauseCircleIconDark /> : <PlayCircleIconDark /> }
+                    </button>
+                  </div>
+                  <span className="selections-playlist-item-name">
+                    { name.toUpperCase() }
+                  </span>
+                </div>
+                <div className="card-buttons">
+                  <span className="item-duration text-xs-bold">
+                    { duration }
+                  </span>
+                  <button
+                    className="selections-playlist-item-repeat-button selection-playlist-button"
+                    onClick={ (e) => {
+                      e.stopPropagation();
+                      handleLoop();
+                    } }
+                    disabled={ currentIndex !== index }
+                  >
+                    <BsRepeat style={ isLooped && index === currentIndex && { fill: "var(--red-700)" } } />
+                  </button>
+                </div>
+              </li>
+            )) }
+          </ul>
         </div>
       </div>
     </div>
   );
 };
- 
