@@ -71,8 +71,10 @@ export const MapPlayer = () => {
   const dispatch = useDispatch();
 
   // const data = useSelector((state) => state.traditionalSongs.data);
-  const loading = useSelector(selectLoading);
-  const error = useSelector(selectError);
+  const loading = false;
+  const error = false;
+  // const loading = useSelector(selectLoading);
+  // const error = useSelector(selectError);
   const data = songsData;
   const currentUrl = useSelector((state) => state.currentSong.currentUrl);
 
@@ -253,11 +255,11 @@ export const MapPlayer = () => {
     const currentSongId = data[currentIndex].id;
     const currentTime = reactPlayerRef.current.getCurrentTime();
 
-    if (isPlaying && currentUrl !== "#" && currentTime < 0.3)
+    if (isPlaying && currentTime < 0.3)
     {
       axios.get(`http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/${currentSongId}/increment_views/`);
     }
-  }, [isPlaying, currentUrl]);
+  }, [isPlaying, currentIndex]);
 
 
 
