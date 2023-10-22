@@ -160,6 +160,7 @@ export const MapPlayer = () => {
       const min = 0;
       const max = data.length - 1;
 
+ 
   useEffect(() => {
     const savedId = localStorage.getItem('currentSongId');
     if (savedId)
