@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Popup from "reactjs-popup";
 import { t } from "i18next";
-import { setCurrentLyrics, setCurrentName, setCurrentUrl, setCurrentIndex } from "../../redux/currentSong/currentSongSlice";
+import { setCurrentUrl, setCurrentIndex } from "../../redux/currentSong/currentSongSlice";
 import "./Player.css";
 import classNames from "classnames";
 import { FiShare2, FiShuffle, FiRefreshCw, FiCheck } from "react-icons/fi";
