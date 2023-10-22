@@ -1,7 +1,7 @@
 .selections-player-navigation-wrapper {
   display: grid;
   grid-template: 1fr 1fr / 1fr 1fr;
-  column-gap: 40px;
+  column-gap: 12px;
   /* padding: 8px 30px; */
   padding: 8px 0px;
   border-radius: 36px;
@@ -94,7 +94,7 @@
   display: -ms-flexbox;
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 12px;
 
   @media screen and (min-width: 1440px) {
     gap: 54px;
@@ -129,6 +129,11 @@
   border: none;
   color: inherit;
   position: relative;
+  padding: 11px 13px;
+  
+  @media screen and (min-width: 1440px) {
+    padding: 1px 6px;
+  }
 }
 
 .selections-player-share-button svg,
