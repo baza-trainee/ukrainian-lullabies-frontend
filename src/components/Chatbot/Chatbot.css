@@ -37,8 +37,8 @@
 }
 
 .chat_rule_list {
-  margin: 24px 0px;
-  list-style-type: none;
+  margin: 15px 0px; 
+  list-style-type: none; 
   list-style-position: inside;
   @media screen and (min-width: 1440px) {
     margin: 36px 0px 28px 0px;
@@ -46,7 +46,7 @@
 }
 
 .chat_text {
-  margin: 12px 0px;
+  margin: 9px 0px;
   display: block;
 }
 
