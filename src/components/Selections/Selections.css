@@ -169,9 +169,19 @@
   align-items: center;
 }
 
+.selections-playlist-playBtn-wrapper {
+  padding: 7px;
+  margin-right: 8px;
+
+  @media screen and (min-width: 1440px) {    
+    padding: 0;
+    margin-right: 0;
+  }
+}
+
 .selections-playlist-item-play-pause-button {
   /* margin-right: 20px; */
-  padding: 12px;
+  padding: 5px;
   @media screen and (min-width: 1440px) {
     margin-right: 32px;
     padding: 1px 6px;

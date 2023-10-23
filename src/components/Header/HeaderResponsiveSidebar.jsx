@@ -144,11 +144,11 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
         </div>
         <Link to="/" onClick={handleBurgerClick}>
           <div className="header-responsive-logo text-5xl">
-            <span>Koly</span>
+            <span>KOLY</span>
             <SIconSidebar style={{ alignSelf: "center" }} />
             <span>
-              Kova <br />
-              Sound
+              KOVA <br />
+              OUND
             </span>
           </div>
         </Link>

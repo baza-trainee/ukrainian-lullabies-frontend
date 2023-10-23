@@ -7,12 +7,27 @@ import { useSelector, useDispatch } from 'react-redux';
 import { playerChanged } from '../../redux/CurrentPlayer/currentPlayerSlice';
 import { getPopularSongs } from '../../redux/PopularSongs/PopularSongsSlice';
 
-import playButton from "../../assets/images/play-popular.png";
-import pauseButton from "../../assets/images/pause-popular.png"
+import playButton from "../../assets/images/popular/play-popular.png";
+import pauseButton from "../../assets/images/popular/pause-popular.png"
 
-import favoriteSongFirst from '../../assets/images/favorite-song-1.jpg';
-import favoriteSongSecond from '../../assets/images/favorite-song-2.jpg';
-import favoriteSongThird from '../../assets/images/favorite-song-3.jpg';
+import favoriteSongFirstW from '../../assets/images/popular/popular-left-desk-w.webp';
+import favoriteSongSecondW from '../../assets/images/popular/popular-center-desk-w.webp';
+import favoriteSongThirdMobW from '../../assets/images/popular/popular-right-mob-w.webp';
+import favoriteSongFirstMobW from '../../assets/images/popular/popular-left-mob-w.webp';
+import favoriteSongSecondMobW from '../../assets/images/popular/popular-center-mob-w.webp';
+import favoriteSongThirdW from '../../assets/images/popular/popular-right-desk-w.webp';
+import favoriteSongFirstMob1x from '../../assets/images/popular/popular-left-mob-1x.jpg';
+import favoriteSongSecondMob1x from '../../assets/images/popular/popular-center-mob-1x.jpg';
+import favoriteSongThirdMob1x from '../../assets/images/popular/popular-right-mob-1x.jpg';
+import favoriteSongFirstMob2x from '../../assets/images/popular/popular-left-mob-2x.jpg';
+import favoriteSongSecondMob2x from '../../assets/images/popular/popular-center-mob-2x.jpg';
+import favoriteSongThirdMob2x from '../../assets/images/popular/popular-right-mob-2x.jpg';
+import favoriteSongFirst1x from '../../assets/images/popular/popular-left-desk-1x.jpg';
+import favoriteSongSecond1x from '../../assets/images/popular/popular-center-desk-1x.jpg';
+import favoriteSongThird1x from '../../assets/images/popular/popular-right-desk-1x.jpg';
+import favoriteSongFirst2x from '../../assets/images/popular/popular-left-desk-2x.jpg';
+import favoriteSongSecond2x from '../../assets/images/popular/popular-center-desk-2x.jpg';
+import favoriteSongThird2x from '../../assets/images/popular/popular-right-desk-2x.jpg';
 import './PopularSongs.css';
 import { Ornaments } from '../Ornaments/Ornaments';
 
@@ -70,9 +85,30 @@ export function PopularSongs() {
   ]);
 
   const [images, setImages] = useState([
-    favoriteSongFirst,
-    favoriteSongSecond,
-    favoriteSongThird
+    {
+      srcMob: favoriteSongFirstMob1x,
+      srcDesk: favoriteSongFirst1x,
+      srcWebp: favoriteSongFirstW,
+      srcWebpMob: favoriteSongFirstMobW,
+      srcSetDesk: `${favoriteSongFirst1x} 1x, ${favoriteSongFirst2x} 2x`,
+      srcSetMob: `${favoriteSongFirstMob1x} 1x, ${favoriteSongFirstMob2x} 2x`
+    },
+    {
+      srcMob: favoriteSongSecondMob1x,
+      srcDesk: favoriteSongSecond1x,
+      srcWebp: favoriteSongSecondW,
+      srcWebpMob: favoriteSongSecondMobW,
+      srcSetDesk: `${favoriteSongSecond1x} 1x, ${favoriteSongSecond2x} 2x`,
+      srcSetMob: `${favoriteSongSecondMob1x} 1x, ${favoriteSongSecondMob2x} 2x`
+    },
+    {
+      srcMob: favoriteSongThirdMob1x,
+      srcDesk: favoriteSongThird1x,
+      srcWebp: favoriteSongThirdW,
+      srcWebpMob: favoriteSongThirdMobW,
+      srcSetDesk: `${favoriteSongThird1x} 1x, ${favoriteSongThird2x} 2x`,
+      srcSetMob: `${favoriteSongThirdMob1x} 1x, ${favoriteSongThirdMob2x} 2x`
+    }
   ]);
 
   useEffect(() => {
@@ -114,7 +150,43 @@ export function PopularSongs() {
     setSongs([leftSong, rightSong, centerSong]);
   };
 
+  const sourceDesk = (index) => {
+    return (
+      <>
+        <source
+          srcSet={images[index].srcWebp}
+          media="(min-width: 1440px)"
+          type="image/webp"
+        />
+        <source
+          srcSet={images[index].srcSetDesk}
+          media="(min-width: 1440px)"
+          type="image/jpg"
+          />
+        <img loading="lazy" src={images[index].srcDesk} alt="Popular Picture" />
+      </>
+    )
+  
+}
 
+    const sourceMob = (index) => {
+    return (
+      <>
+        <source
+          srcSet={images[index].srcWebpMob}
+          media="(min-width: 360px)"
+          type="image/webp"
+        />
+        <source
+          srcSet={images[index].srcSetMob}
+          media="(min-width: 360px)"
+        />
+        <img loading="lazy" src={images[index].srcMob} alt="Popular Picture" />
+      </>
+    )
+  
+  }
+  
   const animationElement = {
     hidden: {
       y: -50,
@@ -179,12 +251,15 @@ export function PopularSongs() {
               <h3 className='title-popular'>{title[0]}</h3>
             </div>
             <div className="small-image-container">
-              <img onClick={() => handleLeftClick()} className='play-icon' src={playButton} alt="Play" />
-              {leftClick && (<motion.div style={{ filter: "blur(10px)",backgroundImage: `url(${images[0]})` }} className='img-popular'/>)}
-              {!leftClick && (<motion.div initial={{ opacity: 0 }}
-                style={{backgroundImage: `url(${images[0]})`}}
+              <img loading="lazy" onClick={() => handleLeftClick()} className='play-icon' src={playButton} alt="Play" />
+              {leftClick && (<motion.picture style={{ filter: "blur(10px)" }} className='img-popular'>
+                {sourceDesk(0)}
+              </motion.picture>)}
+              {!leftClick && (<motion.picture initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 2 }} className='img-popular' />)}
+                transition={{ duration: 2 }} className='img-popular'>
+                {sourceDesk(0)}
+                </motion.picture>)}
             </div>
           </div>
           <div className='large-div'>
@@ -192,13 +267,16 @@ export function PopularSongs() {
               <h3 className='title-popular'>{title[1]}</h3>
             </div>
             <div className="large-image-container">
-              <img onClick={handleCenterClick} className='play-icon' src={buttonPopular} alt="Play" />
-              {centerClick && (<motion.div style={{ filter: "blur(10px)", backgroundImage: `url(${images[1]})` }} className='img-popular'/>)}
-              {!centerClick && (<motion.div
-                style={{backgroundImage: `url(${images[1]})`}}
+              <img loading="lazy" onClick={handleCenterClick} className='play-icon' src={buttonPopular} alt="Play" />
+              {centerClick && (<motion.picture style={{ filter: "blur(10px)" }} className='img-popular'>
+                {sourceDesk(1)}
+              </motion.picture>)}
+              {!centerClick && (<motion.picture
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 2 }} className='img-popular'/>)}
+                transition={{ duration: 2 }} className='img-popular'>
+                {sourceDesk(1)}
+                </motion.picture>)}
             </div>
           </div>
           <div className='small-div'>
@@ -206,12 +284,15 @@ export function PopularSongs() {
               <h3 className='title-popular'>{title[2]}</h3>
             </div>
             <div className="small-image-container">
-              <img onClick={() => handleRightClick()} className='play-icon' src={playButton} alt="Play" />
-              {rightClick && (<motion.div style={{ filter: "blur(10px)", backgroundImage: `url(${images[2]})` }} className='img-popular'/>)}
-              {!rightClick && (<motion.div initial={{ opacity: 0 }}
-                style={{backgroundImage: `url(${images[2]})`}}
+              <img loading="lazy" onClick={() => handleRightClick()} className='play-icon' src={playButton} alt="Play" />
+              {rightClick && (<motion.picture style={{ filter: "blur(10px)" }} className='img-popular'>
+                {sourceDesk(2)}
+              </motion.picture>)}
+              {!rightClick && (<motion.picture initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 2 }} className='img-popular'/>)}
+                transition={{ duration: 2 }} className='img-popular'>
+                {sourceDesk(2)}
+                </motion.picture>)}
             </div>
           </div>
         </div>
@@ -221,13 +302,16 @@ export function PopularSongs() {
               <h3 className='title-popular'>{title[1]}</h3>
             </div>
             <div className="large-image-container">
-              <img onClick={handleCenterClick} className='play-icon' src={buttonPopular} alt="Play" />
-              {centerClick && (<motion.div style={{ filter: "blur(10px)", backgroundImage: `url(${images[1]})` }} className='img-popular' />)}
-              {!centerClick && (<motion.div
-                style={{backgroundImage: `url(${images[1]})`}}
+              <img loading="lazy" onClick={handleCenterClick} className='play-icon' src={buttonPopular} alt="Play" />
+                {centerClick && (<motion.picture style={{ filter: "blur(10px)" }} className='img-popular'>
+                {sourceMob(1)}
+              </motion.picture>)}
+              {!centerClick && (<motion.picture
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 2 }} className='img-popular'/>)}
+                transition={{ duration: 2 }} className='img-popular'>
+                {sourceMob(1)}
+                </motion.picture>)}
             </div>
           </div>
           <div className='mobile-div'>
@@ -236,12 +320,15 @@ export function PopularSongs() {
                 <h3 className='title-popular'>{title[0]}</h3>
               </div>
               <div className="small-image-container">
-                <img onClick={() => handleLeftClick()} className='play-icon' src={playButton} alt="Play" />
-                {leftClick && (<motion.div style={{ filter: "blur(10px)", backgroundImage: `url(${images[0]})` }} className='img-popular' />)}
-                {!leftClick && (<motion.div initial={{ opacity: 0 }}
-                  style={{backgroundImage: `url(${images[0]})`}}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 2 }} className='img-popular' />)}
+                <img loading="lazy" onClick={() => handleLeftClick()} className='play-icon' src={playButton} alt="Play" />
+                {leftClick && (<motion.picture style={{ filter: "blur(10px)" }} className='img-popular'>
+                {sourceMob(0)}
+              </motion.picture>)}
+              {!leftClick && (<motion.picture initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2 }} className='img-popular'>
+                {sourceMob(0)}
+                </motion.picture>)}
               </div>
             </div>
             <div >
@@ -249,12 +336,15 @@ export function PopularSongs() {
                 <h3 className='title-popular'>{title[2]}</h3>
               </div>
               <div className="small-image-container">
-                <img onClick={() => handleRightClick()} className='play-icon' src={playButton} alt="Play" />
-                {rightClick && (<motion.div style={{ filter: "blur(10px)", backgroundImage: `url(${images[2]})` }} className='img-popular' />)}
-                {!rightClick && (<motion.div initial={{ opacity: 0 }}
-                  style={{backgroundImage: `url(${images[2]})`}}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 2 }} className='img-popular'/>)}
+                <img loading="lazy" onClick={() => handleRightClick()} className='play-icon' src={playButton} alt="Play" />
+                {rightClick && (<motion.picture style={{ filter: "blur(10px)" }} className='img-popular'>
+                {sourceMob(2)}
+              </motion.picture>)}
+              {!rightClick && (<motion.picture initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2 }} className='img-popular'>
+                {sourceMob(2)}
+                </motion.picture>)}
               </div>
             </div>
           </div>

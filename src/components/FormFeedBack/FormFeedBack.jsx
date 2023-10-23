@@ -61,6 +61,9 @@ const FormFeedBack = () => {
   };
 
   const handleFormSubmit = async (values, { resetForm }) => {
+    // Перетворення email у нижній регістр
+    values.email = values.email.toLowerCase();
+
     const result = await dispatch(fetchSendForm(values));
     // console.log("Результат від сервера:", result);
     setShowSuccessMessage(true);
