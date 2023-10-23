@@ -76,7 +76,7 @@ const Chatbot = () => {
           })}
         ></Link>
         <Link
-          href="#"
+          to="#"
           className={classNames("chat_image_dark_en", {
             chat_image_white_en: isLightTheme,
             en: isEnglishLanguage,
