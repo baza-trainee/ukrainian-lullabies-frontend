@@ -29,7 +29,7 @@ const schema = (translations) => {
       .required(currentTranslations.schema.requiredMessage),
     theme: string()
       .matches(
-        /^(?!.*[[\]])(?![ ])([^~$@#{}|/~`&\s].*$)/,
+        /^(?![~$@#{}[\]|/& ])[^~$@#{}[\]|/&]+(?<=[^~$@#{}[\]|/&])$/,
         currentTranslations.schema.themeNotAllowedMessage
       )
       .min(6, currentTranslations.schema.themeMinLengthMessage)
@@ -37,7 +37,7 @@ const schema = (translations) => {
       .required(currentTranslations.schema.requiredMessage),
     message: string()
       .matches(
-        /^(?!.*[[\]])(?![ ])([^~$@#{}|/~`&\s].*$)/,
+        /^(?![~$@#{}[\]|/& ])[^~$@#{}[\]|/&]+(?<=[^~$@#{}[\]|/&])$/,
         currentTranslations.schema.messageNotAllowedMessage
       )
       .max(600, currentTranslations.schema.messageMaxLengthMessage)
