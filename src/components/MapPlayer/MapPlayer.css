@@ -142,11 +142,13 @@
   background: var(--gray-black-600, #5D5D5D);
 }
 }
-.map-player_card{
+.map-player_card {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
   justify-content: space-between;
   cursor: pointer;
   border-radius: 36px;
@@ -155,62 +157,64 @@
   height: 48px;
   padding: 0 16px;
 
-  @media screen and (min-width: 768px) {
-    
-  }
-    @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1440px) {
     width: 385px;
-  height: 40px;
-  margin-bottom: 24px;
+    height: 40px;
+    margin-bottom: 24px;
   }
 }
 
 .active-map-card-light {
+  background: -webkit-var(--gray-black-200, #D1D1D1);
   background: var(--gray-black-200, #D1D1D1);
 }
 
 .active-map-card {
+  background: -webkit-var(--gray-black-850, rgba(255, 255, 255, 0.15));
   background: var(--gray-black-850, rgba(255, 255, 255, 0.15));
 }
 
-.map-player_card-light:hover{
+.map-player_card-light:hover {
+  background: -webkit-var(--gray-black-100, #E7E7E7);
   background: var(--gray-black-100, #E7E7E7);
 }
 
-.map-player_card-title{
+.map-player_card-title {
   text-align: left;
 }
 
-.active-card{
+.active-card {
   border: 2px solid var(--red-700);
 }
 
-.item-group{
+.item-group {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.current-name{
+.current-name {
   margin-top: 16px;
 }
-.region{
+
+.region {
   color: var(--gray-black-400);
-  margin: 6px 0 12px ;
+  margin: 6px 0 12px;
 }
-.text-margin{
+
+.text-margin {
   margin-bottom: 24px;
 }
 
-.player-photo{
-background-image: url("../../images/Baby_photo.png");
-background-repeat: no-repeat;
-background-size: cover;
-width: 309px;
-height: 248px;
-display: block;
-border-radius: 8px;
+.player-photo {
+  background-image: url("../../images/Baby_photo.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 309px;
+  height: 248px;
+  display: block;
+  border-radius: 8px;
 
   @media screen and (min-width: 768px) {
     width: 328px;
@@ -221,40 +225,50 @@ border-radius: 8px;
   }
 }
 
+
 /* Стилізуємо смугу прокрутки */
 .progress-bar-dark {
- background: var(--gray-black-800);
+  background: -webkit-var(--gray-black-800);
+  background: var(--gray-black-800);
 }
+
 .progress-bar-light {
+  background: -webkit-var(--gray-black-200);
   background: var(--gray-black-200);
 }
+
 .timeline {
   width: 100%;
   height: 5px;
-  appearance: none;
+  -webkit-border-radius: 2px;
   border-radius: 2px;
   outline: none;
 }
 
 /* Стилізуємо смугу, яка відображає вибрану позицію */
 .timeline::-webkit-slider-thumb {
+  -webkit-appearance: none;
   appearance: none;
   width: 10px;
   height: 10px;
+  background: -webkit-var(--red-700, #C60F18);
   background: var(--red-700, #C60F18);
   border: 2px solid #FFF;
+  -webkit-border-radius: 50%;
   border-radius: 50%;
 }
 
 .timeline::-moz-range-thumb {
+  background: -webkit-var(--red-700, #C60F18);
   background: var(--red-700, #C60F18);
 }
 
-.duration{
+.duration {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-justify-content: space-between;
   justify-content: space-between;
   margin-bottom: 32px;
   color: var(--gray-black-400);
@@ -265,6 +279,7 @@ border-radius: 8px;
 .progress-bar {
   width: 100%;
   height: 5px;
+  -webkit-border-radius: 2px;
   border-radius: 2px;
   outline: none;
   margin: 0 auto;
@@ -273,13 +288,17 @@ border-radius: 8px;
 
 .progress-line {
   height: 6px;
+  background-color: -webkit-var(--red-700);
   background-color: var(--red-700);
   background-image: url('../../images/Ellipse 36.png');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
+  -webkit-border-radius: 12px;
   border-radius: 12px;
 }
-.text-error{
+
+.text-error {
+  color: -webkit-var(--red-700);
   color: var(--red-700);
 }

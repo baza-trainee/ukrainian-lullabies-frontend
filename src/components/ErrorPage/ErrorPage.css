@@ -1,89 +1,99 @@
-.errorPage__title{
-  grid-column: 1/1;
+.errorPage__title {
+  grid-column: 1 / 1;
   text-align: center;
   margin: 32px 0;
- @media screen and (min-width: 768px) {
-  grid-column:1/13;
-  margin: 84px 0;
+
+  @media screen and (min-width: 768px) {
+    grid-column: 1 / 13;
+    margin: 84px 0;
   }
 }
 
 .errorPage__svg404 {
-   display: -webkit-box;
+  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex; 
-   justify-content: center;
-   align-items: center;
-   grid-column: 1/1;
-   @media screen and (min-width: 768px) {
-    grid-column: 4/10;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  grid-column: 1 / 1;
+
+  @media screen and (min-width: 768px) {
+    grid-column: 4 / 10;
   }
 }
 
-.errorPage__numbers{
+.errorPage__numbers {
   width: 77px;
   height: 80px;
+
   @media screen and (min-width: 768px) {
     width: 153px;
     height: 182px;
     margin: 0 12px;
-  }}
+  }
+}
 
-
-
-.errorPage__block{
-  grid-column: 1/1;
+.errorPage__block {
+  grid-column: 1 / 1;
+  -webkit-align-items: center;
   align-items: center;
+  -webkit-justify-content: center;
   justify-content: center;
   margin: 26px 0 32px;
+
   @media screen and (min-width: 1440px) {
-  grid-column: 1/13;
-
-  padding: 0 60px;
+    grid-column: 1 / 13;
+    padding: 0 60px;
+  }
 }
-}
 
-.element-right-error{
+.element-right-error {
   display: none;
-  grid-column: 1/1;
-  @media screen and (min-width: 1440px) {
-    display: block;
-  grid-column:1/4;}
-}
-
-.element-left-error{
-  display: none;
-  grid-column: 1/1;
+  grid-column: 1 / 1;
 
   @media screen and (min-width: 1440px) {
     display: block;
-  grid-column: 10/13;}
-  
+    grid-column: 1 / 4;
+  }
 }
 
-.element-center-error{
-  grid-column: 1/1;
+.element-left-error {
+  display: none;
+  grid-column: 1 / 1;
+
+  @media screen and (min-width: 1440px) {
+    display: block;
+    grid-column: 10 / 13;
+  }
+}
+
+.element-center-error {
+  grid-column: 1 / 1;
   text-align: center;
-   @media screen and (min-width: 1440px) {
-  grid-column: 4/10;
-}
+
+  @media screen and (min-width: 1440px) {
+    grid-column: 4 / 10;
+  }
 }
 
 .errorPage-button {
+  -webkit-justify-content: center;
   justify-content: center;
   margin: 0 auto;
-  @media screen and (min-width:1440px) {
-     grid-column: 5/9;
+
+  @media screen and (min-width: 1440px) {
+    grid-column: 5 / 9;
     margin: 57px 47px 0;
   }
- 
 }
 
-.fill-for-dark{
+.fill-for-dark {
   fill: var(--white-0);
 }
 
-.fill-for-light{
+.fill-for-light {
   fill: var(--grey-black-950);
 }
