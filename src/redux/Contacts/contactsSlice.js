@@ -7,8 +7,12 @@ const initialState = {
   error: "",
 };
 
-export const fetchContacts = createAsyncThunk("contacts/fetchContacts", async () => {
-  const response = await axios.get("http://lullabies.eu-north-1.elasticbeanstalk.com/api/contacts/");
+export const fetchContacts = createAsyncThunk("contacts/fetchContacts", async (lang) => {
+  const response = await axios.get("http://lullabies.eu-north-1.elasticbeanstalk.com/api/contacts/", {
+    headers: {
+      "Accept-Language": lang
+    },
+  });
   return response.data.results;
 });
 

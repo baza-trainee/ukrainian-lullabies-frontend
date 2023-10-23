@@ -65,8 +65,7 @@ export const HeaderResponsiveUserLink = ({ isLightTheme }) => {
             </div>
           </div>
         }
-        modal
-        lockScroll
+        modal        
       >
         {(close) => (
           <div className={classNames("header-user-modal", { "header-user-modal-light": isLightTheme })}>

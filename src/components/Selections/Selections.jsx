@@ -284,14 +284,16 @@ export const Selections = () => {
                       {isPlaying && item.url === currentSong ? <SoundWaveIcon /> : index + 1}
                     </span>
                     <div className="selection-playlist-playBtn-name-group">
-                      <button
-                        className={classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
-                          "selections-playlist-item-play-pause-button-light": isLightTheme,
-                        })}
-                        onClick={() => playPauseSong(item.url)}
-                      >
-                        {isPlaying && item.url === currentSong ? <PauseCircleIconDark /> : <PlayCircleIconDark />}
-                      </button>
+                      <div className="selections-playlist-playBtn-wrapper">
+                        <button
+                          className={classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
+                            "selections-playlist-item-play-pause-button-light": isLightTheme,
+                          })}
+                          onClick={() => playPauseSong(item.url)}
+                        >
+                          {isPlaying && item.url === currentSong ? <PauseCircleIconDark /> : <PlayCircleIconDark />}
+                        </button>
+                      </div>
 
                       <span className="selections-playlist-item-name">{item.name.toUpperCase().slice(0, 50)}</span>
                     </div>
