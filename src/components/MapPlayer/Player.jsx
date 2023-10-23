@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Popup from "reactjs-popup";
 import { t } from "i18next";
@@ -99,98 +99,106 @@ export const Player = ({
     setTimeout(() => setShareClicked(false), 2000);
   };
 
+  const reactPlayerRef = useRef();
+  useEffect(() => {
+    if (reactPlayerRef.current)
+    {
+      reactPlayerRef.current.setVolume(volume);
+    }
+  }, [volume]);
+
   const handleMute = () => {
     setVolume(0);
   };
   const handleUnMute = () => {
-    setVolume(1);
+    setVolume(0.5);
   };
   const hendleRandom = () => {
     setIsRandom(!isRandom);
   };
 
   return (
- 
-      <div className={ classNames("map-player-navigation-wrapper", {
-          "map-player-navigation-wrapper-light": isLightTheme,
-        }) }
-      >
-        <div className="map-player-primary-buttons-group">
-          <button
-            className={ classNames("map-player-previous-button", {
-              "map-player-previous-button-light": isLightTheme,
-            }) }
-            onClick={ handlePreviousSong }
-          >
-            <BsFillSkipStartFill />
-          </button>
-          <button
-            className={ classNames("map-player-play-pause-button", {
-              "map-player-play-pause-button-light": isLightTheme,
-            }) }
-            onClick={ playStopToggle }
-          >
-            { !isPlaying ? <BsPlayFill /> : <BsPauseFill style={ { fill: "var(--red-700)" } } /> }
-          </button>
-          <button
-            className={ classNames("map-player-next-button", {
-              "map-player-next-button-light": isLightTheme,
-            }) }
-            onClick={ handleNextSong }
-          >
-            <BsFillSkipEndFill />
-          </button>
-        </div>
+
+    <div className={ classNames("map-player-navigation-wrapper", {
+      "map-player-navigation-wrapper-light": isLightTheme,
+    }) }
+    >
+      <div className="map-player-primary-buttons-group">
+        <button
+          className={ classNames("map-player-previous-button", {
+            "map-player-previous-button-light": isLightTheme,
+          }) }
+          onClick={ handlePreviousSong }
+        >
+          <BsFillSkipStartFill />
+        </button>
+        <button
+          className={ classNames("map-player-play-pause-button", {
+            "map-player-play-pause-button-light": isLightTheme,
+          }) }
+          onClick={ playStopToggle }
+        >
+          { !isPlaying ? <BsPlayFill /> : <BsPauseFill style={ { fill: "var(--red-700)" } } /> }
+        </button>
+        <button
+          className={ classNames("map-player-next-button", {
+            "map-player-next-button-light": isLightTheme,
+          }) }
+          onClick={ handleNextSong }
+        >
+          <BsFillSkipEndFill />
+        </button>
+      </div>
       <div className="map-player-sec-buttons">
-          <Popup
-            trigger={
-              <button
-                className={ classNames("map-player-share-button", {
-                  "map-player-share-button-light": isLightTheme,
-                  "map-player-share-button-en": isEnglishLanguage,
-                  "map-player-share-clicked": shareClicked,
-                  "map-player-share-clicked-en": shareClicked && isEnglishLanguage,
-                }) }
-              >
-                { shareClicked ? <FiCheck /> : <FiShare2 /> }
-              </button>
-            }
-            position="top left"
-            arrow={ false }
-            open={ shareClicked }
-            onOpen={ handleShare }
-          >
-            <div className={ classNames("map-player-share-popup", { "map-player-share-popup-light": isLightTheme }) }>
-              { t("shareLink") }
-            </div>
-          </Popup>
-          <button
-            className={ classNames("map-player-shuffle-button", {
-              "map-player-shuffle-button-light": isLightTheme,
-              "map-player-shuffle-button-en": isEnglishLanguage,
-            }) }
-            onClick={ hendleRandom }
-          >
-            <FiShuffle style={ isRandom && { color: "var(--red-700)" } } />
-          </button>
-          <button
-            className={ classNames("map-player-refresh-button", {
-              "map-player-refresh-button-light": isLightTheme,
-              "map-player-refresh-button-en": isEnglishLanguage,
-            }) }
-            onClick={ () => setIsLoopedPlaylist(!isLoopedPlaylist) }
-          >
-            <FiRefreshCw style={ isLoopedPlaylist && { color: "var(--red-700)" } } />
-          </button>
-        <div className="map-player-volume-button">
-            { volume > 0 ? (
-              <HiVolumeUp onClick={ handleMute } />
-            ) : (
-              <HiVolumeOff onClick={ handleUnMute } />
-            ) }
+        <Popup
+          trigger={
+            <button
+              className={ classNames("map-player-share-button", {
+                "map-player-share-button-light": isLightTheme,
+                "map-player-share-button-en": isEnglishLanguage,
+                "map-player-share-clicked": shareClicked,
+                "map-player-share-clicked-en": shareClicked && isEnglishLanguage,
+              }) }
+            >
+              { shareClicked ? <FiCheck /> : <FiShare2 /> }
+            </button>
+          }
+          position="top left"
+          arrow={ false }
+          open={ shareClicked }
+          onOpen={ handleShare }
+        >
+          <div className={ classNames("map-player-share-popup", { "map-player-share-popup-light": isLightTheme }) }>
+            { t("shareLink") }
           </div>
+        </Popup>
+        <button
+          className={ classNames("map-player-shuffle-button", {
+            "map-player-shuffle-button-light": isLightTheme,
+            "map-player-shuffle-button-en": isEnglishLanguage,
+          }) }
+          onClick={ hendleRandom }
+        >
+          <FiShuffle style={ isRandom && { color: "var(--red-700)" } } />
+        </button>
+        <button
+          className={ classNames("map-player-refresh-button", {
+            "map-player-refresh-button-light": isLightTheme,
+            "map-player-refresh-button-en": isEnglishLanguage,
+          }) }
+          onClick={ () => setIsLoopedPlaylist(!isLoopedPlaylist) }
+        >
+          <FiRefreshCw style={ isLoopedPlaylist && { color: "var(--red-700)" } } />
+        </button>
+        <div className="map-player-volume-button">
+          { volume > 0 ? (
+            <HiVolumeUp onClick={ () => handleMute() } />
+          ) : (
+            <HiVolumeOff onClick={ handleUnMute } />
+          ) }
         </div>
       </div>
- 
+    </div>
+
   );
 };
