@@ -1,61 +1,61 @@
 .map-catalogue {
-    display: grid;
-    text-align: center;
-    padding-top: 32px;
-    padding-bottom: 32px;
+  display: grid;
+  text-align: center;
+  padding-top: 32px;
+  padding-bottom: 32px;
 
-    @media screen and (min-width: 1440px) {
-        margin-top: 48px;
-        padding-bottom: 48px;
-    }
+  @media screen and (min-width: 1440px) {
+    margin-top: 48px;
+    padding-bottom: 48px;
+  }
 }
 
 .map {
-    position: relative;
-    text-align: center;
+  position: relative;
+  text-align: center;
 
-    @media screen and (min-width: 1440px) {
-        padding: 0 37px;
-    }
+  @media screen and (min-width: 1440px) {
+    padding: 0 37px;
+  }
 }
 
 .svg-map {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .path-map {
-    fill: transparent;
-    cursor: pointer;
-    transition: 0.3s;
+  fill: transparent;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .path-map:hover {
-    fill: none;
+  fill: none;
 }
 
 .hover-pattern-map {
-    opacity: 0;
-    transition: opacity 0.7s ease-in-out;
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out;
 }
 
 .img-map {
+  width: 100%;
+  height: 100%;
+
+  @media screen and (min-width: 1440px) {
     width: 100%;
     height: 100%;
-
-    @media screen and (min-width: 1440px) {
-        width: 100%;
-        height: 100%;
-    }
+  }
 }
 
 .map-opacity_hide {
-    opacity: 0;
+  opacity: 0;
 }
 
 .map-opacity_visible {
-    opacity: 1;
+  opacity: 1;
 }
