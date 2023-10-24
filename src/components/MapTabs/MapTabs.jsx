@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import "./map.css";
 
 import { Ornaments } from "../Ornaments/Ornaments";
@@ -12,11 +12,11 @@ export const MapTabs = () => {
     hidden: {
       opacity: 0,
     },
-    visible: custom => ({
+    visible: (custom) => ({
       opacity: 1,
       transition: { delay: custom * 0.4 },
     }),
-  }
+  };
 
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -31,20 +31,25 @@ export const MapTabs = () => {
       variants={animationElement}
       custom={1}
       ref={ref}
-      className="tabs margin-bottom" id="mapTabsId"
+      className="tabs margin-bottom"
+      id="mapTabsId"
     >
       <motion.h2 custom={2} className="map-tabs__text text-4xl">
-        {t('lullabiesMuseum')}
+        {t("lullabiesMuseum")}
       </motion.h2>
       <motion.div custom={3} className="map-tabs">
-        <NavLink id="map-tab" className="map-tabs__button text-2xl tabs1" to="/map">
-          {t('traditionalLullabies')}
+        <NavLink
+          id="map-tab"
+          className="map-tabs__button text-2xl tabs1"
+          to="/map"
+        >
+          {t("traditionalLullabies")}
         </NavLink>
         <NavLink className="map-tabs__button text-2xl tabs2" to="/songs">
-          {t('singingTogether')}
+          {t("singingTogether")}
         </NavLink>
         <NavLink className="map-tabs__button text-2xl tabs3" to="/anima">
-          {t('animatedLullabies')}
+          {t("animatedLullabies")}
         </NavLink>
       </motion.div>
       <Outlet />
