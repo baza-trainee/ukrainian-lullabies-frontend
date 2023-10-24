@@ -24,6 +24,8 @@ export const SelectionsPlayer = ({
   playRandomSong,
   volume,
   setVolume,
+  isMuted,
+  setIsMuted,
   previousVolume,
   setPreviousVolume,
   previousSongs,
@@ -69,15 +71,26 @@ export const SelectionsPlayer = ({
   const handleVolumeChange = (event) => {
     const newVolume = parseFloat(event.target.value);
     setVolume(newVolume);
+    setIsMuted(false);
   };
 
+  // const handleMute = () => {
+  //   if (volume > 0) {
+  //     setPreviousVolume(volume);
+  //     setVolume(0);
+  //   } else {
+  //     setVolume(previousVolume);
+  //     setPreviousVolume(0);
+  //   }
+  // };
+
   const handleMute = () => {
-    if (volume > 0) {
-      setPreviousVolume(volume);
+    if (!isMuted) {
+      setIsMuted(true);
       setVolume(0);
     } else {
-      setVolume(previousVolume);
-      setPreviousVolume(0);
+      setIsMuted(false);
+      setVolume(0.5);
     }
   };
 
@@ -105,7 +118,8 @@ export const SelectionsPlayer = ({
         <div className="selections-player-secondary-buttons-left">
           <Popup
             trigger={
-              <button type="button"
+              <button
+                type="button"
                 className={classNames("selections-player-share-button", {
                   "selections-player-share-button-light": isLightTheme,
                   "selections-player-share-button-en": isEnglishLanguage,
@@ -126,7 +140,8 @@ export const SelectionsPlayer = ({
             </div>
           </Popup>
 
-          <button type="button"
+          <button
+            type="button"
             className={classNames("selections-player-shuffle-button", {
               "selections-player-shuffle-button-light": isLightTheme,
               "selections-player-shuffle-button-en": isEnglishLanguage,
@@ -137,7 +152,8 @@ export const SelectionsPlayer = ({
           </button>
         </div>
         <div className="selections-player-primary-buttons-group">
-          <button type="button"
+          <button
+            type="button"
             className={classNames("selections-player-previous-button", {
               "selections-player-previous-button-light": isLightTheme,
             })}
@@ -145,7 +161,8 @@ export const SelectionsPlayer = ({
           >
             <BsFillSkipStartFill />
           </button>
-          <button type="button"
+          <button
+            type="button"
             className={classNames("selections-player-play-pause-button", {
               "selections-player-play-pause-button-light": isLightTheme,
             })}
@@ -153,7 +170,8 @@ export const SelectionsPlayer = ({
           >
             {!isPlaying ? <BsPlayFill /> : <BsPauseFill style={{ fill: "var(--red-700)" }} />}
           </button>
-          <button type="button"
+          <button
+            type="button"
             className={classNames("selections-player-next-button", {
               "selections-player-next-button-light": isLightTheme,
             })}
@@ -163,7 +181,8 @@ export const SelectionsPlayer = ({
           </button>
         </div>
         <div className="selections-player-secondary-buttons-right">
-          <button type="button"
+          <button
+            type="button"
             className={classNames("selections-player-refresh-button", {
               "selections-player-refresh-button-light": isLightTheme,
               "selections-player-refresh-button-en": isEnglishLanguage,

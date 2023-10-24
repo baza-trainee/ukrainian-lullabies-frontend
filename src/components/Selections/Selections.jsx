@@ -89,6 +89,7 @@ export const Selections = () => {
   const [isPlaylistLooped, setIsPlaylistLooped] = useState(false);
   const [isPlaylistShuffled, setIsPlaylistShuffled] = useState(false);
   const [volume, setVolume] = useState(0.5);
+  const [isMuted, setIsMuted] = useState(false);
   const [previousVolume, setPreviousVolume] = useState(0);
   const [currentSong, setCurrentSong] = useState(playlist[0].url);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
@@ -254,6 +255,7 @@ export const Selections = () => {
           onEnded={() => (isPlaylistLooped ? handleNextSong() : setIsPlaying(false))}
           loop={isLooped}
           volume={volume}
+          muted={isMuted}
         />
       </motion.div>
 
@@ -389,9 +391,11 @@ export const Selections = () => {
             setIsPlaylistShuffled={setIsPlaylistShuffled}
             playRandomSong={playRandomSong}
             volume={volume}
-            setVolume={setVolume}
-            previousVolume={previousVolume}
-            setPreviousVolume={setPreviousVolume}
+            setVolume={setVolume}     
+            isMuted={isMuted}
+            setIsMuted={setIsMuted}
+            // previousVolume={previousVolume}
+            // setPreviousVolume={setPreviousVolume}
             previousSongs={previousSongs}
             setPreviousSongs={setPreviousSongs}
           />
