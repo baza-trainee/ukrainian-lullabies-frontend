@@ -56,11 +56,43 @@ const AboutUsInfo = () => {
         className="target-container"
       >
         <div className="img-container target-img">
-          <img
-            src="/img/aboutUs/aboutUs-target.png"
-            alt="mother with baby"
-            loading="lazy"
-          />
+          <picture>
+            <source
+              srcSet="/img/aboutUs/aboutUs-target-desk-w.webp"
+              media="(min-width: 1440px)"
+              type="image/webp"
+            />
+            <source
+              srcSet="/img/aboutUs/aboutUs-target-desk-1x.jpg 1x, /img/aboutUs/aboutUs-target-desk-2x.jpg 2x"
+              media="(min-width: 1440px)"
+              type="image/jpg"
+            />
+            <source
+              srcSet="/img/aboutUs/aboutUs-target-tab-w.webp"
+              media="(min-width: 768px)"
+              type="image/webp"
+            />
+            <source
+              srcSet="/img/aboutUs/aboutUs-target-tab-1x.jpg 1x, /img/aboutUs/aboutUs-target-tab-2x.jpg 2x"
+              media="(min-width: 768px)"
+              type="image/jpg"
+            />
+            <source
+              srcSet="/img/aboutUs/aboutUs-target-mob-w.webp"
+              media="(min-width: 360px)"
+              type="image/webp"
+            />
+            <source
+              srcSet="/img/aboutUs/aboutUs-target-mob-1x.jpg 1x, /img/aboutUs/aboutUs-target-mob-2x.jpg 2x"
+              media="(min-width: 360px)"
+              type="image/jpg"
+            />
+            <img
+              src="/img/aboutUs/aboutUs-target.png"
+              alt="mother with baby"
+              loading="lazy"
+            />
+          </picture>
         </div>
         <div className="target-info">
           <p className="text-2xl title-small">{t("projectPurpose")}</p>
