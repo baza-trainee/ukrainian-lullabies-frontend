@@ -184,7 +184,7 @@
   padding: 5px;
   @media screen and (min-width: 1440px) {
     margin-right: 32px;
-    padding: 1px 6px;
+    padding: 1px;
   }
 }
 
