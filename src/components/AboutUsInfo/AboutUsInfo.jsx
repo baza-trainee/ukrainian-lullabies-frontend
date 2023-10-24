@@ -56,6 +56,7 @@ const AboutUsInfo = () => {
         className="target-container"
       >
         <div className="img-container target-img">
+
           <picture>
             <source
               srcSet="/img/aboutUs/aboutUs-target-desk-w.webp"
@@ -93,6 +94,7 @@ const AboutUsInfo = () => {
               loading="lazy"
             />
           </picture>
+
         </div>
         <div className="target-info">
           <p className="text-2xl title-small">{t("projectPurpose")}</p>
