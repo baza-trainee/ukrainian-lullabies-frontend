@@ -19,7 +19,8 @@ const PopUpFeedBack = ({ popUpThank, popupText, isLightTheme }) => {
   });
 
   return (
-    <div className={overlayClasses}>
+    <div style={{ position: "relative" }}>
+      <div className={overlayClasses}> </div>
       <div className={popupClasses}>
         <OrnamentsLeftIcon className="ornaments-pop-up" />
         <div className="text-2xl pop-up-text-form">
