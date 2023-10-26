@@ -97,7 +97,9 @@
   overflow-y: hidden;
 }
 .text-area::placeholder {
-  font-family: Montserrat Alternates;
+  font-family:
+    Montserrat Alternates,
+    sans-serif;
 }
 .text-under-text-area {
   display: -webkit-box;

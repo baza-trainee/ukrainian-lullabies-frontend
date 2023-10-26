@@ -16,10 +16,10 @@ const translations = {
       themeNotAllowedMessage:
         "Field contains illegal characters or a space at the beginning",
       themeMinLengthMessage: "The number of characters must be at least 6",
-      themeMaxLengthMessage: "The number of characters must not exceed 100",
+      themeMaxLengthMessage: "The number of characters should not exceed 100",
       messageNotAllowedMessage:
         "Field contains illegal characters or a space at the beginning",
-      messageMaxLengthMessage: "The number of characters must not exceed 600",
+      messageMaxLengthMessage: "The number of characters should not exceed 600",
     },
   },
   ua: {
