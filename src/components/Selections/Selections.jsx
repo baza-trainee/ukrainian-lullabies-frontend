@@ -173,50 +173,6 @@ export const Selections = () => {
     setCurrentSongIndex(newIndex);
   };
 
-  // dropdown menu item group for mobile
-  // const [isItemGroupOpen, setIsItemGroupOpen] = useState([]);
-  // const [activeButtonMoreIndex, setActiveButtonMoreIndex] = useState(null); // for buttom more to change colour
-
-  // const itemGroupMenuClick = (index, e) => {
-  //   setIsItemGroupOpen(new Array(playlist.length).fill(false));
-
-  //   setIsItemGroupOpen((prev) => {
-  //     const updatedState = [...prev];
-  //     updatedState[index] = !updatedState[index];
-  //     return updatedState;
-  //   });
-
-  //   setActiveButtonMoreIndex(isItemGroupOpen[index] ? null : index);
-  // };
-
-  // const menuRefs = playlist.map(() => useRef(null)); // Create an array of refs
-
-  // useEffect(() => {
-  //   const closeMenusOnBodyClick = (e) => {
-  //     if (!menuRefs.some((ref) => ref.current && ref.current.contains(e.target))) {
-  //       setIsItemGroupOpen(new Array(playlist.length).fill(false));
-  //       setActiveButtonMoreIndex(null);
-  //     }
-  //   };
-
-  //   document.body.addEventListener("click", closeMenusOnBodyClick);
-
-  //   return () => document.body.removeEventListener("click", closeMenusOnBodyClick);
-  // }, [menuRefs, playlist]);
-
-  // //  handle click on buttons
-  // const handleRepeatClick = (id) => {
-  //   console.log(`Repeating ${playlist[id].name}`);
-  // };
-
-  // const handleLikeClick = (id) => {
-  //   console.log(`Liked ${playlist[id].name}`);
-  // };
-
-  // const handleSaveClick = (id) => {
-  //   console.log(`Saved ${playlist[id].name}`);
-  // };
-
   useEffect(() => {
     if (currentLanguage === "en") {
       dispatch(fetchData("eng"));
@@ -290,6 +246,7 @@ export const Selections = () => {
                         <button
                           className={classNames("selections-playlist-item-play-pause-button", "selection-playlist-button", {
                             "selections-playlist-item-play-pause-button-light": isLightTheme,
+                            "selections-playlist-pause-button-light": isPlaying && isLightTheme && item.url === currentSong,
                           })}
                           onClick={() => playPauseSong(item.url)}
                         >
@@ -321,56 +278,7 @@ export const Selections = () => {
                           }
                         />
                       </button>
-                      {/* <button
-                    className="selections-playlist-item-like-button selection-playlist-button"
-                    onClick={() => handleLikeClick(item.id)}
-                  >
-                    <AiOutlineLike />
-                  </button>
-                  <button
-                    className="selections-playlist-item-save-button selection-playlist-button"
-                    onClick={() => handleSaveClick(item.id)}
-                  >
-                    <BsHeart />
-                  </button> */}
                     </div>
-                    {/* <button
-                  className={classNames("selections-playlist-item-group-menuIcon-mobile", {
-                    "selections-playlist-item-group-menuIcon-mobile-active": activeButtonMoreIndex === index,
-                  })}
-                  onClick={(e) => {
-                    itemGroupMenuClick(index, e);
-                  }}
-                  ref={menuRefs[index]}
-                >
-                  <FiMoreHorizontal />
-                </button>
-                <div
-                  className={classNames("text-sm", {
-                    "selections-playlist-item-group-mobile": isItemGroupOpen[index],
-                    hidden: !isItemGroupOpen[index],
-                    "selections-playlist-item-group-mobile-light": isLightTheme,
-                  })}
-                >
-                  <button
-                    className="selections-playlist-item-repeat-button selection-playlist-button"
-                    onClick={() => handleRepeatClick(item.id)}
-                  >
-                    <BsRepeat /> Зациклити пісню
-                  </button>
-                  <button
-                    className="selections-playlist-item-like-button selection-playlist-button"
-                    onClick={() => handleLikeClick(item.id)}
-                  >
-                    <AiOutlineLike /> Поставити вподобання
-                  </button>
-                  <button
-                    className="selections-playlist-item-save-button selection-playlist-button"
-                    onClick={() => handleSaveClick(item.id)}
-                  >
-                    <BsHeart /> Додати до улюлених
-                  </button>
-                </div> */}
                   </li>
                 ))}
             </ul>
@@ -391,7 +299,7 @@ export const Selections = () => {
             setIsPlaylistShuffled={setIsPlaylistShuffled}
             playRandomSong={playRandomSong}
             volume={volume}
-            setVolume={setVolume}     
+            setVolume={setVolume}
             isMuted={isMuted}
             setIsMuted={setIsMuted}
             // previousVolume={previousVolume}
