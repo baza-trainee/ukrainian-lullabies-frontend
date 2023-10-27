@@ -145,7 +145,7 @@ const FormFeedBack = () => {
                     <FormError
                       name="name"
                       component="div"
-                      className="text-base error-message"
+                      className="text-sm error-message"
                     />
                     <div className="label-feedback-container text-sm">
                       <label
@@ -175,7 +175,7 @@ const FormFeedBack = () => {
                     <FormError
                       name="email"
                       component="div"
-                      className="text-base error-message"
+                      className="text-sm error-message"
                     />
                     <div className="label-feedback-container text-sm">
                       <label
@@ -205,7 +205,7 @@ const FormFeedBack = () => {
                     <FormError
                       name="theme"
                       component="div"
-                      className="text-base error-message"
+                      className="text-sm error-message"
                     />
                     <div className="text-area-wrap text-sm">
                       <div className="label-feedback-container">
@@ -239,7 +239,7 @@ const FormFeedBack = () => {
                       <FormError
                         name="message"
                         component="div"
-                        className="error-message text-base"
+                        className="error-message text-sm"
                       />
                     </div>
                     <p className="text-sm text-under-text-area">
