@@ -68,10 +68,21 @@ export const SelectionsPlayer = ({
     setPreviousSongs(newArray);
   };
 
+  // const handleVolumeChange = (event) => {
+  //   const newVolume = parseFloat(event.target.value);
+  //   setVolume(newVolume);
+  //   setIsMuted(false);
+  // };
+
   const handleVolumeChange = (event) => {
     const newVolume = parseFloat(event.target.value);
-    setVolume(newVolume);
-    setIsMuted(false);
+    if (newVolume > 0) {
+      setVolume(newVolume);
+      setIsMuted(false);
+    } else {
+      setVolume(newVolume);
+      setIsMuted(true);
+    }
   };
 
   // const handleMute = () => {
