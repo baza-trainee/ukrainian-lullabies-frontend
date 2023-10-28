@@ -181,7 +181,7 @@ i18n
           letsPlayQuestion: "Зіграємо?",
           termsAndConditions: "Правила та умови",
           privacy: "Конфіденційність",
-          poRegulations: "Статут ГО",
+          poRegulations: "Звітність ГО",
           address: "Адреса:",
           UkraineKyiv: "Україна, Київ",
           telephone: "Телефон",

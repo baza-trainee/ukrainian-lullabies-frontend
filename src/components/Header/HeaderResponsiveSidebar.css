@@ -242,7 +242,7 @@
 
 
 /* swap social logos logic */
-.header-responsive-follow-icons a:active .sidebar-socials-icon-normal {
+/* .header-responsive-follow-icons a:active .sidebar-socials-icon-normal {
   display: none;
 }
 
@@ -252,7 +252,7 @@
 
 .sidebar-socials-icon-pressed {
   display: none;
-}
+} */
 
 @keyframes growToRight {
   0% {
