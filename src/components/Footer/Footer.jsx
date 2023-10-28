@@ -150,8 +150,9 @@ export const Footer = () => {
           <p> {t("footerText3")}</p>
         </div>
 
-        <div className="footer-logo">
-          <button            
+        {/* <div className="footer-logo"> */}
+        <button
+          className="footer-logo"
             onClick={() => {
               scrollToTarget("#header");
               navigate("/")
@@ -159,7 +160,7 @@ export const Footer = () => {
           >
             {isLightTheme ? <LogoLight width="92" height="88" /> : <LogoDark width="92" height="88" />}
           </button>
-        </div>
+        {/* </div> */}
         <ul className="footer-docs-wrapper">
           <li>
             <Link to="/" className="text-sm-semibold">
