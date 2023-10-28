@@ -9,7 +9,7 @@ const schema = (translations) => {
   return object({
     name: string()
       .matches(
-        /^[A-Za-z'ʼ-\u04FF\u0400-\u04FF-][A-Za-z'ʼ-\u04FF\u0400-\u04FF\s-]*$/,
+        /^(?!['ʼ\s-])[A-Za-z'ʼ-\u04FF\u0400-\u04FF\s-]*$/,
         currentTranslations.schema.nameInvalidName
       )
       .notOneOf(
