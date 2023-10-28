@@ -133,8 +133,6 @@ ul {
   position: absolute;
   bottom: 41%;
   right: 10px;
-  background: transparent;
-  border: none;
 
   @media screen and (min-width: 820px) {
     position: static;
@@ -143,10 +141,10 @@ ul {
   }
 }
 
-/* .footer-logo button {
+.footer-logo button {
   background: transparent;
   border: none;
-} */
+}
 
 /* docs */
 .footer-docs-wrapper {

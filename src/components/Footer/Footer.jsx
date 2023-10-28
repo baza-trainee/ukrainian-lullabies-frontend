@@ -76,10 +76,10 @@ const contactsError = false;
 export const Footer = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   // fetch data from store
-  
+
   // const contacts = useSelector((state) => state.contacts.data);
   // const contactsError = useSelector((state) => state.contacts.error);
   // const partners = useSelector((state) => state.partners.data);
@@ -114,6 +114,24 @@ export const Footer = () => {
     };
   }, []);
 
+  // logo scroll
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  const handleLogoClick = () => {
+    if (!isScrolling) {
+      setIsScrolling(true);
+      scrollToTop();
+      setTimeout(() => {
+        setIsScrolling(false);
+        navigate("/");
+      }, 1000);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   useEffect(() => {
     if (currentLanguage === "en") {
       dispatch(fetchContacts("eng"));
@@ -138,7 +156,7 @@ export const Footer = () => {
           "footer-scroll-up-button-invisible": !isScrollUpButtonVisible,
           "footer-scroll-up-button-light": isLightTheme,
         })}
-        onClick={() => scrollToTarget("#header")}
+        onClick={() => handleLogoClick()}
       >
         <BsArrowUpShort style={{ width: "32px", height: "32px" }} />
       </button>
@@ -150,17 +168,16 @@ export const Footer = () => {
           <p> {t("footerText3")}</p>
         </div>
 
-        {/* <div className="footer-logo"> */}
-        <button
-          className="footer-logo"
+        <div className="footer-logo">
+          <button
             onClick={() => {
               scrollToTarget("#header");
-              navigate("/")
+              // navigate("/")
             }}
           >
             {isLightTheme ? <LogoLight width="92" height="88" /> : <LogoDark width="92" height="88" />}
           </button>
-        {/* </div> */}
+        </div>
         <ul className="footer-docs-wrapper">
           <li>
             <Link to="/" className="text-sm-semibold">
