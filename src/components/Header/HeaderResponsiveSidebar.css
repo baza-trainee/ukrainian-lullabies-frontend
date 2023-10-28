@@ -243,7 +243,8 @@
 
 /* swap social logos logic */
 .header-responsive-follow-icons a:active .sidebar-socials-icon-normal {
-  display: none;
+  /* display: none; */
+  display: contents;
 }
 
 .header-responsive-follow-icons a:active .sidebar-socials-icon-pressed {
@@ -251,7 +252,8 @@
 }
 
 .sidebar-socials-icon-pressed {
-  display: none;
+  /* display: none; */
+  display: contents;
 }
 
 @keyframes growToRight {
