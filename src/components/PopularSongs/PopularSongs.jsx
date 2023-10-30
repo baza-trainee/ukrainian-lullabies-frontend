@@ -111,9 +111,9 @@ export function PopularSongs() {
     },
   ]);
 
-  useEffect(() => {
-    dispatch(getPopularSongs(language));
-  }, [dispatch, languagePopular]);
+  // useEffect(() => {
+  //   dispatch(getPopularSongs(language));
+  // }, [dispatch, languagePopular]);
 
   useEffect(() => {
     setCurrentSong(songs[1]);

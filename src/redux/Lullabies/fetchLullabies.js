@@ -35,7 +35,8 @@ export const fetchData = createAsyncThunk("traditionSongs/fetchData", async (lan
       region: item.region.name,
     }));
     dispatch(fetchDataSuccess(formatedData));
-    return formatedData;
+    // return formatedData;
+    return initialState;
   } catch (err) {
     dispatch(fetchDataFailure(err));
     throw err;

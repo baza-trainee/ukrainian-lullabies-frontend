@@ -13,7 +13,8 @@ export const fetchContacts = createAsyncThunk("contacts/fetchContacts", async (l
       "Accept-Language": lang
     },
   });
-  return response.data.results;
+  // return response.data.results;
+  return initialState;
 });
 
 const contactsSlice = createSlice({

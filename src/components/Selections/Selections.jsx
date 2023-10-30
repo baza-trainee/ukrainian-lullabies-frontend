@@ -112,14 +112,14 @@ export const Selections = () => {
   }, [currentPlayer]);
 
   // sending GET request to increment views
-  useEffect(() => {
-    const currentSongId = playlist[currentSongIndex].songId;
-    const currentTime = reactPlayerRef.current.getCurrentTime();
+  // useEffect(() => {
+  //   const currentSongId = playlist[currentSongIndex].songId;
+  //   const currentTime = reactPlayerRef.current.getCurrentTime();
 
-    if (isPlaying && currentSong !== "#" && currentTime < 0.3) {
-      axios.get(`http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/${currentSongId}/increment_views/`);
-    }
-  }, [isPlaying, currentSong]);
+  //   if (isPlaying && currentSong !== "#" && currentTime < 0.3) {
+  //     axios.get(`http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/${currentSongId}/increment_views/`);
+  //   }
+  // }, [isPlaying, currentSong]);
 
   // ------------+----+-----+----
   // ----+++---+---
@@ -173,13 +173,13 @@ export const Selections = () => {
     setCurrentSongIndex(newIndex);
   };
 
-  useEffect(() => {
-    if (currentLanguage === "en") {
-      dispatch(fetchData("eng"));
-    } else {
-      dispatch(fetchData("uk"));
-    }
-  }, [dispatch, currentLanguage]);
+  // useEffect(() => {
+  //   if (currentLanguage === "en") {
+  //     dispatch(fetchData("eng"));
+  //   } else {
+  //     dispatch(fetchData("uk"));
+  //   }
+  // }, [dispatch, currentLanguage]);
 
   const animationElement = {
     hidden: {
