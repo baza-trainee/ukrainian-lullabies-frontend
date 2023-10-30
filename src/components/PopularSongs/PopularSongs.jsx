@@ -199,11 +199,11 @@ export function PopularSongs() {
     (state) => state.currentPlayer.currentPlayer
   );
 
-  useEffect(() => {
-    if (isPlaying) {
-      dispatch(playerChanged("popular"));
-    }
-  }, [isPlaying]);
+  // useEffect(() => {
+  //   if (isPlaying) {
+  //     dispatch(playerChanged("popular"));
+  //   }
+  // }, [isPlaying]);
 
   useEffect(() => {
     if (currentPlayer !== "popular") {

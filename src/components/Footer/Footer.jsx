@@ -128,22 +128,22 @@ export const Footer = () => {
     }
   };
 
-  useEffect(() => {
-    if (currentLanguage === "en") {
-      dispatch(fetchContacts("eng"));
-    } else {
-      dispatch(fetchContacts("uk"));
-    }
-    dispatch(fetchPartners());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   if (currentLanguage === "en") {
+  //     dispatch(fetchContacts("eng"));
+  //   } else {
+  //     dispatch(fetchContacts("uk"));
+  //   }
+  //   dispatch(fetchPartners());
+  // }, [dispatch]);
 
-  useEffect(() => {
-    if (currentLanguage === "en") {
-      dispatch(fetchContacts("eng"));
-    } else {
-      dispatch(fetchContacts("uk"));
-    }
-  }, [dispatch, currentLanguage]);
+  // useEffect(() => {
+  //   if (currentLanguage === "en") {
+  //     dispatch(fetchContacts("eng"));
+  //   } else {
+  //     dispatch(fetchContacts("uk"));
+  //   }
+  // }, [dispatch, currentLanguage]);
 
   return (
     <div className="footer">
