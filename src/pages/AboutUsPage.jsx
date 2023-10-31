@@ -9,10 +9,10 @@ export const AboutUs = () => {
       {/* <h1 style={{margin: "50px"}}>About us page</h1> */}
       <AboutUsInfo />
       <OurAchivements />
-      {/* <div className="slider"> */}
+      <div className="slider">
         <OurPartners />
-        <FormFeedBack />
-      {/* </div> */}
+        {/* <FormFeedBack /> */}
+      </div>
     </>
   );
 };
