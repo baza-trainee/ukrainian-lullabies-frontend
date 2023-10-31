@@ -21,7 +21,6 @@ const schema = (translations) => {
     email: string()
       .matches(
         /^[a-zA-Z0-9]([._-]?[a-zA-Z0-9])+@[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])*\.[a-zA-Z]{2,}$/,
-
         currentTranslations.schema.emailNotAllowedMessage
       )
       .min(6, currentTranslations.schema.emailMinLengthMessage)
@@ -29,7 +28,7 @@ const schema = (translations) => {
       .required(currentTranslations.schema.requiredMessage),
     theme: string()
       .matches(
-        /^(?![~$@#№`{}[\]|/& ])[^~$@#№`{}[\]|/&]+(?<=[^~$@#№`{}[\]|/&])$/,
+        /^(?![~$@#№₴`{}[\]|/& ])[^~$@#№₴℉`{}[\]|/&]+$/,
         currentTranslations.schema.themeNotAllowedMessage
       )
       .min(6, currentTranslations.schema.themeMinLengthMessage)
@@ -37,7 +36,7 @@ const schema = (translations) => {
       .required(currentTranslations.schema.requiredMessage),
     message: string()
       .matches(
-        /^(?![~$@#№`{}[\]|/& ])[^~$@#№`{}[\]|/&]+(?<=[^~$@#№`{}[\]|/&])$/,
+        /^(?![~$@#№₴`{}[\]|/& ])[^~$@#№₴℉`{}[\]|/&]+$/,
         currentTranslations.schema.messageNotAllowedMessage
       )
       .max(600, currentTranslations.schema.messageMaxLengthMessage)
