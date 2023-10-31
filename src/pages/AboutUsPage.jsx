@@ -11,7 +11,7 @@ export const AboutUs = () => {
       <OurAchivements />
       {/* <div className="slider"> */}
         <OurPartners />
-        {/* <FormFeedBack /> */}
+        <FormFeedBack />
       {/* </div> */}
     </>
   );
