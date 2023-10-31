@@ -6,12 +6,13 @@ import FormFeedBack from "../components/FormFeedBack/FormFeedBack";
 export const AboutUs = () => {
   return (
     <>
-      <AboutUsInfo />
+      <h1 style={{margin: "50px"}}>About us page</h1>
+      {/* <AboutUsInfo />
       <OurAchivements />
       <div className="slider">
         <OurPartners />
         <FormFeedBack />
-      </div>
+      </div> */}
     </>
   );
 };
