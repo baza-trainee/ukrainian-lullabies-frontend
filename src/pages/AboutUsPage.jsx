@@ -10,7 +10,7 @@ export const AboutUs = () => {
       <AboutUsInfo />
       <OurAchivements />
       {/* <div className="slider"> */}
-        {/* <OurPartners /> */}
+        <OurPartners />
         {/* <FormFeedBack /> */}
       {/* </div> */}
     </>
