@@ -34,12 +34,10 @@ export const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const dropdownMenuClick = () => {
-    if (isDropdownOpen)
-    {
+    if (isDropdownOpen) {
       setIsDropdownOpen(false);
       dropdownWrapperRef.current.style.borderColor = "transparent";
-    } else
-    {
+    } else {
       setIsDropdownOpen(true);
       dropdownWrapperRef.current.style.borderColor = "var(--red-700)";
     }
@@ -47,8 +45,7 @@ export const Header = () => {
 
   useEffect(() => {
     const closeDropdown = (e) => {
-      if (!e.target.parentElement?.classList.contains("header-dropdown-button"))
-      {
+      if (!e.target.parentElement?.classList.contains("header-dropdown-button")) {
         setIsDropdownOpen(false);
         dropdownWrapperRef.current.style.borderColor = "transparent";
       }
@@ -60,8 +57,10 @@ export const Header = () => {
 
   // scroll to target
   const scrollToTarget = (target) => {
-    const scrollTo = document.querySelector(target);
-    scrollTo.scrollIntoView();
+    setTimeout(() => {
+      const scrollTo = document.querySelector(target);
+      scrollTo.scrollIntoView();
+    }, 50);
   };
 
   // language menu
@@ -75,14 +74,13 @@ export const Header = () => {
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
-    dispatch(languageChanged(lng))
+    dispatch(languageChanged(lng));
   };
   const currentLanguage = i18n.language;
 
   useEffect(() => {
     const closeLanguageMenu = (e) => {
-      if (!e.target.parentElement?.classList.contains("header-languages-button"))
-      {
+      if (!e.target.parentElement?.classList.contains("header-languages-button")) {
         setIsLanguageMenuOpen(false);
       }
     };
@@ -134,79 +132,79 @@ export const Header = () => {
   return (
     <div className="header container" id="header">
       <div className="header-logo">
-        <Link to="/">{ isLightTheme ? <LogoLight width="56" height="53" /> : <LogoDark width="56" height="53" /> }</Link>
+        <Link to="/">{isLightTheme ? <LogoLight width="56" height="53" /> : <LogoDark width="56" height="53" />}</Link>
       </div>
       <NavLink to="/about" className="header-about-link text-2xl">
-        { t("aboutUs") }
+        {t("aboutUs")}
       </NavLink>
-      <div className="header-dropdown-wrapper" ref={ dropdownWrapperRef }>
+      <div className="header-dropdown-wrapper" ref={dropdownWrapperRef}>
         <div
-          className={ classNames("header-dropdown-button", { "header-dropdown-button-light": isLightTheme }) }
-          onClick={ dropdownMenuClick }
+          className={classNames("header-dropdown-button", { "header-dropdown-button-light": isLightTheme })}
+          onClick={dropdownMenuClick}
         >
-          <span className="text-2xl">{ t("lullabiesMuseum") }</span>
-          <IoIosArrowDown style={ { width: "31px", height: "21px" } } />
+          <span className="text-2xl">{t("lullabiesMuseum")}</span>
+          <IoIosArrowDown style={{ width: "31px", height: "21px" }} />
         </div>
         <div
-          className={ classNames({
+          className={classNames({
             "header-dropdown-menu": isDropdownOpen,
             hidden: !isDropdownOpen,
             "header-dropdown-menu-light": isLightTheme,
-          }) }
+          })}
         >
-          <Link to="/map" className="text-base" onClick={ () => scrollToTarget("#mapTabsId") }>
-            { t("traditionalLullabies") }
+          <Link to="/map" className="text-base" onClick={() => scrollToTarget("#mapTabsId")}>
+            {t("traditionalLullabies")}
           </Link>
-          <Link to="/songs" className="text-base" onClick={ () => scrollToTarget("#mapTabsId") }>
-            { t("singingTogether") }
+          <Link to="/songs" className="text-base" onClick={() => scrollToTarget("#mapTabsId")}>
+            {t("singingTogether")}
           </Link>
-          <Link to="/anima" className="text-base" onClick={ () => scrollToTarget("#mapTabsId") }>
-            { t("animatedLullabies") }
+          <Link to="/anima" className="text-base" onClick={() => scrollToTarget("#mapTabsId")}>
+            {t("animatedLullabies")}
           </Link>
         </div>
       </div>
 
-      {/* HEADER OPTION BUTTONS */ }
-      <div className="header-options-wrapper" ref={ headerOptionsWrapperRef }>
-        <div className="header-languages-wrapper" onClick={ languageMenuClick }>
-          <div className={ classNames("header-languages-button", { "header-languages-button-light": isLightTheme }) }>
-            <span className="text-2xl">{ currentLanguage.toUpperCase() }</span>
-            <IoIosArrowDown style={ { width: "31px", height: "21px" } } />
+      {/* HEADER OPTION BUTTONS */}
+      <div className="header-options-wrapper" ref={headerOptionsWrapperRef}>
+        <div className="header-languages-wrapper" onClick={languageMenuClick}>
+          <div className={classNames("header-languages-button", { "header-languages-button-light": isLightTheme })}>
+            <span className="text-2xl">{currentLanguage.toUpperCase()}</span>
+            <IoIosArrowDown style={{ width: "31px", height: "21px" }} />
           </div>
           <div
-            className={ classNames({
+            className={classNames({
               "header-languages-menu": isLanguageMenuOpen,
               hidden: !isLanguageMenuOpen,
               "header-language-menu-light": isLightTheme,
-            }) }
-            ref={ languageMenuRef }
+            })}
+            ref={languageMenuRef}
           >
-            <button className="text-2xl" onClick={ () => changeLanguage("ua") }>
+            <button className="text-2xl" onClick={() => changeLanguage("ua")}>
               UA
             </button>
-            <button className="text-2xl" onClick={ () => changeLanguage("en") }>
+            <button className="text-2xl" onClick={() => changeLanguage("en")}>
               EN
             </button>
           </div>
         </div>
-        <HeaderUserIcon isLightTheme={ isLightTheme } />
+        <HeaderUserIcon isLightTheme={isLightTheme} />
         <div className="header-search-wrapper">
           <HeaderSearch
-            isLightTheme={ isLightTheme }
-            searchBarRef={ searchBarRef }
-            headerOptionsWrapperRef={ headerOptionsWrapperRef }
+            isLightTheme={isLightTheme}
+            searchBarRef={searchBarRef}
+            headerOptionsWrapperRef={headerOptionsWrapperRef}
           />
         </div>
-        <HeaderThemeToggle isLightTheme={ isLightTheme } />
+        <HeaderThemeToggle isLightTheme={isLightTheme} />
       </div>
 
-      {/* opened search bar */ }
-      <div className={ classNames("header-search-bar", "hidden", { "header-search-bar-light": isLightTheme }) } ref={ searchBarRef }>
+      {/* opened search bar */}
+      <div className={classNames("header-search-bar", "hidden", { "header-search-bar-light": isLightTheme })} ref={searchBarRef}>
         <input
           type="text"
-          placeholder={ t("searchUnavailable") }
+          placeholder={t("searchUnavailable")}
           className="text-xl"
-          onBlur={ closeSearchBar }
+          onBlur={closeSearchBar}
           id="headerSearchInput"
         />
         <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -221,13 +219,13 @@ export const Header = () => {
         </svg>
       </div>
 
-      {/* responsive menu */ }
+      {/* responsive menu */}
       <HeaderResponsiveSidebar
-        isLightTheme={ isLightTheme }
-        dispatch={ dispatch }
-        currentLanguage={ currentLanguage }
-        changeLanguage={ changeLanguage }
-        scrollToTarget={ scrollToTarget }
+        isLightTheme={isLightTheme}
+        dispatch={dispatch}
+        currentLanguage={currentLanguage}
+        changeLanguage={changeLanguage}
+        scrollToTarget={scrollToTarget}
       />
     </div>
   );

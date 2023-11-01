@@ -46,7 +46,7 @@ i18n
           letsPlayQuestion: "Let’s play?",
           termsAndConditions: "Terms and conditions",
           privacy: "Privacy",
-          poRegulations: "PO regulations",
+          poRegulations: "PO report",
           address: "Address:",
           UkraineKyiv: "Ukraine, Kyiv",
           telephone: "Telephone",
