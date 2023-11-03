@@ -17,66 +17,16 @@ import './MapPlayer.css';
 import { useRef } from "react";
 import { SoundWaveIcon } from "../../icons/SelectionsIcons/SoundWaveIcon";
 import { useLocation, useSearchParams } from 'react-router-dom';
-const songsData = [
-  {
-    index: 0,
-    id: 0,
-    url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
-    name: "Колискова для мами",
-    lyrics: 'колискова для мами слова',
-    duration: '00:59',
-    region: 'Полісся',
-  },
-  {
-    index: 1,
-    id: 1,
-    url: "https://deti.e-papa.com.ua/mpf/17146805.mp3",
-    name: "Ходить сон бiля вiкон",
-    lyrics: "Ой ходить сон коло вікон, \n А дрімота — коло плота.\nПитається сон дрімоти:\n — А де будем ночувати? \n \n\n \nДе хатонька теплесенька,\nДе дитина малесенька,—Там ми будем ночувати,Дитиночку колихати.\nОй на кота та воркота,На дитину та й дрімота,Котик буде воркотати,\n\n  Дитинонька буде спати. Ой ходить сон коло вікон, \n А дрімота — коло плота.\nПитається сон дрімоти:\n — А де будем ночувати? \n \n\n \nДе хатонька теплесенька,\nДе дитина малесенька,—Там ми будем ночувати,Дитиночку колихати.\nОй на кота та воркота,На дитину та й дрімота,Котик буде воркотати,\n\n  Дитинонька буде спати.",
-    duration: '00:59',
-    region: 'Карпати',
-  },
-  {
-    index: 2,
-    id: 2,
-    url: "https://deti.e-papa.com.ua/mpf/9211811816.mp3",
-    name: "Котику сіренький",
-    lyrics: 'Котику Сіренький \n Котику Біленький \n Котку Волохатий \nне ходи по Хаті \n Не ходи по Хаті \n не буди Дитяти \n Дитя буде спати \n Котик воркотати \nОй на Кота на Воркота \nНа Дитинку Дрімота \n(А-а а-а а-а а)',
-    duration: '00:59',
-    region: 'Полісся',
-  },
-  {
-    index: 3,
-    id: 3,
-    url: "https://deti.e-papa.com.ua/mpf/921180978.mp3",
-    name: "Колискова",
-    lyrics: 'Котику сіренький текст',
-    duration: '00:59',
-    region: 'Карпати',
-  },
-  {
-    index: 4,
-    id: 4,
-    url: "https://soundbible.com/mp3/Radio%20Tune-SoundBible.com-1525681700.mp3",
-    name: "Radio tune",
-    watches: 2000,
-    duration: "00:05",
-    region: 'Полісся',
-  },
-];
 
 export const MapPlayer = () => {
- 
+
   const [searchParams, setSearchParams] = useSearchParams()
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
 
-  // const data = useSelector((state) => state.traditionalSongs.data);
-  const loading = false;
-  const error = false;
-  // const loading = useSelector(selectLoading);
-  // const error = useSelector(selectError);
-  const data = songsData;
+  const data = useSelector(selectData);
+  const loading = useSelector(selectLoading);
+  const error = useSelector(selectError);
   const currentUrl = useSelector((state) => state.currentSong.currentUrl);
 
   const currentIndex = useSelector((state) => state.currentSong.currentIndex);
@@ -88,7 +38,6 @@ export const MapPlayer = () => {
   const [isLooped, setIsLooped] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [isLoopedPlaylist, setIsLoopedPlaylist] = useState(false);
-  const [volume, setVolume] = useState(0.5);
   const [currentSongState, setCurrentSongState] = useState(data[currentIndex]);
   const [currentTime, setCurrentTime] = useState(0);
 
@@ -103,7 +52,6 @@ export const MapPlayer = () => {
     reactPlayerRef.current.seekTo((divProgress / 100) * currentSongState.duration);
   };
 
- 
   const onPlaying = () => {
     if (reactPlayerRef.current && !loading && data)
     {
@@ -169,7 +117,7 @@ export const MapPlayer = () => {
     setSearchParams(`?id=${id}`);
     localStorage.setItem('currentSongId', id);
   };
-  
+
   const currentLanguage = i18n.language;
   useEffect(() => {
     if (currentLanguage === "en")
@@ -180,7 +128,7 @@ export const MapPlayer = () => {
       dispatch(fetchData("uk"));
     }
   }, [dispatch, currentLanguage]);
-    
+
   useEffect(() => {
     const savedId = localStorage.getItem('currentSongId');
     if (savedId)
@@ -257,14 +205,14 @@ export const MapPlayer = () => {
     }
   }, [isPlaying, currentIndex, data]);
 
-    let time = Math.floor(currentTime);
-    let minutes = Math.floor(time / 60);
-    let seconds = time % 60;
+  let time = Math.floor(currentTime);
+  let minutes = Math.floor(time / 60);
+  let seconds = time % 60;
 
-    let formattedMinutes = (minutes < 10) ? `0${minutes}` : `${minutes}`;
-    let formattedSeconds = (seconds < 10) ? `0${seconds}` : `${seconds}`;
+  let formattedMinutes = (minutes < 10) ? `0${minutes}` : `${minutes}`;
+  let formattedSeconds = (seconds < 10) ? `0${seconds}` : `${seconds}`;
 
-    let formattedCurrentTime = `${formattedMinutes}:${formattedSeconds}`;
+  let formattedCurrentTime = `${formattedMinutes}:${formattedSeconds}`;
 
   if (loading)
   {
@@ -290,8 +238,8 @@ export const MapPlayer = () => {
             playing={ isPlaying }
             onEnded={ handleAutoPlayNext }
             loop={ isLooped }
-            volume={1}
-            muted={isMuted}
+            volume={ 1 }
+            muted={ isMuted }
             onProgress={ onPlaying }
           />
           <h3 className="current-name text-l">

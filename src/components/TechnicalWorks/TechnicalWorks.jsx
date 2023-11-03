@@ -14,7 +14,6 @@ import "./TechnicalWorks.css";
 
 export const TechnicalWorks = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
-
   const scrollToTarget = (target) => {
     const scrollTo = document.querySelector(target);
     scrollTo.scrollIntoView({ block: "end" });
