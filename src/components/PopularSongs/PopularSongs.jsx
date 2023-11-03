@@ -41,7 +41,9 @@ export function PopularSongs() {
   const languagePopular = useSelector(
     (state) => state.currentLanguage.currentLanguage
   );
-  // const songsPopularPlayer = useSelector((state) => state.popularSongs.popularSongs.results);
+  const songsPopularPlayer = useSelector(
+    (state) => state.popularSongs.popularSongs.results
+  );
 
   const language = languagePopular === "ua" ? "uk" : "eng";
 
@@ -50,39 +52,19 @@ export function PopularSongs() {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  // const [title, setTitle] = useState([]);
-  // const [songs, setSongs] = useState([]);
+  const [title, setTitle] = useState([]);
+  const [songs, setSongs] = useState([]);
 
-  // useEffect(() => {
-  //   if (songsPopularPlayer) {
-  //     const audioList = songsPopularPlayer?.map(item => item.source.audio);
-  //     const titleList = songsPopularPlayer?.map(item => item.name);
+  useEffect(() => {
+    if (songsPopularPlayer) {
+      const audioList = songsPopularPlayer?.map((item) => item.source.audio);
+      const titleList = songsPopularPlayer?.map((item) => item.name);
 
-  //     setTitle([
-  //       `“${titleList[0]}”`,
-  //       `“${titleList[1]}”`,
-  //       `“${titleList[1]}”`
-  //     ]);
+      setTitle([`“${titleList[0]}”`, `“${titleList[1]}”`, `“${titleList[1]}”`]);
 
-  //     setSongs([
-  //       audioList[0],
-  //       audioList[1],
-  //       audioList[1],
-  //     ])
-  //   }
-  // }, [songsPopularPlayer]);
-
-  const [songs, setSongs] = useState([
-    "https://deti.e-papa.com.ua/mpf/17146860.mp3",
-    "https://deti.e-papa.com.ua/mpf/17146805.mp3",
-    "https://deti.e-papa.com.ua/mpf/17146898.mp3",
-  ]);
-
-  const [title, setTitle] = useState([
-    `“Сонце сідає”`,
-    `“Ой, ходить сон коло вікон”`,
-    `“Повішу я колисочку”`,
-  ]);
+      setSongs([audioList[0], audioList[1], audioList[1]]);
+    }
+  }, [songsPopularPlayer]);
 
   const [images, setImages] = useState([
     {
