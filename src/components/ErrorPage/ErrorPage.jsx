@@ -41,11 +41,11 @@ export const ErrorPage = () => {
       variants={ animationElement }
       custom={ 1 }
       ref={ ref }
-      className='technikal margin-bottom'
+      className='technikal'
     >
       <div className="technical_content">
         <div className="technikal__border ">
-          <div className=" tech-margin container">
+          <div className=" tech-margin">
             <motion.h2 custom={ 1 }
               variants={ animationElement } className="errorPage__title text-4xl">
               Page not found

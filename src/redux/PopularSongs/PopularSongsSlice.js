@@ -10,10 +10,11 @@ export const getPopularSongs = createAsyncThunk(
   async (language, { rejectWithValue }) => {
     try {
       const result = await axios.get(
-        "http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/?ordering=-views&limit=3&source-format=audio", {
-        headers: { "Accept-Language": language },
-      });
-
+        "http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/?ordering=-views&limit=3&source-format=audio",
+        {
+          headers: { "Accept-Language": language },
+        }
+      );
       return result.data;
     } catch (error) {
       console.error("Error fetching popular songs:", error);
@@ -27,10 +28,9 @@ export const popularSongsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder
-      .addCase(getPopularSongs.fulfilled, (state, action) => {
-        state.popularSongs = action.payload;
-      });
+    builder.addCase(getPopularSongs.fulfilled, (state, action) => {
+      state.popularSongs = action.payload;
+    });
   },
 });
 

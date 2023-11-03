@@ -5,6 +5,7 @@ import { Loader } from "../Loader/Loader";
 
 import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
+import { Ornaments } from "../Ornaments/Ornaments";
 import "../TechnicalWorks/TechnicalWorks.css";
 
 import TechMobSvg from "../../images/mobile-loader-black.png";
@@ -65,14 +66,15 @@ export const HeaderResponsiveUserLink = ({ isLightTheme }) => {
             </div>
           </div>
         }
-        modal        
+        modal
       >
         {(close) => (
           <div className={classNames("header-user-modal", { "header-user-modal-light": isLightTheme })}>
             <button className="header-user-modal-closeBtn" onClick={close}>
               &times;
             </button>
-            <HeaderTechnicalWorksElement isLightTheme={isLightTheme} />
+            <HeaderTechnicalWorksElement isLightTheme={isLightTheme}/>
+            <Ornaments />
           </div>
         )}
       </Popup>
@@ -93,7 +95,8 @@ const HeaderTechnicalWorksElement = ({ isLightTheme }) => {
           <OrnamentsLeftIcon />
         </div>
         <div>
-          <p style={{ marginBottom: "20px" }} className="center text-base">
+          {/* <p style={{ marginBottom: "20px" }} className="center text-base"> */}
+          <p style={{ marginBottom: "40px" }} className="center text-base">
             {t("technikalWorsk")}
 
             {t("technikalWorsk2")}

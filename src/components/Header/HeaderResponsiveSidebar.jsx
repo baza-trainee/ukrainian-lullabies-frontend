@@ -303,7 +303,7 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
                 height="24"
                 className="sidebar-socials-icon-normal"
               />
-              <img src={youtubeLogoPressed} alt="youtube" width="24" height="24" className="sidebar-socials-icon-pressed" />
+              {/* <img src={youtubeLogoPressed} alt="youtube" width="24" height="24" className="sidebar-socials-icon-pressed" /> */}
             </a>
             <a href="https://www.instagram.com/kolyskova.museum/" target="_blank" rel="noopener nofollow noreferrer">
               <img
@@ -313,7 +313,7 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
                 height="24"
                 className="sidebar-socials-icon-normal"
               />
-              <img src={instagramLogoPressed} alt="instagram" width="24" height="24" className="sidebar-socials-icon-pressed" />
+              {/* <img src={instagramLogoPressed} alt="instagram" width="24" height="24" className="sidebar-socials-icon-pressed" /> */}
             </a>
             <a href="https://www.facebook.com/" target="_blank" rel="noopener nofollow noreferrer">
               <img
@@ -323,7 +323,7 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
                 height="24"
                 className="sidebar-socials-icon-normal"
               />
-              <img src={facebookLogoPressed} alt="facebook" width="24" height="24" className="sidebar-socials-icon-pressed" />
+              {/* <img src={facebookLogoPressed} alt="facebook" width="24" height="24" className="sidebar-socials-icon-pressed" /> */}
             </a>
             <a href="https://www.tiktok.com/@kolyskovamuseum" target="_blank" rel="noopener nofollow noreferrer">
               <img
@@ -333,7 +333,7 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
                 height="24"
                 className="sidebar-socials-icon-normal"
               />
-              <img src={tiktokLogoPressed} alt="tiktok" width="24" height="24" className="sidebar-socials-icon-pressed" />
+              {/* <img src={tiktokLogoPressed} alt="tiktok" width="24" height="24" className="sidebar-socials-icon-pressed" /> */}
             </a>
           </div>
         </div>

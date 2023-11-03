@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Footer.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchContacts } from "../../redux/Contacts/contactsSlice";
 import { fetchPartners } from "../../redux/Partners/partnersSlice";
@@ -76,9 +76,10 @@ const contactsError = false;
 export const Footer = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // fetch data from store
-  
+
   // const contacts = useSelector((state) => state.contacts.data);
   // const contactsError = useSelector((state) => state.contacts.error);
   // const partners = useSelector((state) => state.partners.data);
@@ -112,6 +113,20 @@ export const Footer = () => {
       window.removeEventListener("scroll", checkVisibility);
     };
   }, []);
+
+  // footer logo scroll to top
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  const handleLogoClick = () => {
+    if (!isScrolling) {
+      setIsScrolling(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setTimeout(() => {
+        setIsScrolling(false);
+        navigate("/");
+      }, 100);
+    }
+  };
 
   useEffect(() => {
     if (currentLanguage === "en") {
@@ -150,14 +165,13 @@ export const Footer = () => {
         </div>
 
         <div className="footer-logo">
-          <Link
-            to="/"
+          <button
             onClick={() => {
-              scrollToTarget("#header");
+              handleLogoClick();
             }}
           >
             {isLightTheme ? <LogoLight width="92" height="88" /> : <LogoDark width="92" height="88" />}
-          </Link>
+          </button>
         </div>
         <ul className="footer-docs-wrapper">
           <li>

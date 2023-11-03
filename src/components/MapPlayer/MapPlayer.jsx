@@ -86,6 +86,7 @@ export const MapPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(currentUrl ? true : false);
   const [isRandom, setIsRandom] = useState(false);
   const [isLooped, setIsLooped] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
   const [isLoopedPlaylist, setIsLoopedPlaylist] = useState(false);
   const [volume, setVolume] = useState(0.5);
   const [currentSongState, setCurrentSongState] = useState(data[currentIndex]);
@@ -289,7 +290,8 @@ export const MapPlayer = () => {
             playing={ isPlaying }
             onEnded={ handleAutoPlayNext }
             loop={ isLooped }
-            volume={ volume }
+            volume={1}
+            muted={isMuted}
             onProgress={ onPlaying }
           />
           <h3 className="current-name text-l">
@@ -316,8 +318,8 @@ export const MapPlayer = () => {
             setIsLoopedPlaylist={ setIsLoopedPlaylist }
             isRandom={ isRandom }
             setIsRandom={ setIsRandom }
-            volume={ volume }
-            setVolume={ setVolume }
+            isMuted={ isMuted }
+            setIsMuted={ setIsMuted }
             setSearchParams={ setSearchParams }
           />
         </div>

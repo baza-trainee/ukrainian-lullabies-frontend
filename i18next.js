@@ -46,7 +46,7 @@ i18n
           letsPlayQuestion: "Let’s play?",
           termsAndConditions: "Terms and conditions",
           privacy: "Privacy",
-          poRegulations: "PO regulations",
+          poRegulations: "PO report",
           address: "Address:",
           UkraineKyiv: "Ukraine, Kyiv",
           telephone: "Telephone",
@@ -72,9 +72,9 @@ i18n
           name: "Name",
           taras: "Taras",
           messageSubject: "Message subject",
-          enterSubject: "Enter the subject of the message",
+          enterSubject: "Enter the subject of your message",
           messageText: "Message text",
-          enterTextMessage: "Enter the message text",
+          enterTextMessage: "Enter the text of the message",
           sendMessage: "Send a message",
           popUpThank: "Thank you,",
           popupText: "your message has been sent!",
@@ -120,11 +120,11 @@ i18n
             themeMinLengthMessage:
               "The number of characters must be at least 6",
             themeMaxLengthMessage:
-              "The number of characters must not exceed 100",
+              "The number of characters should not exceed 100",
             messageNotAllowedMessage:
               "Field contains illegal characters or a space at the beginning",
             messageMaxLengthMessage:
-              "The number of characters must not exceed 600",
+              "The number of characters should not exceed 600",
           },
         },
       },
@@ -181,7 +181,7 @@ i18n
           letsPlayQuestion: "Зіграємо?",
           termsAndConditions: "Правила та умови",
           privacy: "Конфіденційність",
-          poRegulations: "Статут ГО",
+          poRegulations: "Звітність ГО",
           address: "Адреса:",
           UkraineKyiv: "Україна, Київ",
           telephone: "Телефон",

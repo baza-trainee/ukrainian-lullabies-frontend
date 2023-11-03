@@ -26,7 +26,10 @@
   height: 174px;
   overflow: hidden;
   border-radius: 10px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), url(<path-to-image>), lightgray 50% / cover no-repeat;
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
+    url(<path-to-image>),
+    lightgray 50% / cover no-repeat;
   transition: transform 0.5s ease-in-out;
 
   @media screen and (min-width: 1024px) {
@@ -102,9 +105,9 @@
 
   @media screen and (min-width: 1024px) {
     display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: end;
@@ -190,7 +193,7 @@
 }
 
 .popular-dark {
-  color: var(--gray-0, #FAFAFA);
+  color: var(--gray-0, #fafafa);
 }
 
 .play-icon {

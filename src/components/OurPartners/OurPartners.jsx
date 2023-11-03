@@ -46,31 +46,20 @@ export const OurPartners = () => {
         variants={ animationElement }
         className='partners-container margin-bottom'>
         { !partnersError ? (
-          partners.map((partner, index) => {
+          partners.map((partner) => {
             return (
-              <><Link
+              <Link
                 to={ partner.website }
                 target="_blank"
                 rel="noopener nofollow noreferrer"
                 title={ partner.name }
-                key={ index }
+                key={ partner.name }
 
               >
                 <img
                   src={ isLightTheme ? partner.classic_logo : partner.dark_logo }
                   alt={ partner.name } className='partners-icons' />
-              </Link><Link
-                to={ partner.website }
-                target="_blank"
-                rel="noopener nofollow noreferrer"
-                title={ partner.name }
-                key={ index }
-
-              >
-                  <img
-                    src={ isLightTheme ? partner.classic_logo : partner.dark_logo }
-                    alt={ partner.name } className='partners-icons' />
-                </Link></>
+              </Link>
             )
           })) : <div>Error: { partnersError }</div> }
       </motion.div>

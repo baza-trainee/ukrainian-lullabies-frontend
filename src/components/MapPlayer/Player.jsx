@@ -19,8 +19,8 @@ export const Player = ({
   setIsLoopedPlaylist,
   isRandom,
   setIsRandom,
-  volume,
-  setVolume,
+  isMuted,
+  setIsMuted,
   setSearchParams,
 }) => {
   const [playHistory, setPlayHistory] = useState([]);
@@ -98,21 +98,11 @@ export const Player = ({
 
     setTimeout(() => setShareClicked(false), 2000);
   };
-
-  const reactPlayerRef = useRef();
-  useEffect(() => {
-    if (reactPlayerRef.current)
-    {
-      reactPlayerRef.current.setVolume(volume);
-    }
-  }, [volume]);
-
+  
   const handleMute = () => {
-    setVolume(0);
+    setIsMuted(!isMuted)
   };
-  const handleUnMute = () => {
-    setVolume(0.5);
-  };
+
   const hendleRandom = () => {
     setIsRandom(!isRandom);
   };
@@ -191,10 +181,10 @@ export const Player = ({
           <FiRefreshCw style={ isLoopedPlaylist && { color: "var(--red-700)" } } />
         </button>
         <div className="map-player-volume-button">
-          { volume > 0 ? (
-            <HiVolumeUp onClick={ () => handleMute() } />
+          { !isMuted ? (
+            <HiVolumeUp onClick={ handleMute } />
           ) : (
-            <HiVolumeOff onClick={ handleUnMute } />
+            <HiVolumeOff onClick={ handleMute } />
           ) }
         </div>
       </div>
