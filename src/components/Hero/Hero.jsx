@@ -35,8 +35,7 @@ const Hero = () => {
 
   const copyLinkToClipboard = async () => {
     try {
-      const urlToCopy =
-        "https://kolyskova-sound-git-dev-baza-trainee-ukraine.vercel.app/#/map";
+      const urlToCopy = "https://kolyskova.com";
       await navigator.clipboard.writeText(urlToCopy);
       notification();
     } catch (error) {
