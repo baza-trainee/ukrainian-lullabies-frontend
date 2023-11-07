@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import VitePluginAlias from 'vite-plugin-alias';
-import ViteImagemin from 'vite-plugin-imagemin';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,19 +10,6 @@ export default defineConfig({
       entries: [
         { find: 'framer-motion', replacement: 'framer-motion/dist/framer-motion.cjs.js' },
       ],
-    }),
-      ViteImagemin({
-      jpeg: {
-        quality: 80,
-        maxFileSize: 200 * 1024,
-      },
-      png: {
-        optimizationLevel: 5,
-        maxFileSize: 200 * 1024,
-      },
-      svg: {
-        maxFileSize: 200 * 1024,
-      },
     }),
   ],
 
@@ -35,7 +21,5 @@ export default defineConfig({
       },
     },
   },
-
-
 });
 
