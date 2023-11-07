@@ -18,8 +18,8 @@ const initialState = {
 
 export const fetchData = createAsyncThunk("traditionSongs/fetchData", async (lang, { dispatch }) => {
   try {
-    dispatch(fetchDataStart()); // Викликати fetchDataStart перед запитом з параметром `lang`
-    const response = await axios.get("http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/?source-format=audio", {
+    dispatch(fetchDataStart());
+    const response = await axios.get("https://kolyskova.com/api/lullabies/?source-format=audio", {
       headers: {
         "Accept-Language": lang,
       },
