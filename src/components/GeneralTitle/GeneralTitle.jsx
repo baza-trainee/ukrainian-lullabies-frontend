@@ -6,7 +6,6 @@ export const GeneralTitle = () => {
 
 
   return (
-
     <div
       className="kolyskova-container"
     >
