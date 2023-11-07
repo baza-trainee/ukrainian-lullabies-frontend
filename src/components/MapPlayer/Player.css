@@ -1,0 +1,235 @@
+.map-player-navigation-wrapper {
+   display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0px;
+  margin: 0 17px;
+  border-radius: 36px;
+  background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.1) 0.88%, rgba(255, 255, 255, 0) 99.96%));
+  @media screen and (min-width: 1440px) {
+    margin: 0;
+  }
+}
+
+.map-player-navigation-wrapper-light {
+  background: var(--gray-black-25);
+  color: var(--gray-black-400);
+}
+
+/* buttons styles */
+
+/* primary buttons */
+.map-player-primary-buttons-group {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.map-player-previous-button,
+.map-player-play-pause-button,
+.map-player-next-button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px;
+  border: none;
+  border-radius: 36px;
+  background: var(--gray-black-900, linear-gradient(171deg, rgba(255, 255, 255, 0.1) 0.88%, rgba(255, 255, 255, 0) 99.96%));
+}
+
+.map-player-previous-button svg,
+.map-player-play-pause-button svg,
+.map-player-next-button svg {
+  width: 30px;
+  height: 30px;
+  fill: white;
+}
+
+.map-player-play-pause-button svg {
+  width: 40px;
+  height: 40px;
+  border-radius: 72px;
+}
+
+.map-player-previous-button:active svg,
+.map-player-play-pause-button:active svg,
+.map-player-next-button:active svg {
+  fill: var(--red-700);
+}
+
+.map-player-previous-button-light,
+.map-player-play-pause-button-light,
+.map-player-next-button-light {
+  background: var(--gray-black-25);
+}
+
+.map-player-previous-button-light svg,
+.map-player-play-pause-button-light svg,
+.map-player-next-button-light svg {
+  fill: var(--gray-black-400);
+}
+
+/* secondary buttons */
+.map-player-secondary-buttons-left,
+.map-player-secondary-buttons-right {
+  grid-row: 2 / 3;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.map-player-secondary-buttons-left {
+  grid-column: 1 / 2;
+  justify-self: end;
+
+  @media screen and (min-width: 1440px) {
+    margin: 0 16px 0 auto;
+  }
+}
+
+.map-player-secondary-buttons-right {
+  justify-self: start;
+}
+
+.map-player-share-button,
+.map-player-shuffle-button,
+.map-player-refresh-button,
+.map-player-volume-button {
+  display: block;
+  background: transparent;
+  border: none;
+  color: inherit;
+  position: relative;
+  padding: 11px 13px;
+}
+
+.map-player-share-button svg,
+.map-player-shuffle-button svg,
+.map-player-refresh-button svg,
+.map-player-volume-button svg {
+  width: 22px;
+  height: 22px;
+}
+
+@media screen and (min-width: 1440px) {
+  .map-player-share-button:hover,
+  .map-player-shuffle-button:hover,
+  .map-player-refresh-button:hover {
+    color: var(--red-700);
+  }
+}
+/* activated buttons */
+.map-player-button-active {
+  color: var(--red-700);
+}
+
+/* popup effects on hover */
+@media screen and (min-width: 1440px) {
+  .map-player-share-button:hover:after,
+  .map-player-shuffle-button:hover:after,
+  .map-player-refresh-button:hover:after {
+    display: block;
+  }
+}
+
+.map-player-share-button:after,
+.map-player-shuffle-button:after,
+.map-player-refresh-button:after {
+  display: none;
+  background: var(--gray-black-800);
+  color: var(--white-0);
+  padding: 4px 8px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 110%;
+  right: 0px;
+  z-index: 10;
+}
+
+.map-player-share-button:after {
+  content: "Поділитись";
+}
+
+.map-player-share-button-en:after {
+  content: "Share";
+}
+
+.map-player-share-clicked::after {
+  content: "Посилання скопійовано";
+  text-wrap: nowrap;
+  right: -300%;
+}
+
+.map-player-share-clicked-en::after {
+  content: "The link has been copied";
+  text-wrap: nowrap;
+  right: -300%;
+}
+
+.map-player-shuffle-button:after {
+  content: "Перемішати";
+}
+
+.map-player-shuffle-button-en:after {
+  content: "Shuffle";
+}
+
+.map-player-refresh-button:after {
+  content: "Слухати по колу";
+  text-wrap: nowrap;
+}
+
+.map-player-refresh-button-en:after {
+  content: "Loop playlist";
+  text-wrap: nowrap;
+}
+
+.map-player-share-button-light:after,
+.map-player-shuffle-button-light:after,
+.map-player-refresh-button-light:after {
+  background: var(--gray-black-100);
+  color: var(--red-700);
+}
+
+.map-player-share-popup {
+  background: var(--gray-black-800);
+  color: var(--white-0);
+  padding: 4px 8px;
+  border-radius: 10px;
+}
+
+.map-player-share-popup-light {
+  background: var(--gray-black-100);
+  color: var(--red-700);
+}
+
+/* volume control styles */
+.map-player-volume-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.map-player-sec-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

@@ -1,0 +1,135 @@
+.heroWrapper {
+  display: grid;
+  grid-column: 1/1;
+
+  justify-content: center;
+  text-align: center;
+
+  background-image: url("../../images/frame-about.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @media screen and (min-width: 768px) {
+    display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+    grid-column: 1/13;
+    background-size: 100%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .heroWrapper {
+    background-size: contain;
+  }
+}
+.kolyskovaWrap {
+  grid-column: 1/13;
+  margin-bottom: 24px;
+
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    margin-bottom: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 48px;
+  }
+}
+.hero-margin {
+  margin-bottom: 32px;
+  margin-top: 56px;
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 0;
+    margin-top: 110px;
+  }
+}
+
+.fill-for-dark {
+  fill: var(--white-0);
+}
+
+.fill-for-light {
+  fill: var(--grey-black-950);
+}
+
+@media (max-width: 1439px) {
+  .element-left,
+  .element-right {
+    display: none;
+  }
+}
+
+@media (min-width: 1440px) {
+  .element-left,
+  .element-right {
+    display: block;
+  }
+}
+.text-tablet-hero {
+  text-align: center;
+}
+.ornamentWrap {
+  /* grid-column: 1/13; */
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+  margin-bottom: 24px;
+
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    margin-bottom: 32px;
+    padding: 0 60px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 48px;
+    margin-top: 48px;
+    padding: 0 60px;
+  }
+}
+
+.hero-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 24px;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+
+  @media screen and (min-width: 768px) {
+    display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+    flex-direction: inherit;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.listen-button {
+  border: 2px solid var(--red-700);
+  color: var(--red-700);
+}
+
+.shareIcon {
+  margin-left: 8px;
+}
+
+.ornamets-hero {
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}

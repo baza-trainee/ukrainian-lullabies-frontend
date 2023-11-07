@@ -1,0 +1,77 @@
+.cookies {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding: 16px;
+  z-index: 20;
+  position: fixed;
+  bottom: 0;
+  background: var(--white-0);
+  color: var(--gray-black-950);
+
+  @media screen and (min-width: 1160px) {
+    flex-direction: row;
+    gap: 0px;
+    height: 130px;
+    padding: 41px 120px;
+    justify-content: center;
+    align-items: center;
+    top: 83vh;
+  }
+}
+
+.cookies-close-button {
+  color: inherit;
+  font-size: 40px;
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.cookies-text {
+  padding-top: 40px;
+  @media screen and (min-width: 1160px) {
+    width: 55%;
+    margin-right: 32px;
+    padding-top: 0;
+  }
+}
+
+.cookies-settings-button {
+  color: var(--red-700);
+  border: none;
+  background: transparent;
+  text-wrap: nowrap;
+
+  @media screen and (min-width: 1160px) {
+    margin-right: 24px;
+  }
+}
+
+.cookies-settings-button span {
+  border-bottom: 1px solid var(--red-700);
+  padding: 4px 0;
+}
+
+.cookies-accept-button {
+  color: var(--red-700);
+  padding: 16px 47px;
+  border: 2px solid var(--red-700);
+  border-radius: 36px;
+  background: transparent;
+}
+
+.cookies-light {
+  background: var(--gray-black-950);
+  color: var(--white-0);
+}
+
+.cookies-settings-button-light,
+.cookies-settings-button-light span,
+.cookies-accept-button-light {
+  color: var(--white-0);
+  border-color: var(--white-0);
+}
