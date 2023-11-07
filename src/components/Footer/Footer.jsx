@@ -8,8 +8,7 @@ import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 
 import { LogoDark, LogoLight } from "../SVGComponents/Logo";
-import { BsFacebook, BsArrowUpShort } from "react-icons/bs";
-import { FaTiktok, FaInstagram, FaYoutube } from "react-icons/fa";
+import { BsArrowUpShort } from "react-icons/bs";
 
 // social icons logos
 import youtubeLogoHover from "../../icons/Socials/youtube-logo-hover.svg";
@@ -31,47 +30,6 @@ import tiktokLogoHover from "../../icons/Socials/tiktok-logo-hover.svg";
 import tiktokLogoWhite from "../../icons/Socials/tiktok-logo-white.svg";
 import tiktokLogoBlack from "../../icons/Socials/tiktok-logo-black.svg";
 import tiktokLogoPressed from "../../icons/Socials/tiktok-logo-pressed.svg";
-
-// partners logo
-import logoPartnerRed from "../../assets/icons/logo_partner_red.svg";
-import logoBazaTraineeWhite from "../../assets/icons/logo_baza_trainee_white.svg";
-import logoBazaTraineeBlack from "../../assets/icons/logo_baza_trainee_black.svg";
-import logoEtnoPhotosWhite from "../../assets/icons/logo_etno_photos_white.svg";
-import logoEtnoPhotosBlack from "../../assets/icons/logo_etno_photos_black.svg";
-
-// const partners = [
-//   {
-//     name: "Partner Red",
-//     dark_logo: logoPartnerRed,
-//     classic_logo: logoPartnerRed,
-//     alt: "Partner Red logo",
-//     website: "#",
-//   },
-//   {
-//     name: "Baza Trainee",
-//     dark_logo: logoBazaTraineeWhite,
-//     classic_logo: logoBazaTraineeBlack,
-//     alt: "Baza Trainee logo",
-//     website: "https://baza-trainee.tech",
-//   },
-//   {
-//     name: "Etno Photos",
-//     dark_logo: logoEtnoPhotosWhite,
-//     classic_logo: logoEtnoPhotosBlack,
-//     alt: "Ento Photos logo",
-//     website: "https://www.facebook.com/etnofotka/photos/",
-//   },
-// ];
-// const partnersError = false;
-
-// const contacts = [
-//   { value: "nothing" },
-//   { value: "nothing" },
-//   { value: "museum.kolyskova@gmail.com" },
-//   { value: "Україна, Київ" },
-//   { value: "+38097732542" },
-// ];
-// const contactsError = false;
 
 export const Footer = () => {
   const { t } = useTranslation();

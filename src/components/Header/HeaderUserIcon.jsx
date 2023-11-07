@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+import React from 'react';
 import classNames from "classnames";
 import Popup from "reactjs-popup";
 import { useTranslation } from "react-i18next";
@@ -7,11 +9,6 @@ import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
 import { Ornaments } from "../Ornaments/Ornaments";
 import "../TechnicalWorks/TechnicalWorks.css";
-
-import TechMobSvg from "../../images/mobile-loader-black.png";
-import TechMobSvgLight from "../../images/mobile-loader-white.png";
-import TechDeskSvg from "../../images/loader-dark1.png";
-import TechDeskSvgLight from "../../images/loader-light.png";
 
 export const HeaderUserIcon = ({ isLightTheme }) => {
   return (
@@ -46,7 +43,7 @@ export const HeaderUserIcon = ({ isLightTheme }) => {
 };
 
 export const HeaderResponsiveUserLink = ({ isLightTheme }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
     <>
       <Popup
@@ -83,9 +80,7 @@ export const HeaderResponsiveUserLink = ({ isLightTheme }) => {
 };
 
 // helper
-const HeaderTechnicalWorksElement = ({ isLightTheme }) => {
-  const SvgMob = isLightTheme ? TechMobSvg : TechMobSvgLight;
-  const SvgDesk = isLightTheme ? TechDeskSvg : TechDeskSvgLight;
+const HeaderTechnicalWorksElement = () => {
   const { t } = useTranslation();
   return (
     <div style={{ flexDirection: "column" }} className="tech-wrap">      

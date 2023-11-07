@@ -246,24 +246,6 @@
   color: var(--red-700);
 }
 
-/* scrollbar (remove this if all work)*/
-
-/* .selections-playlist-list::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-.selections-playlist-list::-webkit-scrollbar-track {
-  background: var(--gray-black-800);
-  border-radius: 10px;
-}
-
-.selections-playlist-list::-webkit-scrollbar-thumb {
-  background: var(--gray-black-300);
-  border-radius: 10px;
-} */
-
-/* end section ornament */
 .selections-ornament-desktop {
   display: none;
   @media screen and (min-width: 1440px) {

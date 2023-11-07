@@ -15,7 +15,6 @@ const ButtonForm = ({
 
   const handleMouseEnter = () => {
     setIsHovered(true);
-    // Викликаємо checkFormState при наведенні мишкою
     checkFormState();
   };
 
