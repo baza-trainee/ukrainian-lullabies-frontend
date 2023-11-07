@@ -12,16 +12,10 @@ import { HeaderThemeToggle } from "./HeaderThemeToggle";
 
 // import logos
 import { LogoDark, LogoLight } from "../SVGComponents/Logo";
-import patreonLogoWhite from "../../assets/icons/patreon_logo_white.svg";
-import patreonLogoBlack from "../../assets/icons/patreon_logo_black.svg";
-import bmcLogo from "../../assets/icons/BMC_logo.svg";
+
 
 // import icons
-import SIconSidebar from "../../icons/SIconSidebar";
 import { IoIosArrowDown } from "react-icons/io";
-import { BsFacebook } from "react-icons/bs";
-import { FaTiktok, FaInstagram, FaYoutube } from "react-icons/fa";
-import { FiX } from "react-icons/fi";
 import { HeaderResponsiveSidebar } from "./HeaderResponsiveSidebar";
 import { HeaderUserIcon } from "./HeaderUserIcon";
 
@@ -92,22 +86,6 @@ export const Header = () => {
   // search bar
   const searchBarRef = useRef();
   const headerOptionsWrapperRef = useRef();
-
-  // const searchIconClick = () => {
-  //   const parent = headerOptionsWrapperRef.current.parentNode;
-  //   const input = document.getElementById("headerSearchInput");
-  //   parent.childNodes.forEach((el) => {
-  //     if (el.classList.contains("header-about-link") || el.classList.contains("header-dropdown-wrapper")) {
-  //       el.classList.add("hidden");
-  //     }
-  //   });
-  //   headerOptionsWrapperRef.current.style.display = "none";
-  //   parent.classList.remove("container");
-  //   parent.classList.add("header-with-search-bar-open");
-  //   searchBarRef.current.classList.remove("hidden");
-  //   searchBarRef.current.classList.add("header-search-bar-open");
-  //   input.focus();
-  // };
 
   const closeSearchBar = () => {
     const parent = headerOptionsWrapperRef.current.parentNode;

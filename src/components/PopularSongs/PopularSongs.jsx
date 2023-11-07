@@ -176,7 +176,6 @@ export function PopularSongs() {
     }),
   };
 
-  // preventing players from playing alltogether
   const currentPlayer = useSelector(
     (state) => state.currentPlayer.currentPlayer
   );

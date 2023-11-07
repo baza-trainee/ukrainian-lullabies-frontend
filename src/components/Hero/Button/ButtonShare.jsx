@@ -9,7 +9,6 @@ import Share from "../../../icons/Share";
 import "./button-share.css";
 
 const ButtonShare = ({ text, onClick }) => {
-  // theme toggle
   const isLightTheme = useSelector(getLightTheme);
 
   return (
