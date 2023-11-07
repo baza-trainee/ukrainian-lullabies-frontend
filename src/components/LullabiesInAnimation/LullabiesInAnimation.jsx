@@ -2,68 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ReactPlayer from 'react-player'
 import "./lullabies-animation.css";
-import { useTranslation } from 'react-i18next';
 import classNames from "classnames";
 import { Player } from "./Player";
 import { fetchData, selectData } from "../../redux/Lullabies/animationLullabiesSlice";
 
 export const LullabiesInAnimation = () => {
   const dispatch = useDispatch();
-  // const playlist = useSelector(selectData);
-  // const loading = useSelector(selectLoading);
-
-  const [playlist] = useState([
-    {
-      url: 'https://www.youtube.com/watch?v=SGjK-uN7jnI',
-      name: 'Сонько-дрімко',
-      cover: 'https://papik.pro/uploads/posts/2022-01/thumbs/1642303842_1-papik-pro-p-son-klipart-1.png',
-      likes: '152',
-      vievs: '295',
-    },
-    {
-      url: 'https://www.youtube.com/watch?v=tHAIfNSJM4U',
-      name: 'Котику сіренький',
-      cover: 'https://psychblog.odb.poltava.ua/wp-content/uploads/2017/01/7896.jpg',
-      likes: '5112',
-      vievs: '25',
-    },
-
-    {
-      url: 'https://www.youtube.com/watch?v=lzbQgwjy8wc',
-      name: 'Назва   відео',
-      cover: 'https://psychblog.odb.poltava.ua/wp-content/uploads/2017/01/7896.jpg',
-      likes: '1112',
-      vievs: '325',
-    },
-    {
-      url: 'https://www.youtube.com/watch?v=pBTCycLsX7k&list=OLAK5uy_lXxkzm7tF0RjPEPM0oepTF8T7H9it5Vs4&index=2',
-      name: 'Мій солодкий ангел',
-      cover: 'https://papik.pro/uploads/posts/2022-01/thumbs/1642303842_1-papik-pro-p-son-klipart-1.png',
-      likes: '133',
-      vievs: '225',
-    },
-    {
-      url: 'https://www.youtube.com/watch?v=t2o03R5BsFA',
-      name: 'ОЙ ЛЮЛІ ЛЮЛІ налетіли гулі',
-      cover: 'https://psychblog.odb.poltava.ua/wp-content/uploads/2017/01/7896.jpg',
-      likes: '12',
-      vievs: '35',
-    },
-    {
-      url: 'https://www.youtube.com/watch?v=DPLXJTyDppQ&list=OLAK5uy_lXxkzm7tF0RjPEPM0oepTF8T7H9it5Vs4&index=4',
-      name: 'Назва   відео',
-      cover: 'https://papik.pro/uploads/posts/2022-01/thumbs/1642303842_1-papik-pro-p-son-klipart-1.png',
-      likes: '108',
-      vievs: '45',
-    },
-    {
-      url: 'https://www.youtube.com/watch?v=qzdeqdmcBfY&list=RDEMFOFXNl9_ct3pVQzNXus1DQ&start_radio=1&rv=XjB_0W_w90o',
-      name: 'Ой, люлі люлі',
-      cover: 'https://papik.pro/uploads/posts/2022-01/thumbs/1642303842_1-papik-pro-p-son-klipart-1.png',
-      likes: '190',
-      vievs: '25',
-    },
-  ]);
+  const playlist = useSelector(selectData);
 
   const [currentVideoUrl, setCuerrentVideoUrl] = useState(playlist[0].url)
 
@@ -78,7 +23,6 @@ export const LullabiesInAnimation = () => {
     dispatch(fetchData());
   }, []);
 
-
   const handleVideoChange = (index, url) => {
     setCuerrentVideoUrl(url);
     setCurrentVideoIndex(index);
@@ -86,9 +30,7 @@ export const LullabiesInAnimation = () => {
 
   const [playerSize, setPlayerSize] = useState({ width: 672, height: 404 });
 
-
   const handleNextSong = () => {
-    // its own function, we have similar in SelectionsPlayer
     if (isPlaylistShuffled)
     {
       playRandomSong();
@@ -189,10 +131,8 @@ export const LullabiesInAnimation = () => {
               setIsPlaylistShuffled={ setIsPlaylistShuffled }
               playRandomSong={ playRandomSong }
               name={ playlist[currentVideoIndex].name }
-
               setIsPlaying={ setIsPlaying }
               isPlaying={ isPlaying }
-
             />
           </div>
 
@@ -200,7 +140,7 @@ export const LullabiesInAnimation = () => {
       </div>
 
       <ul className="playlist-anima playlist-scroll">
-        { playlist.map(({ cover, name, duration, url }, index) => (
+        { playlist.map(({ cover, name, url }, index) => (
           <li
             key={ index }
             className={ classNames('playlist-card', { 'current-card': index === currentVideoIndex, 'playlist-card-light': isLightTheme, 'playlist-card-dark': !isLightTheme }) }
