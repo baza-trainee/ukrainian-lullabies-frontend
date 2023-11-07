@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
@@ -17,39 +18,35 @@ import bmcLogo from "../../assets/icons/BMC_logo.svg";
 // import icons
 import SIconSidebar from "../../icons/SIconSidebar";
 import { IoIosArrowDown } from "react-icons/io";
-import { BsFacebook } from "react-icons/bs";
-import { FaTiktok, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FiX } from "react-icons/fi";
 
 // social icons logos
 import youtubeLogoWhite from "../../icons/Socials/youtube-logo-white.svg";
 import youtubeLogoBlack from "../../icons/Socials/youtube-logo-black.svg";
-import youtubeLogoPressed from "../../icons/Socials/youtube-logo-pressed.svg";
 
 import instagramLogoWhite from "../../icons/Socials/instagram-logo-white.svg";
 import instagramLogoBlack from "../../icons/Socials/instagram-logo-black.svg";
-import instagramLogoPressed from "../../icons/Socials/instagram-logo-pressed.svg";
 
 import facebookLogoWhite from "../../icons/Socials/facebook-logo-white.svg";
 import facebookLogoBlack from "../../icons/Socials/facebook-logo-black.svg";
-import facebookLogoPressed from "../../icons/Socials/facebook-logo-pressed.svg";
 
 import tiktokLogoWhite from "../../icons/Socials/tiktok-logo-white.svg";
 import tiktokLogoBlack from "../../icons/Socials/tiktok-logo-black.svg";
-import tiktokLogoPressed from "../../icons/Socials/tiktok-logo-pressed.svg";
 import Popup from "reactjs-popup";
 
 export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentLanguage, scrollToTarget }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const body = document.body;
 
   const handleBurgerClick = () => {
-    if (!isSideMenuOpen) {
+    if (!isSideMenuOpen)
+    {
       setIsSideMenuOpen(true);
       body.style.overflow = "hidden";
-    } else {
+    } else
+    {
       setIsSideMenuOpen(false);
       setIsResponsiveDropdownMenuOpen(false);
       setIsResponsiveLanguageMenuOpen(false);
@@ -61,10 +58,12 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
   const [isResponsiveDropdownMenuOpen, setIsResponsiveDropdownMenuOpen] = useState(false);
 
   const responsiveDropdownMenuClick = () => {
-    if (!isResponsiveDropdownMenuOpen) {
+    if (!isResponsiveDropdownMenuOpen)
+    {
       setIsResponsiveDropdownMenuOpen(true);
       setIsResponsiveLanguageMenuOpen(false);
-    } else {
+    } else
+    {
       setIsResponsiveDropdownMenuOpen(false);
     }
   };
@@ -73,10 +72,12 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
   const [isResponsiveLanguageMenuOpen, setIsResponsiveLanguageMenuOpen] = useState(false);
 
   const responsiveLanguageMenuClick = () => {
-    if (!isResponsiveLanguageMenuOpen) {
+    if (!isResponsiveLanguageMenuOpen)
+    {
       setIsResponsiveLanguageMenuOpen(true);
       setIsResponsiveDropdownMenuOpen(false);
-    } else {
+    } else
+    {
       setIsResponsiveLanguageMenuOpen(false);
     }
   };
@@ -91,32 +92,32 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
 
   return (
     <>
-      <button className="header-burgerIcon" onClick={handleBurgerClick}>
+      <button className="header-burgerIcon" onClick={ handleBurgerClick }>
         <svg width="30" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M21 10H3"
-            stroke={!isLightTheme ? "#FFFFFF" : "#000000"}
+            stroke={ !isLightTheme ? "#FFFFFF" : "#000000" }
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth="1px"
           />
           <path
             d="M21 6H3"
-            stroke={!isLightTheme ? "#FFFFFF" : "#000000"}
+            stroke={ !isLightTheme ? "#FFFFFF" : "#000000" }
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth="1px"
           />
           <path
             d="M21 14H3"
-            stroke={!isLightTheme ? "#FFFFFF" : "#000000"}
+            stroke={ !isLightTheme ? "#FFFFFF" : "#000000" }
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth="1px"
           />
           <path
             d="M21 18H3"
-            stroke={!isLightTheme ? "#FFFFFF" : "#000000"}
+            stroke={ !isLightTheme ? "#FFFFFF" : "#000000" }
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth="1px"
@@ -124,28 +125,28 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
         </svg>
       </button>
       <div
-        className={classNames({
+        className={ classNames({
           "responsive-covering": isSideMenuOpen,
           hidden: !isSideMenuOpen,
           "responsive-covering-light": isLightTheme,
-        })}
-        onClick={handleBurgerClick}
+        }) }
+        onClick={ handleBurgerClick }
       ></div>
       <div
-        className={classNames("text-2xl", {
+        className={ classNames("text-2xl", {
           "header-responsive-menu": isSideMenuOpen,
           hidden: !isSideMenuOpen,
           "header-responsive-menu-light": isLightTheme,
-        })}
+        }) }
       >
         <div className="header-responsive-theme-and-close">
-          <HeaderThemeToggle isLightTheme={isLightTheme} />
-          <FiX style={{ width: "48px", height: "48px", padding: "12px", cursor: "pointer" }} onClick={handleBurgerClick} />
+          <HeaderThemeToggle isLightTheme={ isLightTheme } />
+          <FiX style={ { width: "48px", height: "48px", padding: "12px", cursor: "pointer" } } onClick={ handleBurgerClick } />
         </div>
-        <Link to="/" onClick={handleBurgerClick}>
+        <Link to="/" onClick={ handleBurgerClick }>
           <div className="header-responsive-logo text-5xl">
             <span>KOLY</span>
-            <SIconSidebar style={{ alignSelf: "center" }} />
+            <SIconSidebar style={ { alignSelf: "center" } } />
             <span>
               KOVA <br />
               OUND
@@ -154,103 +155,103 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
         </Link>
         <ul className="header-responsive-options">
           <li>
-            <Link to="/about" onClick={handleBurgerClick} className="header-responsive-about">
-              {t("aboutUs")}
+            <Link to="/about" onClick={ handleBurgerClick } className="header-responsive-about">
+              { t("aboutUs") }
             </Link>
           </li>
           <li>
             <div
-              className={classNames("header-responsive-dropdown-icon", {
+              className={ classNames("header-responsive-dropdown-icon", {
                 "header-responsive-dropdown-icon-menuOpened": isResponsiveDropdownMenuOpen,
-              })}
-              onClick={responsiveDropdownMenuClick}
+              }) }
+              onClick={ responsiveDropdownMenuClick }
             >
-              <span>{t("lullabiesMuseum")}</span>
-              <IoIosArrowDown style={{ width: "24px", height: "24px" }} />
+              <span>{ t("lullabiesMuseum") }</span>
+              <IoIosArrowDown style={ { width: "24px", height: "24px" } } />
             </div>
             <div
-              className={classNames({
+              className={ classNames({
                 "header-responsive-dropdown-menu": isResponsiveDropdownMenuOpen,
                 hidden: !isResponsiveDropdownMenuOpen,
-              })}
+              }) }
             >
               <Link
                 to="/map"
-                onClick={() => {
+                onClick={ () => {
                   scrollToTarget("#mapTabsId");
                   handleBurgerClick();
-                }}
+                } }
               >
-                {t("traditionalLullabies")}
+                { t("traditionalLullabies") }
               </Link>
               <Link
                 to="/songs"
-                onClick={() => {
+                onClick={ () => {
                   scrollToTarget("#mapTabsId");
                   handleBurgerClick();
-                }}
+                } }
               >
-                {t("singingTogether")}
+                { t("singingTogether") }
               </Link>
               <Link
                 to="/anima"
-                onClick={() => {
+                onClick={ () => {
                   scrollToTarget("#mapTabsId");
                   handleBurgerClick();
-                }}
+                } }
               >
-                {t("animatedLullabies")}
+                { t("animatedLullabies") }
               </Link>
             </div>
           </li>
           <li>
             <div
-              className={classNames("header-responsive-language-icon", {
+              className={ classNames("header-responsive-language-icon", {
                 "header-responsive-language-icon-menuOpened": isResponsiveLanguageMenuOpen,
-              })}
-              onClick={responsiveLanguageMenuClick}
+              }) }
+              onClick={ responsiveLanguageMenuClick }
             >
-              <span>{currentLanguage.toUpperCase()}</span>
-              <IoIosArrowDown style={{ width: "24px", height: "24px" }} />
+              <span>{ currentLanguage.toUpperCase() }</span>
+              <IoIosArrowDown style={ { width: "24px", height: "24px" } } />
             </div>
             <div
-              className={classNames({
+              className={ classNames({
                 "header-responsive-language-menu": isResponsiveLanguageMenuOpen,
                 hidden: !isResponsiveLanguageMenuOpen,
-              })}
+              }) }
             >
               <button
-                onClick={() => {
+                onClick={ () => {
                   changeLanguage("ua");
                   responsiveLanguageMenuClick();
-                }}
+                } }
               >
                 UA
               </button>
               <button
-                onClick={() => {
+                onClick={ () => {
                   changeLanguage("en");
                   responsiveLanguageMenuClick();
-                }}
+                } }
               >
                 EN
               </button>
             </div>
           </li>
           <li>
-            <HeaderResponsiveUserLink isLightTheme={isLightTheme} />
+            <HeaderResponsiveUserLink isLightTheme={ isLightTheme } />
           </li>
           <li>
-            {/* responsive search bar */}
+            {/* responsive search bar */ }
             <Popup
               trigger={
                 <div
-                  className={classNames("header-responsive-search-bar", { "header-responsive-search-bar-light": isLightTheme })}
-                  ref={responsiveSearchBarRef}
+                  className={ classNames("header-responsive-search-bar", { "header-responsive-search-bar-light": isLightTheme }) }
+                  ref={ responsiveSearchBarRef }
                 >
                   <input
                     type="text"
-                    placeholder={t("search")}
+                    placeholder={ t("search") }
                     className="header-responsive-search-input text-2xl"
                     id="headerSearchInput"
                   />
@@ -267,73 +268,73 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
                 </div>
               }
               position="top center"
-              arrowStyle={isLightTheme ? { color: "#e7e7e7" } : { color: "#454545" }}
-              open={isSidebarSearchPopupOpen}
-              onOpen={hideSidebarSearchBarPopup}
+              arrowStyle={ isLightTheme ? { color: "#e7e7e7" } : { color: "#454545" } }
+              open={ isSidebarSearchPopupOpen }
+              onOpen={ hideSidebarSearchBarPopup }
             >
               <div
-                className={classNames("header-responsive-search-popup-unavailable", {
+                className={ classNames("header-responsive-search-popup-unavailable", {
                   "header-responsive-search-popup-unavailable-light": isLightTheme,
-                })}
+                }) }
               >
-                {t("searchUnavailable")}
+                { t("searchUnavailable") }
               </div>
             </Popup>
           </li>
         </ul>
         <div className="header-responsive-support">
-          <span>{t("helpWith")}</span>
+          <span>{ t("helpWith") }</span>
           <div className="header-responsive-support-icons">
             <a href="https://www.patreon.com/KolyskovaMuseum" target="_blank" rel="noopener nofollow noreferrer">
-              <img src={!isLightTheme ? patreonLogoWhite : patreonLogoBlack} alt="patreon" />
+              <img src={ !isLightTheme ? patreonLogoWhite : patreonLogoBlack } alt="patreon" />
             </a>
             <a href="https://www.buymeacoffee.com/kolyskova" target="_blank" rel="noopener nofollow noreferrer">
-              <img src={bmcLogo} alt="buy me a coffee" />
+              <img src={ bmcLogo } alt="buy me a coffee" />
             </a>
           </div>
         </div>
         <div className="header-responsive-follow">
-          <p>{t("followUsHere")}:</p>
+          <p>{ t("followUsHere") }:</p>
           <div className="header-responsive-follow-icons">
             <a href="https://www.youtube.com/@Kolyskovamuseum" target="_blank" rel="noopener nofollow noreferrer">
               <img
-                src={!isLightTheme ? youtubeLogoWhite : youtubeLogoBlack}
+                src={ !isLightTheme ? youtubeLogoWhite : youtubeLogoBlack }
                 alt="youtube"
                 width="24"
                 height="24"
                 className="sidebar-socials-icon-normal"
               />
-              {/* <img src={youtubeLogoPressed} alt="youtube" width="24" height="24" className="sidebar-socials-icon-pressed" /> */}
+              {/* <img src={youtubeLogoPressed} alt="youtube" width="24" height="24" className="sidebar-socials-icon-pressed" /> */ }
             </a>
             <a href="https://www.instagram.com/kolyskova.museum/" target="_blank" rel="noopener nofollow noreferrer">
               <img
-                src={!isLightTheme ? instagramLogoWhite : instagramLogoBlack}
+                src={ !isLightTheme ? instagramLogoWhite : instagramLogoBlack }
                 alt="instagram"
                 width="24"
                 height="24"
                 className="sidebar-socials-icon-normal"
               />
-              {/* <img src={instagramLogoPressed} alt="instagram" width="24" height="24" className="sidebar-socials-icon-pressed" /> */}
+              {/* <img src={instagramLogoPressed} alt="instagram" width="24" height="24" className="sidebar-socials-icon-pressed" /> */ }
             </a>
             <a href="https://www.facebook.com/" target="_blank" rel="noopener nofollow noreferrer">
               <img
-                src={!isLightTheme ? facebookLogoWhite : facebookLogoBlack}
+                src={ !isLightTheme ? facebookLogoWhite : facebookLogoBlack }
                 alt="facebook"
                 width="24"
                 height="24"
                 className="sidebar-socials-icon-normal"
               />
-              {/* <img src={facebookLogoPressed} alt="facebook" width="24" height="24" className="sidebar-socials-icon-pressed" /> */}
+              {/* <img src={facebookLogoPressed} alt="facebook" width="24" height="24" className="sidebar-socials-icon-pressed" /> */ }
             </a>
             <a href="https://www.tiktok.com/@kolyskovamuseum" target="_blank" rel="noopener nofollow noreferrer">
               <img
-                src={!isLightTheme ? tiktokLogoWhite : tiktokLogoBlack}
+                src={ !isLightTheme ? tiktokLogoWhite : tiktokLogoBlack }
                 alt="tiktok"
                 width="24"
                 height="24"
                 className="sidebar-socials-icon-normal"
               />
-              {/* <img src={tiktokLogoPressed} alt="tiktok" width="24" height="24" className="sidebar-socials-icon-pressed" /> */}
+              {/* <img src={tiktokLogoPressed} alt="tiktok" width="24" height="24" className="sidebar-socials-icon-pressed" /> */ }
             </a>
           </div>
         </div>

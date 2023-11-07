@@ -17,7 +17,6 @@
   display: flex;
   justify-content: space-around;
   align-items: end;
-  /* height: 100vh; */
 }
 
 .small-image-container {
@@ -44,7 +43,6 @@
   height: 255px;
   overflow: hidden;
   border-radius: 10px;
-  /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), url(<path-to-image>), lightgray 50% / cover no-repeat; */
   margin-bottom: 24px;
 
   @media screen and (min-width: 1024px) {

@@ -8,7 +8,6 @@ import { getLightTheme } from "../../../redux/theme/themeSelectors";
 import "./notification.css";
 
 const Notification = ({ textNotification }) => {
-  // theme toggle
   const isLightTheme = useSelector(getLightTheme);
   return (
     <div

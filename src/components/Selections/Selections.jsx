@@ -13,58 +13,13 @@ import { SelectionsPlayer } from "./SelectionsPlayer";
 
 import selectionsImage from "../../assets/images/selections_image.jpg";
 
-// import endSectionOrnamentDesktop from "../../assets/images/ornamentsMapTabsSection.svg";
-// import endSectionOrnamentMobile from "../../assets/images/OrnamentsMapTabs.svg";
-
 // icons import
-import { BsRepeat, BsHeart } from "react-icons/bs";
-// import { AiOutlineLike } from "react-icons/ai";
-// import { FiMoreHorizontal } from "react-icons/fi";
+import { BsRepeat} from "react-icons/bs";
+
 import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
 import { PauseCircleIconDark } from "../../icons/SelectionsIcons/PauseCircleIcon";
 import { SoundWaveIcon } from "../../icons/SelectionsIcons/SoundWaveIcon";
 import { Ornaments } from "../Ornaments/Ornaments";
-
-// const songsData = [
-//   {
-//     id: 0,
-//     url: "https://deti.e-papa.com.ua/mpf/9211814143.mp3",
-//     name: "Колискова для мами",
-//     duration: "3:02",
-//     lyrics: "колискова для мами слова",
-//   },
-//   {
-//     id: 1,
-//     url: "https://deti.e-papa.com.ua/mpf/17146805.mp3",
-//     name: "Ходить сон бiля вiкон",
-//     watches: 1500,
-//     duration: "1:27",
-//     lyrics: "Ходить сон бiля вiкон",
-//   },
-//   {
-//     id: 2,
-//     url: "https://deti.e-papa.com.ua/mpf/9211811816.mp3",
-//     name: "Котику сіренький",
-//     watches: 2000,
-//     duration: "1:07",
-//     lyrics: "Котику сіренький текст",
-//   },
-//   {
-//     id: 3,
-//     url: "https://deti.e-papa.com.ua/mpf/921180978.mp3",
-//     name: "Колискова",
-//     watches: 2000,
-//     duration: "1:07",
-//     lyrics: "Котику сіренький текст",
-//   },
-//   {
-//     id: 4,
-//     url: "https://soundbible.com/mp3/Radio%20Tune-SoundBible.com-1525681700.mp3",
-//     name: "Radio tune",
-//     watches: 2000,
-//     duration: "0:05",
-//   },
-// ];
 
 export const Selections = () => {
   const { t } = useTranslation();
@@ -80,17 +35,13 @@ export const Selections = () => {
   // get songs
   const playlist = useSelector((state) => state.selectionSongs.data);
   const playlistError = useSelector((state) => state.selectionSongs.error);
-  // const playlist = songsData;
-  // const playlistError = false;
 
-  // player variables
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLooped, setIsLooped] = useState(false);
   const [isPlaylistLooped, setIsPlaylistLooped] = useState(false);
   const [isPlaylistShuffled, setIsPlaylistShuffled] = useState(false);
   const [volume, setVolume] = useState(0.5);
   const [isMuted, setIsMuted] = useState(false);
-  const [previousVolume, setPreviousVolume] = useState(0);
   const [currentSong, setCurrentSong] = useState(playlist[0].url);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [previousSongs, setPreviousSongs] = useState([currentSong]);
@@ -111,18 +62,14 @@ export const Selections = () => {
     }
   }, [currentPlayer]);
 
-  // sending GET request to increment views
   useEffect(() => {
     const currentSongId = playlist[currentSongIndex].songId;
     const currentTime = reactPlayerRef.current.getCurrentTime();
 
     if (isPlaying && currentSong !== "#" && currentTime < 0.3) {
-      axios.get(`http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/${currentSongId}/increment_views/`);
+      axios.get(`http://kolyskova.com/api/lullabies/${currentSongId}/increment_views/`);
     }
   }, [isPlaying, currentSong]);
-
-  // ------------+----+-----+----
-  // ----+++---+---
 
   const playPauseSong = (url) => {
     if (!isPlaying && currentSong === url) {
@@ -150,7 +97,6 @@ export const Selections = () => {
   };
 
   const handleNextSong = () => {
-    // its own function; we have similar in SelectionsPlayer
     if (isPlaylistShuffled) {
       playRandomSong();
     } else {
@@ -302,8 +248,6 @@ export const Selections = () => {
             setVolume={setVolume}
             isMuted={isMuted}
             setIsMuted={setIsMuted}
-            // previousVolume={previousVolume}
-            // setPreviousVolume={setPreviousVolume}
             previousSongs={previousSongs}
             setPreviousSongs={setPreviousSongs}
           />

@@ -47,12 +47,10 @@ const FormFeedBack = () => {
   }, [currentLanguage]);
 
   const checkFormState = () => {
-    // Перевірка чи всі поля заповнені
     const allFieldsFilled = Object.keys(formikRef.current.values).every(
       (key) => !!formikRef.current.values[key]
     );
 
-    // Перевірка чи форма валідна
     formikRef.current.validateForm().then((errors) => {
       const formIsValid = Object.keys(errors).length === 0;
       setIsFormValid(formIsValid);
@@ -61,11 +59,9 @@ const FormFeedBack = () => {
   };
 
   const handleFormSubmit = async (values, { resetForm }) => {
-    // Перетворення email у нижній регістр
     values.email = values.email.toLowerCase();
 
     const result = await dispatch(fetchSendForm(values));
-    // console.log("Результат від сервера:", result);
     setShowSuccessMessage(true);
     resetForm();
     return result;
