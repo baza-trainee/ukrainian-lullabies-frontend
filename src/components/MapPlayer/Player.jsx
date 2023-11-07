@@ -82,10 +82,6 @@ export const Player = ({
     setSearchParams(`?id=${playlist[newIndex].id}`);
   };
 
-  // const handleVolumeChange = (event) => {
-  //   const newVolume = parseFloat(event.target.value);
-  //   setVolume(newVolume);
-  // };
   const [shareClicked, setShareClicked] = useState(false);
 
   const handleShare = async () => {
@@ -108,7 +104,6 @@ export const Player = ({
   };
 
   return (
-
     <div className={ classNames("map-player-navigation-wrapper", {
       "map-player-navigation-wrapper-light": isLightTheme,
     }) }

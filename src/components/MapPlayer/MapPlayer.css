@@ -8,12 +8,10 @@
   justify-content: center;
   align-items: center;
   margin-top: 15px;
-   @media screen and (min-width: 768px) {
-  }
-    @media screen and (min-width: 1440px) {
-      margin-top: 62px;
-      flex-direction: row;
-      height: 530px;
+  @media screen and (min-width: 1440px) {
+    margin-top: 62px;
+    flex-direction: row;
+    height: 530px;
   }
 }
 
@@ -56,7 +54,6 @@
     @media screen and (min-width: 1440px) {
       width: 339px;
   } 
- 
 }
 
 .lyrics {
@@ -70,7 +67,6 @@
     max-height: 100%;
     height: 650px;
   }
-
   @media screen and (min-width: 1440px) {
     height: 490px;
   }
@@ -86,7 +82,6 @@
      grid-column: 5/8;
   }
   @media screen and (min-width: 1440px) {
-    
     margin-right: 10px;
     }
 }
@@ -99,12 +94,12 @@
     height: 533px;
   }
   @media screen and (min-width: 1440px) {
-    
     height: 530px;
   }
 }
 .player_playlist{
   overflow-y: auto;
+  overflow-x: hidden;
   height: 300px;
   @media screen and (min-width: 768px) {
     grid-column: 8/13;
@@ -254,7 +249,6 @@
   outline: none;
 }
 
-/* Стилізуємо смугу, яка відображає вибрану позицію */
 .timeline::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -282,8 +276,6 @@
   margin-bottom: 32px;
   color: var(--gray-black-400);
 }
-
-/* PROGRESS BAR TEST */
 
 .progress-bar {
   width: 100%;
