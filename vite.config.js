@@ -13,13 +13,8 @@ export default defineConfig({
     }),
   ],
 
-  css: {
-    // Додайте імпорт Swiper CSS
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "swiper/swiper-bundle.min.css";`,
-      },
-    },
+  build: {
+    outDir: 'build',
   },
 });
 
