@@ -10,7 +10,7 @@ export const getPopularSongs = createAsyncThunk(
   async (language, { rejectWithValue }) => {
     try {
       const result = await axios.get(
-        "https://kolyskova.com/api/lullabies/?ordering=-views&limit=3&source-format=audio",
+        "https://api.kolyskova.com/lullabies/?ordering=-views&limit=3&source-format=audio",
         {
           headers: { "Accept-Language": language },
         }
