@@ -8,7 +8,7 @@ const initialState = {
 };
 
 export const fetchPartners = createAsyncThunk("contacts/fetchPartners", async () => {
-  const response = await axios.get("https://kolyskova.com/api/partners/");  
+  const response = await axios.get("https://api.kolyskova.com/partners/");  
   return response.data.results;
 });
 
