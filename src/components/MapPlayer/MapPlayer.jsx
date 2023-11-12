@@ -201,7 +201,7 @@ export const MapPlayer = () => {
     const currentTime = reactPlayerRef.current.getCurrentTime();
     if (isPlaying && currentTime < 0.3)
     {
-      axios.get(`http://kolyskova.com/api/lullabies/${currentSongId}/increment_views/`);
+      axios.get(`http://api.kolyskova.com/lullabies/${currentSongId}/increment_views/`);
     }
   }, [isPlaying, currentIndex, data]);
 

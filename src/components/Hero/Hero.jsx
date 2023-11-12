@@ -1,17 +1,17 @@
 import React from "react";
 
-import { motion } from "framer-motion";
-import { useSelector } from "react-redux";
-import { useState, useRef } from "react";
 import classNames from "classnames";
-import { Link } from "react-scroll";
-import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useInView } from "react-intersection-observer";
+import { useSelector } from "react-redux";
+import { Link } from "react-scroll";
 
 import { getLightTheme } from "../../redux/theme/themeSelectors";
-import Notification from "./Notification/Notification";
-import { Ornaments } from "../Ornaments/Ornaments";
 import { GeneralTitle } from "../GeneralTitle/GeneralTitle";
+import { Ornaments } from "../Ornaments/Ornaments";
+import Notification from "./Notification/Notification";
 
 import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
@@ -35,7 +35,7 @@ const Hero = () => {
 
   const copyLinkToClipboard = async () => {
     try {
-      const urlToCopy = "https://api.kolyskova.com";
+      const urlToCopy = window.location.href;
       await navigator.clipboard.writeText(urlToCopy);
       notification();
     } catch (error) {
