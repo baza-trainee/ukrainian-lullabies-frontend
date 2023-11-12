@@ -18,7 +18,7 @@ const initialState = {
 
 export const fetchData = createAsyncThunk("selectionSongs/fetchData", async (lang) => {
   try {
-    const response = await axios.get("https://kolyskova.com/api/lullabies/?source-format=audio", {
+    const response = await axios.get("https://api.kolyskova.com/lullabies/?source-format=audio", {
       headers: {
         "Accept-Language": lang,
       },
