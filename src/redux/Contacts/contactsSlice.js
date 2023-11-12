@@ -9,7 +9,7 @@ const initialState = {
 
 export const fetchContacts = createAsyncThunk("contacts/fetchContacts", async (lang) => {
   // const response = await axios.get("http://lullabies.eu-north-1.elasticbeanstalk.com/api/contacts/", {
-  const response = await axios.get("https://kolyskova.com/api/contacts/", {
+  const response = await axios.get("https://api.kolyskova.com/contacts/", {
     headers: {
       "Accept-Language": lang,
     },
