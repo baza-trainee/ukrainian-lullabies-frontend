@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://lullabies.eu-north-1.elasticbeanstalk.com/api",
+  baseURL: "https://api.kolyskova.com/lullabies",
 });
 
 export const sendForm = async (data) => {
