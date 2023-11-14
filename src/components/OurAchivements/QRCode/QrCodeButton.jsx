@@ -1,14 +1,37 @@
 import "./QrCodeButton.css";
-import { QrCodeIcon } from "../QRCode/QrCodeIcon";
 import Popup from "reactjs-popup";
+import { useState } from "react";
 import { useSelector } from "react-redux";
-// import qrImageDummy from "../../../assets/images/QR_dummy.png";
-import QRCode from "../../../assets/images/QR_Code.svg"
-import { Ornaments } from "../../Ornaments/Ornaments";
 import classNames from "classnames";
+import { t } from "i18next";
+import { QrCodeIcon } from "../QRCode/QrCodeIcon";
+import QRCode from "../../../assets/images/QR_Code.svg";
+import ornamentImg from "../../../assets/images/OrnamentsMapTabs.svg";
 
 export const QrCodeButton = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
+  const [copyClicked, setCopyClicked] = useState({});
+
+  const copyToClipboard = async (event, paragraphIndex) => {
+    const text = event.target.innerText;
+    if (!copyClicked[paragraphIndex]) {
+      await navigator.clipboard.writeText(text);
+      setCopyClicked((prevState) => ({
+        ...prevState,
+        [paragraphIndex]: true,
+      }));
+    }
+
+    setTimeout(
+      () =>
+        setCopyClicked((prevState) => ({
+          ...prevState,
+          [paragraphIndex]: false,
+        })),
+      2000
+    );
+  };
+
   return (
     <Popup
       trigger={
@@ -28,28 +51,78 @@ export const QrCodeButton = () => {
 
           <ul className="qr-info">
             <li>
-              <p className="text-xs">Найменування отримувача:</p>
-              <p className="text-base-semibold">ГО МУЗЕЙ КОЛИСКОВОЇ</p>
+              <p className="text-xs"> {t("recipientName")}:</p>
+              <p className="text-base-semibold" onClick={(e) => copyToClipboard(e, 0)}>
+                ГО МУЗЕЙ КОЛИСКОВОЇ
+              </p>
+              <p
+                className={classNames("qr-info-copy-clicked", "text-sm-semibold", {
+                  "qr-info-copy-clicked-light": isLightTheme,
+                })}
+                style={copyClicked[0] ? { display: "inline-block" } : { display: "none" }}
+              >
+                {t("shareText")}
+              </p>
             </li>
             <li>
-              <p className="text-xs">Код отримувача:</p>
-              <p className="text-base-semibold">45284215</p>
+              <p className="text-xs"> {t("recipientCode")}:</p>
+              <p className="text-base-semibold" onClick={(e) => copyToClipboard(e, 1)}>
+                45284215
+              </p>
+              <p
+                className={classNames("qr-info-copy-clicked", "text-sm-semibold", {
+                  "qr-info-copy-clicked-light": isLightTheme,
+                })}
+                style={copyClicked[1] ? { display: "inline-block" } : { display: "none" }}
+              >
+                {t("shareText")}
+              </p>
             </li>
             <li>
-              <p className="text-xs">Рахунок отримувача (IBAN):</p>
-              <p className="text-base-semibold">UA353052990000026006035028980</p>
+              <p className="text-xs">{t("recipientAccount")}:</p>
+              <p className="text-base-semibold" onClick={(e) => copyToClipboard(e, 2)}>
+                UA353052990000026006035028980
+              </p>
+              <p
+                className={classNames("qr-info-copy-clicked", "text-sm-semibold", {
+                  "qr-info-copy-clicked-light": isLightTheme,
+                })}
+                style={copyClicked[2] ? { display: "inline-block" } : { display: "none" }}
+              >
+                {t("shareText")}
+              </p>
             </li>
             <li>
-              <p className="text-xs">Назва банку:</p>
-              <p className="text-base-semibold">АТ КБ "ПРИВАТБАНК"</p>
+              <p className="text-xs">{t("bankName")}:</p>
+              <p className="text-base-semibold" onClick={(e) => copyToClipboard(e, 3)}>
+                АТ КБ "ПРИВАТБАНК"
+              </p>
+              <p
+                className={classNames("qr-info-copy-clicked", "text-sm-semibold", {
+                  "qr-info-copy-clicked-light": isLightTheme,
+                })}
+                style={copyClicked[3] ? { display: "inline-block" } : { display: "none" }}
+              >
+                {t("shareText")}
+              </p>
             </li>
             <li>
-              <p className="text-xs">Призначення платежу: </p>
-              <p className="text-base-semibold">Безповоротна фінансова допомога від</p>
+              <p className="text-xs">{t("paymentPurpose")}:</p>
+              <p className="text-base-semibold" onClick={(e) => copyToClipboard(e, 4)}>
+                Безповоротна фінансова допомога від
+              </p>
               <p className="text-base-semibold">Прізвище, ім'я, по-батькові.</p>
+              <p
+                className={classNames("qr-info-copy-clicked", "text-sm-semibold", {
+                  "qr-info-copy-clicked-light": isLightTheme,
+                })}
+                style={copyClicked[4] ? { display: "inline-block" } : { display: "none" }}
+              >
+                {t("shareText")}
+              </p>
             </li>
           </ul>
-          <Ornaments />
+          <img src={ornamentImg} alt="ornament" />
         </div>
       )}
     </Popup>
