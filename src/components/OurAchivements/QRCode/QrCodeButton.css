@@ -1,0 +1,40 @@
+/* general */
+.qr-button-modal {
+    width: 340px;    
+    padding: 48px 0;
+    border-radius: 48px;
+    background: var(--gray-black-950);
+    color: var(--gray0);
+
+    @media screen and (min-width: 1440px) {
+    width: 400px;
+  }
+}
+
+.qr-button-modal-light {
+    background: var(--white-0);
+    color: var(--gray-black-950);
+}
+
+/* qr image */
+.qr-image {
+    margin: 0 auto 32px auto;
+    width: 140px;
+    height: 140px;
+}
+
+/* qr info */
+.qr-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.qr-info li {
+    padding: 0 16px;
+}
+
+.qr-info li p:first-child {
+    margin-bottom: 8px;
+}
