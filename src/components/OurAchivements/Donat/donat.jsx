@@ -3,6 +3,7 @@ import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import { CoffeeLogo } from "../CoffeeLogo/CoffeeLogo";
 import { PatreonLogo } from "../PatreonLogo/PatreonLogo";
+import { QrCodeButton } from "../QRCode/QrCodeButton";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "./donat.css";
@@ -47,6 +48,7 @@ export const Donat = () => {
             <Link to="https://www.patreon.com/KolyskovaMuseum" target="_blank">
             <PatreonLogo />
           </Link>
+            <QrCodeButton />
         </motion.div>
       </div>
       <motion.div custom={ 3 }

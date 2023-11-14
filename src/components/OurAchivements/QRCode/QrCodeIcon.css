@@ -1,0 +1,40 @@
+/* light theme */
+.qr-code-icon_light rect{
+    fill: black;
+}
+
+.qr-code-icon_light g path {
+    fill: white;
+}
+
+/* hover */
+.qr-code-icon:hover {
+    @media screen and (min-width: 1024px) {
+    transform: scale(1.12);
+  }
+}
+
+.qr-code-icon:hover rect {
+    @media screen and (min-width: 1024px) {
+    fill: var(--red-700);    
+  }
+}
+
+.qr-code-icon:hover g path {
+    @media screen and (min-width: 1024px) {
+    fill: var(--white-0)    
+  }
+}
+
+/* active */
+.qr-code-icon:active {
+    @media screen and (min-width: 1024px) {
+    transform: scale(1);
+  }
+}
+
+.qr-code-icon:active rect {
+    @media screen and (min-width: 1024px) {
+    fill: #141518;    
+  }
+}

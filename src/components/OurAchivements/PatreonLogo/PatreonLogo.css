@@ -1,3 +1,8 @@
+.achievements-patreon_dark,
+.achievements-patreon_light {
+  margin-right: 27px;
+}
+
 .achievements-patreon_dark:hover rect,
 .achievements-patreon_light:hover rect {
   @media screen and (min-width: 1024px) {
