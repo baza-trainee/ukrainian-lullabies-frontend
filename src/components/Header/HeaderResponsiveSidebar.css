@@ -224,6 +224,13 @@
   padding: 12px;
 }
 
+.header-responsive-support-qr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
 /* responsive follow us */
 .header-responsive-follow p {
   margin-bottom: 16px;

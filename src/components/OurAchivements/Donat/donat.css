@@ -42,3 +42,9 @@
     margin-bottom: 80px;
   }
 }
+
+.achievements-donats-qr-button {
+  padding: 0;
+  border: none;
+  background: transparent;
+}

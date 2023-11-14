@@ -7,6 +7,7 @@ import { useInView } from "react-intersection-observer";
 import { GeneralTitle } from "../GeneralTitle/GeneralTitle";
 import { Ornaments } from "../Ornaments/Ornaments";
 import "./AboutUsInfo.css";
+import { QrCodeButton } from "../OurAchivements/QRCode/QrCodeButton";
 
 const AboutUsInfo = () => {
   const animationElement = {
@@ -127,10 +128,13 @@ const AboutUsInfo = () => {
               target="_blank"
             ></Link>
           </div>
-          <div className="donat-patreon">
+          <div className="donat-patreon donat_margin-right">
             <Link to="https://www.patreon.com/KolyskovaMuseum" target="_blank">
               <Patreon />
             </Link>
+          </div>
+          <div className="donat-qr">
+            <QrCodeButton />
           </div>
         </div>
         <div className="img-container support-img">
