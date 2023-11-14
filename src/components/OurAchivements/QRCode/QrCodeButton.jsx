@@ -8,7 +8,7 @@ import { QrCodeIcon } from "../QRCode/QrCodeIcon";
 import QRCode from "../../../assets/images/QR_Code.svg";
 import ornamentImg from "../../../assets/images/OrnamentsMapTabs.svg";
 
-export const QrCodeButton = () => {
+export const QrCodeButton = ({ mobile = false }) => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
   const [copyClicked, setCopyClicked] = useState({});
 
@@ -36,7 +36,7 @@ export const QrCodeButton = () => {
     <Popup
       trigger={
         <button className="achievements-donats-qr-button">
-          <QrCodeIcon />
+          <QrCodeIcon mobile={mobile} />
         </button>
       }
       modal
@@ -122,7 +122,7 @@ export const QrCodeButton = () => {
               </p>
             </li>
           </ul>
-          <img src={ornamentImg} alt="ornament" />
+          <img src={ornamentImg} alt="ornament" className="qr-button-modal-ornament" />
         </div>
       )}
     </Popup>

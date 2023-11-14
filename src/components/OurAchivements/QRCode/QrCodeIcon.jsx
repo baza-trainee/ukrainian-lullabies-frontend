@@ -2,12 +2,12 @@ import classNames from "classnames";
 import "./QrCodeIcon.css";
 import { useSelector } from "react-redux";
 
-export const QrCodeIcon = () => {
+export const QrCodeIcon = ({ mobile = false }) => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
   return (
     <svg
-      width="48"
-      height="49"
+      width={!mobile ? "48" : "24"}
+      height={!mobile ? "49" : "24"}
       viewBox="0 0 48 49"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

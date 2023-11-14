@@ -54,3 +54,8 @@
   background: var(--gray-black-950);
   color: var(--gray0);
 }
+
+/* ornament */
+.qr-button-modal-ornament {
+    margin: 0 auto;
+}
