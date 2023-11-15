@@ -17,6 +17,7 @@ const initialState = {
 };
 
 export const fetchData = createAsyncThunk("selectionSongs/fetchData", async (lang) => {
+  console.log("selectionsSongs: starting request...");
   try {
     // const response = await axios.get("http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/?source-format=audio", {
     const response = await axios.get("https://api.kolyskova.com/lullabies/?source-format=audio", {
@@ -24,6 +25,7 @@ export const fetchData = createAsyncThunk("selectionSongs/fetchData", async (lan
         "Accept-Language": lang,
       },
     });
+    console.log("response: ", response);
     const formatedData = await response.data.results.map((item, index) => ({
       id: index,
       songId: item.id,
@@ -31,8 +33,10 @@ export const fetchData = createAsyncThunk("selectionSongs/fetchData", async (lan
       url: item.source.audio,
       duration: item.source.duration.slice(3, 8),
     }));
+    console.log("formated data: ", formatedData);
     return formatedData;
   } catch (err) {
+    console.log("selectionsSongs: request failed :(");
     throw err;
   }
 });
