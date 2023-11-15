@@ -17,6 +17,7 @@ const initialState = {
 };
 
 export const fetchData = createAsyncThunk("selectionSongs/fetchData", async (lang) => {
+  console.log("selectionsSongs: starting request...");
   try {
     // const response = await axios.get("http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/?source-format=audio", {
     const response = await axios.get("https://api.kolyskova.com/lullabies/?source-format=audio", {
@@ -35,6 +36,7 @@ export const fetchData = createAsyncThunk("selectionSongs/fetchData", async (lan
     console.log("formated data: ", formatedData);
     return formatedData;
   } catch (err) {
+    console.log("selectionsSongs: request failed :(");
     throw err;
   }
 });
