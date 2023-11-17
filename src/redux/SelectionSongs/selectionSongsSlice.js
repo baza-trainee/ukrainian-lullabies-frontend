@@ -34,6 +34,11 @@ export const fetchData = createAsyncThunk("selectionSongs/fetchData", async (lan
       duration: item.source.duration.slice(3, 8),
     }));
     console.log("formated data: ", formatedData);
+    
+    if (formatedData.length === 0) {
+      throw new Error("SelectionsSlice: formattedData length is 0");
+    }
+
     return formatedData;
   } catch (err) {
     console.log("selectionsSongs: request failed :(");
