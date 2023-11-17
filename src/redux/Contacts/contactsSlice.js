@@ -3,7 +3,7 @@ import axios from "axios";
 
 const initialState = {
   loading: false,
-  data: [],
+  data: {},
   error: "",
 };
 
@@ -14,7 +14,8 @@ export const fetchContacts = createAsyncThunk("contacts/fetchContacts", async (l
       "Accept-Language": lang,
     },
   });
-  return response.data.results;
+  console.log("%c ContactsResponse: " + "%c" + response, "color: orange", "color: default");
+  return response.data;
 });
 
 const contactsSlice = createSlice({
