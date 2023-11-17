@@ -53,7 +53,7 @@ export const QrCodeButton = ({ mobile = false }) => {
             <li>
               <p className="text-xs"> {t("recipientName")}:</p>
               <p className="text-base-semibold" onClick={(e) => copyToClipboard(e, 0)}>
-                ГО МУЗЕЙ КОЛИСКОВОЇ
+                {t("ngoLullabyMuseum")}
               </p>
               <p
                 className={classNames("qr-info-copy-clicked", "text-sm-semibold", {
@@ -95,7 +95,7 @@ export const QrCodeButton = ({ mobile = false }) => {
             <li>
               <p className="text-xs">{t("bankName")}:</p>
               <p className="text-base-semibold" onClick={(e) => copyToClipboard(e, 3)}>
-                АТ КБ "ПРИВАТБАНК"
+                {t("jscCbPrivatbank")}
               </p>
               <p
                 className={classNames("qr-info-copy-clicked", "text-sm-semibold", {
@@ -109,9 +109,9 @@ export const QrCodeButton = ({ mobile = false }) => {
             <li>
               <p className="text-xs">{t("paymentPurpose")}:</p>
               <p className="text-base-semibold" onClick={(e) => copyToClipboard(e, 4)}>
-                Безповоротна фінансова допомога від
+                {t("paymentPurposePlaceholder1")}
               </p>
-              <p className="text-base-semibold">Прізвище, ім'я, по-батькові.</p>
+              <p className="text-base-semibold">{t("paymentPurposePlaceholder2")}</p>
               <p
                 className={classNames("qr-info-copy-clicked", "text-sm-semibold", {
                   "qr-info-copy-clicked-light": isLightTheme,
