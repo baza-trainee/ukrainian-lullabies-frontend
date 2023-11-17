@@ -216,6 +216,7 @@
   display: -ms-flexbox;
   display: flex;
   justify-content: start;
+  flex-wrap: wrap;
 
   @media screen and (min-width: 768px) {
     grid-column: 1/7;
@@ -307,6 +308,12 @@
   @media screen and (min-width: 1024px) {
     fill: #141518;
   }
+}
+
+.about-us-donat-qr {  
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
 }
 
 .about-us {

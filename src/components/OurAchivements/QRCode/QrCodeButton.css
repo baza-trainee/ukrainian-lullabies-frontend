@@ -1,3 +1,13 @@
+/* button style */
+.achievements-donats-qr-button {
+  padding: 0;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* general */
 .qr-button-modal {
   width: 340px;
