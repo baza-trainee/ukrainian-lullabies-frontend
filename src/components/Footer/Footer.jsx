@@ -90,11 +90,12 @@ export const Footer = () => {
 
   // loading data on language change
   useEffect(() => {
-    if (currentLanguage === "en") {
-      dispatch(fetchContacts("eng"));
-    } else {
-      dispatch(fetchContacts("uk"));
-    }
+    // if (currentLanguage === "en") {
+    //   dispatch(fetchContacts("eng"));
+    // } else {
+    //   dispatch(fetchContacts("uk"));
+    // }
+    dispatch(fetchContacts(currentLanguage));
   }, [dispatch, currentLanguage]);
 
   return (
