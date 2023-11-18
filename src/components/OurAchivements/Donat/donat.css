@@ -27,7 +27,7 @@
 .donats {
   margin-top: 16px;
   text-align: start;
- 
+
   @media screen and (min-width: 1440px) {
     margin-left: 16px;
   }
@@ -43,8 +43,8 @@
   }
 }
 
-.achievements-donats-qr-button {
-  padding: 0;
-  border: none;
-  background: transparent;
+.donat-qr {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
