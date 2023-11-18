@@ -31,31 +31,30 @@ export const Donat = () => {
   return (
     <motion.section
       initial="hidden"
-      animate={ inView ? "visible" : "hidden" }
-      variants={ animationElement }
-      ref={ ref }
-      className="achievements-support-div">
+      animate={inView ? "visible" : "hidden"}
+      variants={animationElement}
+      ref={ref}
+      className="achievements-support-div"
+    >
       <div className="achievements-support-container">
-        <motion.p custom={ 2 }
-          variants={ animationElement } className="text-2xl">{ t("helpWith") }</motion.p>
-        <motion.div
-          custom={ 3 }
-          variants={ animationElement }
-          className="donats">
+        <motion.p custom={2} variants={animationElement} className="text-2xl">
+          {t("helpWith")}
+        </motion.p>
+        <motion.div custom={3} variants={animationElement} className="donats">
           <Link to="https://www.buymeacoffee.com/kolyskova" target="_blank">
             <CoffeeLogo />
           </Link>
-            <Link to="https://www.patreon.com/KolyskovaMuseum" target="_blank">
+          <Link to="https://www.patreon.com/KolyskovaMuseum" target="_blank">
             <PatreonLogo />
           </Link>
+          <div className="donat-qr">
             <QrCodeButton />
+          </div>
         </motion.div>
       </div>
-      <motion.div custom={ 3 }
-        variants={ animationElement }
-        className="donats-ornament">
+      <motion.div custom={3} variants={animationElement} className="donats-ornament">
         <Ornaments />
       </motion.div>
     </motion.section>
-  )
+  );
 }

@@ -36,6 +36,7 @@ export const Selections = () => {
   const playlist = useSelector((state) => state.selectionSongs.data);
   const playlistError = useSelector((state) => state.selectionSongs.error);
 
+  // general states
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLooped, setIsLooped] = useState(false);
   const [isPlaylistLooped, setIsPlaylistLooped] = useState(false);
@@ -62,6 +63,7 @@ export const Selections = () => {
     }
   }, [currentPlayer]);
 
+  // incrementing views
   useEffect(() => {
     const currentSongId = playlist[currentSongIndex].songId;
     const currentTime = reactPlayerRef.current.getCurrentTime();
@@ -71,6 +73,7 @@ export const Selections = () => {
     }
   }, [isPlaying, currentSong]);
 
+  // player functions
   const playPauseSong = (url) => {
     if (!isPlaying && currentSong === url) {
       setIsPlaying(true);
@@ -119,12 +122,14 @@ export const Selections = () => {
     setCurrentSongIndex(newIndex);
   };
 
+  // getting correct song names every time when language changes
   useEffect(() => {
-    if (currentLanguage === "en") {
-      dispatch(fetchData("eng"));
-    } else {
-      dispatch(fetchData("uk"));
-    }
+    // if (currentLanguage === "en") {
+    //   dispatch(fetchData("eng"));
+    // } else {
+    //   dispatch(fetchData("uk"));
+    // }
+    dispatch(fetchData(currentLanguage));
   }, [dispatch, currentLanguage]);
 
   const animationElement = {
@@ -202,7 +207,6 @@ export const Selections = () => {
 
                       <span className="selections-playlist-item-name">{item.name.toUpperCase().slice(0, 50)}</span>
                     </div>
-                    {/* selections with dropdown for mobile */}
                     <div className="selections-playlist-item-group">
                       <span className="selections-playlist-item-duration text-xs-bold">{item.duration}</span>
                       <button

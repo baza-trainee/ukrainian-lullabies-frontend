@@ -45,7 +45,7 @@ export function PopularSongs() {
     (state) => state.popularSongs.popularSongs.results
   );
 
-  const language = languagePopular === "ua" ? "uk" : "eng";
+  const language = languagePopular === "ua" ? "uk" : "en";
 
   const buttonPopular = isPlaying ? pauseButton : playButton;
 
@@ -60,9 +60,9 @@ export function PopularSongs() {
       const audioList = songsPopularPlayer?.map((item) => item.source.audio);
       const titleList = songsPopularPlayer?.map((item) => item.name);
 
-      setTitle([`“${titleList[0]}”`, `“${titleList[1]}”`, `“${titleList[1]}”`]);
+      setTitle([`“${titleList[0]}”`, `“${titleList[1]}”`, `“${titleList[2]}”`]);
 
-      setSongs([audioList[0], audioList[1], audioList[1]]);
+      setSongs([audioList[0], audioList[1], audioList[2]]);
     }
   }, [songsPopularPlayer]);
 

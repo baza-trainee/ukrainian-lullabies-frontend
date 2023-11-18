@@ -10,6 +10,7 @@ import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
 import { Ornaments } from "../Ornaments/Ornaments";
 import "../TechnicalWorks/TechnicalWorks.css";
 
+// for desktop (in header)
 export const HeaderUserIcon = ({ isLightTheme }) => {
   return (
     <div className={classNames("header-user-icon", { "header-user-icon-light": isLightTheme })}>
@@ -42,6 +43,7 @@ export const HeaderUserIcon = ({ isLightTheme }) => {
   );
 };
 
+// for mobile (in sidebar)
 export const HeaderResponsiveUserLink = ({ isLightTheme }) => {
   const { t } = useTranslation();
   return (
@@ -90,7 +92,6 @@ const HeaderTechnicalWorksElement = () => {
           <OrnamentsLeftIcon />
         </div>
         <div>
-          {/* <p style={{ marginBottom: "20px" }} className="center text-base"> */}
           <p style={{ marginBottom: "40px" }} className="center text-base">
             {t("technikalWorsk")}
 
