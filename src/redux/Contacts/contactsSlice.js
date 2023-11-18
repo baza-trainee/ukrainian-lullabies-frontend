@@ -14,7 +14,6 @@ export const fetchContacts = createAsyncThunk("contacts/fetchContacts", async (l
       "Accept-Language": lang,
     },
   });
-  console.log("%c ContactsResponse: " + "%c" + response, "color: orange", "color: default");
   return response.data;
 });
 
