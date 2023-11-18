@@ -45,7 +45,7 @@ export function PopularSongs() {
     (state) => state.popularSongs.popularSongs.results
   );
 
-  const language = languagePopular === "ua" ? "uk" : "eng";
+  const language = languagePopular === "ua" ? "uk" : "en";
 
   const buttonPopular = isPlaying ? pauseButton : playButton;
 
