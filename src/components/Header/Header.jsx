@@ -88,9 +88,9 @@ export const Header = () => {
   // search bar
   const searchBarRef = useRef();
   const headerOptionsWrapperRef = useRef();
-
   const closeSearchBar = () => {
     // openSearchBar is called searchIconClick() and placed in HeaderSearch.jsx
+ 
     const parent = headerOptionsWrapperRef.current.parentNode;
     const headerAboutLink = document.querySelector(".header-about-link");
     const headerDropdownWrapper = document.querySelector(

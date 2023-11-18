@@ -62,5 +62,4 @@ export const Donat = () => {
       </motion.div>
     </motion.section>
   );
-};
-
+}

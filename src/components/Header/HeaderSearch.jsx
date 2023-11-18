@@ -7,6 +7,7 @@ export const HeaderSearch = ({
   headerOptionsWrapperRef,
 }) => {
 
+export const HeaderSearch = ({ isLightTheme, searchBarRef, headerOptionsWrapperRef }) => {
   // open search bar
   const searchIconClick = () => {
     const parent = headerOptionsWrapperRef.current.parentNode;
