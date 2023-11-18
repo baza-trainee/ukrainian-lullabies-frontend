@@ -1,13 +1,12 @@
 /* eslint-disable react/prop-types */
 import classNames from "classnames";
 import React from "react";
+
 export const HeaderSearch = ({
   isLightTheme,
   searchBarRef,
   headerOptionsWrapperRef,
 }) => {
-
-export const HeaderSearch = ({ isLightTheme, searchBarRef, headerOptionsWrapperRef }) => {
   // open search bar
   const searchIconClick = () => {
     const parent = headerOptionsWrapperRef.current.parentNode;
