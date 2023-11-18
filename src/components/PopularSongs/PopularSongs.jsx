@@ -1,35 +1,35 @@
-import React, { useState, useEffect } from "react";
-import ReactPlayer from "react-player";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector, useDispatch } from "react-redux";
+import { useInView } from "react-intersection-observer";
+import ReactPlayer from "react-player";
+import { useDispatch, useSelector } from "react-redux";
 import { playerChanged } from "../../redux/CurrentPlayer/currentPlayerSlice";
 import { getPopularSongs } from "../../redux/PopularSongs/PopularSongsSlice";
 
-import playButton from "../../assets/images/popular/play-popular.png";
 import pauseButton from "../../assets/images/popular/pause-popular.png";
+import playButton from "../../assets/images/popular/play-popular.png";
 
-import favoriteSongFirstW from "../../assets/images/popular/popular-left-desk-w.webp";
-import favoriteSongSecondW from "../../assets/images/popular/popular-center-desk-w.webp";
-import favoriteSongThirdMobW from "../../assets/images/popular/popular-right-mob-w.webp";
-import favoriteSongFirstMobW from "../../assets/images/popular/popular-left-mob-w.webp";
-import favoriteSongSecondMobW from "../../assets/images/popular/popular-center-mob-w.webp";
-import favoriteSongThirdW from "../../assets/images/popular/popular-right-desk-w.webp";
-import favoriteSongFirstMob1x from "../../assets/images/popular/popular-left-mob-1x.jpg";
-import favoriteSongSecondMob1x from "../../assets/images/popular/popular-center-mob-1x.jpg";
-import favoriteSongThirdMob1x from "../../assets/images/popular/popular-right-mob-1x.jpg";
-import favoriteSongFirstMob2x from "../../assets/images/popular/popular-left-mob-2x.jpg";
-import favoriteSongSecondMob2x from "../../assets/images/popular/popular-center-mob-2x.jpg";
-import favoriteSongThirdMob2x from "../../assets/images/popular/popular-right-mob-2x.jpg";
-import favoriteSongFirst1x from "../../assets/images/popular/popular-left-desk-1x.jpg";
 import favoriteSongSecond1x from "../../assets/images/popular/popular-center-desk-1x.jpg";
-import favoriteSongThird1x from "../../assets/images/popular/popular-right-desk-1x.jpg";
-import favoriteSongFirst2x from "../../assets/images/popular/popular-left-desk-2x.jpg";
 import favoriteSongSecond2x from "../../assets/images/popular/popular-center-desk-2x.jpg";
+import favoriteSongSecondW from "../../assets/images/popular/popular-center-desk-w.webp";
+import favoriteSongSecondMob1x from "../../assets/images/popular/popular-center-mob-1x.jpg";
+import favoriteSongSecondMob2x from "../../assets/images/popular/popular-center-mob-2x.jpg";
+import favoriteSongSecondMobW from "../../assets/images/popular/popular-center-mob-w.webp";
+import favoriteSongFirst1x from "../../assets/images/popular/popular-left-desk-1x.jpg";
+import favoriteSongFirst2x from "../../assets/images/popular/popular-left-desk-2x.jpg";
+import favoriteSongFirstW from "../../assets/images/popular/popular-left-desk-w.webp";
+import favoriteSongFirstMob1x from "../../assets/images/popular/popular-left-mob-1x.jpg";
+import favoriteSongFirstMob2x from "../../assets/images/popular/popular-left-mob-2x.jpg";
+import favoriteSongFirstMobW from "../../assets/images/popular/popular-left-mob-w.webp";
+import favoriteSongThird1x from "../../assets/images/popular/popular-right-desk-1x.jpg";
 import favoriteSongThird2x from "../../assets/images/popular/popular-right-desk-2x.jpg";
-import "./PopularSongs.css";
+import favoriteSongThirdW from "../../assets/images/popular/popular-right-desk-w.webp";
+import favoriteSongThirdMob1x from "../../assets/images/popular/popular-right-mob-1x.jpg";
+import favoriteSongThirdMob2x from "../../assets/images/popular/popular-right-mob-2x.jpg";
+import favoriteSongThirdMobW from "../../assets/images/popular/popular-right-mob-w.webp";
 import { Ornaments } from "../Ornaments/Ornaments";
+import "./PopularSongs.css";
 
 export function PopularSongs() {
   const [isPlaying, setIsPlaying] = useState(false);

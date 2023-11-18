@@ -1,7 +1,7 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import React from "react";
 import { useTranslation } from "react-i18next";
+import { useInView } from "react-intersection-observer";
 import "./OurAchivements.css";
 
 export const OurAchivements = () => {
@@ -26,46 +26,46 @@ export const OurAchivements = () => {
   return (
     <motion.section
       initial="hidden"
-      animate={ inView ? "visible" : "hidden" }
-      variants={ animationElement }
-      ref={ ref }
+      animate={inView ? "visible" : "hidden"}
+      variants={animationElement}
+      ref={ref}
       className="ourAchivements"
     >
       <motion.p
-        custom={ 1 }
-        variants={ animationElement }
+        custom={1}
+        variants={animationElement}
         className="achievements-title text-4xl"
       >
-        { t("achievements") }
+        {t("achievements")}
       </motion.p>
       <motion.div
-        custom={ 2 }
-        variants={ animationElement }
+        custom={2}
+        variants={animationElement}
         className="achivements"
       >
         <motion.div
-          custom={ 3 }
-          variants={ animationElement }
+          custom={3}
+          variants={animationElement}
           className="achivement"
         >
           <div className=" text-5xl">123</div>
-          <div className="text-3xl achivement-text">{ t("lullabies") }</div>
+          <div className="text-3xl achivement-text">{t("lullabies")}</div>
         </motion.div>
         <motion.div
-          custom={ 4 }
-          variants={ animationElement }
+          custom={4}
+          variants={animationElement}
           className="achivement"
         >
           <div className="text-5xl">21</div>
-          <div className="text-3xl achivement-text">{ t("locations") }</div>
+          <div className="text-3xl achivement-text">{t("locations")}</div>
         </motion.div>
         <motion.div
-          custom={ 5 }
-          variants={ animationElement }
+          custom={5}
+          variants={animationElement}
           className="achivement"
         >
           <div className="text-5xl">48</div>
-          <div className="text-3xl achivement-text">{ t("performers") }</div>
+          <div className="text-3xl achivement-text">{t("performers")}</div>
         </motion.div>
       </motion.div>
     </motion.section>

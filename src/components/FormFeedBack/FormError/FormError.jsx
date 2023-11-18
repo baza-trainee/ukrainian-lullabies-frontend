@@ -1,6 +1,6 @@
-import React from "react";
 import { ErrorMessage } from "formik";
 import PropTypes from "prop-types";
+import React from "react";
 
 const FormError = ({ name }) => {
   return (

@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
-import { getLightTheme } from "../../redux/theme/themeSelectors";
+import { useSelector } from "react-redux";
 import { NavLink, Outlet } from "react-router-dom";
+import { getLightTheme } from "../../redux/theme/themeSelectors";
 import "./map-catalogue.css";
 
-import mapLight from "../../assets/images/mapLight.png";
-import mapDark from "../../assets/images/mapDark.png";
-import mapLightEn from "../../assets/images/mapLightEn.png";
-import mapDarkEn from "../../assets/images/mapDarkEn.png";
+import photo10 from "../../assets/images/Donshyna.png";
 import photo1 from "../../assets/images/Karpaty.png";
-import photo2 from "../../assets/images/ZahPod.png";
-import photo3 from "../../assets/images/Volyn.png";
-import photo4 from "../../assets/images/ZahPol.png";
-import photo5 from "../../assets/images/ShidPol.png";
+import photo14 from "../../assets/images/Krym.png";
+import photo13 from "../../assets/images/NyjPob.png";
+import photo12 from "../../assets/images/NyjPod.png";
+import photo8 from "../../assets/images/SeredNad.png";
 import photo6 from "../../assets/images/SeredPol.png";
 import photo7 from "../../assets/images/ShidPod.png";
-import photo8 from "../../assets/images/SeredNad.png";
+import photo5 from "../../assets/images/ShidPol.png";
 import photo9 from "../../assets/images/Slobidshyna.png";
-import photo10 from "../../assets/images/Donshyna.png";
 import photo11 from "../../assets/images/Tavria.png";
-import photo12 from "../../assets/images/NyjPod.png";
-import photo13 from "../../assets/images/NyjPob.png";
-import photo14 from "../../assets/images/Krym.png";
+import photo3 from "../../assets/images/Volyn.png";
+import photo2 from "../../assets/images/ZahPod.png";
+import photo4 from "../../assets/images/ZahPol.png";
+import mapDark from "../../assets/images/mapDark.png";
+import mapDarkEn from "../../assets/images/mapDarkEn.png";
+import mapLight from "../../assets/images/mapLight.png";
+import mapLightEn from "../../assets/images/mapLightEn.png";
 
 const catalogue = [
   {

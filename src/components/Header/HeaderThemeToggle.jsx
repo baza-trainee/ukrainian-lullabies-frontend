@@ -1,6 +1,7 @@
-import { changedToLight, changedToDark } from "../../redux/theme/themeSlice";
-import { useDispatch } from "react-redux";
+/* eslint-disable react/prop-types */
 import classNames from "classnames";
+import { useDispatch } from "react-redux";
+import { changedToDark, changedToLight } from "../../redux/theme/themeSlice";
 
 export const HeaderThemeToggle = ({ isLightTheme }) => {
   const dispatch = useDispatch();
@@ -13,9 +14,25 @@ export const HeaderThemeToggle = ({ isLightTheme }) => {
     }
   };
   return (
-    <div className={classNames("header-theme-toggle", { "header-theme-toggle-light": isLightTheme })} onClick={themeToggle}>
-      <div className="header-theme-toggle-moon-icon" style={isLightTheme ? { visibility: "hidden" } : { visibility: "visible" }}>
-        <svg width="28" height="28" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div
+      className={classNames("header-theme-toggle", {
+        "header-theme-toggle-light": isLightTheme,
+      })}
+      onClick={themeToggle}
+    >
+      <div
+        className="header-theme-toggle-moon-icon"
+        style={
+          isLightTheme ? { visibility: "hidden" } : { visibility: "visible" }
+        }
+      >
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 34 34"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             d="M2.04207 17.6333C2.59964 25.3563 9.36799 31.6397 17.4683 31.9846C23.1835 32.2245 28.2946 29.6452 31.3613 25.5812C32.6313 23.9166 31.9498 22.8069 29.8279 23.1818C28.7902 23.3618 27.7215 23.4368 26.6064 23.3918C19.0326 23.0919 12.8374 16.9584 12.8064 9.71529C12.7909 7.76579 13.2091 5.92126 13.968 4.24169C14.8044 2.38217 13.7976 1.49739 11.8616 2.29219C5.72826 4.79655 1.53095 10.78 2.04207 17.6333Z"
             stroke="white"
@@ -25,8 +42,19 @@ export const HeaderThemeToggle = ({ isLightTheme }) => {
           />
         </svg>
       </div>
-      <div className="header-theme-toggle-sun-icon" style={!isLightTheme ? { visibility: "hidden" } : { visibility: "visible" }}>
-        <svg width="28" height="28" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div
+        className="header-theme-toggle-sun-icon"
+        style={
+          !isLightTheme ? { visibility: "hidden" } : { visibility: "visible" }
+        }
+      >
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 34 34"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             d="M17 26.75C22.3848 26.75 26.75 22.3848 26.75 17C26.75 11.6152 22.3848 7.25002 17 7.25002C11.6152 7.25002 7.25002 11.6152 7.25002 17C7.25002 22.3848 11.6152 26.75 17 26.75Z"
             fill="black"
@@ -42,12 +70,20 @@ export const HeaderThemeToggle = ({ isLightTheme }) => {
         </svg>
       </div>
       <div
-        className={classNames("header-theme-toggle-circle-icon", { "header-theme-toggle-circle-icon-light": isLightTheme })}
+        className={classNames("header-theme-toggle-circle-icon", {
+          "header-theme-toggle-circle-icon-light": isLightTheme,
+        })}
         style={isLightTheme ? { left: "5px" } : { right: "5px" }}
         id="themeToggleCirlce"
       >
         {!isLightTheme ? (
-          <svg width="32" height="32" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 38 38"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
               fillRule="evenodd"
               clipRule="evenodd"
@@ -56,7 +92,13 @@ export const HeaderThemeToggle = ({ isLightTheme }) => {
             />
           </svg>
         ) : (
-          <svg width="32" height="32" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 34 34"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
               fillRule="evenodd"
               clipRule="evenodd"

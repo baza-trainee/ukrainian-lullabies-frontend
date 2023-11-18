@@ -1,15 +1,15 @@
+import classNames from "classnames";
+import { motion } from "framer-motion";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useSelector } from "react-redux";
-import classNames from "classnames";
+import { Link } from "react-router-dom";
 
 import { ChatbotTechnicalWork } from "./ChatbotTechnicalWork";
 
-import "./Chatbot.css";
 import "../TechnicalWorks/TechnicalWorks.css";
+import "./Chatbot.css";
 
 const Chatbot = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
