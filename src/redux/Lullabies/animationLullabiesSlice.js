@@ -65,6 +65,6 @@ export default animationsSlice.reducer;
 export const { fetchDataStart, fetchDataSuccess, fetchDataFailure } =
   animationsSlice.actions;
 
-export const selectData = (state) => state.animationSongs.data;
+export const selectData = (state) => state.lullabiesinAnimations.data;
 export const selectLoading = (state) => state.loading;
 export const selectError = (state) => state.error;

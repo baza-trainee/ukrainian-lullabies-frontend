@@ -1,8 +1,8 @@
-import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
+import React from "react";
+import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
+import { NavLink, Outlet } from "react-router-dom";
 import "./map.css";
 
 import { Ornaments } from "../Ornaments/Ornaments";

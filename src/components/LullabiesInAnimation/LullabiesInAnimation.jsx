@@ -1,10 +1,7 @@
 import classNames from "classnames";
-import {
-  default as React,
-  default as ReactPlayer,
-  useEffect,
-  useState,
-} from "react";
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import ReactPlayer from "react-player";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchData,
@@ -21,6 +18,7 @@ export const LullabiesInAnimation = () => {
   const playlist = useSelector(selectData);
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
+  const { i18n } = useTranslation();
 
   const [currentVideoUrl, setCuerrentVideoUrl] = useState(playlist[0].url);
 
@@ -31,9 +29,14 @@ export const LullabiesInAnimation = () => {
 
   const [isPlaylistShuffled, setIsPlaylistShuffled] = useState(false);
 
+  const currentLanguage = i18n.language;
   useEffect(() => {
-    dispatch(fetchData());
-  }, []);
+    if (currentLanguage === "en") {
+      dispatch(fetchData("en"));
+    } else {
+      dispatch(fetchData("uk"));
+    }
+  }, [dispatch, currentLanguage]);
 
   const handleVideoChange = (index, url) => {
     setCuerrentVideoUrl(url);
@@ -101,7 +104,10 @@ export const LullabiesInAnimation = () => {
   if (error) {
     return <p className="text-error text-5x">Somesing went wrong</p>;
   }
-
+  if (!loading && playlist.length === 0) {
+    return <Loader />;
+  }
+  console.log("playlist:", playlist);
   return (
     <section id="anima" className="lullabies-animation text-sm margin-bottom">
       <div className="player-container">

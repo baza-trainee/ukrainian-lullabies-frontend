@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import "./CoffeeLogo.css";
 
 export function CoffeeLogo() {
   return (
     <svg
-    className="achievements-bmc"
+      className="achievements-bmc"
       width="48"
       height="49"
       viewBox="0 0 48 49"

@@ -1,6 +1,6 @@
+import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { motion } from "framer-motion";
 
 import "./loader.css";
 

@@ -1,7 +1,7 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import React from "react";
 import { useTranslation } from "react-i18next";
+import { useInView } from "react-intersection-observer";
 import { Loader } from "../Loader/Loader";
 import "./TechnicalWorks.css";
 
