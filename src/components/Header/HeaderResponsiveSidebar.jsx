@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import classNames from "classnames";
+import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 import "./HeaderResponsiveSidebar.css";
 
@@ -11,43 +11,46 @@ import { HeaderThemeToggle } from "./HeaderThemeToggle";
 import { HeaderResponsiveUserLink } from "./HeaderUserIcon";
 
 // import logos
-import patreonLogoWhite from "../../assets/icons/patreon_logo_white.svg";
-import patreonLogoBlack from "../../assets/icons/patreon_logo_black.svg";
 import bmcLogo from "../../assets/icons/BMC_logo.svg";
+import patreonLogoBlack from "../../assets/icons/patreon_logo_black.svg";
+import patreonLogoWhite from "../../assets/icons/patreon_logo_white.svg";
 
 // import icons
-import SIconSidebar from "../../icons/SIconSidebar";
-import { IoIosArrowDown } from "react-icons/io";
 import { FiX } from "react-icons/fi";
+import { IoIosArrowDown } from "react-icons/io";
+import SIconSidebar from "../../icons/SIconSidebar";
 
 // social icons logos
-import youtubeLogoWhite from "../../icons/Socials/youtube-logo-white.svg";
 import youtubeLogoBlack from "../../icons/Socials/youtube-logo-black.svg";
+import youtubeLogoWhite from "../../icons/Socials/youtube-logo-white.svg";
 
-import instagramLogoWhite from "../../icons/Socials/instagram-logo-white.svg";
 import instagramLogoBlack from "../../icons/Socials/instagram-logo-black.svg";
+import instagramLogoWhite from "../../icons/Socials/instagram-logo-white.svg";
 
-import facebookLogoWhite from "../../icons/Socials/facebook-logo-white.svg";
 import facebookLogoBlack from "../../icons/Socials/facebook-logo-black.svg";
+import facebookLogoWhite from "../../icons/Socials/facebook-logo-white.svg";
 
-import tiktokLogoWhite from "../../icons/Socials/tiktok-logo-white.svg";
-import tiktokLogoBlack from "../../icons/Socials/tiktok-logo-black.svg";
 import Popup from "reactjs-popup";
+import tiktokLogoBlack from "../../icons/Socials/tiktok-logo-black.svg";
+import tiktokLogoWhite from "../../icons/Socials/tiktok-logo-white.svg";
 import { QrCodeButton } from "../OurAchivements/QRCode/QrCodeButton";
 
-export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentLanguage, scrollToTarget }) => {
+export const HeaderResponsiveSidebar = ({
+  isLightTheme,
+  changeLanguage,
+  currentLanguage,
+  scrollToTarget,
+}) => {
   const { t } = useTranslation();
 
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const body = document.body;
 
   const handleBurgerClick = () => {
-    if (!isSideMenuOpen)
-    {
+    if (!isSideMenuOpen) {
       setIsSideMenuOpen(true);
       body.style.overflow = "hidden";
-    } else
-    {
+    } else {
       setIsSideMenuOpen(false);
       setIsResponsiveDropdownMenuOpen(false);
       setIsResponsiveLanguageMenuOpen(false);
@@ -56,36 +59,35 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
   };
 
   // responsive dropdown links menu
-  const [isResponsiveDropdownMenuOpen, setIsResponsiveDropdownMenuOpen] = useState(false);
+  const [isResponsiveDropdownMenuOpen, setIsResponsiveDropdownMenuOpen] =
+    useState(false);
 
   const responsiveDropdownMenuClick = () => {
-    if (!isResponsiveDropdownMenuOpen)
-    {
+    if (!isResponsiveDropdownMenuOpen) {
       setIsResponsiveDropdownMenuOpen(true);
       setIsResponsiveLanguageMenuOpen(false);
-    } else
-    {
+    } else {
       setIsResponsiveDropdownMenuOpen(false);
     }
   };
 
   // responsive language menu
-  const [isResponsiveLanguageMenuOpen, setIsResponsiveLanguageMenuOpen] = useState(false);
+  const [isResponsiveLanguageMenuOpen, setIsResponsiveLanguageMenuOpen] =
+    useState(false);
 
   const responsiveLanguageMenuClick = () => {
-    if (!isResponsiveLanguageMenuOpen)
-    {
+    if (!isResponsiveLanguageMenuOpen) {
       setIsResponsiveLanguageMenuOpen(true);
       setIsResponsiveDropdownMenuOpen(false);
-    } else
-    {
+    } else {
       setIsResponsiveLanguageMenuOpen(false);
     }
   };
 
   // responsive search bar
   const responsiveSearchBarRef = useRef();
-  const [isSidebarSearchPopupOpen, setIsSidebarSearchPopupOpen] = useState(false);
+  const [isSidebarSearchPopupOpen, setIsSidebarSearchPopupOpen] =
+    useState(false);
   const hideSidebarSearchBarPopup = () => {
     setIsSidebarSearchPopupOpen(true);
     setTimeout(() => setIsSidebarSearchPopupOpen(false), 2000);
@@ -94,7 +96,13 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
   return (
     <>
       <button className="header-burgerIcon" onClick={handleBurgerClick}>
-        <svg width="30" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          width="30"
+          height="40"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             d="M21 10H3"
             stroke={!isLightTheme ? "#FFFFFF" : "#000000"}
@@ -142,7 +150,15 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
       >
         <div className="header-responsive-theme-and-close">
           <HeaderThemeToggle isLightTheme={isLightTheme} />
-          <FiX style={{ width: "48px", height: "48px", padding: "12px", cursor: "pointer" }} onClick={handleBurgerClick} />
+          <FiX
+            style={{
+              width: "48px",
+              height: "48px",
+              padding: "12px",
+              cursor: "pointer",
+            }}
+            onClick={handleBurgerClick}
+          />
         </div>
         <Link to="/" onClick={handleBurgerClick}>
           <div className="header-responsive-logo text-5xl">
@@ -156,14 +172,19 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
         </Link>
         <ul className="header-responsive-options">
           <li>
-            <Link to="/about" onClick={handleBurgerClick} className="header-responsive-about">
+            <Link
+              to="/about"
+              onClick={handleBurgerClick}
+              className="header-responsive-about"
+            >
               {t("aboutUs")}
             </Link>
           </li>
           <li>
             <div
               className={classNames("header-responsive-dropdown-icon", {
-                "header-responsive-dropdown-icon-menuOpened": isResponsiveDropdownMenuOpen,
+                "header-responsive-dropdown-icon-menuOpened":
+                  isResponsiveDropdownMenuOpen,
               })}
               onClick={responsiveDropdownMenuClick}
             >
@@ -208,7 +229,8 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
           <li>
             <div
               className={classNames("header-responsive-language-icon", {
-                "header-responsive-language-icon-menuOpened": isResponsiveLanguageMenuOpen,
+                "header-responsive-language-icon-menuOpened":
+                  isResponsiveLanguageMenuOpen,
               })}
               onClick={responsiveLanguageMenuClick}
             >
@@ -247,7 +269,9 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
             <Popup
               trigger={
                 <div
-                  className={classNames("header-responsive-search-bar", { "header-responsive-search-bar-light": isLightTheme })}
+                  className={classNames("header-responsive-search-bar", {
+                    "header-responsive-search-bar-light": isLightTheme,
+                  })}
                   ref={responsiveSearchBarRef}
                 >
                   <input
@@ -256,7 +280,13 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
                     className="header-responsive-search-input text-2xl"
                     id="headerSearchInput"
                   />
-                  <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg
+                    width="26"
+                    height="26"
+                    viewBox="0 0 26 26"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
                     <path
                       d="M4 22L8.35 17.65M6 12C6 16.4183 9.58172 20 14 20C18.4183 20 22 16.4183 22 12C22 7.58172 18.4183 4 14 4C9.58172 4 6 7.58172 6 12Z"
                       stroke="white"
@@ -269,14 +299,20 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
                 </div>
               }
               position="top center"
-              arrowStyle={isLightTheme ? { color: "#e7e7e7" } : { color: "#454545" }}
+              arrowStyle={
+                isLightTheme ? { color: "#e7e7e7" } : { color: "#454545" }
+              }
               open={isSidebarSearchPopupOpen}
               onOpen={hideSidebarSearchBarPopup}
             >
               <div
-                className={classNames("header-responsive-search-popup-unavailable", {
-                  "header-responsive-search-popup-unavailable-light": isLightTheme,
-                })}
+                className={classNames(
+                  "header-responsive-search-popup-unavailable",
+                  {
+                    "header-responsive-search-popup-unavailable-light":
+                      isLightTheme,
+                  }
+                )}
               >
                 {t("searchUnavailable")}
               </div>
@@ -286,10 +322,21 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
         <div className="header-responsive-support">
           <span>{t("helpWith")}</span>
           <div className="header-responsive-support-icons">
-            <a href="https://www.patreon.com/KolyskovaMuseum" target="_blank" rel="noopener nofollow noreferrer">
-              <img src={!isLightTheme ? patreonLogoWhite : patreonLogoBlack} alt="patreon" />
+            <a
+              href="https://www.patreon.com/KolyskovaMuseum"
+              target="_blank"
+              rel="noopener nofollow noreferrer"
+            >
+              <img
+                src={!isLightTheme ? patreonLogoWhite : patreonLogoBlack}
+                alt="patreon"
+              />
             </a>
-            <a href="https://www.buymeacoffee.com/kolyskova" target="_blank" rel="noopener nofollow noreferrer">
+            <a
+              href="https://www.buymeacoffee.com/kolyskova"
+              target="_blank"
+              rel="noopener nofollow noreferrer"
+            >
               <img src={bmcLogo} alt="buy me a coffee" />
             </a>
             <div className="header-responsive-support-qr">
@@ -300,7 +347,11 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
         <div className="header-responsive-follow">
           <p>{t("followUsHere")}:</p>
           <div className="header-responsive-follow-icons">
-            <a href="https://www.youtube.com/@Kolyskovamuseum" target="_blank" rel="noopener nofollow noreferrer">
+            <a
+              href="https://www.youtube.com/@Kolyskovamuseum"
+              target="_blank"
+              rel="noopener nofollow noreferrer"
+            >
               <img
                 src={!isLightTheme ? youtubeLogoWhite : youtubeLogoBlack}
                 alt="youtube"
@@ -309,7 +360,11 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
                 className="sidebar-socials-icon-normal"
               />
             </a>
-            <a href="https://www.instagram.com/kolyskova.museum/" target="_blank" rel="noopener nofollow noreferrer">
+            <a
+              href="https://www.instagram.com/kolyskova.museum/"
+              target="_blank"
+              rel="noopener nofollow noreferrer"
+            >
               <img
                 src={!isLightTheme ? instagramLogoWhite : instagramLogoBlack}
                 alt="instagram"
@@ -318,7 +373,11 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
                 className="sidebar-socials-icon-normal"
               />
             </a>
-            <a href="https://www.facebook.com/" target="_blank" rel="noopener nofollow noreferrer">
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener nofollow noreferrer"
+            >
               <img
                 src={!isLightTheme ? facebookLogoWhite : facebookLogoBlack}
                 alt="facebook"
@@ -327,7 +386,11 @@ export const HeaderResponsiveSidebar = ({ isLightTheme, changeLanguage, currentL
                 className="sidebar-socials-icon-normal"
               />
             </a>
-            <a href="https://www.tiktok.com/@kolyskovamuseum" target="_blank" rel="noopener nofollow noreferrer">
+            <a
+              href="https://www.tiktok.com/@kolyskovamuseum"
+              target="_blank"
+              rel="noopener nofollow noreferrer"
+            >
               <img
                 src={!isLightTheme ? tiktokLogoWhite : tiktokLogoBlack}
                 alt="tiktok"

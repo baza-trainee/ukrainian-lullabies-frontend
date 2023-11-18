@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
 import classNames from "classnames";
+import PropTypes from "prop-types";
+import React from "react";
 
+import OrnamentMobileHero from "../../../icons/OrnamentMobileHero";
 import OrnamentsLeftIcon from "../../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../../icons/OrnamentsRightIcon";
-import OrnamentMobileHero from "../../../icons/OrnamentMobileHero";
 
 import "./pop-up-feedback.css";
 

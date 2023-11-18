@@ -1,15 +1,15 @@
-import React from 'react';
-import './ErrorPage.css';
 import classNames from "classnames";
+import { motion } from "framer-motion";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { useInView } from "react-intersection-observer";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { motion } from "framer-motion";
-import { useInView } from 'react-intersection-observer';
-import { useTranslation } from 'react-i18next';
+import "./ErrorPage.css";
 
+import { NumberFour, NumberNull } from "../../icons/Numbers";
 import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
-import { NumberFour, NumberNull } from '../../icons/Numbers';
 
 export const ErrorPage = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
@@ -37,22 +37,27 @@ export const ErrorPage = () => {
   return (
     <motion.section
       initial="hidden"
-      animate={ inView ? "visible" : "hidden" }
-      variants={ animationElement }
-      custom={ 1 }
-      ref={ ref }
-      className='technikal'
+      animate={inView ? "visible" : "hidden"}
+      variants={animationElement}
+      custom={1}
+      ref={ref}
+      className="technikal"
     >
       <div className="technical_content">
         <div className="technikal__border ">
           <div className=" tech-margin">
-            <motion.h2 custom={ 1 }
-              variants={ animationElement } className="errorPage__title text-4xl">
+            <motion.h2
+              custom={1}
+              variants={animationElement}
+              className="errorPage__title text-4xl"
+            >
               Page not found
             </motion.h2>
             <motion.div
-              custom={ 2 }
-              variants={ animationElement } className="errorPage__svg404">
+              custom={2}
+              variants={animationElement}
+              className="errorPage__svg404"
+            >
               <NumberFour />
               <NumberNull />
               <NumberFour />
@@ -61,9 +66,11 @@ export const ErrorPage = () => {
         </div>
       </div>
 
-      <motion.div custom={ 3 }
-        variants={ animationElement }
-        className="errorPage__block container">
+      <motion.div
+        custom={3}
+        variants={animationElement}
+        className="errorPage__block container"
+      >
         <div className="element-right-error">
           <OrnamentsLeftIcon />
         </div>
@@ -74,15 +81,20 @@ export const ErrorPage = () => {
           <OrnamentsRightIcon />
         </div>
       </motion.div>
-      <motion.div custom={ 4 }
-        variants={ animationElement } className="container">
+      <motion.div custom={4} variants={animationElement} className="container">
         <NavLink
           to="/"
-          className={ classNames('button', 'errorPage-button', { 'button-dark': !isLightTheme, }) }
-          onClick={ () => {
+          className={classNames("button", "errorPage-button", {
+            "button-dark": !isLightTheme,
+          })}
+          onClick={() => {
             scrollToTarget("#header");
-          } }> { t('toTheMain') }</NavLink>
+          }}
+        >
+          {" "}
+          {t("toTheMain")}
+        </NavLink>
       </motion.div>
-    </motion.section >
-  )
+    </motion.section>
+  );
 };

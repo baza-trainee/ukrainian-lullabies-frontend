@@ -1,10 +1,10 @@
-import React from "react";
 import classNames from "classnames";
+import { motion } from "framer-motion";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { useInView } from "react-intersection-observer";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { useTranslation } from "react-i18next";
 
 import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";

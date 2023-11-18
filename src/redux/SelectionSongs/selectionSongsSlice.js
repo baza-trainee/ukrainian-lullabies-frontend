@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-catch */
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
@@ -15,6 +15,7 @@ const initialState = {
   ],
   error: "",
 };
+
 
 export const fetchData = createAsyncThunk("selectionSongs/fetchData", async (lang) => {
   // console.log("selectionsSongs: starting request...");
@@ -47,7 +48,7 @@ export const fetchData = createAsyncThunk("selectionSongs/fetchData", async (lan
     console.log("selectionsSongs: request failed :(");
     throw err;
   }
-});
+);
 
 const selecionSongsSlice = createSlice({
   name: "selectionSongs",
@@ -57,7 +58,9 @@ const selecionSongsSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(fetchData.fulfilled, (state, action) => {
-      (state.loading = false), (state.data = action.payload), (state.error = "");
+      (state.loading = false),
+        (state.data = action.payload),
+        (state.error = "");
     });
     builder.addCase(fetchData.rejected, (state, action) => {
       (state.loading = false), (state.error = action.error.message);

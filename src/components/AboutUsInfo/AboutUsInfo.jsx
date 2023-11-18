@@ -1,13 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import Patreon from "./patreon";
 import { motion } from "framer-motion";
+import React from "react";
+import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 import { GeneralTitle } from "../GeneralTitle/GeneralTitle";
 import { Ornaments } from "../Ornaments/Ornaments";
-import "./AboutUsInfo.css";
 import { QrCodeButton } from "../OurAchivements/QRCode/QrCodeButton";
+import "./AboutUsInfo.css";
+import Patreon from "./patreon";
 
 const AboutUsInfo = () => {
   const animationElement = {
@@ -57,7 +57,6 @@ const AboutUsInfo = () => {
         className="target-container"
       >
         <div className="img-container target-img">
-
           <picture>
             <source
               srcSet="/img/aboutUs/aboutUs-target-desk-w.webp"
@@ -95,7 +94,6 @@ const AboutUsInfo = () => {
               loading="lazy"
             />
           </picture>
-
         </div>
         <div className="target-info">
           <p className="text-2xl title-small">{t("projectPurpose")}</p>

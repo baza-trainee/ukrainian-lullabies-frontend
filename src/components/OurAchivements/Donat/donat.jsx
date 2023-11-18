@@ -1,13 +1,13 @@
-import React from "react";
-import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
+import { Ornaments } from "../../Ornaments/Ornaments";
 import { CoffeeLogo } from "../CoffeeLogo/CoffeeLogo";
 import { PatreonLogo } from "../PatreonLogo/PatreonLogo";
 import { QrCodeButton } from "../QRCode/QrCodeButton";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import "./donat.css";
-import { Ornaments } from "../../Ornaments/Ornaments";
 
 export const Donat = () => {
   const { t } = useTranslation();
@@ -52,9 +52,15 @@ export const Donat = () => {
           </div>
         </motion.div>
       </div>
-      <motion.div custom={3} variants={animationElement} className="donats-ornament">
+      <motion.div
+        custom={3}
+        variants={animationElement}
+        className="donats-ornament"
+      >
+
         <Ornaments />
       </motion.div>
     </motion.section>
   );
-}
+};
+

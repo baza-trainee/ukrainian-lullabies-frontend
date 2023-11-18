@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
 import classNames from "classnames";
+import PropTypes from "prop-types";
+import React from "react";
 import { useSelector } from "react-redux";
 
-import { getLightTheme } from "../../../redux/theme/themeSelectors";
 import Share from "../../../icons/Share";
+import { getLightTheme } from "../../../redux/theme/themeSelectors";
 
 import "./button-share.css";
 

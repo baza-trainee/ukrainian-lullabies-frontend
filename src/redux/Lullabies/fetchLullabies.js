@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-catch */
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
@@ -16,31 +16,37 @@ const initialState = {
   error: "",
 };
 
-export const fetchData = createAsyncThunk("traditionSongs/fetchData", async (lang, { dispatch }) => {
-  try {
-    dispatch(fetchDataStart());
-    const response = await axios.get("https://api.kolyskova.com/lullabies/?source-format=audio", {
-      headers: {
-        "Accept-Language": lang,
-      },
-    });
-    const formatedData = response.data.results.map((item, index) => ({
-      params: item.name.replace(/\s/g, ''),
-      index: index,
-      id: item.source.id,
-      name: item.name,
-      url: item.source.audio,
-      lyrics: item.lyrics,
-      duration: item.source.duration.slice(3, 8),
-      region: item.region.name,
-    }));
-    dispatch(fetchDataSuccess(formatedData));
-    return formatedData;
-  } catch (err) {
-    dispatch(fetchDataFailure(err));
-    throw err;
+export const fetchData = createAsyncThunk(
+  "traditionSongs/fetchData",
+  async (lang, { dispatch }) => {
+    try {
+      dispatch(fetchDataStart());
+      const response = await axios.get(
+        "https://api.kolyskova.com/lullabies/?type=archive",
+        {
+          headers: {
+            "Accept-Language": lang,
+          },
+        }
+      );
+      const formatedData = response.data.results.map((item, index) => ({
+        params: item.name.replace(/\s/g, ""),
+        index: index,
+        id: item.source.id,
+        name: item.name,
+        url: item.source.audio,
+        lyrics: item.lyrics,
+        duration: item.source.duration.slice(3, 8),
+        region: item.region.name,
+      }));
+      dispatch(fetchDataSuccess(formatedData));
+      return formatedData;
+    } catch (err) {
+      dispatch(fetchDataFailure(err));
+      throw err;
+    }
   }
-});
+);
 
 const traditionSongsSlice = createSlice({
   name: "traditionSongs",
@@ -65,4 +71,5 @@ export default traditionSongsSlice.reducer;
 export const selectData = (state) => state.traditionalSongs.data;
 export const selectLoading = (state) => state.traditionalSongs.loading; // Оновлено селектор
 export const selectError = (state) => state.traditionalSongs.error; // Оновлено селектор
-export const { fetchDataStart, fetchDataSuccess, fetchDataFailure } = traditionSongsSlice.actions;
+export const { fetchDataStart, fetchDataSuccess, fetchDataFailure } =
+  traditionSongsSlice.actions;

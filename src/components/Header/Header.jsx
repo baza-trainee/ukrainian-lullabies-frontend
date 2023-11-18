@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { useTranslation } from "react-i18next";
 import classNames from "classnames";
-import "./Header.css";
+import React, { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, NavLink } from "react-router-dom";
 import { languageChanged } from "../../redux/currentLanguage/currentLanguageSlice";
+import "./Header.css";
 
 // import components
 import { HeaderSearch } from "./HeaderSearch";
@@ -12,7 +12,6 @@ import { HeaderThemeToggle } from "./HeaderThemeToggle";
 
 // import logos
 import { LogoDark, LogoLight } from "../SVGComponents/Logo";
-
 
 // import icons
 import { IoIosArrowDown } from "react-icons/io";
@@ -39,7 +38,9 @@ export const Header = () => {
 
   useEffect(() => {
     const closeDropdown = (e) => {
-      if (!e.target.parentElement?.classList.contains("header-dropdown-button")) {
+      if (
+        !e.target.parentElement?.classList.contains("header-dropdown-button")
+      ) {
         setIsDropdownOpen(false);
         dropdownWrapperRef.current.style.borderColor = "transparent";
       }
@@ -73,7 +74,9 @@ export const Header = () => {
 
   useEffect(() => {
     const closeLanguageMenu = (e) => {
-      if (!e.target.parentElement?.classList.contains("header-languages-button")) {
+      if (
+        !e.target.parentElement?.classList.contains("header-languages-button")
+      ) {
         setIsLanguageMenuOpen(false);
       }
     };
@@ -86,10 +89,13 @@ export const Header = () => {
   const searchBarRef = useRef();
   const headerOptionsWrapperRef = useRef();
 
-  const closeSearchBar = () => {      // openSearchBar is called searchIconClick() and placed in HeaderSearch.jsx
+  const closeSearchBar = () => {
+    // openSearchBar is called searchIconClick() and placed in HeaderSearch.jsx
     const parent = headerOptionsWrapperRef.current.parentNode;
     const headerAboutLink = document.querySelector(".header-about-link");
-    const headerDropdownWrapper = document.querySelector(".header-dropdown-wrapper");
+    const headerDropdownWrapper = document.querySelector(
+      ".header-dropdown-wrapper"
+    );
 
     headerAboutLink.style.display = "block";
     headerDropdownWrapper.style.display = "block";
@@ -104,18 +110,25 @@ export const Header = () => {
   // theme toggle
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
-
   return (
     <div className="header container" id="header">
       <div className="header-logo">
-        <Link to="/">{isLightTheme ? <LogoLight width="56" height="53" /> : <LogoDark width="56" height="53" />}</Link>
+        <Link to="/">
+          {isLightTheme ? (
+            <LogoLight width="56" height="53" />
+          ) : (
+            <LogoDark width="56" height="53" />
+          )}
+        </Link>
       </div>
       <NavLink to="/about" className="header-about-link text-2xl">
         {t("aboutUs")}
       </NavLink>
       <div className="header-dropdown-wrapper" ref={dropdownWrapperRef}>
         <div
-          className={classNames("header-dropdown-button", { "header-dropdown-button-light": isLightTheme })}
+          className={classNames("header-dropdown-button", {
+            "header-dropdown-button-light": isLightTheme,
+          })}
           onClick={dropdownMenuClick}
         >
           <span className="text-2xl">{t("lullabiesMuseum")}</span>
@@ -128,13 +141,25 @@ export const Header = () => {
             "header-dropdown-menu-light": isLightTheme,
           })}
         >
-          <Link to="/map" className="text-base" onClick={() => scrollToTarget("#mapTabsId")}>
+          <Link
+            to="/map"
+            className="text-base"
+            onClick={() => scrollToTarget("#mapTabsId")}
+          >
             {t("traditionalLullabies")}
           </Link>
-          <Link to="/songs" className="text-base" onClick={() => scrollToTarget("#mapTabsId")}>
+          <Link
+            to="/songs"
+            className="text-base"
+            onClick={() => scrollToTarget("#mapTabsId")}
+          >
             {t("singingTogether")}
           </Link>
-          <Link to="/anima" className="text-base" onClick={() => scrollToTarget("#mapTabsId")}>
+          <Link
+            to="/anima"
+            className="text-base"
+            onClick={() => scrollToTarget("#mapTabsId")}
+          >
             {t("animatedLullabies")}
           </Link>
         </div>
@@ -143,7 +168,11 @@ export const Header = () => {
       {/* HEADER OPTION BUTTONS */}
       <div className="header-options-wrapper" ref={headerOptionsWrapperRef}>
         <div className="header-languages-wrapper" onClick={languageMenuClick}>
-          <div className={classNames("header-languages-button", { "header-languages-button-light": isLightTheme })}>
+          <div
+            className={classNames("header-languages-button", {
+              "header-languages-button-light": isLightTheme,
+            })}
+          >
             <span className="text-2xl">{currentLanguage.toUpperCase()}</span>
             <IoIosArrowDown style={{ width: "31px", height: "21px" }} />
           </div>
@@ -175,7 +204,12 @@ export const Header = () => {
       </div>
 
       {/* opened search bar */}
-      <div className={classNames("header-search-bar", "hidden", { "header-search-bar-light": isLightTheme })} ref={searchBarRef}>
+      <div
+        className={classNames("header-search-bar", "hidden", {
+          "header-search-bar-light": isLightTheme,
+        })}
+        ref={searchBarRef}
+      >
         <input
           type="text"
           placeholder={t("searchUnavailable")}
@@ -183,7 +217,13 @@ export const Header = () => {
           onBlur={closeSearchBar}
           id="headerSearchInput"
         />
-        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          width="26"
+          height="26"
+          viewBox="0 0 26 26"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             d="M4 22L8.35 17.65M6 12C6 16.4183 9.58172 20 14 20C18.4183 20 22 16.4183 22 12C22 7.58172 18.4183 4 14 4C9.58172 4 6 7.58172 6 12Z"
             stroke="white"
