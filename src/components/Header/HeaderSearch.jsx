@@ -6,6 +6,7 @@ export const HeaderSearch = ({
   searchBarRef,
   headerOptionsWrapperRef,
 }) => {
+
   // open search bar
   const searchIconClick = () => {
     const parent = headerOptionsWrapperRef.current.parentNode;

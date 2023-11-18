@@ -64,7 +64,7 @@ export const QrCodeButton = ({ mobile = false }) => {
                 className="text-base-semibold"
                 onClick={(e) => copyToClipboard(e, 0)}
               >
-                {t("ngoLullabyMuseum")}
+   {t("ngoLullabyMuseum")}
               </p>
               <p
                 className={classNames(
@@ -139,6 +139,7 @@ export const QrCodeButton = ({ mobile = false }) => {
                 className="text-base-semibold"
                 onClick={(e) => copyToClipboard(e, 3)}
               >
+
                 {t("jscCbPrivatbank")}
               </p>
               <p
@@ -169,6 +170,7 @@ export const QrCodeButton = ({ mobile = false }) => {
               <p className="text-base-semibold">
                 {t("paymentPurposePlaceholder2")}
               </p>
+
               <p
                 className={classNames(
                   "qr-info-copy-clicked",

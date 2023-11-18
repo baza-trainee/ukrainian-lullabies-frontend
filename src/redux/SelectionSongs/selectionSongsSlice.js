@@ -16,31 +16,37 @@ const initialState = {
   error: "",
 };
 
-export const fetchData = createAsyncThunk(
-  "selectionSongs/fetchData",
-  async (lang) => {
-    try {
-      // const response = await axios.get("http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/?source-format=audio", {
-      const response = await axios.get(
-        "https://api.kolyskova.com/lullabies/?source-format=audio",
-        {
-          headers: {
-            "Accept-Language": lang,
-          },
-        }
-      );
-      const formatedData = await response.data.results.map((item, index) => ({
-        id: index,
-        songId: item.id,
-        name: item.name,
-        url: item.source.audio,
-        duration: item.source.duration.slice(3, 8),
-      }));
-      return formatedData;
-    } catch (err) {
-      console.log("selectionsSongs: request failed :(");
-      throw err;
+
+export const fetchData = createAsyncThunk("selectionSongs/fetchData", async (lang) => {
+  // console.log("selectionsSongs: starting request...");
+  try {
+    // const response = await axios.get("http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/?source-format=audio", {
+    const response = await axios.get("https://api.kolyskova.com/lullabies/?source-format=audio", {
+      headers: {
+        "Accept-Language": lang,
+      },
+    });
+    // console.log("selections response: ", response);
+    const formatedData = await response.data.results.map((item, index) => ({
+      id: index,
+      songId: item.source.id,
+      name: item.name,
+      url: item.source.audio,
+      duration: item.source.duration.slice(3, 8),
+    }));
+
+    // console.log("selections formated data: ", formatedData);
+    
+    if (formatedData.length === 0) {
+      console.log("SelectionsSlice: formattedData is empty; No songs data");
+      throw new Error("No songs data");
+
     }
+
+    return formatedData;
+  } catch (err) {
+    console.log("selectionsSongs: request failed :(");
+    throw err;
   }
 );
 

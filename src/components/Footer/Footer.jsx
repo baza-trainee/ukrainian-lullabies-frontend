@@ -178,6 +178,7 @@ export const Footer = () => {
             <p className="footer-contacts-list-title text-sm-semibold">
               {t("telephone")}
             </p>
+
             <a href={`tel:${contacts.phone ? contacts.phone : "#"}`}>
               {contacts.phone ? contacts.phone : `Error: ${contactsError}`}
             </a>
@@ -186,6 +187,7 @@ export const Footer = () => {
             <p className="footer-contacts-list-title text-sm-semibold">
               E-mail:
             </p>
+
             <a href={`mailto:${contacts.email ? contacts.email : "#"}`}>
               {contacts.email ? contacts.email : `Error: ${contactsError}`}
             </a>

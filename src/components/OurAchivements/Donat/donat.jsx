@@ -57,8 +57,10 @@ export const Donat = () => {
         variants={animationElement}
         className="donats-ornament"
       >
+
         <Ornaments />
       </motion.div>
     </motion.section>
   );
 };
+
