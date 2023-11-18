@@ -33,11 +33,13 @@ export const fetchData = createAsyncThunk("selectionSongs/fetchData", async (lan
       url: item.source.audio,
       duration: item.source.duration.slice(3, 8),
     }));
+
     // console.log("selections formated data: ", formatedData);
     
     if (formatedData.length === 0) {
       console.log("SelectionsSlice: formattedData is empty; No songs data");
       throw new Error("No songs data");
+
     }
 
     return formatedData;
