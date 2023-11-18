@@ -121,19 +121,19 @@ const AboutUsInfo = () => {
           <p className="text-base-semibold">{t("donateHere")}</p>
         </div>
         <div className="donat-imgs">
-          <div className="donat-bmc donat_margin-right">
+          <div className="donat-bmc ">
             <Link
               to="https://www.buymeacoffee.com/kolyskova"
               className="buy-me-a-caffee"
               target="_blank"
             ></Link>
           </div>
-          <div className="donat-patreon donat_margin-right">
+          <div className="donat-patreon ">
             <Link to="https://www.patreon.com/KolyskovaMuseum" target="_blank">
               <Patreon />
             </Link>
           </div>
-          <div className="donat-qr">
+          <div className="about-us-donat-qr">
             <QrCodeButton />
           </div>
         </div>
