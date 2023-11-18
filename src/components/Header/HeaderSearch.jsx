@@ -1,6 +1,7 @@
 import classNames from "classnames";
 
 export const HeaderSearch = ({ isLightTheme, searchBarRef, headerOptionsWrapperRef }) => {
+  // open search bar
   const searchIconClick = () => {
     const parent = headerOptionsWrapperRef.current.parentNode;
     const input = document.getElementById("headerSearchInput");

@@ -60,7 +60,6 @@ export const Header = () => {
   // language menu
   const languageMenuRef = useRef();
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
-  // const [currentLanguage, setCurrentLanguage] = useState("ua");
 
   const languageMenuClick = () => {
     setIsLanguageMenuOpen(!isLanguageMenuOpen);
@@ -87,7 +86,7 @@ export const Header = () => {
   const searchBarRef = useRef();
   const headerOptionsWrapperRef = useRef();
 
-  const closeSearchBar = () => {
+  const closeSearchBar = () => {      // openSearchBar is called searchIconClick() and placed in HeaderSearch.jsx
     const parent = headerOptionsWrapperRef.current.parentNode;
     const headerAboutLink = document.querySelector(".header-about-link");
     const headerDropdownWrapper = document.querySelector(".header-dropdown-wrapper");
@@ -105,7 +104,6 @@ export const Header = () => {
   // theme toggle
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
-  // responsive menu
 
   return (
     <div className="header container" id="header">
