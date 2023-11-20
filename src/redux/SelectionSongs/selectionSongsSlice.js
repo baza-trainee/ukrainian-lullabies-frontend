@@ -19,7 +19,7 @@ const initialState = {
 export const fetchData = createAsyncThunk(
   "selectionSongs/fetchData",
   async (lang) => {
-    // console.log("selectionsSongs: starting request...");
+
     try {
       // const response = await axios.get("http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/?source-format=audio", {
       const response = await axios.get(
@@ -38,6 +38,7 @@ export const fetchData = createAsyncThunk(
         url: item.source.audio,
         duration: item.source.duration.slice(3, 8),
       }));
+
       // console.log("selections formated data: ", formatedData);
 
       if (formatedData.length === 0) {
