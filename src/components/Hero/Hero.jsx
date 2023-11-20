@@ -35,7 +35,7 @@ const Hero = () => {
 
   const copyLinkToClipboard = async () => {
     try {
-      const urlToCopy = "https://api.kolyskova.com";
+      const urlToCopy = window.location.href;
       await navigator.clipboard.writeText(urlToCopy);
       notification();
     } catch (error) {
