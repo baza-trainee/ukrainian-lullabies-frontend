@@ -46,12 +46,12 @@
 }
 
 .oundIconWrap {
-  grid-column: 7/11;
+  grid-column: 8/11;
   margin-top: -42px;
-  margin-right: -45px;
+  margin-right: -11px;
 
   @media screen and (min-width: 1440px) {
     margin-top: -112px;
-    margin-right: -118px;
+    margin-right: -30px;
   }
 }
