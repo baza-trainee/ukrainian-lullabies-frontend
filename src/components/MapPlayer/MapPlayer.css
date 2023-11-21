@@ -14,7 +14,48 @@
     height: 530px;
   }
 }
-
+.map-playlist-item-name {
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 14px; /* 140% */
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100px;
+  @media screen and (min-width: 580px){
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px; /* 133.333% */
+    width: auto;
+  }
+  @media screen and (min-width: 1440px){
+  width: 250px;
+  }
+}
+.map-player-list-item-name {
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 14px; /* 140% */
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100px;
+  @media screen and (min-width: 580px){
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px; /* 133.333% */
+    width: auto;
+  }
+  @media screen and (min-width: 1440px){
+  width: 150px;
+  }
+}
 .player-wrapper{
   display: -webkit-box;
   display: -webkit-flex;

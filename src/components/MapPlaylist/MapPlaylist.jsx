@@ -98,7 +98,7 @@ export const MapPlaylist = () => {
                         </button>
                       </div>
 
-                      <span className="selections-playlist-item-name">
+                      <span className="map-playlist-item-name">
                         {name.toUpperCase().slice(0, 50)}
                       </span>
                     </div>
