@@ -15,7 +15,6 @@ const initialState = {
   error: "",
 };
 
-
 export const fetchData = createAsyncThunk("animationSongs/fetchData", async (lang) => {
   try {
     const response = await axios.get("https://api.kolyskova.com/lullabies/?source-format=video", {
