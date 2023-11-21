@@ -20,6 +20,8 @@ export const LullabiesInAnimation = () => {
   const error = useSelector(selectError);
   const { i18n } = useTranslation();
 
+  // console.log("ANIMATED playlist: ", playlist)
+
   const [currentVideoUrl, setCuerrentVideoUrl] = useState(playlist[0].url);
 
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
