@@ -21,15 +21,11 @@ export const fetchData = createAsyncThunk(
   async (lang) => {
 
     try {
-      // const response = await axios.get("http://lullabies.eu-north-1.elasticbeanstalk.com/api/lullabies/?source-format=audio", {
-      const response = await axios.get(
-        "https://api.kolyskova.com/lullabies/?type=new",
-        {
-          headers: {
-            "Accept-Language": lang,
-          },
-        }
-      );
+      const response = await axios.get("https://api.kolyskova.com/lullabies/?source-format=audio&type=new", {
+        headers: {
+          "Accept-Language": lang,
+        },
+      });
       // console.log("selections response: ", response);
       const formatedData = await response.data.results.map((item, index) => ({
         id: index,
