@@ -7,10 +7,9 @@ const initialState = {
   data: [
     {
       id: 0,
-      songId: null,
-      name: "---- ----",
+      name: "",
       url: "#",
-      duration: "00.00",
+      cover: "#",
     },
   ],
   error: "",
@@ -32,7 +31,6 @@ export const fetchData = createAsyncThunk(
         id: item.id,
         name: item.name,
         url: item.source.video,
-        duration: item.source.duration,
         cover: item.source.cover,
       }));
       return formatedData;
