@@ -318,7 +318,7 @@ export const MapPlayer = () => {
                       )}
                     </button>
                   </div>
-                  <span className="selections-playlist-item-name">
+                  <span className="map-player-list-item-name">
                     {name.toUpperCase()}
                   </span>
                 </div>

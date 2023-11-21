@@ -7,14 +7,14 @@ const initialState = {
   data: [
     {
       id: 0,
-      songId: null,
-      name: "---- ----",
+      name: "",
       url: "#",
-      duration: "00.00",
+      cover: "#",
     },
   ],
   error: "",
 };
+
 
 export const fetchData = createAsyncThunk("animationSongs/fetchData", async (lang) => {
   try {
