@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { fetchContacts } from "../../redux/Contacts/contactsSlice";
 import { fetchPartners } from "../../redux/Partners/partnersSlice";
+import { fetchDocs } from "../../redux/docs/docsSlice";
 import "./Footer.css";
 
 import { BsArrowUpShort } from "react-icons/bs";
@@ -42,9 +43,8 @@ export const Footer = () => {
   const partners = useSelector((state) => state.partners.data);
   const partnersError = useSelector((state) => state.partners.error);
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
-  const currentLanguage = useSelector(
-    (state) => state.currentLanguage.currentLanguage
-  );
+  const currentLanguage = useSelector((state) => state.currentLanguage.currentLanguage);
+  const docs = useSelector((state) => state.docs.data);
 
   // scroll to top button
   const [isScrollUpButtonVisible, setIsScrollUpButtonVisible] = useState(false);
@@ -98,6 +98,7 @@ export const Footer = () => {
     //   dispatch(fetchContacts("uk"));
     // }
     dispatch(fetchContacts(currentLanguage));
+    dispatch(fetchDocs());
   }, [dispatch, currentLanguage]);
 
   return (
@@ -125,83 +126,69 @@ export const Footer = () => {
               handleLogoClick();
             }}
           >
-            {isLightTheme ? (
-              <LogoLight width="92" height="88" />
-            ) : (
-              <LogoDark width="92" height="88" />
-            )}
+            {isLightTheme ? <LogoLight width="92" height="88" /> : <LogoDark width="92" height="88" />}
           </button>
         </div>
+        {/* docs section */}
         <ul className="footer-docs-wrapper">
           <li>
-            <Link to="/" className="text-sm-semibold">
+            <a
+              href={docs["term-conditions"] ? docs["term-conditions"] : "/#/404"}
+              target="_blank"
+              rel="noopener nofollow noreferrer"
+              className="text-sm-semibold"
+            >
               {t("termsAndConditions")}
-            </Link>
+            </a>
           </li>
           <li>
-            <Link to="/" className="text-sm-semibold">
+            <a
+              href={docs.privacy ? docs.privacy : "/#/404"}
+              target="_blank"
+              rel="noopener nofollow noreferrer"
+              className="text-sm-semibold"
+            >
               {t("privacy")}
-            </Link>
+            </a>
           </li>
           <li>
-            <Link to="/" className="text-sm-semibold">
+            <a
+              href={docs.report ? docs.report : "/#/404"}
+              target="_blank"
+              rel="noopener nofollow noreferrer"
+              className="text-sm-semibold"
+            >
               {t("poRegulations")}
-            </Link>
+            </a>
           </li>
         </ul>
+        {/* contacts section */}
         <ul className="footer-contacts-wrapper">
-          {/* <li>
+          <li>
             <p className="footer-contacts-list-title text-sm-semibold">{t("address")}</p>
-            <p>{contacts.length > 1 ? contacts[3].value : `Error: ${contactsError}`}</p>
+            <p>{contacts.address ? contacts.address : `Error: ${contactsError}`}</p>
           </li>
           <li>
             <p className="footer-contacts-list-title text-sm-semibold">{t("telephone")}</p>
-            <a href={contacts.length > 1 ? contacts[4].value : "#"}>
-              {contacts.length > 1 ? contacts[4].value : `Error: ${contactsError}`}
-            </a>
-          </li>
-          <li>
-            <p className="footer-contacts-list-title text-sm-semibold">E-mail:</p>
-            <a href={`mailto:${contacts.length > 1 ? contacts[2].value : "#"}`}>
-              {contacts.length > 1 ? contacts[2].value : `Error: ${contactsError}`}
-            </a>
-          </li> */}
-          <li>
-            <p className="footer-contacts-list-title text-sm-semibold">
-              {t("address")}
-            </p>
-            <p>
-              {contacts.address ? contacts.address : `Error: ${contactsError}`}
-            </p>
-          </li>
-          <li>
-            <p className="footer-contacts-list-title text-sm-semibold">
-              {t("telephone")}
-            </p>
 
             <a href={`tel:${contacts.phone ? contacts.phone : "#"}`}>
               {contacts.phone ? contacts.phone : `Error: ${contactsError}`}
             </a>
           </li>
           <li>
-            <p className="footer-contacts-list-title text-sm-semibold">
-              E-mail:
-            </p>
+            <p className="footer-contacts-list-title text-sm-semibold">E-mail:</p>
 
             <a href={`mailto:${contacts.email ? contacts.email : "#"}`}>
               {contacts.email ? contacts.email : `Error: ${contactsError}`}
             </a>
           </li>
         </ul>
+        {/* socials section */}
         <div className="footer-socials-wrapper">
           <div className="footer-socials-socials">
             <p className="text-sm-semibold">{t("followUsHere")}:</p>
             <div className="footer-socials-icons">
-              <a
-                href="https://www.youtube.com/@Kolyskovamuseum"
-                target="_blank"
-                rel="noopener nofollow noreferrer"
-              >
+              <a href="https://www.youtube.com/@Kolyskovamuseum" target="_blank" rel="noopener nofollow noreferrer">
                 <img
                   src={!isLightTheme ? youtubeLogoWhite : youtubeLogoBlack}
                   alt="youtube"
@@ -209,26 +196,10 @@ export const Footer = () => {
                   height="24"
                   className="footer-socials-icon-normal"
                 />
-                <img
-                  src={youtubeLogoHover}
-                  alt="youtube"
-                  width="24"
-                  height="24"
-                  className="footer-socials-icon-hover"
-                />
-                <img
-                  src={youtubeLogoPressed}
-                  alt="youtube"
-                  width="24"
-                  height="24"
-                  className="footer-socials-icon-pressed"
-                />
+                <img src={youtubeLogoHover} alt="youtube" width="24" height="24" className="footer-socials-icon-hover" />
+                <img src={youtubeLogoPressed} alt="youtube" width="24" height="24" className="footer-socials-icon-pressed" />
               </a>
-              <a
-                href="https://www.instagram.com/kolyskova.museum/"
-                target="_blank"
-                rel="noopener nofollow noreferrer"
-              >
+              <a href="https://www.instagram.com/kolyskova.museum/" target="_blank" rel="noopener nofollow noreferrer">
                 {/* <FaInstagram /> */}
                 <img
                   src={!isLightTheme ? instagramLogoWhite : instagramLogoBlack}
@@ -237,26 +208,10 @@ export const Footer = () => {
                   height="24"
                   className="footer-socials-icon-normal"
                 />
-                <img
-                  src={instagramLogoHover}
-                  alt="instagram"
-                  width="24"
-                  height="24"
-                  className="footer-socials-icon-hover"
-                />
-                <img
-                  src={instagramLogoPressed}
-                  alt="instagram"
-                  width="24"
-                  height="24"
-                  className="footer-socials-icon-pressed"
-                />
+                <img src={instagramLogoHover} alt="instagram" width="24" height="24" className="footer-socials-icon-hover" />
+                <img src={instagramLogoPressed} alt="instagram" width="24" height="24" className="footer-socials-icon-pressed" />
               </a>
-              <a
-                href="https://www.facebook.com/"
-                target="_blank"
-                rel="noopener nofollow noreferrer"
-              >
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener nofollow noreferrer">
                 {/* <BsFacebook /> */}
                 <img
                   src={!isLightTheme ? facebookLogoWhite : facebookLogoBlack}
@@ -265,26 +220,10 @@ export const Footer = () => {
                   height="24"
                   className="footer-socials-icon-normal"
                 />
-                <img
-                  src={facebookLogoHover}
-                  alt="facebook"
-                  width="24"
-                  height="24"
-                  className="footer-socials-icon-hover"
-                />
-                <img
-                  src={facebookLogoPressed}
-                  alt="facebook"
-                  width="24"
-                  height="24"
-                  className="footer-socials-icon-pressed"
-                />
+                <img src={facebookLogoHover} alt="facebook" width="24" height="24" className="footer-socials-icon-hover" />
+                <img src={facebookLogoPressed} alt="facebook" width="24" height="24" className="footer-socials-icon-pressed" />
               </a>
-              <a
-                href="https://www.tiktok.com/@kolyskovamuseum"
-                target="_blank"
-                rel="noopener nofollow noreferrer"
-              >
+              <a href="https://www.tiktok.com/@kolyskovamuseum" target="_blank" rel="noopener nofollow noreferrer">
                 {/* <FaTiktok /> */}
                 <img
                   src={!isLightTheme ? tiktokLogoWhite : tiktokLogoBlack}
@@ -293,42 +232,19 @@ export const Footer = () => {
                   height="24"
                   className="footer-socials-icon-normal"
                 />
-                <img
-                  src={tiktokLogoHover}
-                  alt="tiktok"
-                  width="24"
-                  height="24"
-                  className="footer-socials-icon-hover"
-                />
-                <img
-                  src={tiktokLogoPressed}
-                  alt="tiktok"
-                  width="24"
-                  height="24"
-                  className="footer-socials-icon-pressed"
-                />
+                <img src={tiktokLogoHover} alt="tiktok" width="24" height="24" className="footer-socials-icon-hover" />
+                <img src={tiktokLogoPressed} alt="tiktok" width="24" height="24" className="footer-socials-icon-pressed" />
               </a>
             </div>
           </div>
+          {/* partners section */}
           <div className="footer-socials-partners">
             <p className="text-sm-semibold">{t("ourPartners")}:</p>
             <div className="footer-partners-icons">
               {!partnersError ? (
                 partners.slice(0, 3).map((partner, index) => (
-                  <a
-                    href={partner.website}
-                    target="_blank"
-                    rel="noopener nofollow noreferrer"
-                    title={partner.name}
-                    key={index}
-                  >
-                    <img
-                      src={
-                        isLightTheme ? partner.classic_logo : partner.dark_logo
-                      }
-                      alt={partner.name}
-                      height="40"
-                    />
+                  <a href={partner.website} target="_blank" rel="noopener nofollow noreferrer" title={partner.name} key={index}>
+                    <img src={isLightTheme ? partner.classic_logo : partner.dark_logo} alt={partner.name} height="40" />
                   </a>
                 ))
               ) : (

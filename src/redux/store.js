@@ -9,7 +9,8 @@ import sendFormSlice from "./sendForm/sendForm-slice";
 import currentPlayerReducer from "./CurrentPlayer/currentPlayerSlice";
 import currentLanguageReducer from "./currentLanguage/currentLanguageSlice";
 import animationsSliceReducer from "./Lullabies/animationLullabiesSlice";
-import traditionSliceReducer from "./Lullabies/fetchLullabies"
+import traditionSliceReducer from "./Lullabies/fetchLullabies";
+import docsReducer from "./docs/docsSlice"
 
 const store = configureStore({
   reducer: {
@@ -24,6 +25,7 @@ const store = configureStore({
     sendForm: sendFormSlice.reducer,
     currentPlayer: currentPlayerReducer,
     currentLanguage: currentLanguageReducer,
+    docs: docsReducer,
   },
 });
 
