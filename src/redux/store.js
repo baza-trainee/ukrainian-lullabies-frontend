@@ -10,7 +10,8 @@ import currentPlayerReducer from "./CurrentPlayer/currentPlayerSlice";
 import currentLanguageReducer from "./currentLanguage/currentLanguageSlice";
 import animationsSliceReducer from "./Lullabies/animationLullabiesSlice";
 import traditionSliceReducer from "./Lullabies/fetchLullabies";
-import docsReducer from "./docs/docsSlice"
+import docsReducer from "./docs/docsSlice";
+import achievementsReducer from "./achievements/achievementsSlice";
 
 const store = configureStore({
   reducer: {
@@ -26,6 +27,7 @@ const store = configureStore({
     currentPlayer: currentPlayerReducer,
     currentLanguage: currentLanguageReducer,
     docs: docsReducer,
+    achievements: achievementsReducer,
   },
 });
 
