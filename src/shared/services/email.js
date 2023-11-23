@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "https://api.kolyskova.com/lullabies",
+  baseURL: "https://api.kolyskova.com/",
 });
 
 export const sendForm = async (data) => {
