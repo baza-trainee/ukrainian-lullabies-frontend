@@ -121,6 +121,7 @@
 .button:active {
   border: 2px solid var(--red-900);
   background: var(--red-900);
+  color: var(--gray0);
 }
 
 .margin-bottom {
