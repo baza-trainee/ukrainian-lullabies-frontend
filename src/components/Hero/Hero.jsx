@@ -89,7 +89,7 @@ const Hero = () => {
           <div className="element-left">
             <OrnamentsLeftIcon />
           </div>
-          <p className="text-base text-tablet-hero">{t("heroText")}</p>
+          <p className="text-base text-tablet-hero inline-block">{t("heroText")}</p>
           <div className="element-right">
             <OrnamentsRightIcon />
           </div>
