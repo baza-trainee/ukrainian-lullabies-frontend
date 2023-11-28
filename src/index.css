@@ -318,3 +318,7 @@ body::-webkit-scrollbar-vertical {
 .inline-block {
   display: inline-block;
 }
+
+body {
+  -webkit-text-size-adjust: 100%;
+}
