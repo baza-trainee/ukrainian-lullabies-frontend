@@ -45,6 +45,7 @@ export const Footer = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
   const currentLanguage = useSelector((state) => state.currentLanguage.currentLanguage);
   const docs = useSelector((state) => state.docs.data);
+  console.log("current lang: ", currentLanguage)
 
   // scroll to top button
   const [isScrollUpButtonVisible, setIsScrollUpButtonVisible] = useState(false);
@@ -243,8 +244,8 @@ export const Footer = () => {
             <div className="footer-partners-icons">
               {!partnersError ? (
                 partners.slice(0, 3).map((partner, index) => (
-                  <a href={partner.website} target="_blank" rel="noopener nofollow noreferrer" title={partner.name} key={index}>
-                    <img src={isLightTheme ? partner.classic_logo : partner.dark_logo} alt={partner.name} height="40" />
+                  <a href={partner.website} target="_blank" rel="noopener nofollow noreferrer" title={currentLanguage == "en" ? partner.name_en : partner.name} key={index}>
+                    <img src={isLightTheme ? partner.classic_logo : partner.dark_logo} alt={currentLanguage == "en" ? partner.name_en : partner.name} height="40" />
                   </a>
                 ))
               ) : (
