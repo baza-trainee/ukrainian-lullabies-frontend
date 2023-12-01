@@ -1,25 +1,19 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-
-import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useInView } from "react-intersection-observer";
-import translations from "./translations";
-
 import classNames from "classnames";
 import { Field, Form, Formik } from "formik";
-
+import { motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useInView } from "react-intersection-observer";
+import { useDispatch, useSelector } from "react-redux";
 import { getCurrentLanguage } from "../../redux/currentLanguage/currentLanguageSelector";
 import { fetchSendForm } from "../../redux/sendForm/sendForm-operations";
 import { getLightTheme } from "../../redux/theme/themeSelectors";
-import schema from "./schema";
-
 import ButtonForm from "./ButtonForm/ButtonForm";
 import FormError from "./FormError/FormError";
 import PopUpFeedBack from "./PopUpFeedBack/PopUpFeedBack";
-
 import "./form-feedback.css";
+import schema from "./schema";
+import translations from "./translations";
 
 const initialValues = {
   name: "",

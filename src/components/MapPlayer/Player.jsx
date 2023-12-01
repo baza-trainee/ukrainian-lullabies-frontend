@@ -116,6 +116,7 @@ export const Player = ({
     >
       <div className="map-player-primary-buttons-group">
         <button
+          aria-label="controls button"
           className={classNames("map-player-previous-button", {
             "map-player-previous-button-light": isLightTheme,
           })}
@@ -124,6 +125,7 @@ export const Player = ({
           <BsFillSkipStartFill />
         </button>
         <button
+          aria-label="controls button"
           className={classNames("map-player-play-pause-button", {
             "map-player-play-pause-button-light": isLightTheme,
           })}
@@ -136,6 +138,7 @@ export const Player = ({
           )}
         </button>
         <button
+          aria-label="controls button"
           className={classNames("map-player-next-button", {
             "map-player-next-button-light": isLightTheme,
           })}
@@ -148,6 +151,7 @@ export const Player = ({
         <Popup
           trigger={
             <button
+              aria-label="controls button"
               className={classNames("map-player-share-button", {
                 "map-player-share-button-light": isLightTheme,
                 "map-player-share-button-en": isEnglishLanguage,
@@ -173,6 +177,7 @@ export const Player = ({
           </div>
         </Popup>
         <button
+          aria-label="controls button"
           className={classNames("map-player-shuffle-button", {
             "map-player-shuffle-button-light": isLightTheme,
             "map-player-shuffle-button-en": isEnglishLanguage,
@@ -182,6 +187,7 @@ export const Player = ({
           <FiShuffle style={isRandom && { color: "var(--red-700)" }} />
         </button>
         <button
+          aria-label="controls button"
           className={classNames("map-player-refresh-button", {
             "map-player-refresh-button-light": isLightTheme,
             "map-player-refresh-button-en": isEnglishLanguage,

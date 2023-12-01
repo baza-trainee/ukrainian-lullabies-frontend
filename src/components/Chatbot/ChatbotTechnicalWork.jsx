@@ -3,20 +3,13 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import Popup from "reactjs-popup";
-
-import { Loader } from "../Loader/Loader";
-
 import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
-
+import { Loader } from "../Loader/Loader";
 import "../TechnicalWorks/TechnicalWorks.css";
 import "./Chatbot.css";
 
-/* import TechMobSvg from "../../images/mobile-loader-black.png";
-import TechMobSvgLight from "../../images/mobile-loader-white.png";
-import TechDeskSvg from "../../images/loader-dark1.png";
-import TechDeskSvgLight from "../../images/loader-light.png"; */
-
+// eslint-disable-next-line react/prop-types
 export const ChatbotTechnicalWork = ({ isLightTheme }) => {
   const { t } = useTranslation();
   return (
@@ -24,7 +17,11 @@ export const ChatbotTechnicalWork = ({ isLightTheme }) => {
       <Popup
         trigger={
           <div className="button ">
-            <Link href="#" className="text-base-semibold">
+            <Link
+              aria-label="Open ChatBot"
+              href="#"
+              className="text-base-semibold"
+            >
               {t("play")}
             </Link>
           </div>
@@ -43,7 +40,11 @@ export const ChatbotTechnicalWork = ({ isLightTheme }) => {
               "header-user-modal-light": isLightTheme,
             })}
           >
-            <button className="header-user-modal-closeBtn" onClick={close}>
+            <button
+              aria-label="Close window"
+              className="header-user-modal-closeBtn"
+              onClick={close}
+            >
               &times;
             </button>
             <TechnicalWorksElement isLightTheme={isLightTheme} />
@@ -54,9 +55,7 @@ export const ChatbotTechnicalWork = ({ isLightTheme }) => {
   );
 };
 
-const TechnicalWorksElement = ({ isLightTheme }) => {
-  /* const SvgMob = isLightTheme ? TechMobSvg : TechMobSvgLight;
-    const SvgDesk = isLightTheme ? TechDeskSvg : TechDeskSvgLight; */
+const TechnicalWorksElement = () => {
   const { t } = useTranslation();
   return (
     <div style={{ flexDirection: "column" }} className="tech-wrap">

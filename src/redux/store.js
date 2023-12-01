@@ -1,17 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
-import PopularSongsSlice from "./PopularSongs/PopularSongsSlice";
-import themeReducer from "./theme/themeSlice";
-import currentSongReducer from "./currentSong/currentSongSlice";
-import selectionSongsReducer from "./SelectionSongs/selectionSongsSlice";
 import contactsSlice from "./Contacts/contactsSlice";
-import partnersSlice from "./Partners/partnersSlice";
-import sendFormSlice from "./sendForm/sendForm-slice";
 import currentPlayerReducer from "./CurrentPlayer/currentPlayerSlice";
-import currentLanguageReducer from "./currentLanguage/currentLanguageSlice";
 import animationsSliceReducer from "./Lullabies/animationLullabiesSlice";
 import traditionSliceReducer from "./Lullabies/fetchLullabies";
-import docsReducer from "./docs/docsSlice";
+import partnersSlice from "./Partners/partnersSlice";
+import PopularSongsSlice from "./PopularSongs/PopularSongsSlice";
+import selectionSongsReducer from "./SelectionSongs/selectionSongsSlice";
 import achievementsReducer from "./achievements/achievementsSlice";
+import currentLanguageReducer from "./currentLanguage/currentLanguageSlice";
+import currentSongReducer from "./currentSong/currentSongSlice";
+import docsReducer from "./docs/docsSlice";
+import sendFormSlice from "./sendForm/sendForm-slice";
+import themeReducer from "./theme/themeSlice";
 
 const store = configureStore({
   reducer: {

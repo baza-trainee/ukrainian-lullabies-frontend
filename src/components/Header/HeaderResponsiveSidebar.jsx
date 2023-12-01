@@ -2,38 +2,26 @@
 import classNames from "classnames";
 import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { FiX } from "react-icons/fi";
+import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
-
-import "./HeaderResponsiveSidebar.css";
-
-// import components
-import { HeaderThemeToggle } from "./HeaderThemeToggle";
-import { HeaderResponsiveUserLink } from "./HeaderUserIcon";
-
-// import logos
+import Popup from "reactjs-popup";
 import bmcLogo from "../../assets/icons/BMC_logo.svg";
 import patreonLogoBlack from "../../assets/icons/patreon_logo_black.svg";
 import patreonLogoWhite from "../../assets/icons/patreon_logo_white.svg";
-
-// import icons
-import { FiX } from "react-icons/fi";
-import { IoIosArrowDown } from "react-icons/io";
 import SIconSidebar from "../../icons/SIconSidebar";
-
-// social icons logos
-import youtubeLogoBlack from "../../icons/Socials/youtube-logo-black.svg";
-import youtubeLogoWhite from "../../icons/Socials/youtube-logo-white.svg";
-
-import instagramLogoBlack from "../../icons/Socials/instagram-logo-black.svg";
-import instagramLogoWhite from "../../icons/Socials/instagram-logo-white.svg";
-
 import facebookLogoBlack from "../../icons/Socials/facebook-logo-black.svg";
 import facebookLogoWhite from "../../icons/Socials/facebook-logo-white.svg";
-
-import Popup from "reactjs-popup";
+import instagramLogoBlack from "../../icons/Socials/instagram-logo-black.svg";
+import instagramLogoWhite from "../../icons/Socials/instagram-logo-white.svg";
 import tiktokLogoBlack from "../../icons/Socials/tiktok-logo-black.svg";
 import tiktokLogoWhite from "../../icons/Socials/tiktok-logo-white.svg";
+import youtubeLogoBlack from "../../icons/Socials/youtube-logo-black.svg";
+import youtubeLogoWhite from "../../icons/Socials/youtube-logo-white.svg";
 import { QrCodeButton } from "../OurAchivements/QRCode/QrCodeButton";
+import "./HeaderResponsiveSidebar.css";
+import { HeaderThemeToggle } from "./HeaderThemeToggle";
+import { HeaderResponsiveUserLink } from "./HeaderUserIcon";
 
 export const HeaderResponsiveSidebar = ({
   isLightTheme,
@@ -95,7 +83,11 @@ export const HeaderResponsiveSidebar = ({
 
   return (
     <>
-      <button className="header-burgerIcon" onClick={handleBurgerClick}>
+      <button
+        aria-label="Open menu"
+        className="header-burgerIcon"
+        onClick={handleBurgerClick}
+      >
         <svg
           width="30"
           height="40"
@@ -160,7 +152,7 @@ export const HeaderResponsiveSidebar = ({
             onClick={handleBurgerClick}
           />
         </div>
-        <Link to="/" onClick={handleBurgerClick}>
+        <Link to="/" onClick={handleBurgerClick} aria-label="Go to main page">
           <div className="header-responsive-logo text-5xl">
             <span>KOLY</span>
             <SIconSidebar style={{ alignSelf: "center" }} />
@@ -173,6 +165,7 @@ export const HeaderResponsiveSidebar = ({
         <ul className="header-responsive-options">
           <li>
             <Link
+              aria-label="Go to page About us"
               to="/about"
               onClick={handleBurgerClick}
               className="header-responsive-about"
@@ -198,6 +191,7 @@ export const HeaderResponsiveSidebar = ({
               })}
             >
               <Link
+                aria-label="Go to section map"
                 to="/map"
                 onClick={() => {
                   scrollToTarget("#mapTabsId");
@@ -207,6 +201,7 @@ export const HeaderResponsiveSidebar = ({
                 {t("traditionalLullabies")}
               </Link>
               <Link
+                aria-label="Go to section sings together"
                 to="/songs"
                 onClick={() => {
                   scrollToTarget("#mapTabsId");
@@ -216,6 +211,7 @@ export const HeaderResponsiveSidebar = ({
                 {t("singingTogether")}
               </Link>
               <Link
+                aria-label="Go to section animation lullabies"
                 to="/anima"
                 onClick={() => {
                   scrollToTarget("#mapTabsId");
@@ -244,6 +240,7 @@ export const HeaderResponsiveSidebar = ({
               })}
             >
               <button
+                aria-label="Change language"
                 onClick={() => {
                   changeLanguage("ua");
                   responsiveLanguageMenuClick();
@@ -252,6 +249,7 @@ export const HeaderResponsiveSidebar = ({
                 UA
               </button>
               <button
+                aria-label="Change language"
                 onClick={() => {
                   changeLanguage("en");
                   responsiveLanguageMenuClick();
@@ -323,6 +321,7 @@ export const HeaderResponsiveSidebar = ({
           <span>{t("helpWith")}</span>
           <div className="header-responsive-support-icons">
             <a
+              aria-label="Soppurt us at Patreon"
               href="https://www.patreon.com/KolyskovaMuseum"
               target="_blank"
               rel="noopener nofollow noreferrer"
@@ -333,6 +332,7 @@ export const HeaderResponsiveSidebar = ({
               />
             </a>
             <a
+              aria-label="Soppurt us at buymeacoffee"
               href="https://www.buymeacoffee.com/kolyskova"
               target="_blank"
               rel="noopener nofollow noreferrer"
@@ -348,6 +348,7 @@ export const HeaderResponsiveSidebar = ({
           <p>{t("followUsHere")}:</p>
           <div className="header-responsive-follow-icons">
             <a
+              aria-label="Go to youtube"
               href="https://www.youtube.com/@Kolyskovamuseum"
               target="_blank"
               rel="noopener nofollow noreferrer"
@@ -361,6 +362,7 @@ export const HeaderResponsiveSidebar = ({
               />
             </a>
             <a
+              aria-label="Go to instagram"
               href="https://www.instagram.com/kolyskova.museum/"
               target="_blank"
               rel="noopener nofollow noreferrer"
@@ -374,6 +376,7 @@ export const HeaderResponsiveSidebar = ({
               />
             </a>
             <a
+              aria-label="Go to facebook"
               href="https://www.facebook.com/"
               target="_blank"
               rel="noopener nofollow noreferrer"
@@ -387,6 +390,7 @@ export const HeaderResponsiveSidebar = ({
               />
             </a>
             <a
+              aria-label="Go to tiktok"
               href="https://www.tiktok.com/@kolyskovamuseum"
               target="_blank"
               rel="noopener nofollow noreferrer"
