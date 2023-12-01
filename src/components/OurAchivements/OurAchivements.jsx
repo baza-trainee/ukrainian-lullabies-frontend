@@ -92,6 +92,7 @@ export const OurAchivements = () => {
               {!achievementsLoading && achievements.artists
                 ? achievements.artists
                 : "?"}
+
             </div>
             <div className="text-3xl achivement-text">{t("performers")}</div>
           </motion.div>
