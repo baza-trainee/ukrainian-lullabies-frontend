@@ -4,10 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAchievements } from "../../redux/achievements/achievementsSlice";
-
 import "./OurAchivements.css";
-import { useEffect } from "react";
-import { fetchAchievements } from "../../redux/achievements/achievementsSlice";
 
 export const OurAchivements = () => {
   const dispatch = useDispatch();
@@ -46,7 +43,11 @@ export const OurAchivements = () => {
       ref={ref}
       className="ourAchivements"
     >
-      <motion.p custom={1} variants={animationElement} className="achievements-title text-4xl">
+      <motion.p
+        custom={1}
+        variants={animationElement}
+        className="achievements-title text-4xl"
+      >
         {t("achievements")}
       </motion.p>
       {
