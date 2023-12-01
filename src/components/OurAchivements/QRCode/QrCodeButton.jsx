@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { t } from "i18next";
-import { useState } from "react";
+import React, { useState } from "react";
+import { FiX } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import Popup from "reactjs-popup";
 import ornamentImg from "../../../assets/images/OrnamentsMapTabs.svg";
@@ -8,6 +9,7 @@ import QRCode from "../../../assets/images/QR_Code.svg";
 import { QrCodeIcon } from "../QRCode/QrCodeIcon";
 import "./QrCodeButton.css";
 
+// eslint-disable-next-line react/prop-types
 export const QrCodeButton = ({ mobile = false }) => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
   const [copyClicked, setCopyClicked] = useState({});
@@ -53,6 +55,17 @@ export const QrCodeButton = ({ mobile = false }) => {
             "qr-button-modal-light": isLightTheme,
           })}
         >
+          <div className="qr-closeBtn">
+            <FiX
+              style={{
+                width: "48px",
+                height: "48px",
+                padding: "12px",
+                cursor: "pointer",
+              }}
+              onClick={close}
+            />
+          </div>
           <div className="qr-image">
             <img src={QRCode} alt="QR" width="140" height="140" />
           </div>
@@ -64,7 +77,7 @@ export const QrCodeButton = ({ mobile = false }) => {
                 className="text-base-semibold"
                 onClick={(e) => copyToClipboard(e, 0)}
               >
-   {t("ngoLullabyMuseum")}
+                {t("ngoLullabyMuseum")}
               </p>
               <p
                 className={classNames(
@@ -139,7 +152,6 @@ export const QrCodeButton = ({ mobile = false }) => {
                 className="text-base-semibold"
                 onClick={(e) => copyToClipboard(e, 3)}
               >
-
                 {t("jscCbPrivatbank")}
               </p>
               <p

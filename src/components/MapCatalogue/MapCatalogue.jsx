@@ -3,9 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { useSelector } from "react-redux";
 import { NavLink, Outlet } from "react-router-dom";
-import { getLightTheme } from "../../redux/theme/themeSelectors";
-import "./map-catalogue.css";
-
 import photo10 from "../../assets/images/Donshyna.png";
 import photo1 from "../../assets/images/Karpaty.png";
 import photo14 from "../../assets/images/Krym.png";
@@ -24,6 +21,8 @@ import mapDark from "../../assets/images/mapDark.png";
 import mapDarkEn from "../../assets/images/mapDarkEn.png";
 import mapLight from "../../assets/images/mapLight.png";
 import mapLightEn from "../../assets/images/mapLightEn.png";
+import { getLightTheme } from "../../redux/theme/themeSelectors";
+import "./map-catalogue.css";
 
 const catalogue = [
   {
@@ -278,6 +277,7 @@ export const MapCatalogue = () => {
         </pattern>
       </defs>
       <NavLink
+        aria-label="Open playlist"
         onClick={() => {
           handleRegionHover(item.pattern);
           setOnButtonClick(true);

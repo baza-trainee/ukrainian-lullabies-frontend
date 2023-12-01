@@ -3,10 +3,9 @@ import classNames from "classnames";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import Popup from "reactjs-popup";
-import { Loader } from "../Loader/Loader";
-
 import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
+import { Loader } from "../Loader/Loader";
 import { Ornaments } from "../Ornaments/Ornaments";
 import "../TechnicalWorks/TechnicalWorks.css";
 
@@ -50,7 +49,11 @@ export const HeaderUserIcon = ({ isLightTheme }) => {
               "header-user-modal-light": isLightTheme,
             })}
           >
-            <button className="header-user-modal-closeBtn" onClick={close}>
+            <button
+              aria-label="Close window"
+              className="header-user-modal-closeBtn"
+              onClick={close}
+            >
               &times;
             </button>
             <HeaderTechnicalWorksElement isLightTheme={isLightTheme} />
@@ -101,7 +104,11 @@ export const HeaderResponsiveUserLink = ({ isLightTheme }) => {
               "header-user-modal-light": isLightTheme,
             })}
           >
-            <button className="header-user-modal-closeBtn" onClick={close}>
+            <button
+              aria-label="Close window"
+              className="header-user-modal-closeBtn"
+              onClick={close}
+            >
               &times;
             </button>
             <HeaderTechnicalWorksElement isLightTheme={isLightTheme} />

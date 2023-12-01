@@ -1,31 +1,23 @@
-import React from "react";
-
 import classNames from "classnames";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import { useSelector } from "react-redux";
 import { Link } from "react-scroll";
-
+import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
+import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
 import { getLightTheme } from "../../redux/theme/themeSelectors";
 import { GeneralTitle } from "../GeneralTitle/GeneralTitle";
 import { Ornaments } from "../Ornaments/Ornaments";
-import Notification from "./Notification/Notification";
-
-import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
-import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
-
 import ButtonShare from "./Button/ButtonShare";
-
+import Notification from "./Notification/Notification";
 import "./hero.css";
 
 const Hero = () => {
   const { t } = useTranslation();
   const isLightTheme = useSelector(getLightTheme);
-  // notofication
   const [isNotification, setIsNotification] = useState(false);
-  // for scroll
   const selectionsRef = useRef(null);
 
   const notification = () => {
@@ -105,6 +97,7 @@ const Hero = () => {
             })}
           >
             <Link
+              aria-label="Go to section selections"
               to="selections"
               className={classNames("button", "listen-button", {
                 "button-dark": !isLightTheme,

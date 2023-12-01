@@ -69,7 +69,7 @@ const traditionSongsSlice = createSlice({
 
 export default traditionSongsSlice.reducer;
 export const selectData = (state) => state.traditionalSongs.data;
-export const selectLoading = (state) => state.traditionalSongs.loading; // Оновлено селектор
-export const selectError = (state) => state.traditionalSongs.error; // Оновлено селектор
+export const selectLoading = (state) => state.traditionalSongs.loading;
+export const selectError = (state) => state.traditionalSongs.error;
 export const { fetchDataStart, fetchDataSuccess, fetchDataFailure } =
   traditionSongsSlice.actions;

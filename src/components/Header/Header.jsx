@@ -1,21 +1,15 @@
 import classNames from "classnames";
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { IoIosArrowDown } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { languageChanged } from "../../redux/currentLanguage/currentLanguageSlice";
+import { LogoDark, LogoLight } from "../SVGComponents/Logo";
 import "./Header.css";
-
-// import components
+import { HeaderResponsiveSidebar } from "./HeaderResponsiveSidebar";
 import { HeaderSearch } from "./HeaderSearch";
 import { HeaderThemeToggle } from "./HeaderThemeToggle";
-
-// import logos
-import { LogoDark, LogoLight } from "../SVGComponents/Logo";
-
-// import icons
-import { IoIosArrowDown } from "react-icons/io";
-import { HeaderResponsiveSidebar } from "./HeaderResponsiveSidebar";
 import { HeaderUserIcon } from "./HeaderUserIcon";
 
 export const Header = () => {
@@ -90,7 +84,7 @@ export const Header = () => {
   const headerOptionsWrapperRef = useRef();
   const closeSearchBar = () => {
     // openSearchBar is called searchIconClick() and placed in HeaderSearch.jsx
- 
+
     const parent = headerOptionsWrapperRef.current.parentNode;
     const headerAboutLink = document.querySelector(".header-about-link");
     const headerDropdownWrapper = document.querySelector(
@@ -113,7 +107,7 @@ export const Header = () => {
   return (
     <div className="header container" id="header">
       <div className="header-logo">
-        <Link to="/">
+        <Link to="/" aria-label="Go to main page">
           {isLightTheme ? (
             <LogoLight width="56" height="53" />
           ) : (
@@ -121,7 +115,11 @@ export const Header = () => {
           )}
         </Link>
       </div>
-      <NavLink to="/about" className="header-about-link text-2xl">
+      <NavLink
+        to="/about"
+        className="header-about-link text-2xl"
+        aria-label="Go to page About us"
+      >
         {t("aboutUs")}
       </NavLink>
       <div className="header-dropdown-wrapper" ref={dropdownWrapperRef}>
@@ -142,6 +140,7 @@ export const Header = () => {
           })}
         >
           <Link
+            aria-label="Go to section map"
             to="/map"
             className="text-base"
             onClick={() => scrollToTarget("#mapTabsId")}
@@ -149,6 +148,7 @@ export const Header = () => {
             {t("traditionalLullabies")}
           </Link>
           <Link
+            aria-label="Go to section songs together"
             to="/songs"
             className="text-base"
             onClick={() => scrollToTarget("#mapTabsId")}
@@ -156,6 +156,7 @@ export const Header = () => {
             {t("singingTogether")}
           </Link>
           <Link
+            aria-label="Go to section animation lullabies"
             to="/anima"
             className="text-base"
             onClick={() => scrollToTarget("#mapTabsId")}
@@ -184,10 +185,18 @@ export const Header = () => {
             })}
             ref={languageMenuRef}
           >
-            <button className="text-2xl" onClick={() => changeLanguage("ua")}>
+            <button
+              aria-label="Change language"
+              className="text-2xl"
+              onClick={() => changeLanguage("ua")}
+            >
               UA
             </button>
-            <button className="text-2xl" onClick={() => changeLanguage("en")}>
+            <button
+              aria-label="Change language"
+              className="text-2xl"
+              onClick={() => changeLanguage("en")}
+            >
               EN
             </button>
           </div>

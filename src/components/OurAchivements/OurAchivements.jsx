@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAchievements } from "../../redux/achievements/achievementsSlice";
+
 import "./OurAchivements.css";
 import { useEffect } from "react";
 import { fetchAchievements } from "../../redux/achievements/achievementsSlice";
@@ -10,7 +12,9 @@ import { fetchAchievements } from "../../redux/achievements/achievementsSlice";
 export const OurAchivements = () => {
   const dispatch = useDispatch();
   const achievements = useSelector((state) => state.achievements.data);
-  const achievementsLoading = useSelector((state) => state.achievements.loading);
+  const achievementsLoading = useSelector(
+    (state) => state.achievements.loading
+  );
 
   const { t } = useTranslation();
 
@@ -46,25 +50,48 @@ export const OurAchivements = () => {
         {t("achievements")}
       </motion.p>
       {
-        <motion.div custom={2} variants={animationElement} className="achivements">
-          <motion.div custom={3} variants={animationElement} className="achivement">
+        <motion.div
+          custom={2}
+          variants={animationElement}
+          className="achivements"
+        >
+          <motion.div
+            custom={3}
+            variants={animationElement}
+            className="achivement"
+          >
             <div className=" text-5xl">
               {achievementsLoading && "Loading..."}
-              {!achievementsLoading && achievements.lullabies ? achievements.lullabies : "?"}
+              {!achievementsLoading && achievements.lullabies
+                ? achievements.lullabies
+                : "?"}
             </div>
             <div className="text-3xl achivement-text">{t("lullabies")}</div>
           </motion.div>
-          <motion.div custom={4} variants={animationElement} className="achivement">
+          <motion.div
+            custom={4}
+            variants={animationElement}
+            className="achivement"
+          >
             <div className="text-5xl">
               {achievementsLoading && "Loading..."}
-              {!achievementsLoading && achievements.regions ? achievements.regions : "?"}
+              {!achievementsLoading && achievements.regions
+                ? achievements.regions
+                : "?"}
             </div>
             <div className="text-3xl achivement-text">{t("locations")}</div>
           </motion.div>
-          <motion.div custom={5} variants={animationElement} className="achivement">
+          <motion.div
+            custom={5}
+            variants={animationElement}
+            className="achivement"
+          >
             <div className="text-5xl">
               {achievementsLoading && "Loading..."}
-              {!achievementsLoading && achievements.artists ? achievements.artists : "?"}
+              {!achievementsLoading && achievements.artists
+                ? achievements.artists
+                : "?"}
+
             </div>
             <div className="text-3xl achivement-text">{t("performers")}</div>
           </motion.div>

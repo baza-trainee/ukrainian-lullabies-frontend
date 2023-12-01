@@ -301,6 +301,7 @@ export const MapPlayer = () => {
                   </span>
                   <div className="playlist-item">
                     <button
+                      aria-label="play/pause button"
                       className={classNames(
                         "selections-playlist-item-play-pause-button",
                         "selection-playlist-button",
@@ -325,6 +326,7 @@ export const MapPlayer = () => {
                 <div className="card-buttons">
                   <span className="item-duration text-xs-bold">{duration}</span>
                   <button
+                    aria-label="on/off loop"
                     className="selections-playlist-item-repeat-button selection-playlist-button"
                     onClick={(e) => {
                       e.stopPropagation();

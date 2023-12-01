@@ -39,16 +39,25 @@ export const MapTabs = () => {
       </motion.h2>
       <motion.div custom={3} className="map-tabs">
         <NavLink
+          aria-label="Go to section map"
           id="map-tab"
           className="map-tabs__button text-2xl tabs1"
           to="/map"
         >
           {t("traditionalLullabies")}
         </NavLink>
-        <NavLink className="map-tabs__button text-2xl tabs2" to="/songs">
+        <NavLink
+          aria-label="Go to section sing together"
+          className="map-tabs__button text-2xl tabs2"
+          to="/songs"
+        >
           {t("singingTogether")}
         </NavLink>
-        <NavLink className="map-tabs__button text-2xl tabs3" to="/anima">
+        <NavLink
+          aria-label="Go to section animation lullabies"
+          className="map-tabs__button text-2xl tabs3"
+          to="/anima"
+        >
           {t("animatedLullabies")}
         </NavLink>
       </motion.div>
