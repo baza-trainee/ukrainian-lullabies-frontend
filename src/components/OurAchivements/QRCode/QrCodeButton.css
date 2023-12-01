@@ -15,6 +15,7 @@
   border-radius: 48px;
   background: var(--gray-black-950);
   color: var(--gray0);
+  position: relative;
 
   @media screen and (min-width: 1440px) {
     width: 400px;
@@ -24,6 +25,13 @@
 .qr-button-modal-light {
   background: var(--white-0);
   color: var(--gray-black-950);
+}
+
+/* close button */
+.qr-closeBtn {
+  position: absolute;
+  right: 15px;
+  top: 15px;
 }
 
 /* qr image */
