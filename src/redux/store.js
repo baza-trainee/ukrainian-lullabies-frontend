@@ -13,6 +13,7 @@ import docsReducer from "./docs/docsSlice";
 import sendFormSlice from "./sendForm/sendForm-slice";
 import themeReducer from "./theme/themeSlice";
 
+
 const store = configureStore({
   reducer: {
     theme: themeReducer,
