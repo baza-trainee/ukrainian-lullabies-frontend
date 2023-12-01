@@ -317,3 +317,8 @@ body::-webkit-scrollbar:horizontal {
 body::-webkit-scrollbar-vertical {
   display: block;
 }
+
+/*28.11.2034  fix bug when font size doesn't applies properly on iPhone 13 pro max */
+body {
+  -webkit-text-size-adjust: 100%;
+}
