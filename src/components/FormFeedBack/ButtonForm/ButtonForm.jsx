@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import React, { useState } from "react";
-
 import "./button-form.css";
 
 const ButtonForm = ({
@@ -28,6 +27,7 @@ const ButtonForm = ({
   return (
     <div className="text-base-semibold">
       <button
+        aria-label="Sent the form"
         className={buttonClass}
         type="submit"
         onClick={onClick}

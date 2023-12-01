@@ -5,11 +5,10 @@ import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import "./ErrorPage.css";
-
 import { NumberFour, NumberNull } from "../../icons/Numbers";
 import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
+import "./ErrorPage.css";
 
 export const ErrorPage = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
@@ -83,6 +82,7 @@ export const ErrorPage = () => {
       </motion.div>
       <motion.div custom={4} variants={animationElement} className="container">
         <NavLink
+          aria-label="Return to the main page"
           to="/"
           className={classNames("button", "errorPage-button", {
             "button-dark": !isLightTheme,
@@ -91,7 +91,6 @@ export const ErrorPage = () => {
             scrollToTarget("#header");
           }}
         >
-          {" "}
           {t("toTheMain")}
         </NavLink>
       </motion.div>

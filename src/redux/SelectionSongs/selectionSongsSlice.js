@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-catch */
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
@@ -19,13 +19,15 @@ const initialState = {
 export const fetchData = createAsyncThunk(
   "selectionSongs/fetchData",
   async (lang) => {
-
     try {
-      const response = await axios.get("https://api.kolyskova.com/lullabies/?source-format=audio&type=new", {
-        headers: {
-          "Accept-Language": lang,
-        },
-      });
+      const response = await axios.get(
+        "https://api.kolyskova.com/lullabies/?source-format=audio&type=new",
+        {
+          headers: {
+            "Accept-Language": lang,
+          },
+        }
+      );
       // console.log("selections response: ", response);
       const formatedData = await response.data.results.map((item, index) => ({
         id: index,

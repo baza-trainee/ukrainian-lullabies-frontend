@@ -66,6 +66,7 @@ export const Player = ({
       >
         <div className="selections-player-secondary-buttons-left">
           <button
+            aria-label="controls button"
             className={classNames("selections-player-shuffle-button", {
               "selections-player-shuffle-button-light": isLightTheme,
               "selections-player-shuffle-button-en": isEnglishLanguage,
@@ -79,6 +80,7 @@ export const Player = ({
         </div>
         <div className="selections-player-primary-buttons-group">
           <button
+            aria-label="controls button"
             className={classNames("selections-player-previous-button", {
               "selections-player-previous-button-light": isLightTheme,
             })}
@@ -88,6 +90,7 @@ export const Player = ({
           </button>
 
           <button
+            aria-label="controls button"
             className={classNames("map-player-play-pause-button", {
               "map-player-play-pause-button-light": isLightTheme,
             })}
@@ -101,6 +104,7 @@ export const Player = ({
           </button>
 
           <button
+            aria-label="controls button"
             className={classNames("selections-player-next-button", {
               "selections-player-next-button-light": isLightTheme,
             })}
@@ -111,6 +115,7 @@ export const Player = ({
         </div>
         <div className="selections-player-secondary-buttons-right">
           <button
+            aria-label="controls button"
             className={classNames("selections-player-refresh-button", {
               "selections-player-refresh-button-light": isLightTheme,
               "selections-player-refresh-button-en": isEnglishLanguage,

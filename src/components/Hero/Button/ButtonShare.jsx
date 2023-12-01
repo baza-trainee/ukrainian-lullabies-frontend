@@ -2,10 +2,8 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 import React from "react";
 import { useSelector } from "react-redux";
-
 import Share from "../../../icons/Share";
 import { getLightTheme } from "../../../redux/theme/themeSelectors";
-
 import "./button-share.css";
 
 const ButtonShare = ({ text, onClick }) => {
@@ -13,6 +11,7 @@ const ButtonShare = ({ text, onClick }) => {
 
   return (
     <button
+      aria-label={text}
       className={classNames("", {
         "shared-button-light": isLightTheme,
         "shared-button": !isLightTheme,

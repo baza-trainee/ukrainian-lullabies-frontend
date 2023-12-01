@@ -20,8 +20,6 @@ export const LullabiesInAnimation = () => {
   const error = useSelector(selectError);
   const { i18n } = useTranslation();
 
-  // console.log("ANIMATED playlist: ", playlist)
-
   const [currentVideoUrl, setCuerrentVideoUrl] = useState(playlist[0].url);
 
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -109,7 +107,7 @@ export const LullabiesInAnimation = () => {
   if (!loading && playlist.length === 0) {
     return <Loader />;
   }
-  console.log("playlist:", playlist);
+
   return (
     <section id="anima" className="lullabies-animation text-sm margin-bottom">
       <div className="player-container">

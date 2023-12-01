@@ -51,6 +51,7 @@ export const OurPartners = () => {
           partners.map((partner) => {
             return (
               <Link
+                aria-label={`Go to ${partner.name}`}
                 to={partner.website}
                 target="_blank"
                 rel="noopener nofollow noreferrer"

@@ -5,11 +5,9 @@ import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
-import { ChatbotTechnicalWork } from "./ChatbotTechnicalWork";
-
 import "../TechnicalWorks/TechnicalWorks.css";
 import "./Chatbot.css";
+import { ChatbotTechnicalWork } from "./ChatbotTechnicalWork";
 
 const Chatbot = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
@@ -57,7 +55,7 @@ const Chatbot = () => {
           <li className="text-base chat_text">{t("letsPlay")}</li>
         </motion.ul>
       </div>
-      <ChatbotTechnicalWork isLightTheme={isLightTheme} />
+      <ChatbotTechnicalWork />
       {/* <motion.div custom={ 3 } variants={ animationElement } className="button chat_button">
         <Link href="#" className="text-base-semibold">
           { t("play") }
@@ -69,19 +67,21 @@ const Chatbot = () => {
         className="chat_picture"
       >
         <Link
+          aria-label="Open ChatBot"
           href="#"
           className={classNames("chat_image_dark_ua", {
             chat_image_white_ua: isLightTheme,
             ua: !isEnglishLanguage,
           })}
-        ></Link>
+        />
         <Link
+          aria-label="Open ChatBot"
           to="#"
           className={classNames("chat_image_dark_en", {
             chat_image_white_en: isLightTheme,
             en: isEnglishLanguage,
           })}
-        ></Link>
+        />
       </motion.div>
     </motion.div>
   );

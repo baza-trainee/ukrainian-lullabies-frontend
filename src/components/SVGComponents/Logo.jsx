@@ -1,8 +1,7 @@
+import React from "react";
 import textureOrnamentLogoSvg from "../../assets/images/texture_ornament_logo_svg.svg";
 
-// Add this LOGO component to other components and pass the params WIDTH and HEIGHT
-// for example: <Logo width="56" height="53" />
-
+// eslint-disable-next-line react/prop-types
 export const LogoDark = ({ width, height }) => {
   return (
     <>
