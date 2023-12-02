@@ -25,6 +25,16 @@
   }
 }
 
+.selections-container {
+  text-align: center;
+
+  @media (min-width: 1440px) {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 24px;
+  }
+}
+
 .selections-image {
   width: 100%;
   max-width: 429px;
@@ -173,7 +183,7 @@
   padding: 7px;
   margin-right: 8px;
 
-  @media screen and (min-width: 1440px) {    
+  @media screen and (min-width: 1440px) {
     padding: 0;
     margin-right: 0;
   }
@@ -196,7 +206,7 @@
   fill: var(--gray-black-400);
 }
 
-.selections-playlist-pause-button-light path{
+.selections-playlist-pause-button-light path {
   fill: var(--red-700);
 }
 

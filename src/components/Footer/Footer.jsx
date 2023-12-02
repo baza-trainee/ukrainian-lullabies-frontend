@@ -106,7 +106,7 @@ export const Footer = () => {
         <BsArrowUpShort style={{ width: "32px", height: "32px" }} />
       </button>
 
-      <div className="footer-wrapper container text-sm">
+      <div className="footer-wrapper text-sm">
         <div className="footer-rights text-base">
           <p>{t("footerText1")}</p>
           <p>{t("footerText2")}</p>
