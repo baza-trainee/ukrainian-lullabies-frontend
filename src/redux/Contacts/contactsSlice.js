@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
@@ -7,15 +7,17 @@ const initialState = {
   error: "",
 };
 
-export const fetchContacts = createAsyncThunk("contacts/fetchContacts", async (lang) => {
-  // const response = await axios.get("http://lullabies.eu-north-1.elasticbeanstalk.com/api/contacts/", {
-  const response = await axios.get("https://api.kolyskova.com/contacts/", {
-    headers: {
-      "Accept-Language": lang,
-    },
-  });
-  return response.data;
-});
+export const fetchContacts = createAsyncThunk(
+  "contacts/fetchContacts",
+  async (lang) => {
+    const response = await axios.get("https://api.kolyskova.com/contacts/", {
+      headers: {
+        "Accept-Language": lang,
+      },
+    });
+    return response.data;
+  }
+);
 
 const contactsSlice = createSlice({
   name: "contacts",
@@ -25,10 +27,14 @@ const contactsSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(fetchContacts.fulfilled, (state, action) => {
-      (state.loading = false), (state.data = action.payload), (state.error = "");
+      (state.loading = false),
+        (state.data = action.payload),
+        (state.error = "");
     });
     builder.addCase(fetchContacts.rejected, (state, action) => {
-      (state.loading = false), (state.data = []), (state.error = action.error.message);
+      (state.loading = false),
+        (state.data = []),
+        (state.error = action.error.message);
     });
   },
 });

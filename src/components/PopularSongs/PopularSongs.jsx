@@ -4,12 +4,8 @@ import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import ReactPlayer from "react-player";
 import { useDispatch, useSelector } from "react-redux";
-import { playerChanged } from "../../redux/CurrentPlayer/currentPlayerSlice";
-import { getPopularSongs } from "../../redux/PopularSongs/PopularSongsSlice";
-
 import pauseButton from "../../assets/images/popular/pause-popular.png";
 import playButton from "../../assets/images/popular/play-popular.png";
-
 import favoriteSongSecond1x from "../../assets/images/popular/popular-center-desk-1x.jpg";
 import favoriteSongSecond2x from "../../assets/images/popular/popular-center-desk-2x.jpg";
 import favoriteSongSecondW from "../../assets/images/popular/popular-center-desk-w.webp";
@@ -28,6 +24,8 @@ import favoriteSongThirdW from "../../assets/images/popular/popular-right-desk-w
 import favoriteSongThirdMob1x from "../../assets/images/popular/popular-right-mob-1x.jpg";
 import favoriteSongThirdMob2x from "../../assets/images/popular/popular-right-mob-2x.jpg";
 import favoriteSongThirdMobW from "../../assets/images/popular/popular-right-mob-w.webp";
+import { playerChanged } from "../../redux/CurrentPlayer/currentPlayerSlice";
+import { getPopularSongs } from "../../redux/PopularSongs/PopularSongsSlice";
 import { Ornaments } from "../Ornaments/Ornaments";
 import "./PopularSongs.css";
 

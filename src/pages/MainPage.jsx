@@ -1,13 +1,13 @@
 import React from "react";
-import { OurAchivements } from "../components/OurAchivements/OurAchivements";
-import { MapTabs } from "../components/MapTabs/MapTabs";
-import Hero from "../components/Hero/Hero";
-import Chatbot from "../components/Chatbot/Chatbot";
-import { PopularSongs } from "../components/PopularSongs/PopularSongs";
 import { useDispatch } from "react-redux";
-import { getPopularSongs } from "../redux/PopularSongs/PopularSongsSlice";
-import { Selections } from "../components/Selections/Selections";
+import Chatbot from "../components/Chatbot/Chatbot";
+import Hero from "../components/Hero/Hero";
+import { MapTabs } from "../components/MapTabs/MapTabs";
 import { Donat } from "../components/OurAchivements/Donat/donat";
+import { OurAchivements } from "../components/OurAchivements/OurAchivements";
+import { PopularSongs } from "../components/PopularSongs/PopularSongs";
+import { Selections } from "../components/Selections/Selections";
+import { getPopularSongs } from "../redux/PopularSongs/PopularSongsSlice";
 
 export const MainPage = () => {
   const dispatch = useDispatch();

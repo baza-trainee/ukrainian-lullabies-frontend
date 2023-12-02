@@ -1,8 +1,7 @@
 import React from "react";
-import "./ornaments.css";
-
 import tabsSvgMob from "../../assets/images/OrnamentsMapTabs.svg";
 import tabsSvg from "../../assets/images/ornamentsMapTabsSection.svg";
+import "./ornaments.css";
 
 export const Ornaments = () => {
   return (

@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
@@ -7,10 +7,13 @@ const initialState = {
   error: "",
 };
 
-export const fetchPartners = createAsyncThunk("contacts/fetchPartners", async () => {
-  const response = await axios.get("https://api.kolyskova.com/partners/");  
-  return response.data.results;
-});
+export const fetchPartners = createAsyncThunk(
+  "contacts/fetchPartners",
+  async () => {
+    const response = await axios.get("https://api.kolyskova.com/partners/");
+    return response.data.results;
+  }
+);
 
 const partnersSlice = createSlice({
   name: "contacts",
@@ -20,10 +23,14 @@ const partnersSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(fetchPartners.fulfilled, (state, action) => {
-      (state.loading = false), (state.data = action.payload), (state.error = "");
+      (state.loading = false),
+        (state.data = action.payload),
+        (state.error = "");
     });
     builder.addCase(fetchPartners.rejected, (state, action) => {
-      (state.loading = false), (state.data = []), (state.error = action.error.message);
+      (state.loading = false),
+        (state.data = []),
+        (state.error = action.error.message);
     });
   },
 });

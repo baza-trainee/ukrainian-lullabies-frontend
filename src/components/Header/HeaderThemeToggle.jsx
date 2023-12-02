@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import classNames from "classnames";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { changedToDark, changedToLight } from "../../redux/theme/themeSlice";
 
@@ -13,6 +14,7 @@ export const HeaderThemeToggle = ({ isLightTheme }) => {
       dispatch(changedToDark());
     }
   };
+
   return (
     <div
       className={classNames("header-theme-toggle", {

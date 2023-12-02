@@ -5,7 +5,6 @@ import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-
 import OrnamentsLeftIcon from "../../icons/OrnamentsLeftIcon";
 import OrnamentsRightIcon from "../../icons/OrnamentsRightIcon";
 import { GeneralTitle } from "../GeneralTitle/GeneralTitle";
@@ -80,6 +79,7 @@ export const TechnicalWorks = () => {
           className="container"
         >
           <NavLink
+            aria-label="Go to main page"
             to="/"
             className={classNames("button", "technikal-button", {
               "button-dark": !isLightTheme,

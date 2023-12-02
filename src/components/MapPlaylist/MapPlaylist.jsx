@@ -74,6 +74,7 @@ export const MapPlaylist = () => {
               {data.map(({ name, url, duration, index, id }) => (
                 <li key={index}>
                   <Link
+                    aria-label="Open player and play first song"
                     to={`/player/?id=${id}`}
                     className={classNames("map-playlist_card", {
                       "map-player_card-dark": !isLightTheme,
@@ -85,6 +86,7 @@ export const MapPlaylist = () => {
                       <span className="item-number">{index + 1}</span>
                       <div className="playlist-item ">
                         <button
+                          aria-label="play/pause button"
                           className={classNames(
                             "selections-playlist-item-play-pause-button",
                             "selection-playlist-button",

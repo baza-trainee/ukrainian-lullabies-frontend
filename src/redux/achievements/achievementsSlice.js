@@ -1,4 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
 import axios from "axios";
 
 const initialState = {
@@ -7,16 +8,20 @@ const initialState = {
   error: "",
 };
 
-export const fetchAchievements = createAsyncThunk("achievements/fetchAchievements", async () => {
-  try {
-    const response = await axios.get("https://api.kolyskova.com/statistic/");
-    const data = response.data;
-    return data;
-  } catch (err) {
-    console.log(err);
-    throw err;
+export const fetchAchievements = createAsyncThunk(
+  "achievements/fetchAchievements",
+  async () => {
+    try {
+      const response = await axios.get("https://api.kolyskova.com/statistic/");
+      const data = response.data;
+      return data;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
   }
-});
+);
+
 
 const achievementsSlice = createSlice({
   name: "achievements",

@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  currentUrl: '',
-  currentName: '',
-  currentLyrics: '',
+  currentUrl: "",
+  currentName: "",
+  currentLyrics: "",
   currentIndex: 0,
 };
 
@@ -26,5 +26,10 @@ const currentSongSlice = createSlice({
   },
 });
 
-export const { setCurrentUrl, setCurrentLyrics, setCurrentIndex, setCurrentName } = currentSongSlice.actions;
+export const {
+  setCurrentUrl,
+  setCurrentLyrics,
+  setCurrentIndex,
+  setCurrentName,
+} = currentSongSlice.actions;
 export default currentSongSlice.reducer;
