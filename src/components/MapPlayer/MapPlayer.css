@@ -33,7 +33,7 @@
     width: auto;
   }
   @media screen and (min-width: 1440px){
-  width: 250px;
+    width: 250px;
   }
 }
 .map-player-list-item-name {
@@ -54,9 +54,10 @@
     width: auto;
   }
   @media screen and (min-width: 1440px){
-  width: 150px;
+    width: 150px;
   }
 }
+
 .player-wrapper{
   display: -webkit-box;
   display: -webkit-flex;
@@ -68,7 +69,6 @@
     gap: 16px;
     height: 533px;
   }
-
   @media screen and (min-width: 768px) {
     margin-bottom: 24px;
   }
