@@ -181,7 +181,7 @@ export const Selections = () => {
       <motion.div
         custom={1}
         variants={animationElement}
-        className="selections-wrapper container margin-bottom"
+        className="selections-wrapper selections-container margin-bottom"
       >
         <div className="selections-image">
           <img src={selectionsImage} alt="song covering" />

@@ -105,7 +105,7 @@ export const Header = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
 
   return (
-    <div className="header container" id="header">
+    <div className="header" id="header">
       <div className="header-logo">
         <Link to="/" aria-label="Go to main page">
           {isLightTheme ? (
