@@ -215,7 +215,7 @@ export const MapPlayer = () => {
   }
 
   return (
-    <div className="map-player-wrapper container margin-bottom">
+    <div className="map-player-wrapper margin-bottom">
       <div className="player-wrapper">
         <div className="map-player_container">
           <div className="player-photo"></div>
