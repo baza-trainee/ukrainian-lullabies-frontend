@@ -18,7 +18,7 @@ export const ChatbotTechnicalWork = ({ isLightTheme }) => {
         trigger={
           <div className="button ">
             <Link
-              aria-label="Open ChatBot"
+              aria-label={t("play")}
               href="#"
               className="text-base-semibold"
             >
