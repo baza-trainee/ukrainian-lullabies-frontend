@@ -28,12 +28,12 @@ export const TechnicalWorksElement = () => {
       variants={animationElement}
       custom={1}
       ref={ref}
-      className="technikal-container tech-div"
+      className="technikal-container tech-div container"
     >
       <motion.div
         custom={3}
         variants={animationElement}
-        className="technikal__block container"
+        className="technikal__block"
       >
         <div style={{ flexDirection: "column" }} className="tech-wrap">
           <div className="loader">

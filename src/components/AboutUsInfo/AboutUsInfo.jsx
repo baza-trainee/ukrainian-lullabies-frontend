@@ -121,7 +121,7 @@ const AboutUsInfo = () => {
         <div className="donat-imgs">
           <div className="donat-bmc ">
             <Link
-              aria-label="Support the project with BuyMeaCoffee"
+              aria-label="go to https://www.buymeacoffee.com/kolyskova"
               to="https://www.buymeacoffee.com/kolyskova"
               className="buy-me-a-caffee"
               target="_blank"
@@ -129,7 +129,7 @@ const AboutUsInfo = () => {
           </div>
           <div className="donat-patreon ">
             <Link
-              aria-label="Support the project with Patreon"
+              aria-label="go to https://www.patreon.com/KolyskovaMuseum"
               to="https://www.patreon.com/KolyskovaMuseum"
               target="_blank"
             >

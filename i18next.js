@@ -6,8 +6,8 @@ import { initReactI18next } from "react-i18next";
 const savedLanguage = localStorage.getItem("selectedLanguage");
 
 i18n
-  .use(LocalStorageBackend)
   .use(LanguageDetector)
+  .use(LocalStorageBackend)
   .use(initReactI18next)
   .init({
     resources: {
@@ -269,7 +269,7 @@ i18n
     },
 
     lng: savedLanguage || navigator.language,
-    fallbackLng: "en",
+    fallbackLng: "ua",
     debug: true,
     ns: ["translations"],
     defaultNS: "translations",

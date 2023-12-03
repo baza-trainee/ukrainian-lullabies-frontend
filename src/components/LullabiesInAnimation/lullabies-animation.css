@@ -6,19 +6,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 32px;
-    margin-bottom: 32px;
+    margin: 32px auto;
     grid-column: 1;
-    @media screen and (min-width: 768px) {
-     
-    }
-
     @media screen and (min-width: 1440px) {
-        margin-top: 48px;
-        margin-bottom: 48px;
-        flex-direction: row;
-        grid-column: 1/13;
-        height: 590px;
+      margin: 48px auto;
+      flex-direction: row;
+      grid-column: 1/13;
+      height: 590px;
+      align-items: center;
     }
 }
 
@@ -39,9 +34,6 @@
   flex-direction: column;
   grid-column: 1;
 
-  @media screen and (min-width: 768px) {
-
- }
   @media screen and (min-width: 1440px) {
     grid-column: 1/9;
   }
@@ -105,13 +97,13 @@
     flex-direction: row;
     overflow-y: auto;
   }
-    @media screen and (min-width: 1440px) {
-     flex-direction: column;
-     flex-wrap: nowrap;
-     width: 339px;
-     height: 590px;
-     overflow-x: hidden;
-    }
+  @media screen and (min-width: 1440px) {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 339px;
+    height: 590px;
+    overflow-x: hidden;
+  }
 }
 
 .playlist-card{
