@@ -269,6 +269,7 @@ i18n
     },
 
     lng: savedLanguage || "ua",
+
     fallbackLng: "ua",
     debug: true,
     ns: ["translations"],
