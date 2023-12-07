@@ -268,7 +268,7 @@ i18n
       },
     },
 
-    lng: savedLanguage || navigator.language,
+    lng: savedLanguage || "ua",
     fallbackLng: "ua",
     debug: true,
     ns: ["translations"],
