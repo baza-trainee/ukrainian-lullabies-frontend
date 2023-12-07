@@ -43,7 +43,6 @@ export const Footer = () => {
   const docs = useSelector((state) => state.docs.data);
   console.log("current lang: ", currentLanguage);
 
-
   // scroll to top button
   const [isScrollUpButtonVisible, setIsScrollUpButtonVisible] = useState(false);
 
@@ -120,7 +119,11 @@ export const Footer = () => {
               handleLogoClick();
             }}
           >
-            {isLightTheme ? <LogoLight width="92" height="88" /> : <LogoDark width="92" height="88" />}
+            {isLightTheme ? (
+              <LogoLight width="92" height="88" />
+            ) : (
+              <LogoDark width="92" height="88" />
+            )}
           </button>
         </div>
         {/* docs section */}
@@ -176,7 +179,6 @@ export const Footer = () => {
               {t("telephone")}
             </p>
 
-
             <a
               aria-label="Make a call"
               href={`tel:${contacts.phone ? contacts.phone : "#"}`}
@@ -185,7 +187,9 @@ export const Footer = () => {
             </a>
           </li>
           <li>
-            <p className="footer-contacts-list-title text-sm-semibold">E-mail:</p>
+            <p className="footer-contacts-list-title text-sm-semibold">
+              E-mail:
+            </p>
 
             <a
               aria-label="Send a mail"
@@ -206,7 +210,6 @@ export const Footer = () => {
                 aria-label="Go to youtube"
                 rel="noopener nofollow noreferrer"
               >
-
                 <img
                   src={!isLightTheme ? youtubeLogoWhite : youtubeLogoBlack}
                   alt="youtube"
@@ -214,8 +217,20 @@ export const Footer = () => {
                   height="24"
                   className="footer-socials-icon-normal"
                 />
-                <img src={youtubeLogoHover} alt="youtube" width="24" height="24" className="footer-socials-icon-hover" />
-                <img src={youtubeLogoPressed} alt="youtube" width="24" height="24" className="footer-socials-icon-pressed" />
+                <img
+                  src={youtubeLogoHover}
+                  alt="youtube"
+                  width="24"
+                  height="24"
+                  className="footer-socials-icon-hover"
+                />
+                <img
+                  src={youtubeLogoPressed}
+                  alt="youtube"
+                  width="24"
+                  height="24"
+                  className="footer-socials-icon-pressed"
+                />
               </a>
               <a
                 aria-label="Go to instagram"
@@ -223,7 +238,6 @@ export const Footer = () => {
                 target="_blank"
                 rel="noopener nofollow noreferrer"
               >
-
                 <img
                   src={!isLightTheme ? instagramLogoWhite : instagramLogoBlack}
                   alt="instagram"
@@ -231,16 +245,27 @@ export const Footer = () => {
                   height="24"
                   className="footer-socials-icon-normal"
                 />
-                <img src={instagramLogoHover} alt="instagram" width="24" height="24" className="footer-socials-icon-hover" />
-                <img src={instagramLogoPressed} alt="instagram" width="24" height="24" className="footer-socials-icon-pressed" />
+                <img
+                  src={instagramLogoHover}
+                  alt="instagram"
+                  width="24"
+                  height="24"
+                  className="footer-socials-icon-hover"
+                />
+                <img
+                  src={instagramLogoPressed}
+                  alt="instagram"
+                  width="24"
+                  height="24"
+                  className="footer-socials-icon-pressed"
+                />
               </a>
               <a
                 aria-label="Go to facebook"
-                href="https://www.facebook.com/"
+                href="https://www.facebook.com/profile.php?id=61554470901468"
                 target="_blank"
                 rel="noopener nofollow noreferrer"
               >
-
                 <img
                   src={!isLightTheme ? facebookLogoWhite : facebookLogoBlack}
                   alt="facebook"
@@ -248,8 +273,20 @@ export const Footer = () => {
                   height="24"
                   className="footer-socials-icon-normal"
                 />
-                <img src={facebookLogoHover} alt="facebook" width="24" height="24" className="footer-socials-icon-hover" />
-                <img src={facebookLogoPressed} alt="facebook" width="24" height="24" className="footer-socials-icon-pressed" />
+                <img
+                  src={facebookLogoHover}
+                  alt="facebook"
+                  width="24"
+                  height="24"
+                  className="footer-socials-icon-hover"
+                />
+                <img
+                  src={facebookLogoPressed}
+                  alt="facebook"
+                  width="24"
+                  height="24"
+                  className="footer-socials-icon-pressed"
+                />
               </a>
               <a
                 aria-label="Go to tiktok"
@@ -257,7 +294,6 @@ export const Footer = () => {
                 target="_blank"
                 rel="noopener nofollow noreferrer"
               >
-
                 <img
                   src={!isLightTheme ? tiktokLogoWhite : tiktokLogoBlack}
                   alt="tiktok"
@@ -265,8 +301,20 @@ export const Footer = () => {
                   height="24"
                   className="footer-socials-icon-normal"
                 />
-                <img src={tiktokLogoHover} alt="tiktok" width="24" height="24" className="footer-socials-icon-hover" />
-                <img src={tiktokLogoPressed} alt="tiktok" width="24" height="24" className="footer-socials-icon-pressed" />
+                <img
+                  src={tiktokLogoHover}
+                  alt="tiktok"
+                  width="24"
+                  height="24"
+                  className="footer-socials-icon-hover"
+                />
+                <img
+                  src={tiktokLogoPressed}
+                  alt="tiktok"
+                  width="24"
+                  height="24"
+                  className="footer-socials-icon-pressed"
+                />
               </a>
             </div>
           </div>
@@ -295,7 +343,6 @@ export const Footer = () => {
                       }
                       height="40"
                     />
-
                   </a>
                 ))
               ) : (
