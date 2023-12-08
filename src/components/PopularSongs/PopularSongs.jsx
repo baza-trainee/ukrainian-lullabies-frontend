@@ -43,8 +43,6 @@ export function PopularSongs() {
     (state) => state.popularSongs.popularSongs.results
   );
 
-  const language = languagePopular === "ua" ? "uk" : "en";
-
   const buttonPopular = isPlaying ? pauseButton : playButton;
 
   const { t } = useTranslation();
@@ -92,7 +90,7 @@ export function PopularSongs() {
   ]);
 
   useEffect(() => {
-    dispatch(getPopularSongs(language));
+    dispatch(getPopularSongs(languagePopular));
   }, [dispatch, languagePopular]);
 
   useEffect(() => {
