@@ -22,6 +22,13 @@
   }
 }
 
+@media screen and (min-width: 320px) and (max-width: 850px) and (orientation: landscape) {
+  .qr-button-modal {
+    height: 100vh;
+    overflow-y: auto;
+  }
+}
+
 .qr-button-modal-light {
   background: var(--white-0);
   color: var(--gray-black-950);
@@ -65,7 +72,7 @@
   padding: 2px 4px;
   border-radius: 8px;
   background: var(--white-0);
-  color: var(--gray-black-950);  
+  color: var(--gray-black-950);
 }
 
 .qr-info-copy-clicked-light {
@@ -75,5 +82,5 @@
 
 /* ornament */
 .qr-button-modal-ornament {
-    margin: 0 auto;
+  margin: 0 auto;
 }
