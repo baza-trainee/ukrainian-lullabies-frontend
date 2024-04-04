@@ -7,18 +7,18 @@ import OundIcon from "../../icons/OundIcon";
 
 export const GeneralTitle = () => {
   return (
-    <div className="kolyskova-container">
-      <div className="kolyIcon text-5xl">
-        <KolyIcon />
-      </div>
+
+    <div className="kolyskova-container" translate="no">
+      <div className="kolyIcon text-5xl">Koly</div>
+
       <div className="letterS">
         <SIcon />
       </div>
       <div className="kovaIcon text-5xl">
-        <KovaIcon />
+        Kova
       </div>
       <div className="oundIconWrap text-5xl">
-        <OundIcon />
+        ound
       </div>
     </div>
   );
