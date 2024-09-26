@@ -4,10 +4,9 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../TechnicalWorks/TechnicalWorks.css";
 import "./Chatbot.css";
-import { ChatbotTechnicalWork } from "./ChatbotTechnicalWork";
 
 const Chatbot = () => {
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
@@ -54,33 +53,38 @@ const Chatbot = () => {
           </li>
           <li className="text-base chat_text">{t("letsPlay")}</li>
         </motion.ul>
+
+        <NavLink
+          aria-label="Go to KolyskovaBot"
+          className="button "
+          to="https://t.me/KolyskovaBot"
+          target="_blank"
+        >
+          {t("play")}
+        </NavLink>
       </div>
-      <ChatbotTechnicalWork />
-      {/* <motion.div custom={ 3 } variants={ animationElement } className="button chat_button">
-        <Link href="#" className="text-base-semibold">
-          { t("play") }
-        </Link>
-      </motion.div> */}
       <motion.div
         custom={3}
         variants={animationElement}
         className="chat_picture"
       >
-        <Link
+        <NavLink
           aria-label="Open ChatBot"
-          href="#"
+          to="https://t.me/KolyskovaBot"
           className={classNames("chat_image_dark_ua", {
             chat_image_white_ua: isLightTheme,
             ua: !isEnglishLanguage,
           })}
+          target="_blank"
         />
-        <Link
+        <NavLink
           aria-label="Open ChatBot"
-          to="#"
+          to="https://t.me/KolyskovaBot"
           className={classNames("chat_image_dark_en", {
             chat_image_white_en: isLightTheme,
             en: isEnglishLanguage,
           })}
+          target="_blank"
         />
       </motion.div>
     </motion.div>
