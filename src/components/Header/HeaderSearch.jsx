@@ -10,7 +10,7 @@ export const HeaderSearch = ({
   // open search bar
   const searchIconClick = () => {
     const parent = headerOptionsWrapperRef.current.parentNode;
-    const input = document.getElementById("headerSearchInput");
+    const input = document.querySelector("headerSearchInput");
     const headerAboutLink = document.querySelector(".header-about-link");
     const headerDropdownWrapper = document.querySelector(
       ".header-dropdown-wrapper"

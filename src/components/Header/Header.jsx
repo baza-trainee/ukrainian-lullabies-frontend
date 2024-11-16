@@ -222,9 +222,8 @@ export const Header = () => {
         <input
           type="text"
           placeholder={t("searchUnavailable")}
-          className="text-xl"
+          className="text-xl headerSearchInput"
           onBlur={closeSearchBar}
-          id="headerSearchInput"
         />
         <svg
           width="26"
