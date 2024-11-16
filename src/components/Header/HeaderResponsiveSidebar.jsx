@@ -275,8 +275,7 @@ export const HeaderResponsiveSidebar = ({
                   <input
                     type="text"
                     placeholder={t("search")}
-                    className="header-responsive-search-input text-2xl"
-                    id="headerSearchInput"
+                    className="header-responsive-search-input text-2xl headerSearchInput"
                   />
                   <svg
                     width="26"
