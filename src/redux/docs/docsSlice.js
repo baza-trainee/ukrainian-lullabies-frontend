@@ -18,7 +18,7 @@ export const fetchDocs = createAsyncThunk("docs/fetchDocs", async (lang) => {
     const data = response.data;
     return data;
   } catch (err) {
-    console.log(err);
+    console.error(err);
     throw err;
   }
 });

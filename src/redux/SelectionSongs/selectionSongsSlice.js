@@ -28,7 +28,6 @@ export const fetchData = createAsyncThunk(
           },
         }
       );
-      // console.log("selections response: ", response);
       const formatedData = await response.data.results.map((item, index) => ({
         id: index,
         songId: item.source.id,
@@ -37,16 +36,14 @@ export const fetchData = createAsyncThunk(
         duration: item.source.duration.slice(3, 8),
       }));
 
-      // console.log("selections formated data: ", formatedData);
-
       if (formatedData.length === 0) {
-        console.log("SelectionsSlice: formattedData is empty; No songs data");
+        console.error("SelectionsSlice: formattedData is empty; No songs data");
         throw new Error("No songs data");
       }
 
       return formatedData;
     } catch (err) {
-      console.log("selectionsSongs: request failed :(");
+      console.error("selectionsSongs: request failed :(");
       throw err;
     }
   }

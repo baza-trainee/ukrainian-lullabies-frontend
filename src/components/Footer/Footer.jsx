@@ -41,7 +41,6 @@ export const Footer = () => {
     (state) => state.currentLanguage.currentLanguage
   );
   const docs = useSelector((state) => state.docs.data);
-  console.log("current lang: ", currentLanguage);
 
   // scroll to top button
   const [isScrollUpButtonVisible, setIsScrollUpButtonVisible] = useState(false);

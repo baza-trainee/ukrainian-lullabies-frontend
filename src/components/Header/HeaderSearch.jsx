@@ -25,7 +25,6 @@ export const HeaderSearch = ({
     searchBarRef.current.classList.remove("hidden");
     searchBarRef.current.classList.add("header-search-bar-open");
     input.focus();
-    console.log(parent);
   };
 
   return (

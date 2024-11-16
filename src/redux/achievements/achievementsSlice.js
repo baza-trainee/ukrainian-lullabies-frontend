@@ -16,12 +16,11 @@ export const fetchAchievements = createAsyncThunk(
       const data = response.data;
       return data;
     } catch (err) {
-      console.log(err);
+      console.error(err);
       throw err;
     }
   }
 );
-
 
 const achievementsSlice = createSlice({
   name: "achievements",
