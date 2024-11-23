@@ -27,7 +27,6 @@
   border-radius: 10px;
   background:
     linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
-    url(<path-to-image>),
     lightgray 50% / cover no-repeat;
   transition: transform 0.5s ease-in-out;
 
