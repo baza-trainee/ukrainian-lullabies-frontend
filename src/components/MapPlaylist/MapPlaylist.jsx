@@ -19,11 +19,19 @@ import "./MapPlaylist.css";
 
 export const MapPlaylist = () => {
   const dispatch = useDispatch();
-  const data = useSelector(selectData);
+  const allData = useSelector(selectData);
+
+  const currentRegion = useSelector(
+    (state) => state.currentRegion.currentRegion
+  );
+  const filteredData = allData.filter(
+    ({ regionId }) => regionId === +currentRegion
+  );
+
+  const data = filteredData;
 
   const loading = useSelector(selectLoading);
   const { t, i18n } = useTranslation();
-
   const currentLanguage = i18n.language;
   useEffect(() => {
     if (currentLanguage === "en") {
