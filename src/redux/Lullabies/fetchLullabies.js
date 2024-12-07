@@ -1,6 +1,7 @@
 /* eslint-disable no-useless-catch */
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { baseUrl } from "../../constants";
 
 const initialState = {
   loading: false,
@@ -21,14 +22,11 @@ export const fetchData = createAsyncThunk(
   async (lang, { dispatch }) => {
     try {
       dispatch(fetchDataStart());
-      const response = await axios.get(
-        "https://api.kolyskova.com/lullabies/?type=archive",
-        {
-          headers: {
-            "Accept-Language": lang,
-          },
-        }
-      );
+      const response = await axios.get(`${baseUrl}lullabies/?type=archive`, {
+        headers: {
+          "Accept-Language": lang,
+        },
+      });
       const formatedData = response.data.results.map((item, index) => ({
         params: item.name.replace(/\s/g, ""),
         index: index,

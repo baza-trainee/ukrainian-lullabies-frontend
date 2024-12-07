@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import axios from "axios";
+import { baseUrl } from "../../constants";
 
 const initialState = {
   loading: false,
@@ -12,7 +13,7 @@ export const fetchAchievements = createAsyncThunk(
   "achievements/fetchAchievements",
   async () => {
     try {
-      const response = await axios.get("https://api.kolyskova.com/statistic/");
+      const response = await axios.get(`${baseUrl}statistic/`);
       const data = response.data;
       return data;
     } catch (err) {
