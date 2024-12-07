@@ -11,7 +11,7 @@ const initialState = {
 
 export const fetchDocs = createAsyncThunk("docs/fetchDocs", async (lang) => {
   try {
-    const response = await axios.get(`${baseUrl}/documents/`, {
+    const response = await axios.get(`${baseUrl}documents/`, {
       headers: {
         "Accept-Language": lang,
       },
