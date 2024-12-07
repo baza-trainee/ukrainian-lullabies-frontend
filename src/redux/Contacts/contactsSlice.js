@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { baseUrl } from "../../constants";
 
 const initialState = {
   loading: false,
@@ -10,7 +11,7 @@ const initialState = {
 export const fetchContacts = createAsyncThunk(
   "contacts/fetchContacts",
   async (lang) => {
-    const response = await axios.get("https://api.kolyskova.com/contacts/", {
+    const response = await axios.get(`${baseUrl}contacts/`, {
       headers: {
         "Accept-Language": lang,
       },

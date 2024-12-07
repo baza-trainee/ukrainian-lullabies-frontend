@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+
 import contactsSlice from "./Contacts/contactsSlice";
 import currentPlayerReducer from "./CurrentPlayer/currentPlayerSlice";
 import animationsSliceReducer from "./Lullabies/animationLullabiesSlice";
@@ -12,7 +13,6 @@ import currentSongReducer from "./currentSong/currentSongSlice";
 import docsReducer from "./docs/docsSlice";
 import sendFormSlice from "./sendForm/sendForm-slice";
 import themeReducer from "./theme/themeSlice";
-
 
 const store = configureStore({
   reducer: {

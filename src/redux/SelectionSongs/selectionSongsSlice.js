@@ -1,6 +1,7 @@
 /* eslint-disable no-useless-catch */
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { baseUrl } from "../../constants";
 
 const initialState = {
   loading: false,
@@ -21,7 +22,7 @@ export const fetchData = createAsyncThunk(
   async (lang) => {
     try {
       const response = await axios.get(
-        "https://api.kolyskova.com/lullabies/?source-format=audio&type=new",
+        `${baseUrl}lullabies/?source-format=audio&type=new`,
         {
           headers: {
             "Accept-Language": lang,

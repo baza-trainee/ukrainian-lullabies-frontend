@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import axios from "axios";
+import { baseUrl } from "../../constants";
 
 const initialState = {
   loading: false,
@@ -10,7 +11,7 @@ const initialState = {
 
 export const fetchDocs = createAsyncThunk("docs/fetchDocs", async (lang) => {
   try {
-    const response = await axios.get("https://api.kolyskova.com/documents/", {
+    const response = await axios.get(`${baseUrl}/documents/`, {
       headers: {
         "Accept-Language": lang,
       },
