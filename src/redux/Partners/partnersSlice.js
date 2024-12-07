@@ -11,7 +11,7 @@ const initialState = {
 export const fetchPartners = createAsyncThunk(
   "contacts/fetchPartners",
   async () => {
-    const response = await axios.get(`${baseUrl}/partners/`);
+    const response = await axios.get(`${baseUrl}partners/`);
     return response.data.results;
   }
 );

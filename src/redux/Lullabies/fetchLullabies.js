@@ -36,6 +36,7 @@ export const fetchData = createAsyncThunk(
         lyrics: item.lyrics,
         duration: item.source.duration.slice(3, 8),
         region: item.region.name,
+        regionId: item.region.pk,
       }));
       dispatch(fetchDataSuccess(formatedData));
       return formatedData;

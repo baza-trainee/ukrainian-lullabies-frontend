@@ -30,7 +30,16 @@ export const MapPlayer = () => {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
 
-  const data = useSelector(selectData);
+  const allData = useSelector(selectData);
+  const currentRegion = useSelector((state) => state.currentRegion);
+  const filteredData = allData.filter(
+    ({ regionId }) => regionId === +currentRegion
+  );
+
+  const data = allData;
+
+  console.log({ filteredData });
+
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
   const currentUrl = useSelector((state) => state.currentSong.currentUrl);
@@ -77,13 +86,11 @@ export const MapPlayer = () => {
       setIsPlaying(true);
     } else if (!isPlaying) {
       dispatch(setCurrentIndex(index));
-      dispatch(setCurrentIndex(index));
       setIsPlaying(true);
       setIsLooped(false);
     } else if (isPlaying && index === currentIndex) {
       setIsPlaying(false);
     } else {
-      dispatch(setCurrentIndex(index));
       dispatch(setCurrentIndex(index));
       setIsLooped(false);
     }
@@ -175,6 +182,7 @@ export const MapPlayer = () => {
   const currentPlayer = useSelector(
     (state) => state.currentPlayer.currentPlayer
   );
+
   useEffect(() => {
     if (isPlaying) {
       dispatch(playerChanged("map"));
@@ -194,7 +202,7 @@ export const MapPlayer = () => {
     const currentTime = reactPlayerRef.current.getCurrentTime();
     if (isPlaying && currentTime < 0.3) {
       axios.get(
-        `http://api.kolyskova.com/lullabies/${currentSongId}/increment_views/`
+        `https://api.kolyskova.com/lullabies/${currentSongId}/increment_views/`
       );
     }
   }, [isPlaying, currentIndex, data]);
@@ -212,7 +220,7 @@ export const MapPlayer = () => {
     return <Loader />;
   }
   if (error) {
-    return <p className="text-error text-5x">Somesing went wrong</p>;
+    return <p className="text-error text-5x">Something went wrong</p>;
   }
 
   return (
@@ -224,7 +232,7 @@ export const MapPlayer = () => {
             width="0px"
             height="0px"
             ref={reactPlayerRef}
-            url={data[currentIndex].url}
+            url={currentUrl}
             playing={isPlaying}
             onEnded={handleAutoPlayNext}
             loop={isLooped}
