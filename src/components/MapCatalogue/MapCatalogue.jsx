@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useSearchParams } from "react-router-dom";
 import photo10 from "../../assets/images/Donshyna.png";
 import photo1 from "../../assets/images/Karpaty.png";
 import photo14 from "../../assets/images/Krym.png";
@@ -207,6 +207,8 @@ const pattern = [
 ];
 
 export const MapCatalogue = () => {
+  const [, setSearchParams] = useSearchParams();
+
   const isLightTheme = useSelector(getLightTheme);
   const isEng = useSelector((state) => state.currentLanguage.currentLanguage);
 
@@ -285,9 +287,10 @@ export const MapCatalogue = () => {
           localStorage.setItem("currentRegion", item.id);
           handleRegionHover(item.pattern);
           setOnButtonClick(true);
+          setSearchParams(`?region=${item.id}`);
         }}
         className="nav"
-        to="/playlist"
+        to={`/playlist?region=${item.id}`}
       >
         <path
           className="path-map"

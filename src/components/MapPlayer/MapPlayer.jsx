@@ -14,9 +14,11 @@ import { playerChanged } from "../../redux/CurrentPlayer/currentPlayerSlice";
 import {
   fetchData,
   selectData,
+  selectDataByRegion,
   selectError,
   selectLoading,
 } from "../../redux/Lullabies/fetchLullabies";
+import { setCurrentRegion } from "../../redux/currentRegion";
 import {
   setCurrentIndex,
   setCurrentUrl,
@@ -31,12 +33,16 @@ export const MapPlayer = () => {
   const dispatch = useDispatch();
 
   const allData = useSelector(selectData);
-  const currentRegion = useSelector((state) => state.currentRegion);
+  const currentRegion = useSelector(
+    (state) => state.currentRegion.currentRegion
+  );
   const filteredData = allData.filter(
     ({ regionId }) => regionId === +currentRegion
   );
 
-  const data = allData;
+  const data = useSelector((state) => selectDataByRegion(state, currentRegion));
+
+  console.log("player data", data, "currentRegion", currentRegion);
 
   console.log({ filteredData });
 
@@ -125,7 +131,7 @@ export const MapPlayer = () => {
 
   const handleSongChange = (index, id) => {
     dispatch(setCurrentIndex(index));
-    setSearchParams(`?id=${id}`);
+    setSearchParams(`?region=${currentRegion}&id=${id}`);
     localStorage.setItem("currentSongId", id);
   };
 
@@ -137,25 +143,39 @@ export const MapPlayer = () => {
       dispatch(fetchData("uk"));
     }
   }, [dispatch, currentLanguage]);
+  const regionId = searchParams.get("region");
+  console.info("r ******", regionId);
 
   useEffect(() => {
-    const savedId = localStorage.getItem("currentSongId");
-    if (savedId) {
-      const song = data.find((song) => song.id === parseInt(savedId));
-      if (song) {
-        dispatch(setCurrentUrl(song.url));
-        dispatch(setCurrentIndex(song.index));
-      }
-    }
+    if (data) {
+      const savedRegionId = localStorage.getItem("currentRegion");
+      if (savedRegionId) dispatch(setCurrentRegion(savedRegionId));
 
-    const songId = searchParams.get("id");
-    if (songId) {
-      const song = data.find((song) => song.id === parseInt(songId));
-      if (song) {
-        dispatch(setCurrentUrl(song.url));
-        dispatch(setCurrentIndex(song.index));
+      const savedId = localStorage.getItem("currentSongId");
+      if (savedId) {
+        const song = data.find((song) => song.id === parseInt(savedId));
+        if (song) {
+          dispatch(setCurrentUrl(song.url));
+          dispatch(setCurrentIndex(song.index));
+        }
+      }
+
+      const songId = searchParams.get("id");
+      const regionId = searchParams.get("region");
+      console.info("rregionId ******", regionId);
+
+      if (songId) {
+        const song = data.find((song) => song.id === parseInt(songId));
+        if (song) {
+          dispatch(setCurrentUrl(song.url));
+          dispatch(setCurrentIndex(song.index));
+        }
+      }
+      if (regionId) {
+        dispatch(setCurrentRegion(regionId));
       }
     }
+    console.info("g ******", regionId);
   }, [data, searchParams, dispatch]);
 
   useEffect(() => {
@@ -171,7 +191,7 @@ export const MapPlayer = () => {
   // Autoscroll to #mapTabsId ONLY when the song turned
   const location = useLocation();
   useEffect(() => {
-    if (location.search.startsWith("?id")) {
+    if (location.search.startsWith("?id" || "?region")) {
       const target = document.querySelector("#mapTabsId");
       if (target) {
         target.scrollIntoView({ block: "start" });
@@ -198,14 +218,13 @@ export const MapPlayer = () => {
   }, [currentPlayer]);
 
   useEffect(() => {
-    const currentSongId = data[currentIndex].id;
-    const currentTime = reactPlayerRef.current.getCurrentTime();
-    if (isPlaying && currentTime < 0.3) {
+    if (!!data && isPlaying && currentTime < 0.3 && data[currentIndex]) {
+      const currentSongId = data[currentIndex].id;
       axios.get(
         `https://api.kolyskova.com/lullabies/${currentSongId}/increment_views/`
       );
     }
-  }, [isPlaying, currentIndex, data]);
+  }, [isPlaying, currentIndex, data, currentTime]);
 
   let time = Math.floor(currentTime);
   let minutes = Math.floor(time / 60);
@@ -224,138 +243,143 @@ export const MapPlayer = () => {
   }
 
   return (
-    <div className="map-player-wrapper margin-bottom">
-      <div className="player-wrapper">
-        <div className="map-player_container">
-          <div className="player-photo"></div>
-          <ReactPlayer
-            width="0px"
-            height="0px"
-            ref={reactPlayerRef}
-            url={currentUrl}
-            playing={isPlaying}
-            onEnded={handleAutoPlayNext}
-            loop={isLooped}
-            volume={1}
-            muted={isMuted}
-            onProgress={onPlaying}
-          />
-          <h3 className="current-name text-l">{data[currentIndex].name}</h3>
-          <p className="region text-base">{data[currentIndex].region}</p>
-          <div
-            className={classNames("progress-bar", {
-              "progress-bar-light": isLightTheme,
-              "progress-bar-dark": !isLightTheme,
-            })}
-            onClick={checkWidth}
-            ref={progressRef}
-          >
+    data &&
+    !loading && (
+      <div className="map-player-wrapper margin-bottom">
+        <div className="player-wrapper">
+          <div className="map-player_container">
+            <div className="player-photo"></div>
+            <ReactPlayer
+              width="0px"
+              height="0px"
+              ref={reactPlayerRef}
+              url={currentUrl}
+              playing={isPlaying}
+              onEnded={handleAutoPlayNext}
+              loop={isLooped}
+              volume={1}
+              muted={isMuted}
+              onProgress={onPlaying}
+            />
+            <h3 className="current-name text-l">{data[currentIndex].name}</h3>
+            <p className="region text-base">{data[currentIndex].region}</p>
             <div
-              className="progress-line"
-              style={{ width: `${currentSongState.progress}%` }}
-            ></div>
+              className={classNames("progress-bar", {
+                "progress-bar-light": isLightTheme,
+                "progress-bar-dark": !isLightTheme,
+              })}
+              onClick={checkWidth}
+              ref={progressRef}
+            >
+              <div
+                className="progress-line"
+                style={{ width: `${currentSongState.progress}%` }}
+              ></div>
+            </div>
+            <div className="duration text-sm">
+              <p className="current-duration">{formattedCurrentTime}</p>
+              <p className="item-duration">{data[currentIndex].duration}</p>
+            </div>
+            <Player
+              isLightTheme={isLightTheme}
+              isPlaying={isPlaying}
+              setIsPlaying={setIsPlaying}
+              setCurrentSong={currentUrl}
+              playlist={data}
+              isLoopedPlaylist={isLoopedPlaylist}
+              setIsLoopedPlaylist={setIsLoopedPlaylist}
+              isRandom={isRandom}
+              setIsRandom={setIsRandom}
+              isMuted={isMuted}
+              setIsMuted={setIsMuted}
+              setSearchParams={setSearchParams}
+            />
           </div>
-          <div className="duration text-sm">
-            <p className="current-duration">{formattedCurrentTime}</p>
-            <p className="item-duration">{data[currentIndex].duration}</p>
+          <div className="map-player_info">
+            <p className="text-l text-margin">{t("lyrics")}</p>
+            <div className="lyrics playlist-scroll">
+              <p className="text-base">{data[currentIndex].lyrics}</p>
+            </div>
           </div>
-          <Player
-            isLightTheme={isLightTheme}
-            isPlaying={isPlaying}
-            setIsPlaying={setIsPlaying}
-            setCurrentSong={currentUrl}
-            playlist={data}
-            isLoopedPlaylist={isLoopedPlaylist}
-            setIsLoopedPlaylist={setIsLoopedPlaylist}
-            isRandom={isRandom}
-            setIsRandom={setIsRandom}
-            isMuted={isMuted}
-            setIsMuted={setIsMuted}
-            setSearchParams={setSearchParams}
-          />
         </div>
-        <div className="map-player_info">
-          <p className="text-l text-margin">{t("lyrics")}</p>
-          <div className="lyrics playlist-scroll">
-            <p className="text-base">{data[currentIndex].lyrics}</p>
-          </div>
-        </div>
-      </div>
-      <div className="map-player_playlist">
-        <p className="text-l text-margin">{t("collection")}</p>
-        <div className="player_playlist playlist-scroll">
-          <ul>
-            {data.map(({ name, url, duration, index, id }) => (
-              <li
-                key={index}
-                className={classNames("map-player_card", {
-                  "map-player_card-dark": !isLightTheme,
-                  "map-player_card-light": isLightTheme,
-                  "active-map-card": index === currentIndex && !isLightTheme,
-                  "active-map-card-light":
-                    isLightTheme && index === currentIndex,
-                })}
-                onClick={() => {
-                  handleSongChange(index, id);
-                  playPauseSong(url, id, index);
-                }}
-              >
-                <div className="card-buttons">
-                  <span className="item-number">
-                    {isPlaying && index === currentIndex ? (
-                      <SoundWaveIcon />
-                    ) : (
-                      index + 1
-                    )}
-                  </span>
-                  <div className="playlist-item">
-                    <button
-                      aria-label="play/pause button"
-                      className={classNames(
-                        "selections-playlist-item-play-pause-button",
-                        "selection-playlist-button",
-                        {
-                          "selections-playlist-item-play-pause-button-light":
-                            isLightTheme,
-                        }
-                      )}
-                      onClick={() => playPauseSong(url, id, index)}
-                    >
+        <div className="map-player_playlist">
+          <p className="text-l text-margin">{t("collection")}</p>
+          <div className="player_playlist playlist-scroll">
+            <ul>
+              {data.map(({ name, url, duration, index, id }) => (
+                <li
+                  key={index}
+                  className={classNames("map-player_card", {
+                    "map-player_card-dark": !isLightTheme,
+                    "map-player_card-light": isLightTheme,
+                    "active-map-card": index === currentIndex && !isLightTheme,
+                    "active-map-card-light":
+                      isLightTheme && index === currentIndex,
+                  })}
+                  onClick={() => {
+                    handleSongChange(index, id);
+                    playPauseSong(url, id, index);
+                  }}
+                >
+                  <div className="card-buttons">
+                    <span className="item-number">
                       {isPlaying && index === currentIndex ? (
-                        <PauseCircleIconDark />
+                        <SoundWaveIcon />
                       ) : (
-                        <PlayCircleIconDark />
+                        index + 1
                       )}
+                    </span>
+                    <div className="playlist-item">
+                      <button
+                        aria-label="play/pause button"
+                        className={classNames(
+                          "selections-playlist-item-play-pause-button",
+                          "selection-playlist-button",
+                          {
+                            "selections-playlist-item-play-pause-button-light":
+                              isLightTheme,
+                          }
+                        )}
+                        onClick={() => playPauseSong(url, id, index)}
+                      >
+                        {isPlaying && index === currentIndex ? (
+                          <PauseCircleIconDark />
+                        ) : (
+                          <PlayCircleIconDark />
+                        )}
+                      </button>
+                    </div>
+                    <span className="map-player-list-item-name">
+                      {name.toUpperCase()}
+                    </span>
+                  </div>
+                  <div className="card-buttons">
+                    <span className="item-duration text-xs-bold">
+                      {duration}
+                    </span>
+                    <button
+                      aria-label="on/off loop"
+                      className="selections-playlist-item-repeat-button selection-playlist-button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleLoop();
+                      }}
+                      disabled={currentIndex !== index}
+                    >
+                      <BsRepeat
+                        style={
+                          isLooped &&
+                          index === currentIndex && { fill: "var(--red-700)" }
+                        }
+                      />
                     </button>
                   </div>
-                  <span className="map-player-list-item-name">
-                    {name.toUpperCase()}
-                  </span>
-                </div>
-                <div className="card-buttons">
-                  <span className="item-duration text-xs-bold">{duration}</span>
-                  <button
-                    aria-label="on/off loop"
-                    className="selections-playlist-item-repeat-button selection-playlist-button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleLoop();
-                    }}
-                    disabled={currentIndex !== index}
-                  >
-                    <BsRepeat
-                      style={
-                        isLooped &&
-                        index === currentIndex && { fill: "var(--red-700)" }
-                      }
-                    />
-                  </button>
-                </div>
-              </li>
-            ))}
-          </ul>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+    )
   );
 };

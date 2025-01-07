@@ -7,9 +7,10 @@ import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
 import MapSvg from "../../images/map-playlist.png";
 import {
   fetchData,
-  selectData,
+  selectDataByRegion,
   selectLoading,
 } from "../../redux/Lullabies/fetchLullabies";
+import { setCurrentRegion } from "../../redux/currentRegion";
 import {
   setCurrentIndex,
   setCurrentUrl,
@@ -19,17 +20,13 @@ import "./MapPlaylist.css";
 
 export const MapPlaylist = () => {
   const dispatch = useDispatch();
-  const allData = useSelector(selectData);
-
   const currentRegion = useSelector(
     (state) => state.currentRegion.currentRegion
   );
-  const filteredData = allData.filter(
-    ({ regionId }) => regionId === +currentRegion
-  );
 
-  const data = filteredData;
+  const data = useSelector((state) => selectDataByRegion(state, currentRegion));
 
+  console.log("playlisd data", data, "currentRegion", currentRegion);
   const loading = useSelector(selectLoading);
   const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language;
@@ -41,14 +38,23 @@ export const MapPlaylist = () => {
     }
   }, [dispatch, currentLanguage]);
 
-  const [, setSerchParams] = useSearchParams();
+  const [searchParams, setSerchParams] = useSearchParams();
 
   const handleAudioChange = (url, index, id) => {
     dispatch(setCurrentUrl(url));
     dispatch(setCurrentIndex(index));
-    setSerchParams(`?id=${id}`);
+    setSerchParams(`?region=${currentRegion}&id=${id}`);
+    console.log({ index });
   };
+  const regionId = searchParams.get("region");
+  console.log({ regionId });
+  useEffect(() => {
+    const regionId = searchParams.get("region");
 
+    if (regionId) {
+      dispatch(setCurrentRegion(regionId));
+    }
+  }, []);
   useEffect(() => {
     const buttonMap = document.getElementById("map-tab");
     if (buttonMap) {
@@ -83,7 +89,7 @@ export const MapPlaylist = () => {
                 <li key={index}>
                   <Link
                     aria-label="Open player and play first song"
-                    to={`/player/?id=${id}`}
+                    to={`/player?region=${currentRegion}&id=${id}`}
                     className={classNames("map-playlist_card", {
                       "map-player_card-dark": !isLightTheme,
                       "map-player_card-light": isLightTheme,

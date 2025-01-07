@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  currentRegion: "",
+  currentRegion: "0",
 };
 
 const currentRegionSlice = createSlice({
