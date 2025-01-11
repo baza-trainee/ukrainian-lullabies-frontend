@@ -9,6 +9,7 @@ import PopularSongsSlice from "./PopularSongs/PopularSongsSlice";
 import selectionSongsReducer from "./SelectionSongs/selectionSongsSlice";
 import achievementsReducer from "./achievements/achievementsSlice";
 import currentLanguageReducer from "./currentLanguage/currentLanguageSlice";
+import currentRegionReducer from "./currentRegion";
 import currentSongReducer from "./currentSong/currentSongSlice";
 import docsReducer from "./docs/docsSlice";
 import sendFormSlice from "./sendForm/sendForm-slice";
@@ -29,6 +30,7 @@ const store = configureStore({
     currentLanguage: currentLanguageReducer,
     docs: docsReducer,
     achievements: achievementsReducer,
+    currentRegion: currentRegionReducer,
   },
 });
 

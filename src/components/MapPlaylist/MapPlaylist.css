@@ -25,7 +25,10 @@
   }
 }
 
-
+.playlist-map {
+  position: relative;
+  text-align: center;
+}
 .playlist-wrap {
   @media screen and (min-width: 1440px) {
     min-width: 429px;
