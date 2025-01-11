@@ -36,6 +36,7 @@ export const fetchData = createAsyncThunk(
         lyrics: item.lyrics,
         duration: item.source.duration.slice(3, 8),
         region: item.region.name,
+        regionId: item.region.pk,
       }));
       dispatch(fetchDataSuccess(formatedData));
       return formatedData;
@@ -67,6 +68,17 @@ const traditionSongsSlice = createSlice({
 
 export default traditionSongsSlice.reducer;
 export const selectData = (state) => state.traditionalSongs.data;
+export const selectDataByRegion = (state, regionId) => {
+  const filteredData = state.traditionalSongs.data
+    .filter((item) => item.regionId === +regionId)
+    .map((item, index) => ({
+      ...item,
+      index,
+    }));
+
+  return filteredData;
+};
+
 export const selectLoading = (state) => state.traditionalSongs.loading;
 export const selectError = (state) => state.traditionalSongs.error;
 export const { fetchDataStart, fetchDataSuccess, fetchDataFailure } =

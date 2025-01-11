@@ -30,6 +30,7 @@ export const Player = ({
   isMuted,
   setIsMuted,
   setSearchParams,
+  currentRegion,
 }) => {
   const [playHistory, setPlayHistory] = useState([]);
 
@@ -53,18 +54,24 @@ export const Player = ({
       handleRandomPlay();
     } else {
       dispatch(setCurrentIndex(nextSongIndex));
-      setSearchParams(`?id=${playlist[nextSongIndex].id}`);
+      setSearchParams(
+        `?region=${currentRegion}&id=${playlist[nextSongIndex].id}`
+      );
     }
   };
 
   const handlePreviousSong = () => {
     if (isRandom && playHistory.length > 0) {
       dispatch(setCurrentIndex(playHistory[playHistory.length - 1]));
-      setSearchParams(`?id=${playHistory[playHistory.length - 1]}`);
+      setSearchParams(
+        `?region=${currentRegion}&id=${playHistory[playHistory.length - 1]}`
+      );
       handlePop();
     } else {
       dispatch(setCurrentIndex(previousSongIndex));
-      setSearchParams(`?id=${playlist[previousSongIndex].id}`);
+      setSearchParams(
+        `?region=${currentRegion}&id=${playlist[previousSongIndex].id}`
+      );
     }
   };
 
@@ -85,7 +92,7 @@ export const Player = ({
 
     dispatch(setCurrentUrl(playlist[newIndex].url));
     dispatch(setCurrentIndex(newIndex));
-    setSearchParams(`?id=${playlist[newIndex].id}`);
+    setSearchParams(`?region=${currentRegion}&id=${playlist[newIndex].id}`);
   };
 
   const [shareClicked, setShareClicked] = useState(false);
