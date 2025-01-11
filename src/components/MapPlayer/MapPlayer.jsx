@@ -1,4 +1,3 @@
-import axios from "axios";
 import classNames from "classnames";
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -7,6 +6,8 @@ import ReactPlayer from "react-player";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useSearchParams } from "react-router-dom";
 
+import axios from "axios";
+import { baseUrl } from "../../constants";
 import { PauseCircleIconDark } from "../../icons/SelectionsIcons/PauseCircleIcon";
 import { PlayCircleIconDark } from "../../icons/SelectionsIcons/PlayCircleIcon";
 import { SoundWaveIcon } from "../../icons/SelectionsIcons/SoundWaveIcon";
@@ -31,22 +32,20 @@ export const MapPlayer = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
-
   const allData = useSelector(selectData);
-  const currentRegion = useSelector(
-    (state) => state.currentRegion.currentRegion
-  );
-  const filteredData = allData.filter(
-    ({ regionId }) => regionId === +currentRegion
-  );
+  const currentRegionId = searchParams.get("region");
 
-  const data = useSelector((state) => selectDataByRegion(state, currentRegion));
-
-  console.log("player data", data, "currentRegion", currentRegion);
-
-  console.log({ filteredData });
+  const currentRegion =
+    useSelector((state) => state.currentRegion.currentRegion) ||
+    +currentRegionId;
 
   const loading = useSelector(selectLoading);
+
+  const data =
+    allData &&
+    currentRegion &&
+    useSelector((state) => selectDataByRegion(state, currentRegion));
+
   const error = useSelector(selectError);
   const currentUrl = useSelector((state) => state.currentSong.currentUrl);
 
@@ -59,25 +58,24 @@ export const MapPlayer = () => {
   const [isLooped, setIsLooped] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [isLoopedPlaylist, setIsLoopedPlaylist] = useState(false);
-  const [currentSongState, setCurrentSongState] = useState(data[currentIndex]);
+  const [currentSongState, setCurrentSongState] = useState({
+    ...data[currentIndex],
+    progress: 0,
+  });
   const [currentTime, setCurrentTime] = useState(0);
-
   const progressRef = useRef();
-  const reactPlayerRef = useRef();
+  const playerRef = useRef();
 
   const checkWidth = (e) => {
     const width = progressRef.current.clientWidth;
     const offset = e.nativeEvent.offsetX;
     const divProgress = (offset / width) * 100;
-    reactPlayerRef.current.seekTo(
-      (divProgress / 100) * currentSongState.duration
-    );
+    playerRef.current.seekTo((divProgress / 100) * currentSongState.duration);
   };
-
   const onPlaying = () => {
-    if (reactPlayerRef.current && !loading && data) {
-      const durationMs = reactPlayerRef.current.getDuration();
-      const ct = reactPlayerRef.current.getCurrentTime();
+    if (playerRef.current && !loading && data) {
+      const durationMs = playerRef.current.getDuration();
+      const ct = playerRef.current.getCurrentTime();
       setCurrentTime(ct);
       setCurrentSongState({
         ...currentSongState,
@@ -136,6 +134,7 @@ export const MapPlayer = () => {
   };
 
   const currentLanguage = i18n.language;
+
   useEffect(() => {
     if (currentLanguage === "en") {
       dispatch(fetchData("en"));
@@ -143,40 +142,23 @@ export const MapPlayer = () => {
       dispatch(fetchData("uk"));
     }
   }, [dispatch, currentLanguage]);
-  const regionId = searchParams.get("region");
-  console.info("r ******", regionId);
 
   useEffect(() => {
-    if (data) {
-      const savedRegionId = localStorage.getItem("currentRegion");
-      if (savedRegionId) dispatch(setCurrentRegion(savedRegionId));
-
-      const savedId = localStorage.getItem("currentSongId");
-      if (savedId) {
-        const song = data.find((song) => song.id === parseInt(savedId));
-        if (song) {
-          dispatch(setCurrentUrl(song.url));
-          dispatch(setCurrentIndex(song.index));
-        }
-      }
-
-      const songId = searchParams.get("id");
-      const regionId = searchParams.get("region");
-      console.info("rregionId ******", regionId);
-
-      if (songId) {
-        const song = data.find((song) => song.id === parseInt(songId));
-        if (song) {
-          dispatch(setCurrentUrl(song.url));
-          dispatch(setCurrentIndex(song.index));
-        }
-      }
-      if (regionId) {
-        dispatch(setCurrentRegion(regionId));
-      }
+    if (!allData.length || loading) {
+      return;
     }
-    console.info("g ******", regionId);
-  }, [data, searchParams, dispatch]);
+    const regionId = searchParams.get("region");
+    const songId = searchParams.get("id");
+    if (regionId) {
+      dispatch(setCurrentRegion(regionId));
+    }
+    if (songId) {
+      const song = data.find((song) => song.id === +songId) || data[0];
+
+      dispatch(setCurrentIndex(song ? song.index : 0));
+      dispatch(setCurrentUrl(song ? song.url : allData[0].url));
+    }
+  }, [data, loading, dispatch, searchParams, currentLanguage]);
 
   useEffect(() => {
     const buttonMap = document.getElementById("map-tab");
@@ -191,7 +173,7 @@ export const MapPlayer = () => {
   // Autoscroll to #mapTabsId ONLY when the song turned
   const location = useLocation();
   useEffect(() => {
-    if (location.search.startsWith("?id" || "?region")) {
+    if (location.toString().includes("?id")) {
       const target = document.querySelector("#mapTabsId");
       if (target) {
         target.scrollIntoView({ block: "start" });
@@ -218,13 +200,15 @@ export const MapPlayer = () => {
   }, [currentPlayer]);
 
   useEffect(() => {
-    if (!!data && isPlaying && currentTime < 0.3 && data[currentIndex]) {
-      const currentSongId = data[currentIndex].id;
-      axios.get(
-        `https://api.kolyskova.com/lullabies/${currentSongId}/increment_views/`
-      );
+    if (isPlaying && data[currentIndex]) {
+      const debounceIncrement = setTimeout(() => {
+        axios.post(
+          `${baseUrl}/lullabies/${data[currentIndex].id}/increment_views/`
+        );
+      }, 300);
+      return () => clearTimeout(debounceIncrement);
     }
-  }, [isPlaying, currentIndex, data, currentTime]);
+  }, [isPlaying, currentIndex, data]);
 
   let time = Math.floor(currentTime);
   let minutes = Math.floor(time / 60);
@@ -234,17 +218,24 @@ export const MapPlayer = () => {
   let formattedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
 
   let formattedCurrentTime = `${formattedMinutes}:${formattedSeconds}`;
+  const selectedSongs = data[currentIndex];
 
-  if (loading) {
+  if (loading || !allData.length) {
     return <Loader />;
   }
   if (error) {
     return <p className="text-error text-5x">Something went wrong</p>;
   }
-
+  if (error || !data.length || !selectedSongs) {
+    return (
+      <p className="text-error text-5x">
+        No data available or something went wrong.
+      </p>
+    );
+  }
   return (
-    data &&
-    !loading && (
+    !loading &&
+    data && (
       <div className="map-player-wrapper margin-bottom">
         <div className="player-wrapper">
           <div className="map-player_container">
@@ -252,8 +243,8 @@ export const MapPlayer = () => {
             <ReactPlayer
               width="0px"
               height="0px"
-              ref={reactPlayerRef}
-              url={currentUrl}
+              ref={playerRef}
+              url={data[currentIndex].url}
               playing={isPlaying}
               onEnded={handleAutoPlayNext}
               loop={isLooped}
@@ -273,7 +264,7 @@ export const MapPlayer = () => {
             >
               <div
                 className="progress-line"
-                style={{ width: `${currentSongState.progress}%` }}
+                style={{ width: `${currentSongState?.progress}%` }}
               ></div>
             </div>
             <div className="duration text-sm">
@@ -284,7 +275,7 @@ export const MapPlayer = () => {
               isLightTheme={isLightTheme}
               isPlaying={isPlaying}
               setIsPlaying={setIsPlaying}
-              setCurrentSong={currentUrl}
+              setCurrentSong={data[currentIndex].url}
               playlist={data}
               isLoopedPlaylist={isLoopedPlaylist}
               setIsLoopedPlaylist={setIsLoopedPlaylist}
@@ -293,6 +284,7 @@ export const MapPlayer = () => {
               isMuted={isMuted}
               setIsMuted={setIsMuted}
               setSearchParams={setSearchParams}
+              currentRegion={currentRegion}
             />
           </div>
           <div className="map-player_info">

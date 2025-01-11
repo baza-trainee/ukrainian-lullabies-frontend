@@ -26,7 +26,6 @@ export const MapPlaylist = () => {
 
   const data = useSelector((state) => selectDataByRegion(state, currentRegion));
 
-  console.log("playlisd data", data, "currentRegion", currentRegion);
   const loading = useSelector(selectLoading);
   const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language;
@@ -44,10 +43,7 @@ export const MapPlaylist = () => {
     dispatch(setCurrentUrl(url));
     dispatch(setCurrentIndex(index));
     setSerchParams(`?region=${currentRegion}&id=${id}`);
-    console.log({ index });
   };
-  const regionId = searchParams.get("region");
-  console.log({ regionId });
   useEffect(() => {
     const regionId = searchParams.get("region");
 
@@ -79,7 +75,6 @@ export const MapPlaylist = () => {
           <div>
             <img className="map-playlist-png" src={MapSvg} alt="map" />
           </div>
-          <p className="text-2xl alert"> {t("alertText")} </p>
         </div>
         <div className="playlist-wrap">
           <p className="text-l text-margin">{t("collection")}</p>

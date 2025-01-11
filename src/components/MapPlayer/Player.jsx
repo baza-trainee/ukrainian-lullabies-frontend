@@ -30,6 +30,7 @@ export const Player = ({
   isMuted,
   setIsMuted,
   setSearchParams,
+  currentRegion,
 }) => {
   const [playHistory, setPlayHistory] = useState([]);
 
@@ -85,7 +86,7 @@ export const Player = ({
 
     dispatch(setCurrentUrl(playlist[newIndex].url));
     dispatch(setCurrentIndex(newIndex));
-    setSearchParams(`?id=${playlist[newIndex].id}`);
+    setSearchParams(`?region=${currentRegion}?id=${playlist[newIndex].id}`);
   };
 
   const [shareClicked, setShareClicked] = useState(false);
