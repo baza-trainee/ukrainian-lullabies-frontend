@@ -13,7 +13,6 @@
 .map {
   position: relative;
   text-align: center;
-
   @media screen and (min-width: 1440px) {
     padding: 0 37px;
   }
@@ -45,11 +44,6 @@
 .img-map {
   width: 100%;
   height: 100%;
-
-  @media screen and (min-width: 1440px) {
-    width: 100%;
-    height: 100%;
-  }
 }
 
 .map-opacity_hide {

@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   currentRegion: "0",
+  name: "Karpaty",
 };
 
 const currentRegionSlice = createSlice({
@@ -11,8 +12,12 @@ const currentRegionSlice = createSlice({
     setCurrentRegion: (state, action) => {
       state.currentRegion = action.payload;
     },
+    setCurrentRegionName: (state, action) => {
+      state.name = action.payload;
+    },
   },
 });
 
-export const { setCurrentRegion } = currentRegionSlice.actions;
+export const { setCurrentRegion, setCurrentRegionName } =
+  currentRegionSlice.actions;
 export default currentRegionSlice.reducer;
